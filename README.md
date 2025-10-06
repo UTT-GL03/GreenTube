@@ -19,6 +19,15 @@ Les plateformes de vidéos en ligne ont une **utilité sociale essentielle** :
 
 ## Effets de la numérisation
 
+La diffusion numérique des contenus vidéo a progressivement remplacé les supports physiques comme les **DVD**, les **CD** ou la **télévision**.  
+Cette transition a permis de réduire certains impacts liés à la fabrication et au transport de ces supports.  
+Mais elle s’est aussi accompagnée d’une **forte hausse de la consommation de données**, notamment avec la généralisation de la **haute définition** et du **visionnage en continu**.
+
+Chaque lecture d’une vidéo fait intervenir une **chaîne d’acteurs énergivores** :  
+- Les **serveurs et data centers**, nécessaires pour stocker et diffuser les contenus.  
+- Le **réseau Internet**, qui transporte d’importants volumes de données sur de longues distances.  
+- Et enfin, les **appareils des utilisateurs**, qui doivent décoder et afficher ces flux, souvent en qualité supérieure à ce que l’écran nécessite réellement.  
+
 
 ## Scénarios d'usage et impacts
 
