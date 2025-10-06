@@ -10,6 +10,12 @@ Ce sujet nous semble particulièrement pertinent, car les services de contenu vi
 
 ## Utilité sociale
 
+Les plateformes de vidéos en ligne ont une **utilité sociale essentielle** :  
+- **Éducation** : mise à disposition de cours, tutoriels, documentaires et vulgarisation scientifique.  
+- **Information et actualité** : accès à des contenus indépendants (Hugo Decrypte en France par exemple) de manière beaucoup plus abordable pour les jeunes que les médias traditionnels comme les journaux ou la télévision.  
+- **Bien-être** : la vidéo est un outil de détente et peut être considéré comme un loisir à part entière.
+- **Accessibilité** : elles permettent à chacun, même dans des zones isolées, d’avoir accès à des ressources éducatives et culturelles.
+
 
 ## Effets de la numérisation
 
