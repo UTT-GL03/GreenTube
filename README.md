@@ -31,8 +31,15 @@ Chaque lecture d’une vidéo fait intervenir une **chaîne d’acteurs énergiv
 
 ## Scénarios d'usage et impacts
 
+Nous faisons l’hypothèse que les plateformes de vidéos en ligne comme **YouTube** ou **Dailymotion** sont consultées plusieurs fois par jour, souvent lors de moments de pause de quelques minutes (pendant les transports, après un repas, avant de dormir, etc.).  
+Pour cette raison, nous prendrons en compte dans nos scénarios **le visionnage de deux vidéos consécutives**, afin de pouvoir observer l’impact d’un éventuel système de cache ou de mise en mémoire locale.
 
-## Scénario : "Lire des vidéos parmi les vidéos à la une"
+Nous distinguerons également deux types d’usages :  
+- La **navigation aléatoire** à partir de la page d’accueil (consommation de contenu recommandée).  
+- La **recherche ciblée** d’une chaîne ou d’un créateur spécifique.
+
+
+## Scénario : "Lire des vidéos parmi les vidéos à la une" - Youtube
 
 L'utilisateur se connecte au site grâce à un favori (donc sans passer par un moteur de recherche). Si nécessaire, il se connecte. Puis il consulte les vidéos à la une.
 Il choisit une des vidéos et la regarde jusqu'à la fin.
@@ -40,12 +47,26 @@ Il revient aux vidéos à la une et les consulte.
 Il choisit une autre vidéo et la regarde jusqu'à la fin.
 
 
-## Scénario : "Lire une vidéo d'un créateur de contenu donnée"
+## Scénario : "Lire une vidéo d'un créateur de contenu donnée" : Youtube
 
 L'utilisateur se connecte au site grâce à un favori (donc sans passer par un moteur de recherche). Si nécessaire, il se connecte. Puis il consulte les vidéos à la une.
 Il recherche un créateur de contenu via la barre de recherche.
 Il se rend sur la chaine du créateur de contenu.
-Il consulte les vidéos du créateur de contenu.
+Il clqieu sur l'onglet "vidéos" du créateur de contenu.
+Il choisit une des vidéos et la regarde jusqu'à la fin.
+
+## Scénario : "Lire des vidéos parmi les vidéos à la une" - Daylimotion
+
+L'utilisateur se connecte au site grâce à un favori (donc sans passer par un moteur de recherche). Si nécessaire, il se connecte. Puis il consulte les vidéos à la une.
+Il choisit une des vidéos et la regarde jusqu'à la fin.
+Il revient aux vidéos à la une et les consulte.
+Il choisit et clique sur une autre vidéo et la regarde jusqu'à la fin.
+
+## Scénario : "Lire une vidéo d'un créateur de contenu donnée" : Daylimotion
+
+L'utilisateur se connecte au site grâce à un favori (donc sans passer par un moteur de recherche). Si nécessaire, il se connecte. Puis il consulte les vidéos à la une.
+Il recherche un créateur de contenu via la barre de recherche.
+Il se rend sur la chaine du créateur de contenu.
 Il choisit une des vidéos et la regarde jusqu'à la fin.
 
 ## Impact de l'exécution des scénarios auprès de différents services concurrents
