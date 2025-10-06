@@ -1,7 +1,11 @@
-# GreenTube
-Plateforme de streaming vidéo qui allie divertissement et écoresponsabilité dans la consommation de contenu sur internet.
+# GreenTube: Plateforme de contenu vidéo écoresponsable
 
 ## Choix du sujet
+
+La consultation de vidéos sur des plateformes de contenu comme **YouTube** ou **Dailymotion** est aujourd’hui une activité quotidienne pour une grande partie de la population.  
+Ces plateformes représentent une **part importante du trafic Internet mondial** et donc de la **consommation énergétique du numérique**.
+
+Ce sujet nous semble particulièrement pertinent, car les services de contenu vidéo constituent un **usage central du web moderne**, à la fois informatif, culturel, mais surtout en tant que loisir. De plus, nous sommes tous deux consommateurs de Youtube, et passons plusieurs heures par semaine devant, ce qui nous a confirmé dans notre choix.
 
 
 ## Utilité sociale
