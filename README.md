@@ -106,7 +106,7 @@ Notre modèle combine plusieurs **sources de revenus** afin d’assurer une rent
 | **Aides publiques** | Financement partiel via les aides à la transition écologique | Variable selon les programmes | [mission-transition-ecologique.beta.gouv.fr](https://mission-transition-ecologique.beta.gouv.fr/aides-entreprise) |
 | **Dons utilisateurs** | Soutien volontaire de la communauté | Revenu instable (bonus) | — |
 
-### 🏁 Synthèse
+### Synthèse
 
 | Type de revenu | Stabilité | Potentiel | Commentaire |
 |----------------|------------|------------|--------------|
