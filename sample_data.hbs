@@ -1,0 +1,36 @@
+{
+  "videos": [
+    {{#repeat min=20 max=30}}
+    {
+      "id_video": "v{{@index}}",
+      "id_user": "u{{@index}}",
+      "date": "{{date '2024-10-07' '2024-10-08' 'YYYY-MM-DD hh:mm'}}",
+      "title": "{{lorem min=3 max=20}}",
+      "desc": "{{#repeat min=1 max=15 comma=false}}{{lorem min=5 max=50}}\n\n{{/repeat}}",
+      "path": "{{lorem min=3 max=20}}"
+    }
+    {{/repeat}}
+  ],
+  "users": [
+      {{#repeat min=20 max=30}}
+    {
+      "id_user": "u{{@index}}",
+      "pseudo": "{{lorem min=3 max=10}}",
+      "password": "{{lorem min=3 max=10}}",
+      "desc": "{{#repeat min=1 max=15 comma=false}}{{lorem min=5 max=50}}\n\n{{/repeat}}",
+      "email": "{{lorem min=3 max=20}}"
+    }
+    {{/repeat}}
+  ],
+  "comments" : [
+    {{#repeat min=20 max=30}}
+    {
+      "id_comments": "c{{@index}}",
+      "id_user": "u{{@index}}",
+      "id_video": "v{{@index}}",
+      "date": "{{date '2024-10-07' '2024-10-08' 'YYYY-MM-DD hh:mm'}}",
+      "content": "{{#repeat min=1 max=15 comma=false}}{{lorem min=5 max=50}}\n\n{{/repeat}}",
+    }
+    {{/repeat}}
+  ]
+}
