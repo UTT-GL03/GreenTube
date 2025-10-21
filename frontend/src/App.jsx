@@ -1,22 +1,14 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router'
-import greentubeLogo from '/greentube.svg'
+
 import Home from './Home'
 //import Video from './Videos'
 import './App.css'
+import Header from './Header'
 
 function App() {
   return (
      <BrowserRouter>
-      <header>
-        <Link to="/">
-          <h1>
-            <img src={greentubeLogo}/>
-            GREENTUBE
-          </h1>
-          <input>
-          </input>
-        </Link>
-      </header>
+      <Header />
       <Routes>
         <Route path="/" element={<Home/>} />
         {/* <Route path="/video" element={<Videos/>} />
