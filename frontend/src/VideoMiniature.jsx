@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import "./VideoMiniature.css"
+import "./css/VideoMiniature.css"
 import minia from "/miniaGT.png"
 
 function VideoMiniature({ video }) {

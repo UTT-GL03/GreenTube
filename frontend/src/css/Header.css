@@ -7,8 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #dcdcdc;
-  background-color: white;
+  background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
   padding: 0 16px;
   z-index: 1000;
 }
@@ -38,6 +37,7 @@
   border: 1px solid #ccc;
   border-right: none;
   border-radius: 8px 0 0 8px;
+  background-color: white;
   outline: none;
   font-size: 14px;
 }
@@ -52,7 +52,7 @@
   height: 36px;
   width: 60px;
   border: 1px solid #ccc;
-  border-left: none;
+  border-left: 1px solid #ccc;
   border-radius: 0 8px 8px 0;
   background-color: #f8f8f8;
 }

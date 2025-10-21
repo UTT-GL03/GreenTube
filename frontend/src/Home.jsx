@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import data from '../data/sample_data.json'
 import VideoMiniature from './VideoMiniature'
-import './Home.css'
+import './css/Home.css'
 
 function Home() {
   const [visibleCount, setVisibleCount] = useState(6)
