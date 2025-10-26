@@ -4,6 +4,8 @@ import Home from './Home'
 //import Video from './Videos'
 import './App.css'
 import Header from './Header'
+import Login from './Login'
+import Register from './Register'
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home/>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         {/* <Route path="/video" element={<Videos/>} />
         <Route path="/channel" element={<Channels/>} /> */}
       </Routes>

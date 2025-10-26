@@ -27,7 +27,10 @@ function Header() {
         if login => profil = badge pdp link channel
         else => login/register btn link form 
         */}
-        <button className="button">Connexion</button>
+        <div className="header-right">
+        <Link to="/login" className="button">Connexion</Link>
+        </div>
+
         {/* <button className="button">Profil</button> */}
       </div>
       
