@@ -1,25 +1,31 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router'
-
+// App.jsx
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Home from './Home'
-//import Video from './Videos'
-import './App.css'
 import Header from './Header'
 import Login from './Login'
 import Register from './Register'
+import './App.css'
 
-function App() {
+function AppShell() {
+  const location = useLocation()
+  const hideHeader = ['/login', '/register'].includes(location.pathname)
+
   return (
-     <BrowserRouter>
-      <Header />
+    <>
+      {!hideHeader && <Header />}
       <Routes>
-        <Route path="/" element={<Home/>} />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        {/* <Route path="/video" element={<Videos/>} />
-        <Route path="/channel" element={<Channels/>} /> */}
       </Routes>
-    </BrowserRouter>
+    </>
   )
 }
 
-export default App
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppShell />
+    </BrowserRouter>
+  )
+}
