@@ -1,9 +1,9 @@
 // App.jsx
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
-import Home from './Home'
-import Header from './Header'
-import Login from './Login'
-import Register from './Register'
+import Home from './components/homepage/Home'
+import Header from './components/header/Header'
+import Login from './components/auth/Login'
+import Register from './components/auth/Register'
 import './App.css'
 
 function AppShell() {
