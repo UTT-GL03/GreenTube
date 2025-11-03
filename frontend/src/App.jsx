@@ -4,6 +4,7 @@ import Home from './components/homepage/Home'
 import Header from './components/header/Header'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
+import VideoPage from './components/video/page/VideoPage'
 import './App.css'
 
 function AppShell() {
@@ -17,6 +18,7 @@ function AppShell() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/video/:id" element={<VideoPage />} />
       </Routes>
     </>
   )

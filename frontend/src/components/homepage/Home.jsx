@@ -9,16 +9,16 @@ function Home() {
   const [visibleCount, setVisibleCount] = useState(6)
 
   // Systeme de trie à implémenter 
-  
+
   const visibleVideos = data.videos.slice(0, visibleCount)
   const videosByRow = Object.values(Object.groupBy(visibleVideos, (_, i) => Math.floor(i / 3)))
 
   return (
     <main className="home-container">
       <div className="sort-buttons">
-        <button onClick={() => setSortKey('default')}>Par défaut</button>
-        <button onClick={() => setSortKey('title')}>Par titre</button>
-        <button onClick={() => setSortKey('date')}>Par date</button>
+        <button className="btn" onClick={() => setSortKey('default')}>Par défaut</button>
+        <button className="btn" onClick={() => setSortKey('title')}>Par titre</button>
+        <button className="btn" onClick={() => setSortKey('date')}>Par date</button>
       </div>
 
       <div className="videos-grid">
@@ -31,11 +31,14 @@ function Home() {
         ))}
       </div>
 
-      {visibleCount < data.videos.length && (
-        <button className="see-more" onClick={() => setVisibleCount((p) => p + 6)}>
-          Voir plus
-        </button>
-      )}
+      <div className='center'>
+        {visibleCount < data.videos.length && (
+          <button className="btn" onClick={() => setVisibleCount((p) => p + 6)}>
+            Voir plus
+          </button>
+        )}
+      </div>
+
     </main>
   )
 }

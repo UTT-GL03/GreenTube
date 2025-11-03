@@ -19,21 +19,22 @@ function Header() {
           placeholder="Rechercher"
           className="search-input"
         />
-        <button className="search-button">🔍</button>
+        <button className="btn search-btn center">🔍</button>
       </div>
 
-      <div className="header-right">
+      
+      <div>
         {/* 
         if login => profil = badge pdp link channel
         else => login/register btn link form 
         */}
-        <div className="header-right">
-        <Link to="/login" className="button">Connexion</Link>
+        <div>
+          <Link to="/login" className="btn">Connexion</Link>
         </div>
 
         {/* <button className="button">Profil</button> */}
       </div>
-      
+
     </header>
   )
 }
