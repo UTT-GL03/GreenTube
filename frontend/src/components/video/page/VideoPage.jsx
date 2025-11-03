@@ -33,10 +33,6 @@ function VideoPage() {
           <p>{video.description}</p>
         </div>
 
-        {/* <div className="video-actions">
-          <button onClick={() => setLikes(likes + 1)}>👍 {likes}</button>
-        </div> */}
-
         <div className="video-comments">
           <h2>Commentaires</h2>
           <div className="comment-input">

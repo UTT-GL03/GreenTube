@@ -33,7 +33,7 @@ function Home() {
 
       <div className='center'>
         {visibleCount < data.videos.length && (
-          <button className="btn" onClick={() => setVisibleCount((p) => p + 6)}>
+          <button className="" onClick={() => setVisibleCount((p) => p + 6)}>
             Voir plus
           </button>
         )}

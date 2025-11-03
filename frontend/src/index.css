@@ -57,6 +57,7 @@ body {
   min-height: 100vh;
   font-family: Arial, sans-serif;
   justify-content: center;  
+  padding-top: 56px;
 }
 
 a{
@@ -101,6 +102,7 @@ a{
 .text-white{
   color: white
 }
+
 
 .center{
   display: flex;

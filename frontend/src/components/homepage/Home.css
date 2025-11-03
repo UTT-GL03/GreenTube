@@ -1,7 +1,6 @@
 
 .home-container {
-  flex-direction: column;
-  padding-top: 56px;       
+  flex-direction: column;      
 }
 
 .sort-buttons {
