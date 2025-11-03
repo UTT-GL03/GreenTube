@@ -16,14 +16,14 @@ function Home() {
   return (
     <main className="home-container">
       <div className="sort-buttons">
-        <button className="btn" onClick={() => setSortKey('default')}>Par défaut</button>
-        <button className="btn" onClick={() => setSortKey('title')}>Par titre</button>
-        <button className="btn" onClick={() => setSortKey('date')}>Par date</button>
+        <button className="" onClick={() => setSortKey('default')}>Par défaut</button>
+        <button className="" onClick={() => setSortKey('title')}>Par titre</button>
+        <button className="" onClick={() => setSortKey('date')}>Par date</button>
       </div>
 
-      <div className="videos-grid">
+      <div className="">
         {videosByRow.map((row, rowIndex) => (
-          <div key={rowIndex} className="video-row">
+          <div key={rowIndex} className="grid">
             {row.map((video) => (
               <VideoMiniature key={video.id} video={video} />
             ))}

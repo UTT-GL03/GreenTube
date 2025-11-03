@@ -1,18 +1,14 @@
-/* :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --spacing: .5rem;
+  --form-element-spacing-vertical: .25rem;
+  --form-element-spacing-horizontal: .5rem;
+  --font-size: .875rem;
 }
 
+button, input {
+  font-size: var(--font-size);
+  padding: var(--form-element-spacing-vertical) var(--form-element-spacing-horizontal);
+}
 
 
 /* a {
@@ -49,7 +45,7 @@ TODO :
 
 **/
 
-body {
+/* body {
   margin: 0;
   display: flex;
   place-items: center;
@@ -91,7 +87,6 @@ a{
 
 .btn:focus {
   outline: none;              
-  /*box-shadow: 0 0 0 3px #1e6041; */
 }
 
 
@@ -109,4 +104,4 @@ a{
   justify-content: center;
   align-items: center;
 }
-
+ */
