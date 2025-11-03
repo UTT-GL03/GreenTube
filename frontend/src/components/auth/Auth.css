@@ -51,14 +51,14 @@
   gap: 1rem;
 }
 
-.auth-form input {
+/* .auth-form input {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 1rem;
-}
+} */
 
-.auth-form button {
+/* .auth-form button {
   padding: 10px;
   border: none;
   border-radius: 8px;
@@ -71,7 +71,7 @@
 
 .auth-form button:hover {
   background-color: #178b5a;
-}
+} */
 
 /* --- Bouton Accueil en haut à gauche --- */
 .home-button {

@@ -1,77 +1,24 @@
 .video-page {
   display: flex;
   gap: 24px;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.video-main {
-  flex: 3;
-  display: flex;
-  flex-direction: column;
-}
-
-.video-player {
-  position: relative;
-  width: 100%;
-  padding-top: 10%;
-  margin-bottom: 20px;
-}
-
-.video-player iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  justify-content: flex-end;
+  margin-right: 10%;
 }
 
 .video-info h1 {
   font-size: 1.8rem;
-  margin-bottom: 5px;
 }
 
 .video-meta {
   font-size: 0.9rem;
   color: #666;
-  margin-bottom: 15px;
-}
-
-.video-actions button {
-  cursor: pointer;
-  background: #e0e0e0;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  margin-bottom: 20px;
-}
-
-.video-comments {
-  margin-top: 20px;
 }
 
 .comment-input {
   display: flex;
   gap: 8px;
-  margin-bottom: 10px;
 }
 
 .comment-input input {
   flex: 1;
-  padding: 8px;
-}
-
-.comment-input button {
-  padding: 8px 12px;
-}
-
-.video-sidebar {
-  flex: 1;
-}
-
-.sidebar-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 }

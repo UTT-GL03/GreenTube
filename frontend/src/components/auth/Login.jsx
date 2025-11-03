@@ -22,7 +22,8 @@ function Login() {
       <div className="auth-container">
         <h2>Connexion</h2>
         <form onSubmit={handleSubmit} className="auth-form">
-          <input
+          <input 
+            className="input-text"
             type="text"
             placeholder="Nom d'utilisateur"
             value={username}
@@ -30,13 +31,14 @@ function Login() {
             required
           />
           <input
+            className="input-text"
             type="password"
             placeholder="Mot de passe"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button type="submit">Se connecter</button>
+          <button className="btn" type="submit">Se connecter</button>
         </form>
         <p>
           Pas encore de compte ? <Link to="/register">Inscrivez-vous</Link>

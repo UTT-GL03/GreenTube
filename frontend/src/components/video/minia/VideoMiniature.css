@@ -1,14 +1,14 @@
 .video-miniature {
   width: 325px;
   height: 250px;
-  border: 1px solid #ccc;
   padding: 0.5rem;
-  border-radius: 4px;
-  color: black;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .video-miniature img {
@@ -39,7 +39,7 @@
   text-decoration: underline;
 }
 
-.video-info {
+.video-details {
   font-size: 0.85rem;
   color: #555;
   display: flex;

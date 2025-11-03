@@ -1,11 +1,8 @@
 import './VideoPlayer.css'
 
-function VideoPlayer({ src, title }) {
+function VideoPlayer({ src }) {
   return (
-    <div className="video-player">
-      <video controls width="100%" src={src}>
-      </video>
-    </div>
+      <video controls width="100%" src={src} />
   )
 }
 

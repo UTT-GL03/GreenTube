@@ -14,16 +14,33 @@ function Header() {
       </div>
 
       <div className="header-center">
-        <input
-          type="text"
-          placeholder="Rechercher"
-          className="search-input"
-        />
-        <button className="btn search-btn center">🔍</button>
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Rechercher"
+            className="search-input"
+          />
+          <button className="search-button" type="button">
+            <svg
+              className="search-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="none"
+                stroke="black"
+                strokeWidth="2"
+                d="M10 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16zm11 20-6-6"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
 
-      
-      <div>
+      <div className="header-right">
+        <button className="btn circle-sm">
+          +
+        </button>
         {/* 
         if login => profil = badge pdp link channel
         else => login/register btn link form 

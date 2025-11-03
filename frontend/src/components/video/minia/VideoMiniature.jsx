@@ -6,12 +6,14 @@ function VideoMiniature({ video }) {
   return (
     <div className="video-miniature">
 
-      <Link to={`/video/${video.id_video}`}>
-        <img src={minia} alt={video.title} />
-        <h4>{video.title}</h4>
-      </Link>
-
       <div className="video-info">
+        <Link to={`/video/${video.id_video}`}>
+          <img src={minia} alt={video.title}/>
+          <h4>{video.title}</h4>
+        </Link>
+      </div>
+
+      <div className="video-details">
         <Link to={`/channel/${video.id_user}`}>
           <span>{video.id_user}</span>
         </Link>
@@ -20,7 +22,5 @@ function VideoMiniature({ video }) {
     </div>
   );
 }
-
-
 
 export default VideoMiniature

@@ -37,6 +37,7 @@ function Register() {
         <h2>Inscription</h2>
         <form onSubmit={handleSubmit} className="auth-form">
           <input
+          className="input-text"
             type="email"
             name="email"
             placeholder="Adresse e-mail"
@@ -45,6 +46,7 @@ function Register() {
             required
           />
           <input
+          className="input-text"
             type="tel"
             name="phone"
             placeholder="Numéro de téléphone"
@@ -52,6 +54,7 @@ function Register() {
             onChange={handleChange}
           />
           <input
+          className="input-text"
             type="text"
             name="username"
             placeholder="Pseudo"
@@ -60,6 +63,7 @@ function Register() {
             required
           />
           <input
+          className="input-text"
             type="password"
             name="password"
             placeholder="Mot de passe"
@@ -68,6 +72,7 @@ function Register() {
             required
           />
           <input
+          className="input-text"
             type="password"
             name="confirmPassword"
             placeholder="Confirmez le mot de passe"
@@ -75,7 +80,7 @@ function Register() {
             onChange={handleChange}
             required
           />
-          <button type="submit">Créer un compte</button>
+          <button className="btn" type="submit">Créer un compte</button>
         </form>
         <p>
           Déjà inscrit ? <Link to="/login">Connectez-vous</Link>
