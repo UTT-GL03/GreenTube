@@ -3,33 +3,35 @@
     {{#repeat min=10 max=20}}
     {
       "id_video": "v{{@index}}",
-      "id_user": "u{{@index}}",
-      "date": "{{date '2024-10-07' '2025-10-08' 'YYYY-MM-DD hh:mm'}}",
-      "title": "{{lorem min=3 max=7}}",
-      "desc": "{{lorem min=5 max=50}}",
-      "path": "/videoTest.mp4"
+      "id_user": "u{{int 0 14}}",
+      "date": "{{date '2024-10-07' '2025-11-07' 'DD/MM/YYYY HH:mm:ss'}}",
+      "title": "{{lorem min=3 max=8}}",
+      "desc": "{{lorem min=10 max=40}}",
+      "path": "/videoTest.mp4"  
     }
     {{/repeat}}
   ],
   "users": [
-      {{#repeat min=10 max=20}}
+    {{#repeat min=10 max=15}}
     {
       "id_user": "u{{@index}}",
-      "pseudo": "{{lorem min=3 max=10}}",
-      "password": "{{lorem min=3 max=10}}",
-      "desc": "{{lorem min=5 max=50}}",
-      "email": "{{lorem min=3 max=20}}"
+      "pseudo": "{{firstName}} {{lastName}}",
+      "avatar": "{{#if (gt (int 0 1) 0)}}/avatars/avatar{{int 1 10}}.jpg{{else}}/default.png{{/if}}", 
+      "desc": "{{lorem min=10 max=30}}",
+      "email": "{{email}}",
+      "password": "{{lorem min=6 max=12}}",
+      "subscribers": {{int 0 5000}}
     }
     {{/repeat}}
   ],
   "comments" : [
     {{#repeat min=10 max=20}}
     {
-      "id_comments": "c{{@index}}",
-      "id_user": "u{{@index}}",
-      "id_video": "v{{@index}}",
-      "date": "{{date '2024-10-07' '2025-10-08' 'YYYY-MM-DD hh:mm'}}",
-      "content": "{{lorem min=5 max=50}}"
+      "id_comment": "c{{@index}}",
+      "id_user": "u{{int 0 14}}",
+      "id_video": "v{{int 0 39}}",
+      "date": "{{date '2024-10-07' '2025-11-07' 'DD/MM/YYYY HH:mm:ss'}}",
+      "content": "{{lorem min=5 max=25}}"
     }
     {{/repeat}}
   ]

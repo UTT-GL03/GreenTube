@@ -13,7 +13,7 @@ function VideoMiniature({ video }) {
         </Link>
       </div>
 
-      <div className="video-details">
+      <div className="minia-details">
         <Link to={`/channel/${video.id_user}`}>
           <span>{video.id_user}</span>
         </Link>

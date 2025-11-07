@@ -1,17 +1,16 @@
+import Avatar from "../Avatar"
 import "./Comment.css"
 
-function Comment({ username, content, date }) {
-    let avatar = ""
-
+function Comment({ user, comment }) {
     return (
         <div className="comment">
-            <img className="comment-avatar" src={avatar} alt={`${username} avatar`} />
+            <Avatar user={user}/>
             <div className="comment-body">
                 <div className="comment-header">
-                    <span className="comment-username">{username}</span>
-                    <span className="comment-date">{date}</span>
+                    <span className="comment-username">{user.pseudo}</span>
+                    <span className="comment-date">{comment.date}</span>
                 </div>
-                <p className="comment-content">{content}</p>
+                <p className="comment-content">{comment.content}</p>
             </div>
         </div>
     )
