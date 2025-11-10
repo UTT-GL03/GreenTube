@@ -1,20 +1,18 @@
-import { useState } from 'react'
 import data from '/data/sample_data.json'
-import VideoMiniature from '../video/minia/VideoMiniature'
-import SortButtons from '../SortButtons'
+import { useState } from 'react'
 import { useParams } from 'react-router'
 import VideoGrid from '../VideoGrid'
 
 function Home() {
-  //const { query } = useParams()
+  const { query } = useParams()
   
   const [visibleCount, setVisibleCount] = useState(6)
 
-  const visibleVideos = data.videos.slice(0, visibleCount)
-  const videosByRow = Object.values(
-    Object.groupBy(visibleVideos, (_, i) => Math.floor(i / 3))
-  )
-  // Systeme de trie à implémenter 
+  let filteredVideos = data.videos
+  if(query){
+    filteredVideos = filteredVideos.filter(v => v.title.includes(query))
+  }
+
 
   return (
     <main className="center">
@@ -23,10 +21,10 @@ function Home() {
         <div className="spacer-4"/>
 
         <VideoGrid
-          videosByRow={videosByRow}
+          videos={filteredVideos}
           visibleCount={visibleCount}
           setVisibleCount={setVisibleCount}
-          totalVideos={data.videos.length}
+          totalVideos={filteredVideos.length}
         />
 
       </div>
