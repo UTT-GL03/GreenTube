@@ -1,0 +1,27 @@
+# To be used with GreenIT Analysis CLI
+- name: Consulter une video via la page d'accueil
+  url: http://localhost/
+  waitForSelector: .grid
+  actions:
+    - name: Choisir une video
+      type: click
+      element: .grid:nth-child(1) > video > a
+      pageChange: true
+      waitForSelector: video 
+
+    - name: Regarder la video
+      type: scroll
+
+    - name: Retourner à l'accueil
+      type: click
+      element: header
+      pageChange: true
+      waitForSelector: .grid
+      
+    - name: Choisir une autre video
+      type: click
+      element: .grid:nth-child(2) > video:nth-child(2) > a
+      pageChange: true
+      waitForSelector: video > p
+    - name: Regarder la video
+      type: scroll
