@@ -1,4 +1,3 @@
-// App.jsx
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Home from './components/homepage/Home'
 import Header from './components/header/Header'
@@ -16,12 +15,11 @@ function AppShell() {
     <>
       {!hideHeader && <Header />}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/:query?" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/video/:id" element={<VideoPage />} />
         <Route path="/channel/:channelId" element={<Channel />} />
-
       </Routes>
     </>
   )
