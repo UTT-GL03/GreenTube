@@ -71,6 +71,22 @@ Il choisit une des vidéos et la regarde jusqu'à la fin.
 
 ## Impact de l'exécution des scénarios auprès de différents services concurrents
 
+L'EcoIndex d'une page (de A à G) est calculé (sources : EcoIndex, Octo, GreenIT) en fonction du positionnement de cette page parmi les pages mondiales concernant :
+
+- le nombre de requêtes lancées,
+- le poids des téléchargements,
+- le nombre d'éléments du document.
+
+Nous avons choisi de comparer l'impact de nos scénarios sur les services les plus populaires du marché, à savoir : Youtube, Daylimotion, et Pod - Utt. 
+
+| Colonne 1 | Colonne 2 | Colonne 3 |
+|------------|------------|------------|
+| Youtube  | Ligne 1B   | Ligne 1C   |
+| Daylimotion   | Ligne 2B   | Ligne 2C   |
+| Buck - UTT   | Ligne 3B   | Ligne 3C   |
+
+
+
 ## Modèle économique
 
 ### Analyse Concurrentielle
