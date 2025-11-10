@@ -27,7 +27,7 @@ jobs:
         run: |
           docker compose up --detach
       - name: Wait for frontend
-        uses: docker://greentube/wait-for-response@v1
+        uses: docker://greentube/wait-for-response:1
         with:
           url: http://localhost:80
       - name: Watch frontend initial payload
