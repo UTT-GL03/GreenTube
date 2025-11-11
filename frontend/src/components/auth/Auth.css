@@ -51,28 +51,6 @@
   gap: 1rem;
 }
 
-/* .auth-form input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-} */
-
-/* .auth-form button {
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  background-color: #1aa36b;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.auth-form button:hover {
-  background-color: #178b5a;
-} */
-
 /* --- Bouton Accueil en haut à gauche --- */
 .home-button {
   position: fixed;

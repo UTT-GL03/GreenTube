@@ -1,21 +1,9 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import greentubeLogo from '/greentube.svg'
 import './Header.css'
-import { useState } from 'react'
 
 
-function Header() {
-
-  const [query, setQuery] = useState("")
-  const navigate = useNavigate() 
-
-  function handleSearch() {
-    if (query.trim() !== "") {
-      navigate(`/${encodeURIComponent(query)}`)
-      return
-    }
-    navigate('/')
-  }
+function Header({query, setQuery}) {
 
   return (
     <header className="header">
@@ -30,17 +18,21 @@ function Header() {
       <div className="header-center">
         <div className="search-bar">
           <input
+            id="search-input"
             type="text"
             placeholder="Rechercher"
             className="search-input"
             value={query}
             onChange={e => setQuery(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+            onKeyDown={e => e.key === "Enter" && setQuery(e.target.value)}
           />
           <button
             className="search-button"
             type="button"
-            onClick={handleSearch}>
+            onClick={() => {
+              const inputValue = document.getElementById("search-input").value
+              setQuery(inputValue)
+            }}>
             <svg
               className="search-icon"
               xmlns="http://www.w3.org/2000/svg"

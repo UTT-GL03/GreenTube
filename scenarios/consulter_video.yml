@@ -1,5 +1,5 @@
 # To be used with GreenIT Analysis CLI
-- name: Consulter une video via la page d'accueil
+- name: Consulter une video - accueil
   url: http://localhost/
   waitForSelector: .grid
   actions:
