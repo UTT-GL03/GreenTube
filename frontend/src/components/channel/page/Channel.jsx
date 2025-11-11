@@ -1,6 +1,5 @@
 import { useParams } from 'react-router'
 import data from '/data/sample_data.json'
-import "./Channel.css"
 import Avatar from '../../Avatar'
 import ContentGrid from '../../ContentGrid'
 

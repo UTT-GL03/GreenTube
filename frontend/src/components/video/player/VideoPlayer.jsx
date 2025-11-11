@@ -1,5 +1,3 @@
-import './VideoPlayer.css'
-
 function VideoPlayer({ src }) {
   return (
       <video className='rounded' controls width="100%" src={src} />
