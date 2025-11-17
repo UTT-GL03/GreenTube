@@ -1,4 +1,4 @@
-import VideoMiniature from "../minia/VideoMiniature"
+import VideoMiniature from "../card/VideoMiniature"
 
 function VideoGrid({ videos }) {
 

@@ -9,6 +9,7 @@ function Header({query, setQuery}) {
     <header className="header">
 
       <div className="header-left">
+      <div className="header-left" data-ecoid="home-logo">
         <Link to="/" className="logo">
           <img src={greentubeLogo} alt="Greentube" />
           <span>GREENTUBE</span>

@@ -1,5 +1,7 @@
-import data from '/data/sample_data.json'
 import ContentGrid from '../ContentGrid'
+
+const response = await fetch('/data/sample_data.json');
+const data = await response.json();
 
 function Home({query}) {
 

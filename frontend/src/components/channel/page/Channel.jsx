@@ -1,7 +1,9 @@
 import { useParams } from 'react-router'
-import data from '/data/sample_data.json'
-import Avatar from '../avatar/Avatar'
+import Avatar from '../../Avatar'
 import ContentGrid from '../../ContentGrid'
+
+const response = await fetch('/data/sample_data.json');
+const data = await response.json();
 
 function Channel() {
     const { channelId } = useParams()

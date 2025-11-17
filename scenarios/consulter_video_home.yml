@@ -1,19 +1,9 @@
-- name: Consulter une vidéo - chaine
+# To be used with GreenIT Analysis CLI
+- name: Consulter une video - accueil
   url: http://localhost/
   waitForSelector: "[data-ecoid='video-grid']"  
   
   actions:
-
-    - name: Choisir la catégorie de chaîne
-      type: click
-      element: "[data-ecoid='channels-btn']"   
-      waitForSelector: "[data-ecoid='channel-grid']"
-
-    - name: Choisir une chaîne
-      type: click
-      element: "[data-ecoid='channel-card']:nth-child(1)"        
-      pageChange: true
-      waitForSelector: "[data-ecoid='video-grid']"
 
     - name: Choisir une vidéo
       type: click
@@ -28,9 +18,9 @@
     - name: Regarder la vidéo
       type: scroll
 
-    - name: Retourner sur la chaîne
+    - name: Retourner sur le menu
       type: click
-      element: "[data-ecoid='video-desc'] [data-ecoid='channel-avatar']"
+      element: "[data-ecoid='home-logo']"
       pageChange: true
       waitForSelector: "[data-ecoid='video-grid']"
 

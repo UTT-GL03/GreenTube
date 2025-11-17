@@ -1,11 +1,13 @@
 import { useParams, Link } from 'react-router-dom'
-import data from '/data/sample_data.json'
 import VideoPlayer from '../player/VideoPlayer'
-import VideoMiniature from '../minia/VideoMiniature'
+import VideoMiniature from '../card/VideoMiniature'
 import Comment from '../../comment/Comment'
-import Avatar from '../../channel/avatar/Avatar'
+import Avatar from '../../Avatar'
 import './VideoPage.css'
 import { useState } from 'react'
+
+const response = await fetch('/data/sample_data.json');
+const data = await response.json();
 
 function VideoPage() {
   const { id } = useParams()
