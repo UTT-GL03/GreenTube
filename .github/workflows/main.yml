@@ -41,7 +41,7 @@ jobs:
         run: curl --silent localhost
       - name: Run GreenIT Scenario 1
         run: |
-          greenit analyse --format html --ci scenarios/consulter_video.yml
+          greenit analyse --format html --ci scenarios/consulter_video_home.yml
       - name: Run GreenIT Scenario 2
         run: |
           greenit analyse --format html --ci scenarios/consulter_video_channel.yml
