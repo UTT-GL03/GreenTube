@@ -3,7 +3,7 @@ import avatar from "/default-avatar.png"
 
 function ChannelCard({ channel }) {
   return (
-    <div className="card-sm flex flex-col text-center">
+    <div className="card-sm flex flex-col text-center" data-ecoid='channel-card'>
 
       <div className="card-content">
       <Link to={`/channel/${channel.id_user}`}>

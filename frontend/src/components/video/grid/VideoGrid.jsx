@@ -3,8 +3,7 @@ import VideoMiniature from "../minia/VideoMiniature"
 function VideoGrid({ videos }) {
 
     return (
-        <div>
-            <div className="grid my-3">
+            <div className="grid my-3" data-ecoid='video-grid'>
                 {videos?.length === 0 && (
                     <h4>Aucune vidéo disponible</h4>
                 )}
@@ -16,7 +15,6 @@ function VideoGrid({ videos }) {
                     </div>
                 ))}
             </div>
-        </div>
     )
 }
 

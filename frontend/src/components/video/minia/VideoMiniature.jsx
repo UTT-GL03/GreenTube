@@ -4,7 +4,7 @@ import minia from "/miniaGT.png"
 
 function VideoMiniature({ video }) {
   return (
-    <div className="video-miniature">
+    <div className="video-miniature" data-ecoid="video-card">
 
       <div className="video-info">
         <Link to={`/video/${video.id_video}`}>

@@ -1,4 +1,4 @@
-import Avatar from "../Avatar"
+import Avatar from "../channel/avatar/Avatar"
 import "./Comment.css"
 
 function Comment({ user, comment }) {

@@ -1,0 +1,40 @@
+- name: Consulter une vidéo - accueil
+  url: http://localhost/
+  waitForSelector: "button"   
+  
+  actions:
+
+    - name: Choisir la catégorie de chaîne
+      type: click
+      element: "[data-ecoid='channels-btn']"   
+      waitForSelector: "[data-ecoid='channel-grid']"
+
+    - name: Choisir une chaîne
+      type: click
+      element: "[data-ecoid='channel-card']:nth-child(1)"        
+      pageChange: true
+      waitForSelector: "[data-ecoid='video-grid']"
+
+    - name: Choisir une vidéo
+      type: click
+      element: "[data-ecoid='video-card']:nth-child(1)"
+      pageChange: true
+      waitForSelector: "[data-ecoid='video-player']"               
+
+    - name: Regarder la vidéo
+      type: scroll
+
+    - name: Retourner sur la chaîne
+      type: click
+      element: "[data-ecoid='video-desc'] [data-ecoid='channel-avatar']"
+      pageChange: true
+      waitForSelector: "[data-ecoid='video-grid']"
+
+    - name: Choisir une autre vidéo
+      type: click
+      element: "[data-ecoid='video-card']:nth-child(2)"
+      pageChange: true
+      waitForSelector: "[data-ecoid='video-player']"    
+
+    - name: Regarder la vidéo
+      type: scroll

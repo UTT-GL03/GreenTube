@@ -8,6 +8,7 @@ function Avatar({ user, size = "sm" }) {
             <img
                 src={user?.avatar || "/default-avatar.png"}
                 alt={user?.pseudo || "user"}
+                data-ecoid="channel-avatar"
                 className={`${sizeClass} border`}
                 onError={(e) => {
                     if (!e.target.dataset.fallback) {

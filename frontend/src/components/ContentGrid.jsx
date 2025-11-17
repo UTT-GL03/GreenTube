@@ -34,12 +34,14 @@ function ContentGrid({ videos, channels, query, showModeSwitch = true }) {
                             {showModeSwitch && (
                                 <div>
                                     <button
+                                        data-ecoid='videos-btn'
                                         className={`btn mx-1 ${mode === "video" ? "" : ""}`}
                                         onClick={() => handleModeChange("video")}
                                     >
                                         Vidéos
                                     </button>
-                                    <button
+                                    <button 
+                                        data-ecoid='channels-btn'
                                         className={`btn mx-1 ${mode === "channel" ? "" : ""}`}
                                         onClick={() => handleModeChange("channel")}
                                     >
@@ -73,9 +75,27 @@ function ContentGrid({ videos, channels, query, showModeSwitch = true }) {
                     </>
 
                 ) : totalItems === 0 && (
-                    <h4 className="text-center my-4">
-                        {query ? `Aucun résultat pour "${query}"` : "Aucun résultat"}
-                    </h4>
+                    <>
+                        <div className="flex justify-between items-center my-3">
+                            <div>
+                                <button
+                                    className={`btn mx-1 ${mode === "video" ? "" : ""}`}
+                                    onClick={() => handleModeChange("video")}
+                                >
+                                    Vidéos
+                                </button>
+                                <button
+                                    className={`btn mx-1 ${mode === "channel" ? "" : ""}`}
+                                    onClick={() => handleModeChange("channel")}
+                                >
+                                    Chaînes
+                                </button>
+                            </div>
+                        </div>
+                        <h4 className="text-center my-4">
+                            {query ? `Aucun résultat pour "${query}"` : "Aucun résultat"}
+                        </h4>
+                    </>
                 )
             }
 

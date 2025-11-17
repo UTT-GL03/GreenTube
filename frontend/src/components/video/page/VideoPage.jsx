@@ -3,7 +3,7 @@ import data from '/data/sample_data.json'
 import VideoPlayer from '../player/VideoPlayer'
 import VideoMiniature from '../minia/VideoMiniature'
 import Comment from '../../comment/Comment'
-import Avatar from '../../Avatar'
+import Avatar from '../../channel/avatar/Avatar'
 import './VideoPage.css'
 import { useState } from 'react'
 
@@ -115,7 +115,7 @@ function VideoCard({ video, user }) {
         <VideoPlayer src={"/videoTest.mp4"} title={video.title} />
       </div>
 
-      <div className="my-3">
+      <div className="my-3" data-ecoid="video-desc">
         <div className="video-author">
           <Avatar user={user !== null ? user : null} />
           <div>

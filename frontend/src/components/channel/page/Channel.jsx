@@ -1,6 +1,6 @@
 import { useParams } from 'react-router'
 import data from '/data/sample_data.json'
-import Avatar from '../../Avatar'
+import Avatar from '../avatar/Avatar'
 import ContentGrid from '../../ContentGrid'
 
 function Channel() {
