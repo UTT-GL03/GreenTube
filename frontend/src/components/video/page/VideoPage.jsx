@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import VideoPlayer from '../player/VideoPlayer'
 import VideoMiniature from '../card/VideoMiniature'
 import Comment from '../../comment/Comment'
-import Avatar from '../../Avatar'
+import Avatar from '../../channel/avatar/Avatar'
 import './VideoPage.css'
 import { useState } from 'react'
 

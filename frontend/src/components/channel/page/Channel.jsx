@@ -1,5 +1,5 @@
 import { useParams } from 'react-router'
-import Avatar from '../../Avatar'
+import Avatar from '../avatar/Avatar'
 import ContentGrid from '../../ContentGrid'
 
 const response = await fetch('/data/sample_data.json');
