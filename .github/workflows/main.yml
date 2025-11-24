@@ -27,6 +27,24 @@ jobs:
         run: |
           cd frontend
           npm run build
+
+      - name: Save frontend build for later
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build
+          path: frontend/dist
+
+  measure_ecoindex:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download sources
+        uses: actions/checkout@v5
+      - name: Get frontend build
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-build
+          path: frontend/dist
       - name: Start frontend
         run: |
           docker compose up --detach
@@ -41,8 +59,6 @@ jobs:
         uses: docker://benel/wait-for-response:1
         with:
           args: http://localhost/ 200 30000 500
-      - name: Watch frontend initial payload
-        run: curl --silent localhost
       - name: Run GreenIT Scenario 1
         run: |
           greenit analyse --format html --ci scenarios/consulter_video_home.yml
