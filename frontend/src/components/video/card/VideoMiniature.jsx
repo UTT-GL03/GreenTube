@@ -1,24 +1,27 @@
 import { Link } from 'react-router-dom'
-import "./VideoMiniature.css"
 import minia from "/miniaGT.png"
 
 function VideoMiniature({ video }) {
   return (
-    <div className="video-miniature" data-ecoid="video-card">
+    <div className="card-sm flex flex-col" data-ecoid="video-card">
 
-      <div className="video-info">
+      <div className="flex-content">
         <Link to={`/video/${video.id_video}`}>
-          <img src={minia} alt={video.title}/>
-          <h4>{video.title}</h4>
+          <img
+            className="fit-cover rounded w-full h-auto mb-1"
+            src={minia}
+            alt={video.title} />
+          <h4 className="truncate my-1">{video.title}</h4>
         </Link>
       </div>
 
-      <div className="minia-details">
+      <div className="flex justify-between mt-1">
         <Link to={`/channel/${video.id_user}`}>
-          <span>{video.id_user}</span>
+          <span className="fs-sm">{video.id_user}</span>
         </Link>
-        <span>{video.date}</span>
+        <span className="fs-sm text-gray">{video.date}</span>
       </div>
+
     </div>
   );
 }

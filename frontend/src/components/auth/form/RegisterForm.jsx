@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import greentubeLogo from "/greentube.svg";
-import "./Auth.css";
 
-function Register() {
+function RegisterForm() {
   const [formData, setFormData] = useState({
     email: "",
     phone: "",
@@ -26,18 +24,11 @@ function Register() {
   };
 
   return (
-    <div className="auth-page">
-      {/* Bouton/logo retour accueil */}
-      <Link to="/" className="home-button">
-        <img src={greentubeLogo} alt="Greentube" />
-        Accueil
-      </Link>
-
-      <div className="auth-container">
+      <div className="card-md rounded card-bg-opacity mx-auto my-auto py-3 px-2 text-center z-1000">
         <h2>Inscription</h2>
-        <form onSubmit={handleSubmit} className="auth-form">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2">
           <input
-          className="input-text"
+            className="input-text"
             type="email"
             name="email"
             placeholder="Adresse e-mail"
@@ -46,7 +37,7 @@ function Register() {
             required
           />
           <input
-          className="input-text"
+            className="input-text"
             type="tel"
             name="phone"
             placeholder="Numéro de téléphone"
@@ -54,7 +45,7 @@ function Register() {
             onChange={handleChange}
           />
           <input
-          className="input-text"
+            className="input-text"
             type="text"
             name="username"
             placeholder="Pseudo"
@@ -63,7 +54,7 @@ function Register() {
             required
           />
           <input
-          className="input-text"
+            className="input-text"
             type="password"
             name="password"
             placeholder="Mot de passe"
@@ -72,7 +63,7 @@ function Register() {
             required
           />
           <input
-          className="input-text"
+            className="input-text"
             type="password"
             name="confirmPassword"
             placeholder="Confirmez le mot de passe"
@@ -86,8 +77,7 @@ function Register() {
           Déjà inscrit ? <Link to="/login">Connectez-vous</Link>
         </p>
       </div>
-    </div>
   );
 }
 
-export default Register;
+export default RegisterForm;

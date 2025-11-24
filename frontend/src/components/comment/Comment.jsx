@@ -1,18 +1,46 @@
+import { Link } from "react-router"
+import { useState } from "react"
 import Avatar from "../channel/avatar/Avatar"
-import "./Comment.css"
 
 function Comment({ user, comment }) {
+    const [showFullCom, setShowFullCom] = useState(false)
+
+    const shortComSize = 250;
+
+    const shortCom =
+        comment.content?.length > shortComSize
+            ? comment.content.slice(0, shortComSize) + "..."
+            : comment.content
+
     return (
-        <div className="comment">
-            <Avatar user={user}/>
-            <div className="comment-body">
-                <div className="comment-header">
-                    <span className="comment-username">{user.pseudo}</span>
-                    <span className="comment-date">{comment.date}</span>
+        <div className="flex my-1 max-w-800">
+            <div className="me-2">
+                <Avatar user={user} />
+            </div>
+
+            <div className="w-full">
+                <div className="flex justify-between my-1">
+                    <Link to={`/channel/${user.id_user}`}>
+                        <span className="fw-bold">{user.pseudo}</span>
+                    </Link>
+                    <span className="fs-xsm text-gray">{comment.date}</span>
                 </div>
-                <p className="comment-content">{comment.content}</p>
+
+                <p className="fs-sm word-break">
+                    {showFullCom ? comment.content : shortCom}
+
+                    {comment.content?.length > shortComSize && (
+                        <button
+                            className="bg-none border-0 cursor-pointer fs-sm text-blue hover-underline me-1"
+                            onClick={() => setShowFullCom(prev => !prev)}
+                        >
+                            {showFullCom ? "Voir moins" : "Voir plus"}
+                        </button>
+                    )}
+                </p>
             </div>
         </div>
+
     )
 }
 

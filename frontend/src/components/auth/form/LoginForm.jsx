@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import greentubeLogo from "/greentube.svg";
-import "./Auth.css";
 
-function Login() {
+function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -13,16 +11,10 @@ function Login() {
   };
 
   return (
-    <div className="auth-page">
-      <Link to="/" className="home-button">
-        <img src={greentubeLogo} alt="Greentube" />
-        Accueil
-      </Link>
-
-      <div className="auth-container">
+      <div className="card-md rounded card-bg-opacity mx-auto my-auto py-3 px-2 text-center z-1000">
         <h2>Connexion</h2>
-        <form onSubmit={handleSubmit} className="auth-form">
-          <input 
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+          <input
             className="input-text"
             type="text"
             placeholder="Nom d'utilisateur"
@@ -44,8 +36,7 @@ function Login() {
           Pas encore de compte ? <Link to="/register">Inscrivez-vous</Link>
         </p>
       </div>
-    </div>
   );
 }
 
-export default Login;
+export default LoginForm;

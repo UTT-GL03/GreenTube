@@ -28,30 +28,12 @@ function ContentGrid({ videos, channels, query, showModeSwitch = true }) {
             {
                 totalItems !== 0 ? (
                     <>
-                        <div className="flex justify-between items-center my-3">
-                            <SortButtons setSortKey={setSortKey} type={mode} />
-
-                            {showModeSwitch && (
-                                <div>
-                                    <button
-                                        data-ecoid='videos-btn'
-                                        className={`btn mx-1 ${mode === "video" ? "" : ""}`}
-                                        onClick={() => handleModeChange("video")}
-                                    >
-                                        Vidéos
-                                    </button>
-                                    <button 
-                                        data-ecoid='channels-btn'
-                                        className={`btn mx-1 ${mode === "channel" ? "" : ""}`}
-                                        onClick={() => handleModeChange("channel")}
-                                    >
-                                        Chaînes
-                                    </button>
-                                </div>
-                            )}
+                        <div className="flex justify-between items-center min-w-900 mt-3">
+                            <SortButtons sortKey={sortKey} setSortKey={setSortKey} type={mode} />
+                            <ContentButton showModeSwitch={showModeSwitch} mode={mode} handleModeChange={handleModeChange}/>
                         </div>
 
-                        <div className="my-3">
+                        <div className="my-2">
                             {mode === "video" ? (
                                 <VideoGrid
                                     videos={visibleItems}
@@ -64,35 +46,23 @@ function ContentGrid({ videos, channels, query, showModeSwitch = true }) {
 
                             <div className='center'>
                                 {visibleCount < totalItems && (
-                                    <button className="btn" onClick={() => setVisibleCount((p) => p + 6)}>
+                                    <button className="btn mt-2" onClick={() => setVisibleCount((p) => p + 6)}>
                                         Voir plus
                                     </button>
                                 )}
                             </div>
 
-                            <div className="spacer-2" />
                         </div>
                     </>
 
                 ) : totalItems === 0 && (
                     <>
-                        <div className="flex justify-between items-center my-3">
+                        <div className="flex justify-between items-center mt-4">
                             <div>
-                                <button
-                                    className={`btn mx-1 ${mode === "video" ? "" : ""}`}
-                                    onClick={() => handleModeChange("video")}
-                                >
-                                    Vidéos
-                                </button>
-                                <button
-                                    className={`btn mx-1 ${mode === "channel" ? "" : ""}`}
-                                    onClick={() => handleModeChange("channel")}
-                                >
-                                    Chaînes
-                                </button>
+                                <ContentButton showModeSwitch={showModeSwitch} mode={mode} handleModeChange={handleModeChange}/>
                             </div>
                         </div>
-                        <h4 className="text-center my-4">
+                        <h4 className="text-center mt-3">
                             {query ? `Aucun résultat pour "${query}"` : "Aucun résultat"}
                         </h4>
                     </>
@@ -101,6 +71,28 @@ function ContentGrid({ videos, channels, query, showModeSwitch = true }) {
 
         </div >
     )
+}
+
+function ContentButton({ showModeSwitch, mode, handleModeChange }) {
+    if (showModeSwitch) {
+        return (
+            <div>
+                <button
+                    data-ecoid='videos-btn'
+                    className={`btn me-1 ${mode === "video" ? "" : "btn-outline"}`}
+                    onClick={() => handleModeChange("video")}
+                >
+                    Vidéos
+                </button>
+                <button
+                    data-ecoid='channels-btn'
+                    className={`btn ms-1 ${mode === "channel" ? "" : "btn-outline"}`}
+                    onClick={() => handleModeChange("channel")}
+                >
+                    Chaînes
+                </button>
+            </div>)
+    }
 }
 
 function filterAndSort(items, query, mode, sortKey) {

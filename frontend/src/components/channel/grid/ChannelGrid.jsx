@@ -4,7 +4,7 @@ function ChannelGrid({ channels}) {
 
 
   return (
-      <div className="grid my-3" data-ecoid="channel-grid">
+      <div data-ecoid="channel-grid">
         {channels?.length === 0 && (<h4>Aucune chaîne disponible</h4>)}
 
         {channels.map((row, rowIndex) => (
