@@ -1,9 +1,9 @@
 {
   "videos": [
-    {{#repeat min=10 max=20}}
+    {{#repeat 100}}
     {
       "id_video": "v{{@index}}",
-      "id_user": "u{{int 0 14}}",
+      "id_user": "u{{int 0 39}}",
       "date": "{{date '2024-10-07' '2025-11-07' 'DD/MM/YYYY HH:mm:ss'}}",
       "title": "{{lorem min=3 max=8}}",
       "desc": "{{lorem min=10 max=40}}",
@@ -12,25 +12,25 @@
     {{/repeat}}
   ],
   "users": [
-    {{#repeat min=10 max=15}}
+    {{#repeat 40}}
     {
       "id_user": "u{{@index}}",
       "pseudo": "{{firstName}} {{lastName}}",
-      "avatar": "{{#if (gt (int 0 1) 0)}}/avatars/avatar{{int 1 10}}.jpg{{else}}/default.png{{/if}}", 
+      "avatar": "{{#if (int 0 1)}}/avatars/avatar{{int 1 10}}.jpg{{else}}/default.png{{/if}}",
       "desc": "{{lorem min=10 max=30}}",
       "email": "{{email}}",
-      "password": "{{lorem min=6 max=12}}",
+      "password": "{{lorem 1}}{{int 1000 9999}}",
       "subscribers": {{int 0 5000}},
       "creation_date" : "{{date '2014-10-07' '2025-11-07' 'DD/MM/YYYY HH:mm:ss'}}"
     }
     {{/repeat}}
   ],
   "comments" : [
-    {{#repeat min=10 max=20}}
+    {{#repeat 750}}
     {
       "id_comment": "c{{@index}}",
-      "id_user": "u{{int 0 14}}",
-      "id_video": "v{{int 0 39}}",
+      "id_user": "u{{int 0 39}}",
+      "id_video": "v{{int 0 99}}",
       "date": "{{date '2024-10-07' '2025-11-07' 'DD/MM/YYYY HH:mm:ss'}}",
       "content": "{{lorem min=5 max=25}}"
     }
