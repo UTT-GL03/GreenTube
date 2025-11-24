@@ -1,0 +1,9 @@
+baseURL: http://localhost
+projectName: GreenTube
+scenarios:
+  - name: Consulter l'accueil
+    path: ./scenarios/consult_home.js
+  # - name: Consulter une vidéo
+  #   path: ./scenarios/consult_home.js
+containers:
+  - greentube-static_hosting-1
