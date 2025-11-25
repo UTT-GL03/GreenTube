@@ -1,4 +1,4 @@
-import VideoMiniature from "../card/VideoMiniature"
+import VideoCard from "../card/VideoCard"
 
 function VideoGrid({ videos }) {
 
@@ -10,7 +10,7 @@ function VideoGrid({ videos }) {
                 {videos.map((row, rowIndex) => (
                     <div key={rowIndex} className="row my-2">
                         {row.map((video) => (
-                            <VideoMiniature key={video.id} video={video} />
+                            <VideoCard key={video.id} video={video} />
                         ))}
                     </div>
                 ))}

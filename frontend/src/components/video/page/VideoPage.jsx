@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import VideoPlayer from '../player/VideoPlayer'
-import VideoMiniature from '../card/VideoMiniature'
+import VideoCard from '../card/VideoCard'
 import Comment from '../../comment/Comment'
 import Avatar from '../../channel/avatar/Avatar'
 import { useState } from 'react'
@@ -43,7 +43,7 @@ function VideoPage() {
     <main>
       <div className="flex flex-wrap center mt-2 mb-4 gap-4">
         <div>
-          <VideoCard video={video} user={user} />
+          <VideoPlayerCard video={video} user={user} />
 
           <CommentsSection
             input={input}
@@ -92,7 +92,7 @@ function CommentsSection({ input, setInput, addComment, video, comments }) {
   )
 }
 
-function VideoCard({ video, user }) {
+function VideoPlayerCard({ video, user }) {
   const [showFullDesc, setShowFullDesc] = useState(false)
 
   const shortDescSize = 150;
@@ -131,6 +131,7 @@ function VideoCard({ video, user }) {
 
             {video.desc?.length > shortDescSize && (
               <button
+                data-greenframeid="see-more-desc"
                 className="bg-none border-0 cursor-pointer fs-sm text-blue hover-underline me-1"
                 onClick={() => setShowFullDesc(prev => !prev)}
               >
@@ -149,7 +150,7 @@ function Recommendations({ related }) {
     <h3 className="text-center">Vidéos recommandées</h3>
     <div>
       {related.map(v => <div>
-        <VideoMiniature key={v.id_video} video={v} />
+        <VideoCard key={v.id_video} video={v} />
         <div className="spacer-2" />
       </div>
       )}

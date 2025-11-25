@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import minia from "/miniaGT.png"
 
-function VideoMiniature({ video }) {
+function VideoCard({ video }) {
   return (
     <div className="card-sm flex flex-col" data-ecoid="video-card">
 
@@ -26,4 +26,4 @@ function VideoMiniature({ video }) {
   );
 }
 
-export default VideoMiniature
+export default VideoCard

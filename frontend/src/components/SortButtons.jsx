@@ -3,10 +3,16 @@ function SortButtons({ sortKey, setSortKey, type }) {
         <div>
             {type === "video" ? (
                 <>
-                    <button className={`btn me-1 ${sortKey === "title" ? "" : "btn-outline"}`} onClick={() => setSortKey("title")}>
+                    <button
+                        data-greenframeid="title-btn"
+                        className={`btn me-1 ${sortKey === "title" ? "" : "btn-outline"}`}
+                        onClick={() => setSortKey("title")}>
                         Par titre
                     </button>
-                    <button className={`btn ms-1 ${sortKey === "date" ? "" : "btn-outline"}`} onClick={() => setSortKey("date")}>
+                    <button
+                        data-greenframeid="date-btn"
+                        className={`btn ms-1 ${sortKey === "date" ? "" : "btn-outline"}`}
+                        onClick={() => setSortKey("date")}>
                         Par date
                     </button>
                 </>

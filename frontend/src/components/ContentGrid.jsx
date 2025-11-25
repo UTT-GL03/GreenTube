@@ -46,7 +46,10 @@ function ContentGrid({ videos, channels, query, showModeSwitch = true }) {
 
                             <div className='center'>
                                 {visibleCount < totalItems && (
-                                    <button className="btn mt-2" onClick={() => setVisibleCount((p) => p + 6)}>
+                                    <button 
+                                    data-greenframeid="see-more"
+                                    className="btn mt-2" 
+                                    onClick={() => setVisibleCount((p) => p + 6)}>
                                         Voir plus
                                     </button>
                                 )}
@@ -79,6 +82,7 @@ function ContentButton({ showModeSwitch, mode, handleModeChange }) {
             <div>
                 <button
                     data-ecoid='videos-btn'
+                    data-greenframeid='videos-btn'
                     className={`btn me-1 ${mode === "video" ? "" : "btn-outline"}`}
                     onClick={() => handleModeChange("video")}
                 >
@@ -86,6 +90,7 @@ function ContentButton({ showModeSwitch, mode, handleModeChange }) {
                 </button>
                 <button
                     data-ecoid='channels-btn'
+                    data-greenframeid='channels-btn'
                     className={`btn ms-1 ${mode === "channel" ? "" : "btn-outline"}`}
                     onClick={() => handleModeChange("channel")}
                 >
