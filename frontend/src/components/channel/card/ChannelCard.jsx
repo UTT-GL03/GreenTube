@@ -1,5 +1,14 @@
 import { Link } from "react-router-dom"
+import dayjs from "dayjs"
+import relativeTime from "dayjs/plugin/relativeTime"
+import customParseFormat from "dayjs/plugin/customParseFormat"
+import 'dayjs/locale/fr'
+
 import avatar from "/default-avatar.png"
+
+dayjs.extend(relativeTime)
+dayjs.extend(customParseFormat)
+dayjs.locale('fr')
 
 function ChannelCard({ channel }) {
   return (
@@ -12,8 +21,8 @@ function ChannelCard({ channel }) {
       </Link>
       </div>
       <div className="flex justify-between">
-        <span className="fs-sm">{channel.subscribers} abonnés</span>
-        <span className="fs-sm">Créée le {new Date(channel.creation_date).toLocaleDateString()}</span>
+        <span className="fs-sm text-gray">{channel.subscribers} abonnés</span>
+        <span className="fs-sm text-gray">Créée le {dayjs(channel.creation_date, "DD/MM/YYYY HH:mm:ss").fromNow()}</span>
       </div>
     </div>
   )

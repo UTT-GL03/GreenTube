@@ -1,9 +1,18 @@
+import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import dayjs from "dayjs"
+import relativeTime from "dayjs/plugin/relativeTime"
+import customParseFormat from "dayjs/plugin/customParseFormat"
+import 'dayjs/locale/fr'
+
 import VideoPlayer from '../components/video/player/VideoPlayer'
 import VideoCard from '../components/video/card/VideoCard'
 import Comment from '../components/comment/Comment'
 import Avatar from '../components/channel/avatar/Avatar'
-import { useState } from 'react'
+
+dayjs.extend(relativeTime)
+dayjs.extend(customParseFormat)
+dayjs.locale('fr')
 
 const response = await fetch('/data/sample_data_high.json');
 const data = await response.json();
@@ -121,7 +130,7 @@ function VideoPlayerCard({ video, user }) {
 
           <div className="flex gap-3 opacity-7 fs-sm">
             <span>{video.views} vues</span>
-            <span>{video.date}</span>
+            <span>{dayjs(video.date, "DD/MM/YYYY HH:mm:ss").fromNow()}</span>
           </div>
         </div>
 

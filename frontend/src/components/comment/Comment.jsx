@@ -1,6 +1,16 @@
-import { Link } from "react-router"
 import { useState } from "react"
+import { Link } from "react-router"
+
+import dayjs from "dayjs"
+import relativeTime from "dayjs/plugin/relativeTime"
+import customParseFormat from "dayjs/plugin/customParseFormat"
+import 'dayjs/locale/fr'
+
 import Avatar from "../channel/avatar/Avatar"
+
+dayjs.extend(relativeTime)
+dayjs.extend(customParseFormat)
+dayjs.locale('fr')
 
 function Comment({ user, comment }) {
     const [showFullCom, setShowFullCom] = useState(false)
@@ -23,7 +33,7 @@ function Comment({ user, comment }) {
                     <Link to={`/channel/${user.id_user}`}>
                         <span className="fw-bold">{user.pseudo}</span>
                     </Link>
-                    <span className="fs-xsm text-gray">{comment.date}</span>
+                    <span className="fs-xsm text-gray">{dayjs(comment.date, "DD/MM/YYYY HH:mm:ss").fromNow()}</span>
                 </div>
 
                 <p className="fs-sm word-break">
