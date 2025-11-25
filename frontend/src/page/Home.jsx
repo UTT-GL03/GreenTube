@@ -1,20 +1,18 @@
-import ContentGrid from '../components/ContentGrid'
+import { useContext } from 'react'
 
-const response = await fetch('/data/sample_data_high.json');
-const data = await response.json();
+import { DataContext } from '../context/DataContext'
+import { SearchContext } from '../context/SearchContext'
 
-function Home({query}) {
+import ContentGrid from '../components/contentGrid/grid/ContentGrid'
+
+function Home() {
+  const { videos, users } = useContext(DataContext)
+  const { query } = useContext(SearchContext)
 
   return (
     <main className="center">
       <div>
-
-        <ContentGrid
-          videos={data.videos}
-          channels={data.users}
-          query={query}
-        />
-
+        <ContentGrid videos={videos} channels={users} query={query} />
       </div>
     </main>
   )
