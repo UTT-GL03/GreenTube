@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import greentubeLogo from "/greentube.svg";
-import LoginForm from "../form/LoginForm";
-import RegisterForm from "../form/RegisterForm";
+import LoginForm from "../components/auth/form/LoginForm";
+import RegisterForm from "../components/auth/form/RegisterForm";
 
-function AuthPage({ mode = "login" }) {
+function Auth({ mode = "login" }) {
 
   return (
     <div className="
@@ -40,4 +40,4 @@ function AuthPage({ mode = "login" }) {
   );
 }
 
-export default AuthPage;
+export default Auth;

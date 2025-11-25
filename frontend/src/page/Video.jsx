@@ -1,14 +1,14 @@
 import { useParams, Link } from 'react-router-dom'
-import VideoPlayer from '../player/VideoPlayer'
-import VideoCard from '../card/VideoCard'
-import Comment from '../../comment/Comment'
-import Avatar from '../../channel/avatar/Avatar'
+import VideoPlayer from '../components/video/player/VideoPlayer'
+import VideoCard from '../components/video/card/VideoCard'
+import Comment from '../components/comment/Comment'
+import Avatar from '../components/channel/avatar/Avatar'
 import { useState } from 'react'
 
-const response = await fetch('/data/sample_data.json');
+const response = await fetch('/data/sample_data_high.json');
 const data = await response.json();
 
-function VideoPage() {
+function Video() {
   const { id } = useParams()
   const video = data.videos.find((v) => String(v.id_video) === id)
   let user = null
@@ -158,4 +158,4 @@ function Recommendations({ related }) {
   </div>
 }
 
-export default VideoPage
+export default Video
