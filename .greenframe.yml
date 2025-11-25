@@ -3,7 +3,9 @@ projectName: GreenTube
 scenarios:
   - name: Consulter l'accueil
     path: ./scenarios/consult_home.js
-  # - name: Consulter une vidéo
-  #   path: ./scenarios/consult_home.js
+  - name: Consulter une chaine
+    path: ./scenarios/consult_channel.js
+  - name: Consulter une video
+    path: ./scenarios/consult_video.js
 containers:
   - greentube-static_hosting-1
