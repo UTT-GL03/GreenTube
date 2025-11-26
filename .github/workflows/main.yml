@@ -19,23 +19,34 @@ jobs:
         run: |
           cd frontend
           npm install
-      - name: Generate sample data
-        run: |
-          mkdir -p frontend/public/data
-          npx dummy-json@latest sample_data.hbs > frontend/public/data/sample_data.json
       - name: Build frontend
         run: |
           cd frontend
           npm run build
-
       - name: Save frontend build for later
         uses: actions/upload-artifact@v4
         with:
           name: frontend-build
           path: frontend/dist
 
+  build_samples:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download sources
+        uses: actions/checkout@v5
+      - name: Generate sample
+        run: |
+          npx --yes dummy-json sample_data.hbs > sample_data.json
+      - name: Save samples for later
+        uses: actions/upload-artifact@v4
+        with:
+          name: samples
+          path: sample_data.json
+
   measure_ecoindex:
-    needs: build
+    needs: 
+      - build
+      - build_samples
     runs-on: ubuntu-latest
     steps:
       - name: Download sources
@@ -64,7 +75,9 @@ jobs:
             Consulterunevideo-chaine.html
 
   measure_energy_consumption:
-    needs: build
+    needs: 
+      - build
+      - build_samples
     runs-on: ubuntu-latest
     steps:
       - name: Download sources
