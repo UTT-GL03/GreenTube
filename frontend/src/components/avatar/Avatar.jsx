@@ -7,7 +7,6 @@ function Avatar({ user, size = "sm" }) {
         <Link to={`/channel/${user.id_user}`}>
             <img
                 src={user?.avatar || "/default-avatar.png"}
-                alt={user?.pseudo || "user"}
                 data-ecoid="channel-avatar"
                 className={`${sizeClass} border`}
                 onError={(e) => {

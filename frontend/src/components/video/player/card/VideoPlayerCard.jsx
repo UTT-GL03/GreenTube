@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router";
 
-import Avatar from "../../../channel/avatar/Avatar";
+import Avatar from "../../../avatar/Avatar";
 import VideoPlayer from "../VideoPlayer";
 
 import dayjs from "dayjs"

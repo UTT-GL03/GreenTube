@@ -6,7 +6,7 @@ import relativeTime from "dayjs/plugin/relativeTime"
 import customParseFormat from "dayjs/plugin/customParseFormat"
 import 'dayjs/locale/fr'
 
-import Avatar from "../channel/avatar/Avatar"
+import Avatar from "../avatar/Avatar"
 
 dayjs.extend(relativeTime)
 dayjs.extend(customParseFormat)
