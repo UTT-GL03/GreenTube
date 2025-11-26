@@ -5,7 +5,6 @@ dayjs.extend(customParseFormat)
 
 export function filterAndSort(items, query, mode, sortKey, order = "asc") {
     let filtered = items
-    console.log(order)
 
     // Filtrage en fonction de la query
     if (query && query !== "") {
