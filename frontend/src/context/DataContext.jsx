@@ -10,14 +10,12 @@ export function DataProvider({ children }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('/data/sample_data.json')
+        const response = await fetch('http://localhost:5984/greentube/_all_docs?include_docs=true')
         const json = await response.json()
-
         // setVideos(json.videos)
         // setUsers(json.users)
         // setComments(json.comments)
-        
-        const docs = json.docs || []
+        const docs = json.rows.map(r => r.doc) || []
         setVideos(docs.filter(d => d.type === 'video'))
         setUsers(docs.filter(d => d.type === 'user'))
         setComments(docs.filter(d => d.type === 'comment'))
