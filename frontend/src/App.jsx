@@ -5,7 +5,6 @@ import Home from './page/Home'
 import Video from './page/Video'
 import Channel from './page/Channel'
 import Auth from './page/Auth'
-import './App.css'
 
 export default function App() {
   return (

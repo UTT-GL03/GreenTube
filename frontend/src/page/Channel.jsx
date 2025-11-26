@@ -1,8 +1,10 @@
+import { useContext } from 'react';
 import { useParams } from 'react-router'
+
+import { DataContext } from '../context/DataContext';
+
 import Avatar from '../components/avatar/Avatar'
 import ContentGrid from '../components/contentGrid/grid/ContentGrid'
-import { useContext } from 'react';
-import { DataContext } from '../context/DataContext';
 
 function Channel() {
     const { videos, users } = useContext(DataContext)

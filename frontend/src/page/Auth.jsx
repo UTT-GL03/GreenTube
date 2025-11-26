@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
+
 import greentubeLogo from "/greentube.svg";
+
 import LoginForm from "../components/auth/form/LoginForm";
 import RegisterForm from "../components/auth/form/RegisterForm";
 
@@ -23,7 +25,6 @@ function Auth({ mode = "login" }) {
         p-2
         rounded
         bg-white 
-        shadow-header 
         text-dark
         fw-bold
       ">
