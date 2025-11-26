@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
 import greentubeLogo from '/greentube.svg'
+import { useSearch } from '../../context/SearchContext'
 
 
-function Header({ query, setQuery }) {
+function Header() {
+
+  const {query, setQuery} = useSearch()
 
   return (
     <div className="pt-4">
