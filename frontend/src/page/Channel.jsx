@@ -1,16 +1,17 @@
 import { useParams } from 'react-router'
 import Avatar from '../components/avatar/Avatar'
 import ContentGrid from '../components/contentGrid/grid/ContentGrid'
-
-const response = await fetch('/data/sample_data_high.json');
-const data = await response.json();
+import { useContext } from 'react';
+import { DataContext } from '../context/DataContext';
 
 function Channel() {
+    const { videos, users } = useContext(DataContext)
+
     const { channelId } = useParams()
 
-    const channelVideos = data.videos.filter(v => v.id_user === channelId)
+    const channelVideos = videos.filter(v => v.id_user === channelId)
 
-    const channelUser = data.users.find(u => u.id_user === channelId)
+    const channelUser = users.find(u => u.id_user === channelId)
 
     return (
         <main className="center">
@@ -29,8 +30,8 @@ function Channel() {
                 </div>
 
                 <ContentGrid
-                    videos = {channelVideos}
-                    showModeSwitch = {false}
+                    videos={channelVideos}
+                    showModeSwitch={false}
                 />
 
             </div>
