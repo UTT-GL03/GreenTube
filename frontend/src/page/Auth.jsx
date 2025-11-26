@@ -12,18 +12,15 @@ function Auth({ mode = "login" }) {
       flex flex-col justify-center items-center 
       relative
       bg-login-img 
-      bg-cover 
-      bg-center 
-      bg-no-repeat 
-      bg-fixed
+      bg-full
       blur-overlay
     ">
       <Link to="/" className="
         absolute 
         top-0 left-0 
-        mx-2 my-2
+        m-2
         flex items-center gap-1
-        px-2 py-1
+        p-2
         rounded
         bg-white 
         shadow-header 
