@@ -1,39 +1,40 @@
 {
-  "videos": [
-    {{#repeat 100}}
+  "docs": [
+
+    {{#repeat 2000}}
     {
-      "id_video": "v{{@index}}",
-      "id_user": "u{{int 0 39}}",
+      "_id": "v{{@index}}",
+      "type": "video",
+      "id_user": "u{{int 0 799}}",
       "date": "{{date '2024-10-07' '2025-11-07' 'DD/MM/YYYY HH:mm:ss'}}",
       "title": "{{lorem min=3 max=8}}",
       "desc": "{{lorem min=10 max=40}}",
-      "path": "/videoTest.mp4"  
-    }
-    {{/repeat}}
-  ],
-  "users": [
-    {{#repeat 40}}
+      "path": "/videoTest.mp4",
+      "view": {{int 0 10000}}
+    },
+    {{/repeat}},
+    {{#repeat 800}}
     {
-      "id_user": "u{{@index}}",
+      "_id": "u{{@index}}",
+      "type": "user",
       "pseudo": "{{firstName}} {{lastName}}",
       "avatar": "{{#if (int 0 1)}}/avatars/avatar{{int 1 10}}.jpg{{else}}/default.png{{/if}}",
       "desc": "{{lorem min=10 max=30}}",
       "email": "{{email}}",
       "password": "{{lorem 1}}{{int 1000 9999}}",
       "subscribers": {{int 0 5000}},
-      "creation_date" : "{{date '2014-10-07' '2025-11-07' 'DD/MM/YYYY HH:mm:ss'}}"
-    }
-    {{/repeat}}
-  ],
-  "comments" : [
-    {{#repeat 750}}
+      "creation_date": "{{date '2014-10-07' '2025-11-07' 'DD/MM/YYYY HH:mm:ss'}}"
+    },
+    {{/repeat}},
+    {{#repeat 7500}}
     {
-      "id_comment": "c{{@index}}",
-      "id_user": "u{{int 0 39}}",
-      "id_video": "v{{int 0 99}}",
+      "_id": "c{{@index}}",
+      "type": "comment",
+      "id_user": "u{{int 0 799}}",
+      "id_video": "v{{int 0 1999}}",
       "date": "{{date '2024-10-07' '2025-11-07' 'DD/MM/YYYY HH:mm:ss'}}",
       "content": "{{lorem min=5 max=25}}"
-    }
+    },
     {{/repeat}}
   ]
 }

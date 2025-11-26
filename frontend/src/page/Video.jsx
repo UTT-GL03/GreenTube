@@ -12,8 +12,8 @@ function Video() {
 
   const { id } = useParams()
   
-  const currentVideo = useMemo(() => videos.find(v => String(v.id_video) === id), [videos, id])
-  const currentUser = useMemo(() => users.find(u => u.id_user === currentVideo.id_user), [users, currentVideo])
+  const currentVideo = useMemo(() => videos.find(v => String(v._id) === id), [videos, id])
+  const currentUser = useMemo(() => users.find(u => u._id === currentVideo.id_user), [users, currentVideo])
 
   if (!currentVideo) return <main className="center"><p>Vidéo introuvable.</p></main>
 

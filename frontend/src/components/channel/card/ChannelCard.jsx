@@ -16,7 +16,7 @@ function ChannelCard({ channel }) {
 
       <div className="flex-content">
         <Avatar user={channel} size="lg" />
-        <Link to={`/channel/${channel.id_user}`}>
+        <Link to={`/channel/${channel._id}`}>
           <h4>{channel.pseudo}</h4>
         </Link>
       </div>

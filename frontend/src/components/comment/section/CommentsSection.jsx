@@ -3,18 +3,19 @@ import Comment from "../Comment"
 import { useData } from "../../../context/DataContext"
 
 export function CommentsSection({ currentVideo }) {
-  const { users, comments } = useData
-
+  const { users, comments } = useData()
+  
   const [input, setInput] = useState('')
   const [videoComments, setRelatedComments] = useState(() =>
-    comments.filter(c => c.id_video === currentVideo.id_video)
+    comments.filter(c => c.id_video === currentVideo._id)
   )
 
   const addComment = (currentUserId, currentVideoId) => {
     if (!input.trim()) return
 
     const newComment = {
-      id_comments: `c${Date.now()}`,
+      _id: `c${Date.now()}`,
+      type: "comment",
       id_user: currentUserId,
       id_video: currentVideoId,
       date: new Date().toLocaleString(),
@@ -35,14 +36,14 @@ export function CommentsSection({ currentVideo }) {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           // TODO : modifie addComment user id
-          onKeyDown={(e) => e.key === 'Enter' && addComment("u1", currentVideo.id_video)}
+          onKeyDown={(e) => e.key === 'Enter' && addComment("u1", currentVideo._id)}
           placeholder="Ajouter un commentaire..."
         />
 
         <button
           className="btn"
           // TODO : modifie addComment user id
-          onClick={() => addComment("u1", currentVideo.id_video)}
+          onClick={() => addComment("u1", currentVideo._id)}
         >
           Publier
         </button>
@@ -51,7 +52,7 @@ export function CommentsSection({ currentVideo }) {
       <div className="overflow-y-sm w-full">
         <ul>
           {videoComments.map((c) => {
-            let cUser = users.find(u => u.id_user === c.id_user)
+            let cUser = users.find(u => u._id === c.id_user)
             return (
               <Comment user={cUser} comment={c} />
             )

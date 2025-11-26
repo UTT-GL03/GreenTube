@@ -12,7 +12,7 @@ function Channel() {
 
     const channelVideos = videos.filter(v => v.id_user === channelId)
 
-    const channelUser = users.find(u => u.id_user === channelId)
+    const channelUser = users.find(u => u._id === channelId)
 
     return (
         <main className="center">

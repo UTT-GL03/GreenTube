@@ -10,7 +10,7 @@ function ChannelGrid({ channels}) {
         {channels.map((row, rowIndex) => (
           <div key={rowIndex} className="row my-2">
             {row.map((channel) => (
-              <ChannelCard key={channel.id_user} channel={channel} />
+              <ChannelCard key={channel._id} channel={channel} />
             ))}
           </div>
         ))}

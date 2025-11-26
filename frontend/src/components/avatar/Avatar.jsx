@@ -10,9 +10,8 @@ const sizeMap = {
 
 export function Avatar({ user, size = "sm" }) {
     const sizeClass = sizeMap[size] || sizeMap.sm
-
     return (
-        <Link to={`/channel/${user.id_user}`}>
+        <Link to={`/channel/${user._id}`}>
             <img
                 src={user?.avatar || "/default-avatar.png"}
                 data-ecoid="channel-avatar"

@@ -15,7 +15,7 @@ function VideoCard({ video }) {
     <div className="card-sm flex flex-col" data-ecoid="video-card">
 
       <div className="flex-content">
-        <Link to={`/video/${video.id_video}`}>
+        <Link to={`/video/${video._id}`}>
           <img
             className="fit-cover rounded w-full h-auto mb-1"
             src={minia}

@@ -10,11 +10,17 @@ export function DataProvider({ children }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('/data/sample_data_high.json')
+        const response = await fetch('/data/sample_data.json')
         const json = await response.json()
-        setVideos(json.videos)
-        setUsers(json.users)
-        setComments(json.comments)
+
+        // setVideos(json.videos)
+        // setUsers(json.users)
+        // setComments(json.comments)
+        
+        const docs = json.docs || []
+        setVideos(docs.filter(d => d.type === 'video'))
+        setUsers(docs.filter(d => d.type === 'user'))
+        setComments(docs.filter(d => d.type === 'comment'))
       } catch (err) {
         console.error('Error fetching data:', err)
       }
