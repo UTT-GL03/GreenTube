@@ -1,9 +1,9 @@
-import { useContext, useState } from "react"
+import { useState } from "react"
 import Comment from "../Comment"
-import { DataContext } from "../../../context/DataContext"
+import { useData } from "../../../context/DataContext"
 
 export function CommentsSection({ currentVideo }) {
-  const { users, comments } = useContext(DataContext)
+  const { users, comments } = useData
 
   const [input, setInput] = useState('')
   const [videoComments, setRelatedComments] = useState(() =>

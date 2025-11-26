@@ -1,14 +1,14 @@
-import { useContext, useState, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { DataContext } from '../context/DataContext'
+import { useData } from '../context/DataContext'
 
 import CommentsSection from '../components/comment/section/CommentsSection'
 import Recommendations from '../components/video/recommendations/Recommendations'
 import VideoPlayerCard from '../components/video/player/card/VideoPlayerCard'
 
 function Video() {
-  const { videos, users } = useContext(DataContext)
+  const { videos, users } = useData()
 
   const { id } = useParams()
   

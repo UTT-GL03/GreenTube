@@ -1,11 +1,11 @@
-import { useContext, useMemo } from "react"
+import { useMemo } from "react"
 
-import { DataContext } from "../../../context/DataContext"
+import { useData } from "../../../context/DataContext"
 
 import VideoCard from "../card/VideoCard"
 
 export function Recommendations({ currentVideo }) {
-  const { videos } = useContext(DataContext)
+  const { videos } = useData()
 
   const related = useMemo(() => videos.filter(v => v.id_video !== currentVideo.id_video).slice(0, 3), [videos, currentVideo])
   return <div>

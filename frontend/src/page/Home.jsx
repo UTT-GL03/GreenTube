@@ -1,13 +1,11 @@
-import { useContext } from 'react'
-
-import { DataContext } from '../context/DataContext'
-import { SearchContext } from '../context/SearchContext'
+import { useData } from '../context/DataContext'
+import { useSearch } from '../context/SearchContext'
 
 import ContentGrid from '../components/contentGrid/grid/ContentGrid'
 
 function Home() {
-  const { videos, users } = useContext(DataContext)
-  const { query } = useContext(SearchContext)
+  const { videos, users } = useData()
+  const { query } = useSearch()
 
   return (
     <main className="center">
