@@ -36,7 +36,7 @@ export function VideoPlayerCard({ video, user }) {
           <div className="flex align-center gap-2">
             <Avatar user={user !== null ? user : null} />
             <Link to={`/channel/${video.id_user}`} className="fw-bold my-auto">
-              {video.id_user}
+              {user.pseudo}
             </Link>
           </div>
 
