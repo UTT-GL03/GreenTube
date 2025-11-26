@@ -1,7 +1,15 @@
 import { Link } from 'react-router-dom'
 
-function Avatar({ user, size = "sm" }) {
-    const sizeClass = size === "xl" ? "circle-xl" : "circle-sm"
+const sizeMap = {
+  xl: "circle-xl",
+  lg: "circle-lg",
+  md: "circle-md",
+  sm: "circle-sm",
+  xsm: "circle-xsm"
+}
+
+export function Avatar({ user, size = "sm" }) {
+    const sizeClass = sizeMap[size] || sizeMap.sm
 
     return (
         <Link to={`/channel/${user.id_user}`}>
