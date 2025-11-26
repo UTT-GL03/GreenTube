@@ -17,7 +17,7 @@ function Channel() {
         <main className="center">
             <div>
 
-                <div className="card-xl rounded flex mx-auto px-4 py-4 my-3">
+                <div className="card-xl rounded flex mx-auto p-4 my-3">
 
                     <Avatar user={channelUser} size={"xl"} />
 

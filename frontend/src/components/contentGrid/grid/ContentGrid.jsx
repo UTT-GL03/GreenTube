@@ -11,12 +11,13 @@ import ChannelGrid from "../../channel/grid/ChannelGrid"
 function ContentGrid({videos, channels, query, showModeSwitch = true }) {
     const [mode, setMode] = useState("video")
     const [sortKey, setSortKey] = useState("title")
+    const [order, setOrder] = useState("asc")
     const [visibleCount, setVisibleCount] = useState(6) 
 
     const normalizedQuery = query?.trim().toLowerCase() || ""
 
     // Prepare data items
-    const sortedItems = filterAndSort(mode === "video" ? videos : channels, normalizedQuery, mode, sortKey)
+    const sortedItems = filterAndSort(mode === "video" ? videos : channels, normalizedQuery, mode, sortKey, order)
     const visibleItems = Object.values(
         Object.groupBy(sortedItems.slice(0, visibleCount), (_, i) => Math.floor(i / 3))
     )
@@ -36,7 +37,7 @@ function ContentGrid({videos, channels, query, showModeSwitch = true }) {
       {totalItems !== 0 ? (
         <>
           <div className="flex justify-between items-center min-w-900 mt-3">
-            <SortButtons sortKey={sortKey} setSortKey={setSortKey} type={mode} />
+            <SortButtons sortKey={sortKey} setSortKey={setSortKey} type={mode} order={order} setOrder={setOrder}/>
             <ContentButton showModeSwitch={showModeSwitch} mode={mode} handleModeChange={handleModeChange} />
           </div>
 
