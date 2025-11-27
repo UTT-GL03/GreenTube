@@ -1,11 +1,13 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import greentubeLogo from '/greentube.svg'
 import { useSearch } from '../../context/SearchContext'
-
+import UploadVideoModal from '../video/upload/UploadVideoModal'
 
 function Header() {
 
   const {query, setQuery} = useSearch()
+  const [showUploadModal, setShowUploadModal] = useState(false)
 
   return (
     <div className="pt-4">
@@ -54,8 +56,12 @@ function Header() {
         </div>
 
         <div className="header-section header-right">
-          <button className="btn circle-sm">
-            +
+          <button 
+          className="btn circle-sm"
+          type="button"
+          onClick={() => setShowUploadModal(true)}
+          >
+          +
           </button>
           {/* 
         if login => profil = badge pdp link channel
@@ -69,6 +75,9 @@ function Header() {
         </div>
 
       </header >
+      {showUploadModal && (
+        <UploadVideoModal onClose={() => setShowUploadModal(false)} />
+      )}
     </div>
   )
 }
