@@ -64,12 +64,17 @@ function Header() {
 
         <div className="header-section header-right">
 
-          {user ? (
+          {loggedUser ? (
             <>
-              <button className="btn circle-sm">
+              <button
+                className="btn circle-sm"
+                type="button"
+                onClick={() => setShowUploadModal(true)}
+              >
+
                 +
               </button>
-              <UserDropdown user={user} />
+              <UserDropdown user={loggedUser} />
             </>
           ) : (
             <div>
@@ -83,7 +88,11 @@ function Header() {
         </div >
 
       </header >
-    </div >
+
+      {showUploadModal && loggedUser && (
+        <UploadVideoModal user={loggedUser} onClose={() => setShowUploadModal(false)} />
+      )}
+    </div>
   )
 }
 
