@@ -22,10 +22,7 @@ function Video() {
       <div className="flex flex-wrap center mt-2 mb-4 gap-4">
         <div>
           <VideoPlayerCard video={currentVideo} user={currentUser} />
-
-          <CommentsSection
-            currentVideo={currentVideo}
-          />
+          <CommentsSection currentVideo={currentVideo} />
         </div>
         <Recommendations currentVideo={currentVideo} />
       </div>

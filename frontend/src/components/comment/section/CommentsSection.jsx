@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Comment from "../Comment"
 import { useData } from "../../../context/DataContext"
 
@@ -9,6 +9,20 @@ export function CommentsSection({ currentVideo }) {
   const [videoComments, setRelatedComments] = useState(() =>
     comments.filter(c => c.id_video === currentVideo._id)
   )
+
+  useEffect(() => {
+    setRelatedComments(comments.filter(c => c.id_video === currentVideo._id));
+  }, [comments, currentVideo]);
+
+  let loggedUser = localStorage.getItem("user")
+
+  if (typeof loggedUser === "string") {
+    try {
+      loggedUser = JSON.parse(loggedUser);
+    } catch {
+      return null;
+    }
+  }
 
   const addComment = (currentUserId, currentVideoId) => {
     if (!input.trim()) return
@@ -30,24 +44,29 @@ export function CommentsSection({ currentVideo }) {
     <div className="max-w-900 mx-1">
       <h2>Commentaires</h2>
 
-      <div className="flex w-full my-1">
-        <input
-          className="flex-content input-text me-1"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          // TODO : modifie addComment user id
-          onKeyDown={(e) => e.key === 'Enter' && addComment("u1", currentVideo._id)}
-          placeholder="Ajouter un commentaire..."
-        />
+      {loggedUser ? (
 
-        <button
-          className="btn"
-          // TODO : modifie addComment user id
-          onClick={() => addComment("u1", currentVideo._id)}
-        >
-          Publier
-        </button>
-      </div>
+        <div className="flex w-full my-1">
+          <input
+            className="flex-content input-text me-1"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            // TODO : modifie addComment user id
+            onKeyDown={(e) => e.key === 'Enter' && addComment(loggedUser._id, currentVideo._id)}
+            placeholder="Ajouter un commentaire..."
+          />
+
+          <button
+            className="btn"
+            // TODO : modifie addComment user id
+            onClick={() => addComment(loggedUser._id, currentVideo._id)}
+          >
+            Publier
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
 
       <div className="overflow-y-sm w-full">
         <ul>

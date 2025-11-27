@@ -1,30 +1,40 @@
 import { Link } from 'react-router-dom'
 
 const sizeMap = {
-  xl: "circle-xl",
-  lg: "circle-lg",
-  md: "circle-md",
-  sm: "circle-sm",
-  xsm: "circle-xsm"
+    xl: "circle-xl",
+    lg: "circle-lg",
+    md: "circle-md",
+    sm: "circle-sm",
+    xsm: "circle-xsm"
 }
 
-export function Avatar({ user, size = "sm" }) {
+export function Avatar({ user, size = "sm", link = true }) {
+    
+    if (!user) return null;
+
     const sizeClass = sizeMap[size] || sizeMap.sm
+
+    const img = (
+        <img
+            src={user?.avatar || "/default-avatar.png"}
+            data-ecoid="channel-avatar"
+            className={`${sizeClass} border`}
+            onError={(e) => {
+                if (!e.target.dataset.fallback) {
+                    e.target.dataset.fallback = true;
+                    e.target.src = "/default-avatar.png";
+                }
+            }}
+        />
+    );
+
+    if (!link) return img;
+
     return (
         <Link to={`/channel/${user._id}`}>
-            <img
-                src={user?.avatar || "/default-avatar.png"}
-                data-ecoid="channel-avatar"
-                className={`${sizeClass} border`}
-                onError={(e) => {
-                    if (!e.target.dataset.fallback) {
-                        e.target.dataset.fallback = true
-                        e.target.src = "/default-avatar.png"
-                    }
-                }}
-            />
+            {img}
         </Link>
-    )
+    );
 }
 
 export default Avatar

@@ -1,11 +1,20 @@
 import { Link } from 'react-router-dom'
-import greentubeLogo from '/greentube.svg'
 import { useSearch } from '../../context/SearchContext'
-
+import greentubeLogo from '/greentube.svg'
+import UserDropdown from '../UserDropdown'
 
 function Header() {
+  const { query, setQuery } = useSearch()
 
-  const {query, setQuery} = useSearch()
+  let user = localStorage.getItem("user")
+
+  if (typeof user === "string") {
+    try {
+      user = JSON.parse(user);
+    } catch {
+      return null;
+    }
+  }
 
   return (
     <div className="pt-4">
@@ -54,22 +63,27 @@ function Header() {
         </div>
 
         <div className="header-section header-right">
-          <button className="btn circle-sm">
-            +
-          </button>
-          {/* 
-        if login => profil = badge pdp link channel
-        else => login/register btn link form 
-        */}
-          <div>
-            <Link to="/login" className="btn">Connexion</Link>
-          </div>
+
+          {user ? (
+            <>
+              <button className="btn circle-sm">
+                +
+              </button>
+              <UserDropdown user={user} />
+            </>
+          ) : (
+            <div>
+              <Link to="/login" className="btn">Connexion</Link>
+            </div>
+          )
+          }
+
 
           {/* <button className="button">Profil</button> */}
-        </div>
+        </div >
 
       </header >
-    </div>
+    </div >
   )
 }
 
