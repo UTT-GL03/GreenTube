@@ -6,10 +6,11 @@ import greentubeLogo from '/greentube.svg'
 
 import UploadVideoModal from '../video/upload/UploadVideoModal'
 import UserDropdown from '../UserDropdown'
+import UploadVideoModal from '../video/upload/UploadVideoModal'
 
 function Header() {
   const { query, setQuery } = useSearch()
-
+  
   const [showUploadModal, setShowUploadModal] = useState(false)
 
   let loggedUser = localStorage.getItem("user")
@@ -69,12 +70,17 @@ function Header() {
         </div>
 
         <div className="header-section header-right">
-          {user ? (
+
+          {loggedUser ? (
             <>
-              <button className="btn circle-sm" onClick={() => setShowUploadModal(true)}>
+              <button
+                className="btn circle-sm"
+                type="button"
+                onClick={() => setShowUploadModal(true)}
+              >
                 +
               </button>
-              <UserDropdown user={user} />
+              <UserDropdown user={loggedUser} />
             </>
           ) : (
             <div>
@@ -84,8 +90,9 @@ function Header() {
           }
         </div >
       </header >
-      {showUploadModal && (
-        <UploadVideoModal onClose={() => setShowUploadModal(false)} />
+
+      {showUploadModal && loggedUser && (
+        <UploadVideoModal user={loggedUser} onClose={() => setShowUploadModal(false)} />
       )}
     </div>
   )

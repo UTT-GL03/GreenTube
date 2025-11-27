@@ -1,18 +1,12 @@
-// frontend/src/components/video/upload/UploadVideoModal.jsx
 import { useState } from 'react'
-import { useData } from '../../../context/DataContext'
 
-function UploadVideoModal({ onClose }) {
-  const { users } = useData()
-
+function UploadVideoModal({ onClose, user: loggedUser }) {
   const [title, setTitle] = useState('')
   const [desc, setDesc] = useState('')
-  const [channelId, setChannelId] = useState(users[0]?._id || '')
+  const channelId = loggedUser._id
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    // 🧪 100 % statique : on ne modifie pas les données globales
     console.log('Fake upload:', {
       title,
       desc,
@@ -23,73 +17,66 @@ function UploadVideoModal({ onClose }) {
   }
 
   return (
-    <div className="modal-overlay">
-      <div className="modal">
-        <div className="modal-header">
-          <h2 className="modal-title">Mettre en ligne une vidéo</h2>
-          <button
-            type="button"
-            className="btn circle-sm"
-            onClick={onClose}
-          >
-            ×
-          </button>
-        </div>
+    <>
+      <div className="fixed inset-0 bg-black opacity-7 z-1000" onClick={onClose} />
+      <div className="fixed inset-0 flex items-center justify-center z-2000">
+        <div className="card-lg bg-white rounded p-2" onClick={(e) => e.stopPropagation()}>
+          <div className="flex justify-between items-center">
+            <h2 className="fs-bold fs-xl">Mettre en ligne une vidéo</h2>
+            <button
+              type="button"
+              className="btn circle-sm"
+              onClick={onClose}
+            >
+              ×
+            </button>
+          </div>
+          <form onSubmit={handleSubmit}>
+            <div className="flex flex-col gap-2 my-1">
 
-        <form onSubmit={handleSubmit}>
-          <div className="modal-body">
-
-            <label className="flex-col">
-              <span className="fw-bold mb-1">Titre</span>
+              <span className="fw-bold">Titre</span>
               <input
-                className="modal-input"
+                className="input-text"
                 type="text"
                 value={title}
                 onChange={e => setTitle(e.target.value)}
                 placeholder="Titre de la vidéo"
                 required
               />
-            </label>
 
-            <label className="flex-col">
-              <span className="fw-bold mb-1">Description</span>
+              <span className="fw-bold">Description</span>
               <textarea
-                className="modal-textarea"
+                className="text-area"
                 value={desc}
                 onChange={e => setDesc(e.target.value)}
                 placeholder="Décris brièvement ta vidéo"
               />
-            </label>
 
-            <label className="flex-col">
-                <span className="fw-bold mb-1">Charger une vidéo</span>
-                <input
-                    type="file"
-                    className="modal-input"
-                    accept="video/*"
-                    disabled
-                    placeholder="Sélection de fichier désactivée (mode statique)"
-                />
-            </label>
-
-            {/* Plus tard : input type="file" si vous avez un backend */}
-          </div>
-
-          <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              onClick={onClose}
-            >
-              Annuler
-            </button>
-            <button type="submit" className="btn">
-              Mettre en ligne
-            </button>
-          </div>
-        </form>
+              <span className="fw-bold">Charger une vidéo</span>
+              <input
+                type="file"
+                className="input-text"
+                accept="video/*"
+                disabled
+                placeholder="Sélection de fichier désactivée (mode statique)"
+              />
+            </div>
+            <div className="flex justify-end mt-2 gap-2">
+              <button
+                type="button"
+                className="btn"
+                onClick={onClose}
+              >
+                Annuler
+              </button>
+              <button type="submit" className="btn">
+                Mettre en ligne
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
