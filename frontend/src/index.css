@@ -246,6 +246,7 @@ a {
 
 /* CARDS */
 
+.card,
 .card-xsm,
 .card-sm,
 .card-md,
@@ -286,6 +287,7 @@ a {
 .text-gray { color: #777; }
 .text-dark { color: #222; }
 .text-blue { color: #00aaff; }
+.text-red { color: #ff2f00; }
 .fw-bold { font-weight: bold; }
 .fs-xsm { font-size: 0.75rem; }
 .fs-sm  { font-size: 0.875rem; }

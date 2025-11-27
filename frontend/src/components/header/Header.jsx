@@ -1,13 +1,26 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import greentubeLogo from '/greentube.svg'
 import { useSearch } from '../../context/SearchContext'
+
+import greentubeLogo from '/greentube.svg'
+
 import UploadVideoModal from '../video/upload/UploadVideoModal'
+import UserDropdown from '../UserDropdown'
 
 function Header() {
+  const { query, setQuery } = useSearch()
 
-  const {query, setQuery} = useSearch()
   const [showUploadModal, setShowUploadModal] = useState(false)
+
+  let loggedUser = localStorage.getItem("user")
+
+  if (typeof loggedUser === "string") {
+    try {
+      loggedUser = JSON.parse(loggedUser);
+    } catch {
+      return null;
+    }
+  }
 
   return (
     <div className="pt-4">
@@ -56,24 +69,20 @@ function Header() {
         </div>
 
         <div className="header-section header-right">
-          <button 
-          className="btn circle-sm"
-          type="button"
-          onClick={() => setShowUploadModal(true)}
-          >
-          +
-          </button>
-          {/* 
-        if login => profil = badge pdp link channel
-        else => login/register btn link form 
-        */}
-          <div>
-            <Link to="/login" className="btn">Connexion</Link>
-          </div>
-
-          {/* <button className="button">Profil</button> */}
-        </div>
-
+          {user ? (
+            <>
+              <button className="btn circle-sm" onClick={() => setShowUploadModal(true)}>
+                +
+              </button>
+              <UserDropdown user={user} />
+            </>
+          ) : (
+            <div>
+              <Link to="/login" className="btn">Connexion</Link>
+            </div>
+          )
+          }
+        </div >
       </header >
       {showUploadModal && (
         <UploadVideoModal onClose={() => setShowUploadModal(false)} />

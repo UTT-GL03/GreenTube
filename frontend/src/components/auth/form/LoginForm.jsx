@@ -1,41 +1,65 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { backApi } from "../../../back_api.js"
 
 function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("")
+  const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Tentative de connexion :", { username, password });
+    setError("")
+    try {
+      const data = await backApi.login(username, password);
+
+      if (data.error) {
+        setError("Erreur login : " + data.error);
+        return;
+      }
+
+      localStorage.setItem("user", JSON.stringify(data.user));
+      navigate("/")
+
+    } catch (err) {
+      setError("Erreur login :", err);
+    }
   };
 
   return (
-      <div className="card-md rounded card-bg-opacity mx-auto my-auto py-3 px-2 text-center z-1000">
-        <h2>Connexion</h2>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-          <input
-            className="input-text"
-            type="text"
-            placeholder="Nom d'utilisateur"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-          <input
-            className="input-text"
-            type="password"
-            placeholder="Mot de passe"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button className="btn" type="submit">Se connecter</button>
-        </form>
-        <p>
-          Pas encore de compte ? <Link to="/register">Inscrivez-vous</Link>
-        </p>
-      </div>
+    <div className="card-md rounded card-bg-opacity mx-auto my-auto py-3 px-2 text-center z-1000">
+      <h2>Connexion</h2>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+        <input
+          className="input-text"
+          type="text"
+          placeholder="Nom d'utilisateur"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+        <input
+          className="input-text"
+          type="password"
+          placeholder="Mot de passe"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+
+        {error && (
+          <div className="text-red fs-sm mt-1">
+            {error}
+          </div>
+        )}
+
+        <button className="btn" type="submit">Se connecter</button>
+      </form>
+      <p>
+        Pas encore de compte ? <Link to="/register">Inscrivez-vous</Link>
+      </p>
+    </div>
   );
 }
 
