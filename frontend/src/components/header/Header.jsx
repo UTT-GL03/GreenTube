@@ -6,7 +6,6 @@ import greentubeLogo from '/greentube.svg'
 
 import UploadVideoModal from '../video/upload/UploadVideoModal'
 import UserDropdown from '../UserDropdown'
-import UploadVideoModal from '../video/upload/UploadVideoModal'
 
 function Header() {
   const { query, setQuery } = useSearch()
