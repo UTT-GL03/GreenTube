@@ -1,16 +1,20 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSearch } from '../../context/SearchContext'
 import greentubeLogo from '/greentube.svg'
 import UserDropdown from '../UserDropdown'
+import UploadVideoModal from '../video/upload/UploadVideoModal'
 
 function Header() {
   const { query, setQuery } = useSearch()
+  
+  const [showUploadModal, setShowUploadModal] = useState(false)
 
-  let user = localStorage.getItem("user")
+  let loggedUser = localStorage.getItem("user")
 
-  if (typeof user === "string") {
+  if (typeof loggedUser === "string") {
     try {
-      user = JSON.parse(user);
+      loggedUser = JSON.parse(loggedUser);
     } catch {
       return null;
     }
@@ -71,7 +75,6 @@ function Header() {
                 type="button"
                 onClick={() => setShowUploadModal(true)}
               >
-
                 +
               </button>
               <UserDropdown user={loggedUser} />
@@ -82,9 +85,6 @@ function Header() {
             </div>
           )
           }
-
-
-          {/* <button className="button">Profil</button> */}
         </div >
 
       </header >
