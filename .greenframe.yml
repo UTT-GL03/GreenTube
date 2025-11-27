@@ -9,4 +9,4 @@ scenarios:
     path: ./scenarios/consult_video.js
 containers:
   - greentube-static_hosting-1
-  - greentube-backend-1
+  - greentube-couchdb-1
