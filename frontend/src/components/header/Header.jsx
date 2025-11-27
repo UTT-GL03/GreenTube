@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSearch } from '../../context/SearchContext'
+
 import greentubeLogo from '/greentube.svg'
+
+import UploadVideoModal from '../video/upload/UploadVideoModal'
 import UserDropdown from '../UserDropdown'
 import UploadVideoModal from '../video/upload/UploadVideoModal'
 
@@ -86,7 +89,6 @@ function Header() {
           )
           }
         </div >
-
       </header >
 
       {showUploadModal && loggedUser && (
