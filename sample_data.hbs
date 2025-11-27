@@ -1,6 +1,7 @@
 {
   "docs": [
 
+    {{!--   VIDEOS   --}}
     {{#repeat 2000}}
     {
       "_id": "v{{@index}}",
@@ -11,8 +12,10 @@
       "desc": "{{lorem min=10 max=40}}",
       "path": "/videoTest.mp4",
       "views": {{int 0 10000}}
-    },
+    }
+    {{#unless @last}},{{/unless}}
     {{/repeat}},
+    {{!--   USERS   --}}
     {{#repeat 800}}
     {
       "_id": "u{{@index}}",
@@ -24,8 +27,10 @@
       "password": "{{lorem 1}}{{int 1000 9999}}",
       "subscribers": {{int 0 5000}},
       "creation_date": "{{date '2014-10-07' '2025-11-07' 'DD/MM/YYYY HH:mm:ss'}}"
-    },
+    }
+    {{#unless @last}},{{/unless}}
     {{/repeat}},
+    {{!--   COMMENTS   --}}
     {{#repeat 7500}}
     {
       "_id": "c{{@index}}",
@@ -34,7 +39,8 @@
       "id_video": "v{{int 0 1999}}",
       "date": "{{date '2024-10-07' '2025-11-07' 'DD/MM/YYYY HH:mm:ss'}}",
       "content": "{{lorem min=5 max=25}}"
-    },
+    }
+    {{#unless @last}},{{/unless}}
     {{/repeat}}
   ]
 }

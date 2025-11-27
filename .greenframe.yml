@@ -8,5 +8,5 @@ scenarios:
   - name: Consulter une video
     path: ./scenarios/consult_video.js
 containers:
-  - greentube-static_hosting-1
+  - greentube-frontend-1
   - greentube-couchdb-1

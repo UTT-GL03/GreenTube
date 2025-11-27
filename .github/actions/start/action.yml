@@ -23,10 +23,10 @@ runs:
       uses: actions/download-artifact@v4
       with:
         name: samples
-    - name: Upload samples
-      run: |
-        curl -X POST http://localhost:5984/greentube/_bulk_docs -H "Content-Type: application/json" -d @sample_data.json
-      shell: bash
+    # - name: Upload samples
+    #   run: |
+    #     curl -X POST http://localhost:5984/greentube/_bulk_docs -H "Content-Type: application/json" -d @sample_data.json
+    #   shell: bash
     - name: Wait for couchdb
       uses: docker://benel/wait-for-response:1
       with:
