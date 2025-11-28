@@ -14,13 +14,6 @@ runs:
       with:
         name: samples
         path: frontend/public/data
-
-    - name: Debug workspace
-      run: |
-        echo "=== Workspace tree ==="
-        find . -maxdepth 4 -type f | sort
-      shell: bash
-
     - name: Start containers
       run: |
         export COUCHDB_USER="thbc"
@@ -35,16 +28,3 @@ runs:
       uses: docker://benel/wait-for-response:1
       with:
         args: http://localhost:5984/greentube/_all_docs?limit=10 200 30000 500
-    
-    - name: Debug container mounts
-      run: |
-        echo "=== List setup_couchdb mounts ==="
-        docker inspect greentube-setup_couchdb-1 --format='{{json .Mounts}}' | jq .
-      shell: bash
-
-
-    - name: Logs from setup_couchdb
-      run: |
-        docker logs greentube-setup_couchdb-1 || true
-      shell: bash
-
