@@ -13,6 +13,12 @@ runs:
       uses: actions/download-artifact@v4
       with:
         name: samples
+
+    - name: Debug workspace
+      run: |
+        echo "=== Workspace tree ==="
+        find . -maxdepth 4 -type f | sort
+
     - name: Start containers
       run: |
         export COUCHDB_USER="thbc"
@@ -23,11 +29,17 @@ runs:
       uses: docker://benel/wait-for-response:1
       with:
         args: http://localhost/ 200 30000 500
-    # - name: Upload samples
-    #   run: |
-    #     curl -X POST http://localhost:5984/greentube/_bulk_docs -H "Content-Type: application/json" -d @sample_data.json
-    #   shell: bash
     - name: Wait for couchdb
       uses: docker://benel/wait-for-response:1
       with:
         args: http://localhost:5984/greentube/_all_docs?limit=10 200 30000 500
+    
+    - name: Debug container mounts
+      run: |
+        echo "=== List setup_couchdb mounts ==="
+        docker inspect greentube-setup_couchdb-1 --format='{{json .Mounts}}' | jq .
+
+    - name: Logs from setup_couchdb
+      run: |
+        docker logs greentube-setup_couchdb-1 || true
+
