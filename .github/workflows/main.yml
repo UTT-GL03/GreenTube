@@ -30,12 +30,15 @@ jobs:
           path: frontend/dist
 
   build_samples:
+    needs: 
+      - build
     runs-on: ubuntu-latest
     steps:
       - name: Download sources
         uses: actions/checkout@v5
       - name: Generate sample
         run: |
+          mkdir -p frontend/public/data
           npx --yes dummy-json sample_data.hbs > frontend/public/data/sample_data.json
       - name: Save samples for later
         uses: actions/upload-artifact@v4
