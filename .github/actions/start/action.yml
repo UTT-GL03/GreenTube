@@ -18,6 +18,7 @@ runs:
       run: |
         echo "=== Workspace tree ==="
         find . -maxdepth 4 -type f | sort
+      shell: bash
 
     - name: Start containers
       run: |
@@ -38,8 +39,11 @@ runs:
       run: |
         echo "=== List setup_couchdb mounts ==="
         docker inspect greentube-setup_couchdb-1 --format='{{json .Mounts}}' | jq .
+      shell: bash
+
 
     - name: Logs from setup_couchdb
       run: |
         docker logs greentube-setup_couchdb-1 || true
+      shell: bash
 
