@@ -9,6 +9,10 @@ runs:
       with:
         name: frontend-build
         path: frontend/dist
+    - name: Get samples
+      uses: actions/download-artifact@v4
+      with:
+        name: samples
     - name: Start containers
       run: |
         export COUCHDB_USER="thbc"
@@ -19,10 +23,6 @@ runs:
       uses: docker://benel/wait-for-response:1
       with:
         args: http://localhost/ 200 30000 500
-    - name: Get samples
-      uses: actions/download-artifact@v4
-      with:
-        name: samples
     # - name: Upload samples
     #   run: |
     #     curl -X POST http://localhost:5984/greentube/_bulk_docs -H "Content-Type: application/json" -d @sample_data.json
