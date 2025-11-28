@@ -36,12 +36,12 @@ jobs:
         uses: actions/checkout@v5
       - name: Generate sample
         run: |
-          npx --yes dummy-json sample_data.hbs > sample_data.json
+          npx --yes dummy-json sample_data.hbs > frontend/public/data/sample_data.json
       - name: Save samples for later
         uses: actions/upload-artifact@v4
         with:
           name: samples
-          path: sample_data.json
+          path: frontend/public/data/sample_data.json
 
   measure_ecoindex:
     needs: 
