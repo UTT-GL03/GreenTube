@@ -42,8 +42,18 @@ export default function (db) {
         }
     })
 
-    router.post("/signUp", (req, res) => {
-
+    router.post("/register", async (req, res) => {
+        const email = req.body.email;
+        const username = req.body.username;
+        const password = req.body.password;
+        const date = Date.now()
+        try {
+            //TODO
+        } catch (err) {
+            console.error("Register error:", err);
+            res.status(500).json({ error: "Internal server error" });
+        }
     })
+    
     return router;
 }
