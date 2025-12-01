@@ -9,6 +9,7 @@
     "dev": "nodemon src/server.js --legacy-watch"
   },
   "dependencies": {
+    "dayjs": "^1.11.19",
     "express": "^5.1.0"
   },
   "devDependencies": {

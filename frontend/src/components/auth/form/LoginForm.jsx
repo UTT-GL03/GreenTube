@@ -23,7 +23,7 @@ function LoginForm() {
       navigate("/")
 
     } catch (err) {
-      setError("Erreur login :", err);
+      setError("Erreur login : " + err);
     }
   };
 

@@ -12,6 +12,7 @@ cd ../backend/
 npm install 
 
 echo "Lancement des containers Docker..."
+docker compose down
 export COUCHDB_USER="tbhc"
 export COUCHDB_PASSWORD="tbhc"
 docker compose up -d

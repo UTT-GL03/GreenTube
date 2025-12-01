@@ -1,6 +1,5 @@
 {
   "docs": [
-
     {{!--   VIDEOS   --}}
     {{#repeat 2000}}
     {
@@ -41,6 +40,14 @@
       "content": "{{lorem min=5 max=25}}"
     }
     {{#unless @last}},{{/unless}}
-    {{/repeat}}
+    {{/repeat}},
+    {{!--   ID_COUNTER   --}}
+    {
+      "_id": "counter",
+      "type": "counter",
+      "user_counter": 799,
+      "video_counter": 1999,
+      "comments_counter": 7499 
+    }
   ]
 }

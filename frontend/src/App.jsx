@@ -11,7 +11,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="/:query?" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/video/:id" element={<Video />} />
           <Route path="/channel/:channelId" element={<Channel />} />
         </Route>

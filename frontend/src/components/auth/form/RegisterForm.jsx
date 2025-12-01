@@ -1,82 +1,110 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { backApi } from "../../../back_api";
 
 function RegisterForm() {
+  const [error, setError] = useState("")
   const [formData, setFormData] = useState({
     email: "",
-    phone: "",
     username: "",
     password: "",
     confirmPassword: "",
   });
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("")
     if (formData.password !== formData.confirmPassword) {
-      alert("Les mots de passe ne correspondent pas !");
+      setError("Erreur inscription : Les mots de passe ne correspondent pas !");
       return;
     }
-    console.log("Nouvel utilisateur :", formData);
+    try {
+
+      const data = await backApi.register(
+        formData.username,
+        formData.email,
+        formData.password
+      );
+
+      if (data.error) {
+        setError("Erreur inscription : " + data.error);
+        return;
+      }
+
+      localStorage.setItem("user", JSON.stringify(data.user));
+      navigate("/")
+
+    } catch (err) {
+      setError("Erreur inscription : " + err);
+    }
   };
 
   return (
-      <div className="card-md rounded card-bg-opacity mx-auto my-auto py-3 px-2 text-center z-1000">
-        <h2>Inscription</h2>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-          <input
-            className="input-text"
-            type="email"
-            name="email"
-            placeholder="Adresse e-mail"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-          <input
+    <div className="card-md rounded card-bg-opacity mx-auto my-auto py-3 px-2 text-center z-1000">
+      <h2>Inscription</h2>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+        <input
+          className="input-text"
+          type="email"
+          name="email"
+          placeholder="Adresse e-mail"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+        {/* <input
             className="input-text"
             type="tel"
             name="phone"
             placeholder="Numéro de téléphone"
             value={formData.phone}
             onChange={handleChange}
-          />
-          <input
-            className="input-text"
-            type="text"
-            name="username"
-            placeholder="Pseudo"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-          <input
-            className="input-text"
-            type="password"
-            name="password"
-            placeholder="Mot de passe"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-          <input
-            className="input-text"
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirmez le mot de passe"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
-          <button className="btn" type="submit">Créer un compte</button>
-        </form>
-        <p>
-          Déjà inscrit ? <Link to="/login">Connectez-vous</Link>
-        </p>
-      </div>
+          /> */}
+        <input
+          className="input-text"
+          type="text"
+          name="username"
+          placeholder="Pseudo"
+          value={formData.username}
+          onChange={handleChange}
+          required
+        />
+        <input
+          className="input-text"
+          type="password"
+          name="password"
+          placeholder="Mot de passe"
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
+        <input
+          className="input-text"
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirmez le mot de passe"
+          value={formData.confirmPassword}
+          onChange={handleChange}
+          required
+        />
+
+        {error && (
+          <div className="text-red fs-sm mt-1">
+            {error}
+          </div>
+        )}
+
+        <button className="btn" type="submit">Créer un compte</button>
+      </form>
+      <p>
+        Déjà inscrit ? <Link to="/login">Connectez-vous</Link>
+      </p>
+    </div>
   );
 }
 
