@@ -4,6 +4,7 @@ import { backApi } from "../../../api/backApi";
 
 function RegisterForm() {
   const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     email: "",
     username: "",
@@ -17,6 +18,7 @@ function RegisterForm() {
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();
     setError("")
     if (formData.password !== formData.confirmPassword) {
@@ -38,9 +40,12 @@ function RegisterForm() {
 
       localStorage.setItem("user", JSON.stringify(data.user));
       navigate("/")
-
-    } catch (err) {
+    } 
+    catch (err) {
       setError("Erreur inscription : " + err);
+    }
+    finally{
+      setLoading(false)
     }
   };
 
@@ -57,14 +62,6 @@ function RegisterForm() {
           onChange={handleChange}
           required
         />
-        {/* <input
-            className="input-text"
-            type="tel"
-            name="phone"
-            placeholder="Numéro de téléphone"
-            value={formData.phone}
-            onChange={handleChange}
-          /> */}
         <input
           className="input-text"
           type="text"
@@ -99,7 +96,9 @@ function RegisterForm() {
           </div>
         )}
 
-        <button className="btn" type="submit">Créer un compte</button>
+        <button className="btn" type="submit">
+          {loading ? "Chargement..." : "Créer un compte"}
+        </button>
       </form>
       <p>
         Déjà inscrit ? <Link to="/login">Connectez-vous</Link>

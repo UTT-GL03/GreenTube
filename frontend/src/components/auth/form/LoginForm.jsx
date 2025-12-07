@@ -5,9 +5,11 @@ function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();
     setError("")
     try {
@@ -20,9 +22,12 @@ function LoginForm() {
 
       localStorage.setItem("user", JSON.stringify(data.user));
       navigate("/")
-
-    } catch (err) {
+    }
+    catch (err) {
       setError("Erreur login : " + err);
+    }
+    finally {
+      setLoading(false)
     }
   };
 
@@ -53,7 +58,9 @@ function LoginForm() {
           </div>
         )}
 
-        <button className="btn" type="submit">Se connecter</button>
+        <button className="btn" type="submit">
+          {loading ? "Chargement..." : "Se connecter"}
+          </button>
       </form>
       <p>
         Pas encore de compte ? <Link to="/register">Inscrivez-vous</Link>
