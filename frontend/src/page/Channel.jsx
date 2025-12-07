@@ -27,6 +27,7 @@ function Channel() {
     const loadAll = async (reset = false) => {
         setLoading(true)
 
+        const isApiFirstLoad = user === null || user.id_user !== id;
         const offset = reset ? 0 : videos.length
         const limit = 6
 
@@ -36,7 +37,7 @@ function Channel() {
             order,
             offset,
             limit,
-            firstLoad: user === null
+            firstLoad: isApiFirstLoad
         };
 
         try {
@@ -46,7 +47,7 @@ function Channel() {
                 reset ? data.videos : [...prev, ...data.videos]
             );
             setHasMore(data.length === limit)
-            if (user === null) {
+            if (isApiFirstLoad) {
                 setUser(data.user || null)
             }
         } catch (err) {
