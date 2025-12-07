@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom'
 
-import { useData } from '../../../context/DataContext'
-
 import minia from "/miniaGT.png"
 
 import dayjs from 'dayjs'
@@ -14,27 +12,30 @@ dayjs.extend(customParseFormat)
 dayjs.locale('fr')
 
 function VideoCard({ video }) {
-  const { users } = useData()
-  const userPseudo = users.find(u => u._id === video.id_user)?.pseudo ?? ""
-
   return (
     <div className="card-sm flex flex-col" data-ecoid="video-card">
 
       <div className="flex-content">
         <Link to={`/video/${video._id}`}>
+        <div className="relative">
           <img
             className="fit-cover rounded w-full h-auto mb-1"
             src={minia}
-            alt={video.title} />
-          <h4 className="truncate my-1">{video.title}</h4>
+            alt={video.name} />
+          <span
+            className="absolute bottom-15 right-5 bg-black opacity-7 text-white text-xs px-2 py-1 rounded">
+            {video.views} vues
+          </span>
+        </div>
+          <h4 className="truncate my-1">{video.name}</h4>
         </Link>
       </div>
 
       <div className="flex justify-between mt-1">
         <Link to={`/channel/${video.id_user}`}>
-          <span className="fs-sm">{userPseudo}</span>
+          <span className="fs-sm">{video?.user_name ?? ""}</span>
         </Link>
-        <span className="fs-sm text-gray">{dayjs(video.date, "DD/MM/YYYY HH:mm:ss").fromNow()}</span>
+        <span className="fs-sm text-gray">{dayjs(video.date, "YYYY-MM-DD HH:mm:ss").fromNow()}</span>
       </div>
 
     </div>

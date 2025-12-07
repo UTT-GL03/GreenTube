@@ -11,10 +11,11 @@ echo "Installation des dépendances backend..."
 cd ../backend/
 npm install 
 
-echo "Lancement des containers Docker..."
-docker compose down
 export COUCHDB_USER="tbhc"
 export COUCHDB_PASSWORD="tbhc"
+
+echo "Lancement des containers Docker..."
+docker compose down
 docker compose up -d
 
 echo "Projet local initialisé avec succès !"

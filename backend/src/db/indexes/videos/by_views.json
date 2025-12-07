@@ -1,0 +1,8 @@
+{
+  "index": {
+    "fields": ["type", "views"]
+  },
+  "name": "video_type_views_index",
+  "type": "json"
+}
+

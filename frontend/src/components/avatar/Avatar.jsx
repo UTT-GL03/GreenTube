@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 
+// TODO : Pas super joli, faire plus propre
 const sizeMap = {
     xl: "circle-xl",
     lg: "circle-lg",
@@ -7,16 +8,14 @@ const sizeMap = {
     sm: "circle-sm",
     xsm: "circle-xsm"
 }
-
-export function Avatar({ user, size = "sm", link = true }) {
+// TODO : user => id_user, avatar_path
+export function Avatar({ idUser, avatarPath, size = "sm"}) {
     
-    if (!user) return null;
-
     const sizeClass = sizeMap[size] || sizeMap.sm
 
     const img = (
         <img
-            src={user?.avatar || "/default-avatar.png"}
+            src={avatarPath || "/default-avatar.png"}
             data-ecoid="channel-avatar"
             className={`${sizeClass} border`}
             onError={(e) => {
@@ -28,10 +27,10 @@ export function Avatar({ user, size = "sm", link = true }) {
         />
     );
 
-    if (!link) return img;
+    if (!idUser) return img;
 
     return (
-        <Link to={`/channel/${user._id}`}>
+        <Link to={`/channel/${idUser}`}>
             {img}
         </Link>
     );

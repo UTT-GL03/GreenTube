@@ -39,9 +39,11 @@ a {
 .absolute-fill { position: absolute; inset: 0; }
 .top-0 { top: 0; }
 .top-1\/2 { top: 50%; }
+.bottom-15 { bottom: 15; }
 .left-0 { left: 0; }
 .left-1\/2 { left: 50%; }
 .right-0 { right: 0; }
+.right-5 { right: 5; }
 .inset-0 { inset: 0 }
 .z-1000 { z-index: 1000; }
 .z-2000 { z-index: 2000; }
@@ -151,6 +153,7 @@ a {
 .w-700  { width: 700px; }
 .w-800  { width: 800px; }
 .w-900  { width: 900px; }
+.w-1000  { width: 1000px; }
 
 .max-w-100 { max-width: 100px; }
 .max-w-200 { max-width: 200px; }

@@ -1,0 +1,8 @@
+{
+  "index": {
+    "fields": ["type", "date"]
+  },
+  "name": "comment_type_date_index",
+  "type": "json"
+}
+

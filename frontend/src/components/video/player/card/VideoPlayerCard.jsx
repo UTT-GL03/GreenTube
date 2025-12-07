@@ -13,44 +13,50 @@ dayjs.extend(relativeTime)
 dayjs.extend(customParseFormat)
 dayjs.locale('fr')
 
-export function VideoPlayerCard({ video, user }) {
+export function VideoPlayerCard({ video }) {
+  // HOOKs
   const [showFullDesc, setShowFullDesc] = useState(false)
 
+  // VARs
   const shortDescSize = 150;
 
-  const shortDesc =
-    video.desc?.length > shortDescSize
+  const shortDesc = video?.desc ? (
+    video.desc.length > shortDescSize
       ? video.desc.slice(0, shortDescSize) + "..."
       : video.desc
+  ) : (
+    ""
+  );
 
+  //
   return (
     <div className="card-xl">
       <div className="center mt-2">
-        <VideoPlayer src={"/videoTest.mp4"} title={video.title} />
+        <VideoPlayer src={"/videoTest.mp4"} name={video?.name} />
       </div>
 
       <div className="my-2" data-ecoid="video-desc">
         <div className="flex flex-col gap-2">
-          <h2 className="fs-lg fw-bold">{video.title}</h2>
+          <h2 className="fs-lg fw-bold">{video?.name}</h2>
 
           <div className="flex align-center gap-2">
-            <Avatar user={user !== null ? user : null} />
-            <Link to={`/channel/${video.id_user}`} className="fw-bold my-auto">
-              {user.pseudo}
+            <Avatar idUser={video?.id_user} avatarPath={video?.avatar_path} />
+            <Link to={`/channel/${video?.id_user}`} className="fw-bold my-auto">
+              {video?.user_name ?? ""}
             </Link>
           </div>
 
           <div className="flex gap-3 opacity-7 fs-sm">
-            <span>{video.views} vues</span>
-            <span>{dayjs(video.date, "DD/MM/YYYY HH:mm:ss").fromNow()}</span>
+            <span>{video?.views} vues</span>
+            <span>{dayjs(video?.date, "YYYY-MM-DD HH:mm:ss").fromNow()}</span>
           </div>
         </div>
 
         <div className="flex flex-col gap-2 mt-1">
           <p>
-            {showFullDesc ? video.desc : shortDesc}
+            {showFullDesc ? video?.desc : shortDesc}
 
-            {video.desc?.length > shortDescSize && (
+            {video?.desc?.length > shortDescSize && (
               <button
                 data-greenframeid="see-more-desc"
                 className="bg-none border-0 cursor-pointer fs-sm text-blue hover-underline me-1"

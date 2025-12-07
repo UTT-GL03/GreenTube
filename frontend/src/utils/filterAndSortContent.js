@@ -9,8 +9,8 @@ export function filterAndSort(items, query, mode, sortKey, order = "asc") {
     // Filtrage en fonction de la query
     if (query && query !== "") {
         filtered = filtered.filter((item) => {
-            if (mode === "video") return item.title.toLowerCase().includes(query) || item.desc.toLowerCase().includes(query)
-            if (mode === "channel") return item.pseudo.toLowerCase().includes(query) || item.desc.toLowerCase().includes(query)
+            if (mode === "video") return item.name.toLowerCase().includes(query) || item.desc.toLowerCase().includes(query)
+            if (mode === "channel") return item.name.toLowerCase().includes(query) || item.desc.toLowerCase().includes(query)
             return false
         })
     }
@@ -21,25 +21,25 @@ export function filterAndSort(items, query, mode, sortKey, order = "asc") {
 
     switch (mode) {
         case "video":
-            if (sortKey === "title") {
-                sorted.sort((a, b) => multiplier * a.title.localeCompare(b.title))
+            if (sortKey === "name") {
+                sorted.sort((a, b) => multiplier * a.name.localeCompare(b.name))
             }
             if (sortKey === "date") {
                 sorted.sort((a, b) => {
-                    const dateA = dayjs(a.date, "DD/MM/YYYY HH:mm:ss")
-                    const dateB = dayjs(b.date, "DD/MM/YYYY HH:mm:ss")
+                    const dateA = dayjs(a.date, "YYYY-MM-DD HH:mm:ss")
+                    const dateB = dayjs(b.date, "YYYY-MM-DD HH:mm:ss")
                     return multiplier * (dateB.valueOf() - dateA.valueOf())
                 })
             }
 
             break
         case "channel":
-            if (sortKey === "name") sorted.sort((a, b) => multiplier * a.pseudo.localeCompare(b.pseudo))
+            if (sortKey === "name") sorted.sort((a, b) => multiplier * a.name.localeCompare(b.name))
             if (sortKey === "subscribers") sorted.sort((a, b) =>  multiplier * (b.subscribers - a.subscribers))
             if (sortKey === "date") {
                 sorted.sort((a, b) => {
-                    const dateA = dayjs(a.creation_date, "DD/MM/YYYY HH:mm:ss")
-                    const dateB = dayjs(b.creation_date, "DD/MM/YYYY HH:mm:ss")
+                    const dateA = dayjs(a.date, "YYYY-MM-DD HH:mm:ss")
+                    const dateB = dayjs(b.date, "YYYY-MM-DD HH:mm:ss")
                     return multiplier * (dateB.valueOf() - dateA.valueOf())
                 })
             }

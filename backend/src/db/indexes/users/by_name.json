@@ -1,0 +1,7 @@
+{
+  "index": {
+    "fields": ["type", "name"]
+  },
+  "name": "user_type_name_index",
+  "type": "json"
+}

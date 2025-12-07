@@ -13,7 +13,7 @@ export default function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/video/:id" element={<Video />} />
-          <Route path="/channel/:channelId" element={<Channel />} />
+          <Route path="/channel/:id" element={<Channel />} />
         </Route>
 
         <Route path="/login" element={<Auth mode="login" />} />

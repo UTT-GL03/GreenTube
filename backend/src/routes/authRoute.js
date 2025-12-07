@@ -23,7 +23,7 @@ export default function (db) {
                     type: "user",
                     password: password,
                     $or: [
-                        { pseudo: username },
+                        { name: username },
                         { email: username }
                     ]
                 },
@@ -40,7 +40,7 @@ export default function (db) {
                 message: "Connexion réussie !",
                 user: {
                     _id: user._id,
-                    pseudo: user.pseudo,
+                    name: user.name,
                     email: user.email,
                     avatar: user.avatar
                 }
@@ -60,7 +60,7 @@ export default function (db) {
                 selector: {
                     type: "user",
                     $or: [
-                        { pseudo: username },
+                        { name: username },
                         { email: email }
                     ]
                 },
@@ -69,16 +69,16 @@ export default function (db) {
 
             if (existed.docs.length > 0) {
                 const user = existed.docs[0];
-                if (user.pseudo === username && user.email === email) {
-                    return res.status(409).json({ error: "Pseudo et email déjà utilisés." });
-                } else if (user.pseudo === username) {
-                    return res.status(409).json({ error: "Pseudo déjà utilisé." });
+                if (user.name === username && user.email === email) {
+                    return res.status(409).json({ error: "Nom et email déjà utilisés." });
+                } else if (user.name === username) {
+                    return res.status(409).json({ error: "Nom déjà utilisé." });
                 } else if (user.email === email) {
                     return res.status(409).json({ error: "Email déjà utilisé." });
                 }
             }
 
-            const now = dayjs().tz("Europe/Paris").format("DD/MM/YYYY HH:mm:ss");
+            const now = dayjs().tz("Europe/Paris").format("YYYY-MM-DD HH:mm:ss");
             const counter = await db.get("counter");
             counter.user_counter += 1;
             const userId = `u${counter.user_counter}`;
@@ -86,13 +86,13 @@ export default function (db) {
             const user = {
                 _id: userId,
                 type: "user",
-                pseudo: username,
+                name: username,
                 avatar: DEFAUT_AVATAR,
                 desc: "",
                 email: email,
                 password: password,
                 subscribers: 0,
-                creation_date: now
+                date: now
             }
 
             await db.insert(user)
@@ -102,7 +102,7 @@ export default function (db) {
                 message: "Inscription réussie !",
                 user: {
                     _id: user._id,
-                    pseudo: user.pseudo,
+                    name: user.name,
                     email: user.email,
                     avatar: user.avatar
                 }

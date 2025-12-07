@@ -33,8 +33,9 @@ export function SortButtons({ sortKey, setSortKey, type, order, setOrder }) {
         <div>
             {type === "video" ? (
                 <>
-                    {renderSortButton("title", "Par titre")}
                     {renderSortButton("date", "Par date")}
+                    {renderSortButton("name", "Par titre")}
+                    {renderSortButton("views", "Par vues")}
                 </>
             ) : (
                 <>

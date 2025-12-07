@@ -1,19 +1,10 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Comment from "../Comment"
-import { useData } from "../../../context/DataContext"
 
-export function CommentsSection({ currentVideo }) {
-  const { users, comments } = useData()
-  
+export function CommentsSection({ comments }) { 
   const [input, setInput] = useState('')
-  const [videoComments, setRelatedComments] = useState(() =>
-    comments.filter(c => c.id_video === currentVideo._id)
-  )
 
-  useEffect(() => {
-    setRelatedComments(comments.filter(c => c.id_video === currentVideo._id));
-  }, [comments, currentVideo]);
-
+  // TODO : AuthContext
   let loggedUser = localStorage.getItem("user")
 
   if (typeof loggedUser === "string") {
@@ -24,21 +15,21 @@ export function CommentsSection({ currentVideo }) {
     }
   }
 
-  const addComment = (currentUserId, currentVideoId) => {
-    if (!input.trim()) return
+  // const addComment = (currentUserId, currentVideoId) => {
+  //   if (!input.trim()) return
 
-    const newComment = {
-      _id: `c${Date.now()}`,
-      type: "comment",
-      id_user: currentUserId,
-      id_video: currentVideoId,
-      date: new Date().toLocaleString(),
-      content: input
-    }
+  //   const newComment = {
+  //     _id: `c${Date.now()}`,
+  //     type: "comment",
+  //     id_user: currentUserId,
+  //     id_video: currentVideoId,
+  //     date: new Date().toLocaleString(),
+  //     content: input
+  //   }
 
-    setRelatedComments(prev => [newComment, ...prev])
-    setInput('')
-  }
+  //   setComments(prev => [newComment, ...prev])
+  //   setInput('')
+  // }
 
   return (
     <div className="max-w-900 mx-1">
@@ -52,14 +43,14 @@ export function CommentsSection({ currentVideo }) {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             // TODO : modifie addComment user id
-            onKeyDown={(e) => e.key === 'Enter' && addComment(loggedUser._id, currentVideo._id)}
+            //onKeyDown={(e) => e.key === 'Enter' && addComment(loggedUser._id, "1")}
             placeholder="Ajouter un commentaire..."
           />
 
           <button
             className="btn"
             // TODO : modifie addComment user id
-            onClick={() => addComment(loggedUser._id, currentVideo._id)}
+            //onClick={() => addComment(loggedUser._id, "1")}
           >
             Publier
           </button>
@@ -70,10 +61,9 @@ export function CommentsSection({ currentVideo }) {
 
       <div className="overflow-y-sm w-full">
         <ul>
-          {videoComments.map((c) => {
-            let cUser = users.find(u => u._id === c.id_user)
+          {comments.map((c) => {
             return (
-              <Comment user={cUser} comment={c} />
+              <Comment comment={c} />
             )
           })}
         </ul>

@@ -8,8 +8,9 @@ import UploadVideoModal from '../video/upload/UploadVideoModal'
 import UserDropdown from '../UserDropdown'
 
 function Header() {
-  const { query, setQuery } = useSearch()
-  
+  const { setQuery } = useSearch()
+  const [inputValue, setInputValue] = useState("");
+
   const [showUploadModal, setShowUploadModal] = useState(false)
 
   let loggedUser = localStorage.getItem("user")
@@ -41,17 +42,14 @@ function Header() {
               type="text"
               placeholder="Rechercher"
               className="search-input"
-              value={query}
-              onChange={e => setQuery(e.target.value)}
+              value={inputValue}
+              onChange={e => setInputValue(e.target.value)}
               onKeyDown={e => e.key === "Enter" && setQuery(e.target.value)}
             />
             <button
               className="search-button"
               type="button"
-              onClick={() => {
-                const inputValue = document.getElementById("search-input").value
-                setQuery(inputValue)
-              }}>
+              onClick={() => setQuery(inputValue.trim())}>
               <svg
                 className="search-icon"
                 xmlns="http://www.w3.org/2000/svg"

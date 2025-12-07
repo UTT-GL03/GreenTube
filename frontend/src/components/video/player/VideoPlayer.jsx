@@ -1,4 +1,4 @@
-function VideoPlayer({ src }) {
+function VideoPlayer({ src,  }) {
   return (
     <video
       className="rounded"
@@ -9,6 +9,5 @@ function VideoPlayer({ src }) {
     />
   )
 }
-
 
 export default VideoPlayer

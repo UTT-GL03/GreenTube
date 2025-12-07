@@ -37,6 +37,23 @@ services:
       couchdb:
         condition: service_healthy
 
+  index:
+    image: curlimages/curl
+    entrypoint: ["/bin/sh","-c"]
+    volumes:
+      - ./backend/src/db/indexes/:/indexes
+    command:
+      - |
+        curl -X POST http://couchdb:5984/greentube/_index -H "Content-Type: application/json" -d @/indexes/videos/by_name.json -u '${COUCHDB_USER}:${COUCHDB_PASSWORD}'
+        curl -X POST http://couchdb:5984/greentube/_index -H "Content-Type: application/json" -d @/indexes/videos/by_date.json -u '${COUCHDB_USER}:${COUCHDB_PASSWORD}'
+        curl -X POST http://couchdb:5984/greentube/_index -H "Content-Type: application/json" -d @/indexes/videos/by_views.json -u '${COUCHDB_USER}:${COUCHDB_PASSWORD}'
+        curl -X POST http://couchdb:5984/greentube/_index -H "Content-Type: application/json" -d @/indexes/users/by_date.json -u '${COUCHDB_USER}:${COUCHDB_PASSWORD}'
+        curl -X POST http://couchdb:5984/greentube/_index -H "Content-Type: application/json" -d @/indexes/users/by_name.json -u '${COUCHDB_USER}:${COUCHDB_PASSWORD}'
+        curl -X POST http://couchdb:5984/greentube/_index -H "Content-Type: application/json" -d @/indexes/users/by_subs.json -u '${COUCHDB_USER}:${COUCHDB_PASSWORD}'
+    depends_on:
+      setup_couchdb:
+        condition: service_completed_successfully
+
   backend:
     image: node:20
     working_dir: /app

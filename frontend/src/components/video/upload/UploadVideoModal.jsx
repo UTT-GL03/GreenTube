@@ -1,14 +1,14 @@
 import { useState } from 'react'
 
 function UploadVideoModal({ onClose, user: loggedUser }) {
-  const [title, setTitle] = useState('')
+  const [name, setName] = useState('')
   const [desc, setDesc] = useState('')
   const channelId = loggedUser._id
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('Fake upload:', {
-      title,
+      name,
       desc,
       channelId
     })
@@ -38,8 +38,8 @@ function UploadVideoModal({ onClose, user: loggedUser }) {
               <input
                 className="input-text"
                 type="text"
-                value={title}
-                onChange={e => setTitle(e.target.value)}
+                value={name}
+                onChange={e => setName(e.target.value)}
                 placeholder="Titre de la vidéo"
                 required
               />

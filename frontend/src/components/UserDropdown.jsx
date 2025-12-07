@@ -24,8 +24,8 @@ export function UserDropdown({ user }) {
                 className="card flex items-center border-0 p-1 cursor-pointer select-none"
                 onClick={() => setOpen((o) => !o)}
             >
-                <span className="me-1">{user.pseudo}</span>
-                <Avatar user={user} link={false} />
+                <span className="me-1">{user.name}</span>
+                <Avatar avatarPath={user.avatar} />
             </button>
 
             {open && (

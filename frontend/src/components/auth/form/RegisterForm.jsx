@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { backApi } from "../../../back_api";
+import { backApi } from "../../../api/backApi";
 
 function RegisterForm() {
   const [error, setError] = useState("")
@@ -69,7 +69,7 @@ function RegisterForm() {
           className="input-text"
           type="text"
           name="username"
-          placeholder="Pseudo"
+          placeholder="name"
           value={formData.username}
           onChange={handleChange}
           required

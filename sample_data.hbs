@@ -6,8 +6,8 @@
       "_id": "v{{@index}}",
       "type": "video",
       "id_user": "u{{int 0 799}}",
-      "date": "{{date '2024-10-07' '2025-11-07' 'DD/MM/YYYY HH:mm:ss'}}",
-      "title": "{{lorem min=3 max=8}}",
+      "date": "{{date '2024-10-07' '2025-11-07' 'YYYY-MM-DD HH:mm:ss'}}",
+      "name": "{{lorem min=3 max=8}}",
       "desc": "{{lorem min=10 max=40}}",
       "path": "/videoTest.mp4",
       "views": {{int 0 10000}}
@@ -19,13 +19,13 @@
     {
       "_id": "u{{@index}}",
       "type": "user",
-      "pseudo": "{{firstName}} {{lastName}}",
+      "name": "{{firstName}} {{lastName}}",
       "avatar": "{{#if (int 0 1)}}/avatars/avatar{{int 1 10}}.jpg{{else}}/default.png{{/if}}",
       "desc": "{{lorem min=10 max=30}}",
       "email": "{{email}}",
       "password": "{{lorem 1}}{{int 1000 9999}}",
       "subscribers": {{int 0 5000}},
-      "creation_date": "{{date '2014-10-07' '2025-11-07' 'DD/MM/YYYY HH:mm:ss'}}"
+      "date": "{{date '2014-10-07' '2025-11-07' 'YYYY-MM-DD HH:mm:ss'}}"
     }
     {{#unless @last}},{{/unless}}
     {{/repeat}},
@@ -36,7 +36,7 @@
       "type": "comment",
       "id_user": "u{{int 0 799}}",
       "id_video": "v{{int 0 1999}}",
-      "date": "{{date '2024-10-07' '2025-11-07' 'DD/MM/YYYY HH:mm:ss'}}",
+      "date": "{{date '2024-10-07' '2025-11-07' 'YYYY-MM-DD HH:mm:ss'}}",
       "content": "{{lorem min=5 max=25}}"
     }
     {{#unless @last}},{{/unless}}

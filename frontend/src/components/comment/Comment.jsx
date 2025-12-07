@@ -12,7 +12,7 @@ dayjs.extend(relativeTime)
 dayjs.extend(customParseFormat)
 dayjs.locale('fr')
 
-function Comment({ user, comment }) {
+function Comment({ comment }) {
     const [showFullCom, setShowFullCom] = useState(false)
 
     const shortComSize = 250;
@@ -25,15 +25,15 @@ function Comment({ user, comment }) {
     return (
         <div className="flex my-1 max-w-800">
             <div className="me-2">
-                <Avatar user={user} />
+                <Avatar idUser={comment.id_user} avatarPath={comment.user_avatar} />
             </div>
 
             <div className="w-full">
                 <div className="flex justify-between my-1">
-                    <Link to={`/channel/${user.id_user}`}>
-                        <span className="fw-bold">{user.pseudo}</span>
+                    <Link to={`/channel/${comment.id_user}`}>
+                        <span className="fw-bold">{comment.user_name}</span>
                     </Link>
-                    <span className="fs-xsm text-gray">{dayjs(comment.date, "DD/MM/YYYY HH:mm:ss").fromNow()}</span>
+                    <span className="fs-xsm text-gray">{dayjs(comment.date, "YYYY-MM-DD HH:mm:ss").fromNow()}</span>
                 </div>
 
                 <p className="fs-sm word-break">

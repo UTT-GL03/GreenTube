@@ -15,14 +15,14 @@ function ChannelCard({ channel }) {
     <div className="card-sm flex flex-col text-center" data-ecoid='channel-card'>
 
       <div className="flex-content">
-        <Avatar user={channel} size="lg" />
+        <Avatar idUser={channel._id} avatarPath={channel.avatar} size="lg" />
         <Link to={`/channel/${channel._id}`}>
-          <h4>{channel.pseudo}</h4>
+          <h4>{channel.name}</h4>
         </Link>
       </div>
       <div className="flex justify-between">
         <span className="fs-sm text-gray">{channel.subscribers} abonnés</span>
-        <span className="fs-sm text-gray">Créée le {dayjs(channel.creation_date, "DD/MM/YYYY HH:mm:ss").fromNow()}</span>
+        <span className="fs-sm text-gray">Créée le {dayjs(channel.date, "YYYY-MM-DD HH:mm:ss").fromNow()}</span>
       </div>
     </div>
   )
