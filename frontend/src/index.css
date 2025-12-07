@@ -327,6 +327,7 @@ a {
 .bg-none { background: none; }
 .bg-white { background-color: white; }
 .bg-black { background-color: black; }
+.bg-black-70 { background-color: rgba(0, 0, 0, 0.7); }
 .bg-cover    { background-size: cover; }
 .bg-center   { background-position: center; }
 .bg-fixed    { background-attachment: fixed; }
