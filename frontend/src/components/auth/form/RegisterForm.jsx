@@ -66,7 +66,7 @@ function RegisterForm() {
           className="input-text"
           type="text"
           name="username"
-          placeholder="name"
+          placeholder="Nom d'utilisateur"
           value={formData.username}
           onChange={handleChange}
           required
