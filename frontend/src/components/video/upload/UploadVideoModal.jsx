@@ -1,17 +1,11 @@
 import { useState } from 'react'
 
-function UploadVideoModal({ onClose, user: loggedUser }) {
+function UploadVideoModal({ onClose }) {
   const [name, setName] = useState('')
   const [desc, setDesc] = useState('')
-  const channelId = loggedUser._id
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Fake upload:', {
-      name,
-      desc,
-      channelId
-    })
 
     onClose()
   }
@@ -57,7 +51,6 @@ function UploadVideoModal({ onClose, user: loggedUser }) {
                 type="file"
                 className="input-text"
                 accept="video/*"
-                disabled
                 placeholder="Sélection de fichier désactivée (mode statique)"
               />
             </div>

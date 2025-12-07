@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { backApi } from "../../../api/backApi";
 function LoginForm() {
-  const [username, setUsername] = useState("");
+  const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
@@ -13,7 +13,7 @@ function LoginForm() {
     e.preventDefault();
     setError("")
     try {
-      const data = await backApi.login(username, password);
+      const data = await backApi.login(login, password);
 
       if (data.error) {
         setError("Erreur login : " + data.error);
@@ -38,9 +38,9 @@ function LoginForm() {
         <input
           className="input-text"
           type="text"
-          placeholder="Nom d'utilisateur"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Nom d'utilisateur ou e-mail"
+          value={login}
+          onChange={(e) => setLogin(e.target.value)}
           required
         />
         <input

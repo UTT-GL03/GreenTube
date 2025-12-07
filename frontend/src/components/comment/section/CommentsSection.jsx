@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Comment from "../Comment"
 
-export function CommentsSection({ comments }) { 
+export function CommentsSection({ comments, addComment }) { 
   const [input, setInput] = useState('')
 
   // TODO : AuthContext
@@ -14,22 +14,6 @@ export function CommentsSection({ comments }) {
       return null;
     }
   }
-
-  // const addComment = (currentUserId, currentVideoId) => {
-  //   if (!input.trim()) return
-
-  //   const newComment = {
-  //     _id: `c${Date.now()}`,
-  //     type: "comment",
-  //     id_user: currentUserId,
-  //     id_video: currentVideoId,
-  //     date: new Date().toLocaleString(),
-  //     content: input
-  //   }
-
-  //   setComments(prev => [newComment, ...prev])
-  //   setInput('')
-  // }
 
   return (
     <div className="max-w-900 mx-1">
