@@ -14,10 +14,14 @@ npm install
 cd ../frontend/
 npm run build
 
+echo "Génération des samples data..."
+npx --yes dummy-json ../sample_data.json > public/data/sample_data.json
+
 export COUCHDB_USER="tbhc"
 export COUCHDB_PASSWORD="tbhc"
 
 echo "Lancement des containers Docker..."
+docker compose pull
 docker compose down
 docker compose up -d
 
