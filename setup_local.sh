@@ -11,6 +11,9 @@ echo "Installation des dépendances backend..."
 cd ../backend/
 npm install 
 
+cd ../frontend/
+npm run build
+
 export COUCHDB_USER="tbhc"
 export COUCHDB_PASSWORD="tbhc"
 
