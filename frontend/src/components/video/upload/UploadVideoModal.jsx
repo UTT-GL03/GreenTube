@@ -1,11 +1,14 @@
 import { useState } from 'react'
 
 import { backApi } from '../../../api/backApi';
+import { useNavigate } from 'react-router';
 
 const VIDEO_MAX_SIZE = 200;
 
 function UploadVideoModal({ onClose }) {
   // HOOKs
+  const navigate = useNavigate()
+
   const [name, setName] = useState("")
   const [desc, setDesc] = useState("")
   const [video, setVideo] = useState(null)
@@ -45,6 +48,8 @@ function UploadVideoModal({ onClose }) {
       }
 
       onClose()
+
+      window.location.reload()
     }
     catch (err) {
       setError("Erreur upload : " + err);

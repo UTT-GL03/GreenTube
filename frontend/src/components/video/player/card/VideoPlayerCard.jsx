@@ -32,7 +32,7 @@ export function VideoPlayerCard({ video }) {
   return (
     <div className="card-xl">
       <div className="center mt-2">
-        <VideoPlayer src={"/videoTest.mp4"} name={video?.name} />
+        <VideoPlayer path={video?.path} />
       </div>
 
       <div className="my-2" data-ecoid="video-desc">

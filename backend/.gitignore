@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+uploads/videos/*
+uploads/avatars/*
+
+!uploads/videos/videoTest.mp4
+!uploads/avatars/default_avatar.png

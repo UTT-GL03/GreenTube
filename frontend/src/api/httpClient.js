@@ -3,12 +3,13 @@ const API_URL = "http://localhost:3000";
 async function request(method, route, { params = {}, body } = {}) {
   const query = new URLSearchParams(params).toString();
   const url = query ? `${API_URL}/${route}?${query}` : `${API_URL}/${route}`;
+  const isFormData = body instanceof FormData;
 
   try {
     const response = await fetch(url, {
       method,
-      headers: body ? { 'Content-Type': 'application/json' } : undefined,
-      body: body ? JSON.stringify(body) : undefined
+      headers: !isFormData && body ? { 'Content-Type': 'application/json' } : undefined,
+      body: body ? isFormData ? body : JSON.stringify(body) : undefined
     });
 
     if (!response.ok) {

@@ -7,21 +7,22 @@ echo "Installation des dépendances frontend..."
 cd frontend/
 npm install
 
-echo "Installation des dépendances backend..."
-cd ../backend/
-npm install 
-
+echo "Build du frontend..."
 cd ../frontend/
 npm run build
 
 echo "Génération des samples data..."
-npx --yes dummy-json ../sample_data.json > public/data/sample_data.json
+cd ..
+npx --yes dummy-json sample_data.hbs > frontend/public/data/sample_data.json
+
+echo "Installation des dépendances backend..."
+cd backend/
+npm install 
 
 export COUCHDB_USER="tbhc"
 export COUCHDB_PASSWORD="tbhc"
 
 echo "Lancement des containers Docker..."
-docker compose pull
 docker compose down
 docker compose up -d
 
