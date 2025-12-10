@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Video from './pages/Video'
 import Channel from './pages/Channel'
 import Auth from './pages/Auth'
+import ProfileEdit from "./pages/ProfileEdit";
 
 export default function AppRoutes() {
   const { user } = useAuth();
@@ -12,6 +13,7 @@ export default function AppRoutes() {
     <Routes>
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
+        <Route path="/profile/edit" element={<ProfileEdit />} />
         <Route path="/video/:id" element={<Video />} />
         <Route path="/channel/:id" element={<Channel />} />
       </Route>

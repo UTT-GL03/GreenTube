@@ -57,7 +57,6 @@ function Header() {
         </div>
 
         <div className="header-section header-right">
-
           {user ? (
             <>
               <button
@@ -67,16 +66,21 @@ function Header() {
               >
                 +
               </button>
+
+              {/* Lien vers la page d'édition du profil */}
+              <Link to="/profile/edit" className="btn">
+                Modifier mon profil
+              </Link>
+
               <UserDropdown />
             </>
           ) : (
             <div>
               <Link to="/login" className="btn">Connexion</Link>
             </div>
-          )
-          }
-        </div >
-      </header >
+          )}
+        </div>
+      </header>
 
       {showUploadModal && user && (
         <UploadVideoModal user={user} onClose={() => setShowUploadModal(false)} />

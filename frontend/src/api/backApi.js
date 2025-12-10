@@ -39,3 +39,8 @@ export const backApi = {
         return data
     }
 }
+
+export const updateChannel = async (channelId, formData) => {
+    const data = await httpPost(`channel/${channelId}/update`, formData);
+    return data;
+};
