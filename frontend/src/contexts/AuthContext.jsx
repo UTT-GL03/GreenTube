@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react"
 
 // Si on utilise le localStorage
-const AUTH_STORAGE_KEY = "...";
+const AUTH_STORAGE_KEY = "USER";
 
 export const AuthContext = createContext(null)
 

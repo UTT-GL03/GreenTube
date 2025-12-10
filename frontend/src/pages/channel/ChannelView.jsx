@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router'
+import { Link, useParams } from 'react-router'
 
-import { backApi } from '../api/backApi';
+import { backApi } from '../../api/backApi';
 
-import Avatar from '../components/avatar/Avatar'
-import VideoGrid from '../components/video/grid/VideoGrid';
-import SeeMoreButton from '../components/SeeMoreButton';
-import SortButtons from '../components/SortButtons';
+import Avatar from '../../components/avatar/Avatar'
+import VideoGrid from '../../components/video/grid/VideoGrid';
+import SeeMoreButton from '../../components/SeeMoreButton';
+import SortButtons from '../../components/SortButtons';
 
-function Channel() {
+function ChannelView() {
     // HOOKs
     const { id } = useParams();
 
@@ -71,8 +71,28 @@ function Channel() {
         <main className="center">
             <div>
 
-                <div className="card-xl rounded flex mx-auto p-4 my-3">
+                <div className="card-xl rounded flex mx-auto p-4 my-3 relative">
 
+                    {user && (
+                        <Link
+                            to="/channel/edit"
+                            className="btn absolute top-10 right-10 rounded"
+                        >
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            >
+                                <path d="M12 20h9" />
+                                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
+                            </svg>
+                        </Link>
+                    )}
                     <Avatar avatarPath={user?.avatar} size={"xl"} />
                     <div className="flex flex-col mx-3">
                         <h1>{!loading && user === null ? "Chaîne introuvable :/" : user?.name}</h1>
@@ -83,7 +103,6 @@ function Channel() {
                         <p className="fs-sm text-gray">{videos.length} vidéos</p> 
                          */}
                     </div>
-
                 </div>
 
                 {videos.length !== 0 && (
@@ -101,9 +120,13 @@ function Channel() {
                         </div>
                     )
                 )}
+
+                {!loading && !hasMore && videos.length === 0 && (
+                    <h4 className="text-center mt-3"> Aucun résultat </h4>
+                )}
             </div>
         </main>
     )
 }
 
-export default Channel
+export default ChannelView

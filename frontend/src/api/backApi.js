@@ -23,6 +23,11 @@ export const backApi = {
         return data;
     },
 
+    editChannel: async (channelId, formData) => {
+        const data = await httpPost(`channel/${channelId}/edit`, formData);
+        return data;
+    },
+
     // GET
     getHome: async ({ type, query, limit, offset, sortKey, order } = {}) => {
         const data = httpGet("home", { type, query, limit, offset, sortKey, order })
@@ -38,9 +43,4 @@ export const backApi = {
         const data = await httpGet("video", { id_video });
         return data
     }
-}
-
-export const updateChannel = async (channelId, formData) => {
-    const data = await httpPost(`channel/${channelId}/update`, formData);
-    return data;
 };

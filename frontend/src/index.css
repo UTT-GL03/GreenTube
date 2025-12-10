@@ -21,6 +21,7 @@ a {
 
 /* LAYOUT / FLEX / GRID */
 
+.block { display: block; }
 .center { display: flex; justify-content: center; }
 .flex { display: flex; }
 .flex-content { flex: 1; }
@@ -37,13 +38,16 @@ a {
 .absolute { position: absolute; }
 .relative { position: relative; }
 .absolute-fill { position: absolute; inset: 0; }
-.top-0 { top: 0; }
+.top-0 { top: 0px; }
+.top-5 { top: 5px; }
+.top-10 { top: 10px; }
 .top-1\/2 { top: 50%; }
 .bottom-15 { bottom: 15; }
 .left-0 { left: 0; }
 .left-1\/2 { left: 50%; }
-.right-0 { right: 0; }
-.right-5 { right: 5; }
+.right-0 { right: 0px; }
+.right-5 { right: 5px; }
+.right-10 { right: 10px; }
 .inset-0 { inset: 0 }
 .z-1000 { z-index: 1000; }
 .z-2000 { z-index: 2000; }
@@ -290,19 +294,22 @@ a {
 
 /* SHADER (CIRCLE) */
 
-.circle-sm,
-.circle-lg,
 .circle-xl,
-.circle-xxl {
+.circle-lg,
+.circle-md,
+.circle-sm,
+.circle-xsm {
   border-radius: 50%;
   justify-content: center;
   padding: 0;
 }
 
+/* TODO : Add une logique entre les tailles */
+.circle-xsm { width: 20px; height: 20px; }
 .circle-sm { width: 40px; height: 40px; }
+.circle-md { width: 80px; height: 80px; }
 .circle-lg { width: 100px; height: 100px; }
 .circle-xl { width: 200px; height: 200px; }
-.circle-xxl { width: 300px; height: 300px; }
 
 /* TYPOGRAPHY */
 
@@ -356,7 +363,6 @@ a {
 .cursor-pointer { cursor: pointer; } 
 .hover-underline:hover { text-decoration: underline; }
 .v-align-middle { vertical-align: middle; }
-.img-inline { display: block; }
 .fit-cover { object-fit: cover; }
 .truncate { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .word-break { word-break: break-word; }

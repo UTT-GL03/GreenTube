@@ -9,22 +9,16 @@ const sizeMap = {
     xsm: "circle-xsm"
 }
 
-export function Avatar({ channelId, size = "sm" }) {
+export function Avatar({ idUser, avatarPath, size = "sm"}) {
 
     const sizeClass = sizeMap[size] || sizeMap.sm;
 
-    // Si on a un channelId → on construit l’URL de l'avatar CouchDB
-    const avatarUrl = channelId
-        ? `http://localhost:5984/greentube/${channelId}/avatar`
-        : "/default-avatar.png";
-
     const img = (
         <img
-            src={avatarUrl}
+            src={avatarPath || "/default-avatar.png"}
             data-ecoid="channel-avatar"
             className={`${sizeClass} border`}
             onError={(e) => {
-                // On revient au default-avatar si CouchDB ne trouve pas l'image
                 if (!e.target.dataset.fallback) {
                     e.target.dataset.fallback = true;
                     e.target.src = "/default-avatar.png";
@@ -33,12 +27,10 @@ export function Avatar({ channelId, size = "sm" }) {
         />
     );
 
-    // Si pas de channelId, on ne clique sur rien
-    if (!channelId) return img;
+    if (!idUser) return img;
 
-    // Sinon, clic → page de la chaîne
     return (
-        <Link to={`/channel/${channelId}`}>
+        <Link to={`/channel/${idUser}`}>
             {img}
         </Link>
     );

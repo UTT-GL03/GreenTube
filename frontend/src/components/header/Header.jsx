@@ -66,12 +66,6 @@ function Header() {
               >
                 +
               </button>
-
-              {/* Lien vers la page d'édition du profil */}
-              <Link to="/profile/edit" className="btn">
-                Modifier mon profil
-              </Link>
-
               <UserDropdown />
             </>
           ) : (
