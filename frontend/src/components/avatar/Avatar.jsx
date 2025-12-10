@@ -8,7 +8,7 @@ const sizeMap = {
     sm: "circle-sm",
     xsm: "circle-xsm"
 }
-// TODO : user => id_user, avatar_path
+
 export function Avatar({ idUser, avatarPath, size = "sm"}) {
     
     const sizeClass = sizeMap[size] || sizeMap.sm

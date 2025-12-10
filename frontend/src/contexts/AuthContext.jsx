@@ -6,18 +6,23 @@ const AUTH_STORAGE_KEY = "...";
 export const AuthContext = createContext(null)
 
 export function AuthProvider({ children }) {
-  const [logged, setLogged] = useState(false)
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem(AUTH_STORAGE_KEY);
+    return savedUser ? JSON.parse(savedUser) : null
+  })
 
   function login(user) {
-
+    setUser(user);
+    localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(user))
   }
 
   function logout() {
-
+    setUser(null)
+    localStorage.removeItem(AUTH_STORAGE_KEY)
   }
 
   return (
-    <AuthContext.Provider value={{ logged, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout }}>
       {children}
     </AuthContext.Provider>
   )

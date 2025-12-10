@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from 'react-router-dom'
 
-import { SearchProvider } from '../context/SearchContext'
+import { SearchProvider } from '../contexts/SearchContext'
 
 import Header from '../components/header/Header'
 

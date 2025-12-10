@@ -1,26 +1,27 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { backApi } from "../../../api/backApi";
+import { useAuth } from "../../../contexts/AuthContext";
 function LoginForm() {
-  const [login, setLogin] = useState("");
+  const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const {login} = useAuth();
 
   const handleSubmit = async (e) => {
     setLoading(true)
     e.preventDefault();
     setError("")
     try {
-      const data = await backApi.login(login, password);
+      const data = await backApi.login(identifier, password);
 
       if (data.error) {
         setError("Erreur login : " + data.error);
         return;
       }
-
-      localStorage.setItem("user", JSON.stringify(data.user));
+      login(data.user)
       navigate("/")
     }
     catch (err) {
@@ -39,8 +40,8 @@ function LoginForm() {
           className="input-text"
           type="text"
           placeholder="Nom d'utilisateur ou e-mail"
-          value={login}
-          onChange={(e) => setLogin(e.target.value)}
+          value={identifier}
+          onChange={(e) => setIdentifier(e.target.value)}
           required
         />
         <input

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { backApi } from "../../../api/backApi";
+import { useAuth } from "../../../contexts/AuthContext";
 
 function RegisterForm() {
   const [error, setError] = useState("")
@@ -11,7 +12,8 @@ function RegisterForm() {
     password: "",
     confirmPassword: "",
   });
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const {login} = useAuth();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -37,8 +39,7 @@ function RegisterForm() {
         setError("Erreur inscription : " + data.error);
         return;
       }
-
-      localStorage.setItem("user", JSON.stringify(data.user));
+      login(data.user)
       navigate("/")
     } 
     catch (err) {

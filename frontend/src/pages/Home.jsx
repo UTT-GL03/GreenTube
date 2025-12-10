@@ -1,4 +1,4 @@
-import { useSearch } from '../context/SearchContext'
+import { useSearch } from '../contexts/SearchContext'
 import { useEffect, useState } from 'react'
 
 import { backApi } from '../api/backApi'

@@ -1,27 +1,17 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useSearch } from '../../context/SearchContext'
-
+import { useSearch } from '../../contexts/SearchContext'
+import { useAuth } from '../../contexts/AuthContext'
 import greentubeLogo from '/greentube.svg'
-
 import UploadVideoModal from '../video/upload/UploadVideoModal'
 import UserDropdown from '../UserDropdown'
 
 function Header() {
-  const { setQuery } = useSearch()
+  const { setQuery } = useSearch();
+  const { user } = useAuth();
   const [inputValue, setInputValue] = useState("");
 
   const [showUploadModal, setShowUploadModal] = useState(false)
-
-  let loggedUser = localStorage.getItem("user")
-
-  if (typeof loggedUser === "string") {
-    try {
-      loggedUser = JSON.parse(loggedUser);
-    } catch {
-      return null;
-    }
-  }
 
   return (
     <div className="pt-4">
@@ -68,7 +58,7 @@ function Header() {
 
         <div className="header-section header-right">
 
-          {loggedUser ? (
+          {user ? (
             <>
               <button
                 className="btn circle-sm"
@@ -77,7 +67,7 @@ function Header() {
               >
                 +
               </button>
-              <UserDropdown user={loggedUser} />
+              <UserDropdown />
             </>
           ) : (
             <div>
@@ -88,8 +78,8 @@ function Header() {
         </div >
       </header >
 
-      {showUploadModal && loggedUser && (
-        <UploadVideoModal user={loggedUser} onClose={() => setShowUploadModal(false)} />
+      {showUploadModal && user && (
+        <UploadVideoModal user={user} onClose={() => setShowUploadModal(false)} />
       )}
     </div>
   )

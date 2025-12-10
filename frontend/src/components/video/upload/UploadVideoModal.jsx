@@ -1,34 +1,34 @@
 import { useState } from 'react'
 
 import { backApi } from '../../../api/backApi';
-import { useNavigate } from 'react-router';
+import { useAuth } from '../../../contexts/AuthContext';
 
 const VIDEO_MAX_SIZE = 200;
 
 function UploadVideoModal({ onClose }) {
   // HOOKs
-  const navigate = useNavigate()
+  const {user} = useAuth();
 
-  const [name, setName] = useState("")
-  const [desc, setDesc] = useState("")
-  const [video, setVideo] = useState(null)
-  const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
+  const [name, setName] = useState("");
+  const [desc, setDesc] = useState("");
+  const [video, setVideo] = useState(null);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   // FUNCTIONs
   const handleSubmit = async (e) => {
-    setLoading(true)
+    setLoading(true);
     e.preventDefault();
-    setError("")
+    setError("");
 
     if (!video) {
-      setError("Aucune vidéo sélectionné")
-      console.log(error)
+      setError("Aucune vidéo sélectionné");
+      console.log(error);
       return;
     }
     if (video.size > VIDEO_MAX_SIZE * 1024 * 1024) {
-      setError(`Fichier trop lourd. (MAX ${VIDEO_MAX_SIZE} Mo)`)
-      console.log(error)
+      setError(`Fichier trop lourd. (MAX ${VIDEO_MAX_SIZE} Mo)`);
+      console.log(error);
       return;
     }
     try {
@@ -37,8 +37,8 @@ function UploadVideoModal({ onClose }) {
       formData.append("video", video);
       formData.append("name", name);
       formData.append("desc", desc);
-      formData.append("id_user", "u999");
-      formData.append("user_name", "AAAA");
+      formData.append("id_user", user._id);
+      formData.append("user_name", user.name);
 
       const data = await backApi.uploadVideo(formData);
 

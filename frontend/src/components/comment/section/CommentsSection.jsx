@@ -1,25 +1,16 @@
 import { useState } from "react"
 import Comment from "../Comment"
+import { useAuth } from "../../../contexts/AuthContext"
 
 export function CommentsSection({ comments, addComment }) { 
-  const [input, setInput] = useState('')
-
-  // TODO : AuthContext
-  let loggedUser = localStorage.getItem("user")
-
-  if (typeof loggedUser === "string") {
-    try {
-      loggedUser = JSON.parse(loggedUser);
-    } catch {
-      return null;
-    }
-  }
+  const [input, setInput] = useState('');
+  const {user} = useAuth();
 
   return (
     <div className="max-w-900 mx-1">
       <h2>Commentaires</h2>
 
-      {loggedUser ? (
+      {user ? (
 
         <div className="flex w-full my-1">
           <input
