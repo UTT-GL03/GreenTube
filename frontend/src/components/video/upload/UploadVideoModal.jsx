@@ -39,6 +39,7 @@ function UploadVideoModal({ onClose }) {
       formData.append("desc", desc);
       formData.append("id_user", user._id);
       formData.append("user_name", user.name);
+      formData.append("user_avatar", user.avatar)
 
       const data = await backApi.uploadVideo(formData);
 

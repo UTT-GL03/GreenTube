@@ -5,7 +5,11 @@
     {
       "_id": "v{{@index}}",
       "type": "video",
-      "id_user": "u{{int 0 799}}",
+      "user" : {
+        "id_user": "u{{int 0 799}}",
+        "name": "{{firstName}} {{lastName}}",
+        "avatar": "{{#if (int 0 1)}}/avatars/avatar{{int 1 10}}.jpg{{else}}/default.png{{/if}}"
+      },
       "date": "{{date '2024-10-07' '2025-11-07' 'YYYY-MM-DD HH:mm:ss'}}",
       "name": "{{lorem min=3 max=8}}",
       "desc": "{{lorem min=10 max=40}}",
@@ -34,7 +38,11 @@
     {
       "_id": "c{{@index}}",
       "type": "comment",
-      "id_user": "u{{int 0 799}}",
+      "user" : {
+        "id_user": "u{{int 0 799}}",
+        "name": "{{firstName}} {{lastName}}",
+        "avatar": "{{#if (int 0 1)}}/avatars/avatar{{int 1 10}}.jpg{{else}}/default.png{{/if}}"
+      },
       "id_video": "v{{int 0 1999}}",
       "date": "{{date '2024-10-07' '2025-11-07' 'YYYY-MM-DD HH:mm:ss'}}",
       "content": "{{lorem min=5 max=25}}"

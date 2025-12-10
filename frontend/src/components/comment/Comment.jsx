@@ -30,8 +30,8 @@ function Comment({ comment }) {
 
             <div className="w-full">
                 <div className="flex justify-between my-1">
-                    <Link to={`/channel/${comment.id_user}`}>
-                        <span className="fw-bold">{comment.user_name}</span>
+                    <Link to={`/channel/${comment.user.id_user}`}>
+                        <span className="fw-bold">{comment.user.name}</span>
                     </Link>
                     <span className="fs-xsm text-gray">{dayjs(comment.date, "YYYY-MM-DD HH:mm:ss").fromNow()}</span>
                 </div>

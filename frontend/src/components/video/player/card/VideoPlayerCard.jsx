@@ -40,9 +40,9 @@ export function VideoPlayerCard({ video }) {
           <h2 className="fs-lg fw-bold">{video?.name}</h2>
 
           <div className="flex align-center gap-2">
-            <Avatar idUser={video?.id_user} avatarPath={video?.avatar_path} />
-            <Link to={`/channel/${video?.id_user}`} className="fw-bold my-auto">
-              {video?.user_name ?? ""}
+            <Avatar idUser={video?.user?.id_user} avatarPath={video?.user?.avatar} />
+            <Link to={`/channel/${video?.user?.id_user}`} className="fw-bold my-auto">
+              {video?.user.name ?? ""}
             </Link>
           </div>
 

@@ -75,7 +75,7 @@ function Channel() {
 
                     <Avatar avatarPath={user?.avatar} size={"xl"} />
                     <div className="flex flex-col mx-3">
-                        <h1>{!loading && user === null ? "Chaîne introuvable" : user?.name}</h1>
+                        <h1>{!loading && user === null ? "Chaîne introuvable :/" : user?.name}</h1>
                         <span className="fs-sm text-gray">{user?.desc}</span>
                         {/*
                         TODO : Récupérer le count totale de video de l'user

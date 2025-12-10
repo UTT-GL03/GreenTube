@@ -134,6 +134,16 @@ Notre modèle combine plusieurs **sources de revenus** afin d’assurer une rent
 
 > **Objectif :** construire un modèle durable, diversifié et conforme aux valeurs éthiques (transparence, respect des données et impact écologique réduit).
 
+
+## Brouillon 
+
+CouchDB :
+Pre normalisation : 2000 video, 800 user et 7500 comments => 3.9MB
+Post normalisation : ... => 4.5 MB
+
+
+
+
 --Analyse concurrent
 (Marquer avantage si abonné, diff ano - abo)
 (Voir QVOTIDIE GL03)

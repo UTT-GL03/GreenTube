@@ -32,8 +32,8 @@ function VideoCard({ video }) {
       </div>
 
       <div className="flex justify-between mt-1">
-        <Link to={`/channel/${video.id_user}`}>
-          <span className="fs-sm">{video?.user_name ?? ""}</span>
+        <Link to={`/channel/${video.user.id_user}`}>
+          <span className="fs-sm">{video?.user?.name ?? ""}</span>
         </Link>
         <span className="fs-sm text-gray">{dayjs(video.date, "YYYY-MM-DD HH:mm:ss").fromNow()}</span>
       </div>

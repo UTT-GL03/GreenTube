@@ -13,7 +13,7 @@ export default function (db, upload) {
 
     router.post("/video", upload.single("video"), async (req, res) => {
         const file = req.file;
-        const { name, desc, id_user } = req.body;
+        const { name, desc, id_user, user_name, user_avatar } = req.body;
         const now = dayjs().tz("Europe/Paris").format("YYYY-MM-DD HH:mm:ss");
 
         if (!file) return res.status(400).json({ success: false, message: "Aucun fichier uploadé" });
@@ -26,7 +26,11 @@ export default function (db, upload) {
             const video = {
                 _id: videoId,
                 type: "video",
-                id_user,
+                user: {
+                    id_user,
+                    name: user_name,
+                    avatar: user_avatar
+                },
                 date: now,
                 name,
                 desc,
