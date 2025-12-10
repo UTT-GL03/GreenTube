@@ -15,7 +15,12 @@ export const backApi = {
 
     uploadVideo: async (formData) => {
         const data = await httpPost("upload/video", formData);
-        return data
+        return data;
+    },
+
+    addComment: async ({ content, id_video, id_user, user_name, user_avatar }) => {
+        const data = await httpPost("video/comment", { content, id_video, id_user, user_name, user_avatar });
+        return data;
     },
 
     // GET

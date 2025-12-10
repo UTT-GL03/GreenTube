@@ -1,4 +1,12 @@
 import express from "express";
+import dayjs from "dayjs"
+import customParseFormat from "dayjs/plugin/customParseFormat.js"
+import utc from "dayjs/plugin/utc.js";
+import timezone from "dayjs/plugin/timezone.js";
+
+dayjs.extend(customParseFormat)
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 export default function (db) {
 
@@ -7,6 +15,9 @@ export default function (db) {
     router.get("/", async (req, res) => {
         const id_video = req.query.id_video;
 
+        if (!id_video) {
+            return res.status(400).json({ success: false, message: "id_video manquant" });
+        }
         // Get la video en question
         // Get les commentaires de la video
         const selector = {
@@ -39,6 +50,47 @@ export default function (db) {
         } catch (err) {
             console.error("Erreur chargement video : " + err);
             res.status(500).json({ error: "Erreur serveur interne" });
+        }
+    })
+
+    router.post("/comment", async (req, res) => {
+        const { content, id_video, id_user, user_name, user_avatar } = req.body;
+        const now = dayjs().tz("Europe/Paris").format("YYYY-MM-DD HH:mm:ss");
+
+        try {
+            const counter = await db.get("counter");
+            counter.comment_counter += 1;
+            const commentId = `c${counter.comment_counter}`;
+
+            const comment = {
+                _id: commentId,
+                type: "comment",
+                user: {
+                    id_user,
+                    name: user_name,
+                    avatar: user_avatar
+                },
+                id_video,
+                date: now,
+                content
+            }
+
+            await db.insert(comment)
+            await db.insert(counter);
+
+            res.status(201).json({
+                success: true,
+                message: "Commentaire publié avec succès !",
+                data: {
+                    comment: comment
+                }
+            })
+        }
+        catch (err) {
+            res.status(500).json({
+                success: false,
+                message: `Erreur serveur interne : ${err} !`
+            })
         }
     })
 

@@ -40,23 +40,6 @@ function Video() {
     }
   }
 
-    // TODO : Add Comment
-  // const addComment = (currentUserId, currentVideoId) => {
-  //   if (!input.trim()) return
-
-  //   const newComment = {
-  //     _id: `c${Date.now()}`,
-  //     type: "comment",
-  //     id_user: currentUserId,
-  //     id_video: currentVideoId,
-  //     date: new Date().toLocaleString(),
-  //     content: input
-  //   }
-
-  //   setComments(prev => [newComment, ...prev])
-  //   setInput('')
-  // }
-
   //
   if (loading) {
     return (
@@ -79,7 +62,7 @@ function Video() {
       <div className="flex flex-wrap center mt-2 mb-4 gap-4">
         <div>
           <VideoPlayerCard video={video}/>
-          <CommentsSection comments={comments} addComment={null} />
+          <CommentsSection comments={comments} id_video={video._id} />
         </div>
         <Recommendations related={related} />
       </div>
