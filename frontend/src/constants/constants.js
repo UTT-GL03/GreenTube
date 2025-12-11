@@ -4,5 +4,5 @@ export const API = {
 
 export const APP = {
   NAME: "GreenTube",
-  DEFAULT_AVATAR: "uploads/avatars/default_avatar.png",
+  DEFAULT_AVATAR: "uploads/avatars/default_avatar_1.png",
 };

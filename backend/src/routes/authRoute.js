@@ -8,9 +8,11 @@ dayjs.extend(customParseFormat)
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-export default function (db) {
+const DEFAULT_AVATAR_COUNT = 8;
+const random = Math.floor(Math.random() * DEFAULT_AVATAR_COUNT) + 1;
+const DEFAULT_AVATAR = `uploads/avatars/default_avatar_${random}.png`;
 
-    const DEFAUT_AVATAR = "uploads/avatars/default_avatar.png";
+export default function (db) {
 
     const router = express.Router();
 
@@ -87,7 +89,7 @@ export default function (db) {
                 _id: userId,
                 type: "user",
                 name: username,
-                avatar: DEFAUT_AVATAR,
+                avatar: DEFAULT_AVATAR,
                 desc: "",
                 email: email,
                 password: password,
