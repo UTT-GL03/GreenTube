@@ -15,7 +15,7 @@ export default function (db) {
             userSelector = { type: "user", _id: id_user };
         }
         
-        const videoSelector = { type: "video", id_user: id_user };
+        const videoSelector = { type: "video", "user.id_user": id_user };
 
         // Pour avoir un visuel plus naturel pour les dates
         // TODO : À rendre plus propre 
