@@ -8,6 +8,7 @@ import ContentButton from '../components/contentGrid/button/ContentButton'
 import VideoGrid from '../components/video/grid/VideoGrid'
 import ChannelGrid from '../components/channel/grid/ChannelGrid'
 import SeeMoreButton from '../components/SeeMoreButton'
+import ScrollTopButton from '../components/ScrollTopButton'
 
 const MODE_STORAGE_KEY = 'homeFeedMode';
 
@@ -115,6 +116,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <ScrollTopButton />
     </main >
   )
 }

@@ -7,6 +7,7 @@ import Avatar from '../../components/avatar/Avatar'
 import VideoGrid from '../../components/video/grid/VideoGrid';
 import SeeMoreButton from '../../components/SeeMoreButton';
 import SortButtons from '../../components/SortButtons';
+import ScrollTopButton from '../../components/ScrollTopButton';
 
 function ChannelView() {
     // HOOKs
@@ -125,6 +126,7 @@ function ChannelView() {
                     <h4 className="text-center mt-3"> Aucun résultat </h4>
                 )}
             </div>
+            <ScrollTopButton scrollOffset={100} />
         </main>
     )
 }
