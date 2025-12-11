@@ -25,6 +25,8 @@ dist-ssr
 
 uploads/videos/*
 uploads/avatars/*
+uploads/thumbnails/*
 
 !uploads/videos/videoTest.mp4
 !uploads/avatars/default_avatar.png
+!uploads/thumbnails/default_thumbnail.png

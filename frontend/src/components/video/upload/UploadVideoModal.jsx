@@ -7,7 +7,7 @@ const VIDEO_MAX_SIZE = 200;
 
 function UploadVideoModal({ onClose }) {
   // HOOKs
-  const {user} = useAuth();
+  const { user } = useAuth();
 
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
@@ -43,8 +43,8 @@ function UploadVideoModal({ onClose }) {
 
       const data = await backApi.uploadVideo(formData);
 
-      if (data.error) {
-        setError("Erreur upload : " + data.error);
+      if (!data.success) {
+        setError(data.message);
         return;
       }
 
@@ -53,7 +53,7 @@ function UploadVideoModal({ onClose }) {
       window.location.reload()
     }
     catch (err) {
-      setError("Erreur upload : " + err);
+      setError(err.message);
     }
     finally {
       setLoading(false)
@@ -106,6 +106,11 @@ function UploadVideoModal({ onClose }) {
                   onChange={(e) => setVideo(e.target.files[0])}
                 />
               </div>
+              {error ?? (
+                <div className='center text-red'>
+                  {error}
+                </div>
+              )}
               <div className="flex justify-end mt-2 gap-2">
                 <button
                   type="button"

@@ -28,6 +28,9 @@ const storage = multer.diskStorage({
     else if(file.fieldname === "avatar"){
       cb(null, "uploads/avatars/");
     }
+    else if(file.fieldname === "thumbnail"){
+      cb(null, "uploads/thumbnails/");
+    }
     else{
       cb(null, "uploads/others/");
     }

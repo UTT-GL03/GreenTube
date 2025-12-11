@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
-
-import minia from "/miniaGT.png"
+import { API } from '../../../constants/constants'
 
 import dayjs from 'dayjs'
 import relativeTime from "dayjs/plugin/relativeTime"
@@ -20,7 +19,7 @@ function VideoCard({ video }) {
         <div className="relative">
           <img
             className="fit-cover rounded w-full h-auto mb-1"
-            src={minia}
+            src={`${API.URL}/${video.thumbnail}`}
             alt={video.name} />
           <span
             className="absolute bottom-15 right-5 bg-black opacity-7 text-white text-xs px-2 py-1 rounded">

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { API } from '../../constants/constants';
+import { API, APP } from '../../constants/constants';
 
 // TODO : Pas super joli, faire plus propre
 const sizeMap = {
@@ -14,19 +14,18 @@ export function Avatar({ idUser, avatarPath, size = "sm", isPreview = false}) {
 
     const sizeClass = sizeMap[size] || sizeMap.sm;
 
-    const src = isPreview ? avatarPath : `${API.URL}/${avatarPath || "/default-avatar.png" }`
-
+    const src = isPreview ? avatarPath : `${API.URL}/${avatarPath || APP.DEFAULT_AVATAR }`
     const img = (
         <img
             src={src}
             data-ecoid="channel-avatar"
             className={`${sizeClass} border`}
-            onError={(e) => {
-                if (!e.target.dataset.fallback) {
-                    e.target.dataset.fallback = true;
-                    e.target.src = `${API.URL}/${"/default-avatar.png" }`;
-                }
-            }}
+            // onError={(e) => {
+            //     if (!e.target.dataset.fallback) {
+            //         e.target.dataset.fallback = true;
+            //         e.target.src = `${API.URL}/${"default_avatar.png" }`;
+            //     }
+            // }}
         />
     );
 

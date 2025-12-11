@@ -63,6 +63,6 @@ services:
       - 3000:3000
     environment:
     - CHOKIDAR_USEPOLLING=true
-    command: npm run dev
+    command: bash -c "apt-get update && apt-get install -y ffmpeg && npm run dev"
     depends_on:
       - couchdb
