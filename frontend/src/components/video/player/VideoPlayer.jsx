@@ -1,19 +1,29 @@
-// TODO : Mettre dans un fichier .env ou config.json
-const API_URL = "http://localhost:3000";
+import { useState } from "react";
+import { backApi } from "../../../api/backApi";
+import { API } from "../../../constants/constants";
 
-function VideoPlayer({ path }) {
+function VideoPlayer({ idVideo, path }) {
+  const [hasCountedView, setHasCountedView] = useState(false);
+
   if (!path) return <p>Vidéo introuvable</p>;
 
-  const src = path.startsWith("/")
-    ? `${API_URL}${path}`
-    : `${API_URL}/${path}`;
+  const incrementView = async () => {
+    if (hasCountedView) return;
+    setHasCountedView(true);
+
+    const data = await backApi.incrementView(idVideo)
+    if(!data.success){
+      console.log(data.message);
+    }
+  };
 
   return (
     <video
       className="rounded"
       controls
       width="100%"
-      src={src}
+      src={`${API.URL}/${path}`}
+      onPlay={incrementView}
     />
   );
 }

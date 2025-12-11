@@ -94,5 +94,37 @@ export default function (db) {
         }
     })
 
+    router.post("/:id_video/view", async (req, res) => {
+        const { id_video } = req.params;
+ 
+        if(!id_video) return res.status(400).json({ success: false, message: "id_video manquant" });
+
+        try {
+            const videoResp = await db.find({
+                selector: {
+                    _id: id_video,
+                }
+            });
+
+            if(videoResp.docs.length === 0) return res.status(404).json({ success: false, message: `Video "${id_video}" introuvable` });
+            const video = videoResp.docs[0];
+            
+            video.views++;
+
+            await db.insert(video)
+
+            res.status(201).json({
+                success: true,
+                message: "Vue incrementée à la vidéo avec succès !",
+            })
+        }
+        catch (err) {
+            res.status(500).json({
+                success: false,
+                message: `Erreur serveur interne : ${err} !`
+            })
+        }
+    })
+
     return router;
 }
