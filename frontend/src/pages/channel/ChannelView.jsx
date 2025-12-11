@@ -126,7 +126,7 @@ function ChannelView() {
                 )}
 
                 {!loading && !hasMore && videos.length === 0 && (
-                    user._id !== id ? (
+                    user?._id !== id ? (
                         <h4 className="text-center mt-3">Aucun résultat</h4>
                     ) : (
                         <h4 className="text-center mt-3">
@@ -134,7 +134,7 @@ function ChannelView() {
                             <a
                                 className="cursor-pointer"
                                 onClick={() => setShowUploadModal(true)}
-                            > ici </a>
+                            >ici </a>
                             pour publier votre première video !
                         </h4>
                     )
