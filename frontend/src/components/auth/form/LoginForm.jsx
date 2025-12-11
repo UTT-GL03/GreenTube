@@ -2,36 +2,41 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { backApi } from "../../../api/backApi";
 import { useAuth } from "../../../contexts/AuthContext";
+
 function LoginForm() {
+  // HOOKs
+  const navigate = useNavigate();
+  const { login } = useAuth();
+
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
-  const {login} = useAuth();
 
+  // FUNCTIONs
   const handleSubmit = async (e) => {
     setLoading(true)
     e.preventDefault();
     setError("")
     try {
-      const data = await backApi.login(identifier, password);
+      const res = await backApi.login(identifier, password);
 
-      if (data.error) {
-        setError("Erreur login : " + data.error);
+      if (!res.success) {
+        setError(res.message);
         return;
       }
-      login(data.user)
+      login(res.data.user)
       navigate("/")
     }
     catch (err) {
-      setError("Erreur login : " + err);
+      setError(err.message);
     }
     finally {
       setLoading(false)
     }
   };
 
+  //
   return (
     <div className="card-md rounded card-bg-opacity mx-auto my-auto py-3 px-2 text-center z-1000">
       <h2>Connexion</h2>
@@ -61,7 +66,7 @@ function LoginForm() {
 
         <button className="btn" type="submit">
           {loading ? "Chargement..." : "Se connecter"}
-          </button>
+        </button>
       </form>
       <p>
         Pas encore de compte ? <Link to="/register">Inscrivez-vous</Link>

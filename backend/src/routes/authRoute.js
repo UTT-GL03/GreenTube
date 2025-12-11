@@ -33,23 +33,26 @@ export default function (db) {
             })
 
             if (result.docs.length === 0) {
-                return res.status(401).json({ error: "Nom d'utilisateur/Email ou mot de passe invalide." });
+                return res.status(401).json({ success: false, message: "Nom d'utilisateur/Email ou mot de passe invalide." });
             }
 
             const user = result.docs[0];
 
-            res.status(201).json({
+            res.status(200).json({
+                success: true,
                 message: "Connexion réussie !",
-                user: {
-                    _id: user._id,
-                    name: user.name,
-                    avatar: user.avatar,
-                    desc: user.desc
+                data: {
+                    user: {
+                        _id: user._id,
+                        name: user.name,
+                        avatar: user.avatar,
+                        desc: user.desc
+                    }
                 }
             });
         } catch (err) {
-            console.error("Erreur login : " + err);
-            res.status(500).json({ error: "Erreur serveur interne" });
+            console.error(err);
+            res.status(500).json({ success: false, message: "Erreur serveur interne" });
         }
     })
 
@@ -71,13 +74,15 @@ export default function (db) {
 
             if (existed.docs.length > 0) {
                 const user = existed.docs[0];
+                let errorMessage = "Erreur d'enregistrement.";
                 if (user.name === username && user.email === email) {
-                    return res.status(409).json({ error: "Nom et email déjà utilisés." });
+                    errorMessage = "Nom et email déjà utilisés.";
                 } else if (user.name === username) {
-                    return res.status(409).json({ error: "Nom déjà utilisé." });
+                    errorMessage = "Nom déjà utilisé.";
                 } else if (user.email === email) {
-                    return res.status(409).json({ error: "Email déjà utilisé." });
+                    errorMessage = "Email déjà utilisé.";
                 }
+                return res.status(409).json({ success: false, message: errorMessage });
             }
 
             const now = dayjs().tz("Europe/Paris").format("YYYY-MM-DD HH:mm:ss");
@@ -101,18 +106,21 @@ export default function (db) {
             await db.insert(counter);
 
             res.status(201).json({
+                success: true,
                 message: "Inscription réussie !",
-                user: {
-                    _id: user._id,
-                    name: user.name,
-                    email: user.email,
-                    avatar: user.avatar
+                data: {
+                    user: {
+                        _id: user._id,
+                        name: user.name,
+                        email: user.email,
+                        avatar: user.avatar
+                    }
                 }
             })
 
         } catch (err) {
-            console.error("Erreur inscription : " + err);
-            res.status(500).json({ error: "Erreur serveur interne" });
+            console.error(err);
+            res.status(500).json({ success: false, message: "Erreur serveur interne" });
         }
     })
 

@@ -12,13 +12,18 @@ async function request(method, route, { params = {}, body } = {}) {
       body: body ? isFormData ? body : JSON.stringify(body) : undefined
     });
 
-    if (!response.ok) {
-      throw new Error(`HTTP error ${response.status}`);
+    let data;
+    try {
+      data = await response.json();
+    } catch {
+      data = { success: false, message: "Réponse invalide du serveur." };
     }
-
-    return await response.json();
+    return data;
   } catch (err) {
-    throw new Error(`Network or HTTP error: ${err.message}`);
+    return {
+      success: false,
+      message: "Impossible de contacter le serveur."
+    };
   }
 }
 

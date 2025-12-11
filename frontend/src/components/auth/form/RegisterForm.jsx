@@ -4,6 +4,10 @@ import { backApi } from "../../../api/backApi";
 import { useAuth } from "../../../contexts/AuthContext";
 
 function RegisterForm() {
+  // HOOKs
+  const navigate = useNavigate();
+  const { login } = useAuth();
+
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
@@ -12,9 +16,8 @@ function RegisterForm() {
     password: "",
     confirmPassword: "",
   });
-  const navigate = useNavigate();
-  const {login} = useAuth();
 
+  // FUNCTIONs
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -29,27 +32,29 @@ function RegisterForm() {
     }
     try {
 
-      const data = await backApi.register(
+      const res = await backApi.register(
         formData.username,
         formData.email,
         formData.password
       );
+      console.log(res);
 
-      if (data.error) {
-        setError("Erreur inscription : " + data.error);
+      if (!res.success) {
+        setError(res.message);
         return;
       }
-      login(data.user)
+      login(res.data.user)
       navigate("/")
-    } 
-    catch (err) {
-      setError("Erreur inscription : " + err);
     }
-    finally{
+    catch (err) {
+      setError(err.message);
+    }
+    finally {
       setLoading(false)
     }
   };
 
+  //
   return (
     <div className="card-md rounded card-bg-opacity mx-auto my-auto py-3 px-2 text-center z-1000">
       <h2>Inscription</h2>
