@@ -10,7 +10,7 @@ dayjs.extend(timezone);
 
 export default function (db) {
 
-    const DEFAUT_AVATAR = "/default-avatar.png";
+    const DEFAUT_AVATAR = "uploads/avatars/default_avatar.png";
 
     const router = express.Router();
 

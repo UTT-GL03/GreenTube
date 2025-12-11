@@ -42,5 +42,5 @@ export const backApi = {
     getVideo: async (id_video) => {
         const data = await httpGet("video", { id_video });
         return data
-    }
+    },
 };

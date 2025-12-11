@@ -4,6 +4,8 @@ import { useAuth } from "../../contexts/AuthContext";
 import { Link, useNavigate } from "react-router";
 import Avatar from "../../components/avatar/Avatar";
 
+const AVATAR_MAX_SIZE = 5;
+
 function ChannelEdit() {
   // HOOKs
   const { user, login } = useAuth();
@@ -36,10 +38,14 @@ function ChannelEdit() {
     e.preventDefault();
     setError("");
 
+    if (newAvatar && newAvatar.size > AVATAR_MAX_SIZE * 1024 * 1024) {
+      setError(`Fichier trop lourd. (MAX ${AVATAR_MAX_SIZE} Mo)`);
+      return;
+    }
+
     try {
       const formData = new FormData();
-
-      formData.append("desc", newDesc);
+      formData.append("newDesc", newDesc);
       if (newAvatar) formData.append("avatar", newAvatar);
 
       const data = await backApi.editChannel(user?._id, formData);
@@ -51,6 +57,8 @@ function ChannelEdit() {
 
       // Maj du user dans le context
       login(data.user)
+
+      navigate(`/channel/${data.user._id}`)
     }
     catch (err) {
       setError(err.message);
@@ -71,7 +79,7 @@ function ChannelEdit() {
       </p>
 
       <div className="flex items-center gap-2 mb-3">
-        <Avatar avatarPath={previewUrl} size="lg" />
+        <Avatar avatarPath={previewUrl} size={"lg"} isPreview={ newAvatar } />
         <div>
           <label className="block">
             Avatar

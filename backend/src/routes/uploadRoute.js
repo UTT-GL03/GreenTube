@@ -11,6 +11,7 @@ dayjs.extend(timezone);
 export default function (db, upload) {
     const router = express.Router()
 
+    // TODO : Add Thumbnails
     router.post("/video", upload.single("video"), async (req, res) => {
         const file = req.file;
         const { name, desc, id_user, user_name, user_avatar } = req.body;
@@ -55,10 +56,6 @@ export default function (db, upload) {
                 message: `Erreur serveur interne : ${err} !`
             })
         }
-    })
-
-    router.post("/avatar", upload.single("avatar"), (res, req) => {
-        res.json(req.file)
     })
 
     return router;

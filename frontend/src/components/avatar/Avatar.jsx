@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { API } from '../../constants/constants';
 
 // TODO : Pas super joli, faire plus propre
 const sizeMap = {
@@ -9,19 +10,21 @@ const sizeMap = {
     xsm: "circle-xsm"
 }
 
-export function Avatar({ idUser, avatarPath, size = "sm"}) {
+export function Avatar({ idUser, avatarPath, size = "sm", isPreview = false}) {
 
     const sizeClass = sizeMap[size] || sizeMap.sm;
 
+    const src = isPreview ? avatarPath : `${API.URL}/${avatarPath || "/default-avatar.png" }`
+
     const img = (
         <img
-            src={avatarPath || "/default-avatar.png"}
+            src={src}
             data-ecoid="channel-avatar"
             className={`${sizeClass} border`}
             onError={(e) => {
                 if (!e.target.dataset.fallback) {
                     e.target.dataset.fallback = true;
-                    e.target.src = "/default-avatar.png";
+                    e.target.src = `${API.URL}/${"/default-avatar.png" }`;
                 }
             }}
         />

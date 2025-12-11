@@ -8,17 +8,21 @@ import VideoGrid from '../../components/video/grid/VideoGrid';
 import SeeMoreButton from '../../components/SeeMoreButton';
 import SortButtons from '../../components/SortButtons';
 import ScrollTopButton from '../../components/ScrollTopButton';
+import { useAuth } from '../../contexts/AuthContext';
+import UploadVideoModal from '../../components/video/upload/UploadVideoModal';
 
 function ChannelView() {
     // HOOKs
     const { id } = useParams();
+    const { user } = useAuth()
 
-    const [user, setUser] = useState(null);
+    const [channelUser, setChannelUser] = useState(null);
     const [videos, setVideos] = useState([]);
     const [loading, setLoading] = useState(false);
     const [sortKey, setSortKey] = useState("date");
     const [order, setOrder] = useState("asc");
     const [hasMore, setHasMore] = useState(true);
+    const [showUploadModal, setShowUploadModal] = useState(false)
 
     useEffect(() => {
         loadAll(true)
@@ -28,7 +32,7 @@ function ChannelView() {
     const loadAll = async (reset = false) => {
         setLoading(true)
 
-        const isApiFirstLoad = user === null || user.id_user !== id;
+        const isApiFirstLoad = channelUser === null || channelUser.id_user !== id;
         const offset = reset ? 0 : videos.length
         const limit = 6
 
@@ -49,7 +53,7 @@ function ChannelView() {
             );
             setHasMore(data.length === limit)
             if (isApiFirstLoad) {
-                setUser(data.user || null)
+                setChannelUser(data.user || null)
             }
         } catch (err) {
             console.error("Erreur chargement Channel : " + err)
@@ -73,8 +77,7 @@ function ChannelView() {
             <div>
 
                 <div className="card-xl rounded flex mx-auto p-4 my-3 relative">
-
-                    {user && (
+                    {user?._id === id && (
                         <Link
                             to="/channel/edit"
                             className="btn absolute top-10 right-10 rounded"
@@ -94,10 +97,10 @@ function ChannelView() {
                             </svg>
                         </Link>
                     )}
-                    <Avatar avatarPath={user?.avatar} size={"xl"} />
+                    <Avatar avatarPath={channelUser?.avatar} size={"xl"} />
                     <div className="flex flex-col mx-3">
-                        <h1>{!loading && user === null ? "Chaîne introuvable :/" : user?.name}</h1>
-                        <span className="fs-sm text-gray">{user?.desc}</span>
+                        <h1>{!loading && channelUser === null ? "Chaîne introuvable :/" : channelUser?.name}</h1>
+                        <span className="fs-sm text-gray">{channelUser?.desc}</span>
                         {/*
                         TODO : Récupérer le count totale de video de l'user
                         Potentiellement _design map reduce de couchDB
@@ -123,10 +126,24 @@ function ChannelView() {
                 )}
 
                 {!loading && !hasMore && videos.length === 0 && (
-                    <h4 className="text-center mt-3"> Aucun résultat </h4>
+                    user._id !== id ? (
+                        <h4 className="text-center mt-3">Aucun résultat</h4>
+                    ) : (
+                        <h4 className="text-center mt-3">
+                            Cliquez-
+                            <a
+                                className="cursor-pointer"
+                                onClick={() => setShowUploadModal(true)}
+                            > ici </a>
+                            pour publier votre première video !
+                        </h4>
+                    )
                 )}
             </div>
             <ScrollTopButton scrollOffset={100} />
+            {showUploadModal && user && (
+                <UploadVideoModal user={user} onClose={() => setShowUploadModal(false)} />
+            )}
         </main>
     )
 }

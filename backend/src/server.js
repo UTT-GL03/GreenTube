@@ -25,7 +25,7 @@ const storage = multer.diskStorage({
     if(file.fieldname === "video"){
       cb(null, "uploads/videos/");
     }
-    else if(file.fieldname === "avatars"){
+    else if(file.fieldname === "avatar"){
       cb(null, "uploads/avatars/");
     }
     else{
@@ -47,7 +47,7 @@ app.use(express.json());
 app.use("/auth", authRoute(db))
 app.use("/upload", uploadRoute(db, upload))
 app.use("/home", homeRoute(db))
-app.use("/channel", channelRoute(db))
+app.use("/channel", channelRoute(db, upload))
 app.use("/video", videoRoute(db))
 
 app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
