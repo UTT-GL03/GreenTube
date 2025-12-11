@@ -8,7 +8,7 @@
       "user" : {
         "id_user": "u{{int 0 799}}",
         "name": "{{firstName}} {{lastName}}",
-        "avatar": "uploads/avatars/default_avatar.png"
+        "avatar": "uploads/avatars/default_avatar_{{int 1 8}}.png"
       },
       "date": "{{date '2024-10-07' '2025-11-07' 'YYYY-MM-DD HH:mm:ss'}}",
       "name": "{{lorem min=3 max=8}}",
@@ -25,7 +25,7 @@
       "_id": "u{{@index}}",
       "type": "user",
       "name": "{{firstName}} {{lastName}}",
-      "avatar": "uploads/avatars/default_avatar.png",
+      "avatar": "uploads/avatars/default_avatar_{{int 1 8}}.png",
       "desc": "{{lorem min=10 max=30}}",
       "email": "{{email}}",
       "password": "{{lorem 1}}{{int 1000 9999}}",
@@ -42,7 +42,7 @@
       "user" : {
         "id_user": "u{{int 0 799}}",
         "name": "{{firstName}} {{lastName}}",
-        "avatar": "uploads/avatars/default_avatar.png"
+        "avatar": "uploads/avatars/default_avatar_{{int 1 8}}.png"
       },
       "id_video": "v{{int 0 1999}}",
       "date": "{{date '2024-10-07' '2025-11-07' 'YYYY-MM-DD HH:mm:ss'}}",

@@ -28,5 +28,5 @@ uploads/avatars/*
 uploads/thumbnails/*
 
 !uploads/videos/videoTest.mp4
-!uploads/avatars/default_avatar.png
+!uploads/avatars/default_avatar_*.png
 !uploads/thumbnails/default_thumbnail.png
