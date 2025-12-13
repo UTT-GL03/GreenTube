@@ -25,7 +25,7 @@ runs:
       shell: bash
     - name: Debug backend logs
       run: |
-        docker compose logs -f greentube-backend-1
+        docker compose logs -f backend
       shell: bash
     - name: Test backend from container
       run: |
