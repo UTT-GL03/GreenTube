@@ -24,6 +24,16 @@ runs:
       uses: docker://benel/wait-for-response:1
       with:
         args: http://localhost/ 200 30000 500
+    - name: Wait for backend
+      run: |
+        for i in {1..60}; do
+          if curl -sf http://localhost:3000/ > /dev/null; then
+            echo "Backend ready"
+            break
+          fi
+          echo "Waiting for backend..."
+          sleep 1
+        done
     - name: Wait for couchdb
       uses: docker://benel/wait-for-response:1
       with:
