@@ -23,10 +23,10 @@ runs:
     - name: Show setup_couchdb logs
       run: docker compose logs setup_couchdb
       shell: bash
-    - name: Debug: Inspect setup_couchdb container volumes
+    - name: Inspect setup_couchdb container volumes
       run: |
-      docker compose inspect setup_couchdb --format '{{json .Config.Volumes}}'
-      docker inspect greentube-setup_couchdb-1 --format '{{json .Mounts}}'
+        docker compose inspect setup_couchdb --format '{{json .Config.Volumes}}'
+        docker inspect greentube-setup_couchdb-1 --format '{{json .Mounts}}'
       shell: bash
     - name: Wait for frontend
       uses: docker://benel/wait-for-response:1
