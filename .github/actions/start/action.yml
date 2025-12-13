@@ -51,11 +51,11 @@ runs:
           exit 1
         fi
 
-        echo "--- FORCING DATA CHECK (AUTHENTICATED) ---"
+        echo "--- FORCING DATA CHECK (AUTHENTICATED ${COUCHDB_USER}) ---"
 
         sudo apt-get update && sudo apt-get install -y jq
 
-        DB_RESPONSE=$(curl -s -u "${DB_USER}:${DB_PASS}" "$DB_HOST/greentube/_all_docs?limit=0")
+        DB_RESPONSE=$(curl -s -u "${COUCHDB_USER}:${COUCHDB_PASSWORD}" "$DB_HOST/greentube/_all_docs?limit=0")
         
         TOTAL_ROWS=$(echo "$DB_RESPONSE" | jq '.total_rows')
         
@@ -65,7 +65,7 @@ runs:
           echo "❌ ÉCHEC : La base 'greentube' est vide (total_rows: $TOTAL_ROWS)."
           echo "Réponse complète de CouchDB (pour debug): $DB_RESPONSE"
           
-          FIRST_DOC=$(curl -s -u "${DB_USER}:${DB_PASS}" "$DB_HOST/greentube/_all_docs?limit=1&include_docs=true" | jq '.rows[0].doc')
+          FIRST_DOC=$(curl -s -u "${COUCHDB_USER}:${COUCHDB_PASSWORD}" "$DB_HOST/greentube/_all_docs?limit=1&include_docs=true" | jq '.rows[0].doc')
           echo "Contenu du premier document (si existant): $FIRST_DOC"
           exit 1
         fi
