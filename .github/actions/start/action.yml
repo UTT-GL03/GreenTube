@@ -23,6 +23,14 @@ runs:
     - name: Check backend ports
       run: docker compose ps
       shell: bash
+    - name: Debug backend logs
+      run: |
+        docker compose logs -f greentube-backend-1
+      shell: bash
+    - name: Test backend from container
+      run: |
+        docker compose exec backend curl -v http://localhost:3000/
+      shell: bash
     - name: Wait for frontend
       uses: docker://benel/wait-for-response:1
       with:
