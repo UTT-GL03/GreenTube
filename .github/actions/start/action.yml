@@ -27,10 +27,6 @@ runs:
       run: |
         docker compose logs -f backend
       shell: bash
-    - name: Test backend from container
-      run: |
-        docker compose exec backend curl -v http://localhost:3000/
-      shell: bash
     - name: Wait for frontend
       uses: docker://benel/wait-for-response:1
       with:
@@ -38,7 +34,7 @@ runs:
     - name: Wait for backend
       run: |
         for i in {1..60}; do
-          if curl -sf http://localhost:3000/ > /dev/null; then
+          if docker compose exec backend curl -sf http://localhost:3000/ > /dev/null; then
             echo "Backend ready"
             break
           fi
