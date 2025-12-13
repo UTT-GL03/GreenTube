@@ -19,6 +19,8 @@ function VideoPlayer({ idVideo, path }) {
 
   return (
     <video
+      data-ecoid="video-player"
+      data-greenframeid="video-player"
       className="rounded-md"
       controls
       width="100%"
