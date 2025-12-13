@@ -16,8 +16,8 @@ runs:
         path: frontend/public/data
     - name: Start containers
       run: |
-        export COUCHDB_USER="thbc"
-        export COUCHDB_PASSWORD="thbc"
+        export COUCHDB_USER="tbhc"
+        export COUCHDB_PASSWORD="tbhc"
         docker compose up --detach
       shell: bash
     - name: Wait for frontend
@@ -53,7 +53,7 @@ runs:
           exit 1
         fi
 
-        echo "--- FORCING DATA CHECK (AUTHENTICATED) ---"
+        echo "--- FORCING DATA CHECK (AUTHENTICATED ${DB_USER}) ---"
 
         sudo apt-get update && sudo apt-get install -y jq
 
