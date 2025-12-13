@@ -28,11 +28,12 @@ services:
     command:
       - |
         alias put="curl -X PUT -u '${COUCHDB_USER}:${COUCHDB_PASSWORD}'"
+        alias post="curl -X POST -u '${COUCHDB_USER}:${COUCHDB_PASSWORD}'"
         put couchdb:5984/_node/nonode@nohost/_config/chttpd/enable_cors --data '"true"'
         put couchdb:5984/_node/nonode@nohost/_config/cors/origins --data '"*"'
         put couchdb:5984/greentube
         put couchdb:5984/greentube/_security --data '{"members":{"roles":[]},"admins":{"roles":["_admin"]}}'
-        curl -X POST http://couchdb:5984/greentube/_bulk_docs -H "Content-Type: application/json" -d @/sample_data.json
+        post couchdb:5984/greentube/_bulk_docs -H "Content-Type: application/json" -d @/sample_data.json
     depends_on:
       couchdb:
         condition: service_healthy
