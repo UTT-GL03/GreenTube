@@ -55,10 +55,14 @@ app.use("/video", videoRoute(db))
 
 app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 
+app.get("/health", (_, res) => {
+  res.status(200).json({ status: "ok" });
+});
+
 app.get("/", async (_, res) => {
   try {
     const info = await db.info();
-    res.json(info);
+    res.status(200).json(info);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
