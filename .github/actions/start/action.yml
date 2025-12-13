@@ -20,13 +20,8 @@ runs:
         export COUCHDB_PASSWORD="thbc"
         docker compose up --detach
       shell: bash
-    - name: Show setup_couchdb logs
-      run: docker compose logs setup_couchdb
-      shell: bash
-    - name: Inspect setup_couchdb container volumes
-      run: |
-        docker compose inspect setup_couchdb --format '{{json .Config.Volumes}}'
-        docker inspect greentube-setup_couchdb-1 --format '{{json .Mounts}}'
+    - name: Show index logs
+      run: docker compose logs index
       shell: bash
     - name: Wait for frontend
       uses: docker://benel/wait-for-response:1
