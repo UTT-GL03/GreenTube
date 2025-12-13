@@ -34,6 +34,7 @@ runs:
           echo "Waiting for backend..."
           sleep 1
         done
+      shell: bash
     - name: Wait for couchdb
       uses: docker://benel/wait-for-response:1
       with:
