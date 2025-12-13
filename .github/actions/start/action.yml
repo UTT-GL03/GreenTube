@@ -34,8 +34,6 @@ runs:
         args: http://localhost:3000/health 200 30000 500
     - name: Wait for CouchDB and Display Document Count
       run: |
-        DB_USER="${COUCHDB_USER}"
-        DB_PASS="${COUCHDB_PASSWORD}"
         DB_HOST="http://localhost:5984"
 
         for i in {1..30}; do
