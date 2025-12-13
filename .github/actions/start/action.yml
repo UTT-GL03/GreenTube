@@ -20,9 +20,6 @@ runs:
         export COUCHDB_PASSWORD="thbc"
         docker compose up --detach
       shell: bash
-    - name: Show couchdb logs
-      run: docker compose logs couchdb
-      shell: bash
     - name: Wait for frontend
       uses: docker://benel/wait-for-response:1
       with:
@@ -35,3 +32,43 @@ runs:
       uses: docker://benel/wait-for-response:1
       with:
         args: http://localhost:3000/health 200 30000 500
+    - name: Wait for CouchDB and Display Document Count
+      run: |
+        DB_USER="${COUCHDB_USER}"
+        DB_PASS="${COUCHDB_PASSWORD}"
+        DB_HOST="http://localhost:5984"
+
+        for i in {1..30}; do
+          echo "Checking CouchDB for data (Attempt $i/30)..."
+          
+          if curl -s $DB_HOST/_up | grep -q '"status":"ok"'; then
+            echo "CouchDB service is up."
+            break
+          fi
+          sleep 2
+        done
+        
+        if [ $i -eq 30 ]; then
+          echo "❌ Échec de la connexion à CouchDB après 60 secondes."
+          exit 1
+        fi
+
+        echo "--- FORCING DATA CHECK (AUTHENTICATED) ---"
+
+        sudo apt-get update && sudo apt-get install -y jq
+
+        DB_RESPONSE=$(curl -s -u "${DB_USER}:${DB_PASS}" "$DB_HOST/greentube/_all_docs?limit=0")
+        
+        TOTAL_ROWS=$(echo "$DB_RESPONSE" | jq '.total_rows')
+        
+        if [ "$TOTAL_ROWS" -gt 0 ] 2>/dev/null; then
+          echo "✅ SUCCÈS : Base de données 'greentube' contient $TOTAL_ROWS documents."
+        else
+          echo "❌ ÉCHEC : La base 'greentube' est vide (total_rows: $TOTAL_ROWS)."
+          echo "Réponse complète de CouchDB (pour debug): $DB_RESPONSE"
+          
+          FIRST_DOC=$(curl -s -u "${DB_USER}:${DB_PASS}" "$DB_HOST/greentube/_all_docs?limit=1&include_docs=true" | jq '.rows[0].doc')
+          echo "Contenu du premier document (si existant): $FIRST_DOC"
+          exit 1
+        fi
+      shell: bash
