@@ -56,7 +56,7 @@ function RegisterForm() {
 
   //
   return (
-    <div className="card-md rounded card-bg-opacity mx-auto my-auto py-3 px-2 text-center z-1000">
+    <div className="card-md rounded-md card-bg-opacity mx-auto my-auto py-3 px-2 text-center z-1000">
       <h2>Inscription</h2>
       <form onSubmit={handleSubmit} className="flex flex-col gap-2">
         <input

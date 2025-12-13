@@ -65,7 +65,7 @@ function UploadVideoModal({ onClose }) {
     <>
       <div className="fixed inset-0 bg-black-70 z-1000" onClick={onClose}>
         <div className="fixed inset-0 flex items-center justify-center z-2000">
-          <div className="card-lg bg-white rounded p-2" onClick={(e) => e.stopPropagation()}>
+          <div className="card-lg bg-white rounded-md p-2" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-center">
               <h2 className="fs-bold fs-xl">Mettre en ligne une vidéo</h2>
               <button

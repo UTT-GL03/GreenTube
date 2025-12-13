@@ -21,7 +21,7 @@ function Auth({ mode = "login" }) {
         m-2
         flex items-center gap-1
         p-2
-        rounded
+        rounded-md
         bg-white 
         text-dark
         fw-bold

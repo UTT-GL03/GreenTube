@@ -34,13 +34,13 @@ export function UserDropdown() {
                 <div className="absolute right-0 mt-2 w-40 card p-2 flex flex-col text-sm z-50 bg-white gap-2">
                     <Link
                         to={`/channel/${user?._id}`}
-                        className="btn btn-outline text-left p-1 rounded"
+                        className="btn btn-outline text-left p-1 rounded-md"
                         onClick={() => setOpen(false)}
                     >
                         Mon profil
                     </Link>
                     <button
-                        className="btn btn-outline text-left p-1 rounded text-red"
+                        className="btn btn-outline text-left p-1 rounded-md text-red"
                         onClick={() => {
                             logout()
                             window.location.reload();

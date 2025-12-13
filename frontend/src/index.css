@@ -353,7 +353,8 @@ a {
 
 .border { border: 2px solid #444; }
 .border-0 { border: none; }
-.rounded { border-radius: 16px; }
+.rounded-sm { border-radius: 8px; }
+.rounded-md { border-radius: 16px; }
 
 /* OVERFLOW */
 

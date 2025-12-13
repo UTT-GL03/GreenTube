@@ -20,7 +20,7 @@ function Header() {
 
         <div className="header-section header-left" data-ecoid="home-logo">
           <Link to="/" className="flex gap-2 item-center">
-            <img src={greentubeLogo} alt="Greentube" className="my-auto" width="32px" height="32px"/>
+            <img src={greentubeLogo} alt="Greentube" className="my-auto rounded-sm" width="32px" height="32px"/>
             <p className="fw-bold fs-xl">GREENTUBE</p>
           </Link>
         </div>

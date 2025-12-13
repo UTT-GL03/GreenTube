@@ -19,7 +19,7 @@ function VideoPlayer({ idVideo, path }) {
 
   return (
     <video
-      className="rounded"
+      className="rounded-md"
       controls
       width="100%"
       src={`${API.URL}/${path}`}

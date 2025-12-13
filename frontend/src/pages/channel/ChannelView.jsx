@@ -76,7 +76,7 @@ function ChannelView() {
         <main className="center">
             <div>
 
-                <div className="card-xl rounded flex mx-auto p-4 my-3 relative">
+                <div className="card-xl rounded-md flex mx-auto p-4 my-3 relative">
                     {user?._id === id && (
                         <Link
                             to="/channel/edit"

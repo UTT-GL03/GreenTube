@@ -18,11 +18,11 @@ function VideoCard({ video }) {
         <Link to={`/video/${video._id}`}>
         <div className="relative">
           <img
-            className="fit-cover rounded w-full h-auto mb-1"
+            className="fit-cover rounded-md w-full h-auto mb-1"
             src={`${API.URL}/${video.thumbnail}`}
             alt={video.name} />
           <span
-            className="absolute bottom-15 right-5 bg-black opacity-7 text-white text-xs px-2 py-1 rounded">
+            className="absolute bottom-15 right-5 bg-black opacity-7 text-white text-xs px-2 py-1 rounded-md">
             {video.views} vues
           </span>
         </div>
