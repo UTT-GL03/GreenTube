@@ -24,6 +24,10 @@ runs:
       uses: docker://benel/wait-for-response:1
       with:
         args: http://localhost/ 200 30000 500
+    - name: Wait for backend
+      uses: docker://benel/wait-for-response:1
+      with:
+        args: http://localhost:3000/ 200 30000 500
     - name: Wait for couchdb
       uses: docker://benel/wait-for-response:1
       with:
