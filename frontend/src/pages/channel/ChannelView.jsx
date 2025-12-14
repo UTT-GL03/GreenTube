@@ -86,11 +86,11 @@ function ChannelView() {
                     {user?._id === id && (
                         <Link
                             to="/channel/edit"
-                            className="btn absolute top-10 right-10 rounded"
+                            className="btn absolute top-10 right-10"
                         >
                             <svg
-                                width="18"
-                                height="18"
+                                width="16"
+                                height="16"
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 stroke="currentColor"
@@ -138,7 +138,7 @@ function ChannelView() {
                         <h4 className="text-center mt-3">
                             Cliquez-
                             <a
-                                className="cursor-pointer"
+                                className="cursor-pointer text-blue"
                                 onClick={() => setShowUploadModal(true)}
                             >ici </a>
                             pour publier votre première video !
