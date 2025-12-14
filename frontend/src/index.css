@@ -367,6 +367,7 @@ a {
 .hover-underline:hover { text-decoration: underline; }
 .v-align-middle { vertical-align: middle; }
 .fit-cover { object-fit: cover; }
+.fit-contain { object-fit: contain; }
 .truncate { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .word-break { word-break: break-word; }
 

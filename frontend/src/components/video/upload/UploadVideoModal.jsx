@@ -2,8 +2,8 @@ import { useState } from 'react'
 
 import { backApi } from '../../../api/backApi';
 import { useAuth } from '../../../contexts/AuthContext';
+import { APP } from '../../../constants/constants';
 
-const VIDEO_MAX_SIZE = 200;
 
 function UploadVideoModal({ onClose }) {
   // HOOKs
@@ -12,6 +12,7 @@ function UploadVideoModal({ onClose }) {
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
   const [video, setVideo] = useState(null);
+  const [thumbnail, setThumbnail] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -26,8 +27,14 @@ function UploadVideoModal({ onClose }) {
       console.log(error);
       return;
     }
-    if (video.size > VIDEO_MAX_SIZE * 1024 * 1024) {
-      setError(`Fichier trop lourd. (MAX ${VIDEO_MAX_SIZE} Mo)`);
+    if (video.size > APP.VIDEO_MAX_SIZE * 1024 * 1024) {
+      setError(`Fichier trop lourd. (MAX ${APP.VIDEO_MAX_SIZE} Mo)`);
+      console.log(error);
+      return;
+    }
+
+    if (thumbnail.size > APP.THUMBNAIL_MAX_SIZE * 1024 * 1024) {
+      setError(`Fichier trop lourd. (MAX ${APP.THUMBNAIL_MAX_SIZE} Mo)`);
       console.log(error);
       return;
     }
@@ -35,6 +42,7 @@ function UploadVideoModal({ onClose }) {
       const formData = new FormData();
 
       formData.append("video", video);
+      formData.append("thumbnail", thumbnail);
       formData.append("name", name);
       formData.append("desc", desc);
       formData.append("id_user", user._id);
@@ -89,7 +97,7 @@ function UploadVideoModal({ onClose }) {
                   required
                 />
 
-                <span className="fw-bold">Description</span>
+                <span className="fw-bold">Description (Optionnel)</span>
                 <textarea
                   className="text-area"
                   value={desc}
@@ -102,8 +110,18 @@ function UploadVideoModal({ onClose }) {
                   type="file"
                   className="input-text"
                   accept="video/*"
-                  placeholder={`Sélectionner le fichier vidéo... (MAX ${VIDEO_MAX_SIZE} Mo)`}
+                  placeholder={`Sélectionner le fichier vidéo... (MAX ${APP.VIDEO_MAX_SIZE} Mo)`}
                   onChange={(e) => setVideo(e.target.files[0])}
+                  required
+                />
+
+                <span className="fw-bold">Charger une miniature (Optionnel)</span>
+                <input
+                  type="file"
+                  className="input-text"
+                  accept="image/*"
+                  placeholder={`Sélectionner le fichier image... (MAX ${APP.THUMBNAIL_MAX_SIZE} Mo)`}
+                  onChange={(e) => setThumbnail(e.target.files[0])}
                 />
               </div>
               {error ?? (

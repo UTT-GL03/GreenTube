@@ -18,7 +18,7 @@ function VideoCard({ video }) {
         <Link to={`/video/${video._id}`}>
         <div className="relative">
           <img
-            className="fit-cover rounded-md w-full h-auto mb-1"
+            className="fit-contain rounded-md w-full h-200 mb-1"
             src={`${API.URL}/${video.thumbnail}`}
             alt={video.name} />
           <span
