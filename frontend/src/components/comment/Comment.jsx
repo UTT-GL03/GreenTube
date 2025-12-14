@@ -25,7 +25,7 @@ function Comment({ comment }) {
     return (
         <div className="flex my-1 max-w-800">
             <div className="me-2">
-                <Avatar idUser={comment.id_user} avatarPath={comment.user_avatar} />
+                <Avatar idUser={comment?.user?.id_user} avatarPath={comment?.user?.avatar} />
             </div>
 
             <div className="w-full">
