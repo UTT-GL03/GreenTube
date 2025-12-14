@@ -4,99 +4,117 @@ export default function (db, upload) {
 
     const router = express.Router();
 
-    router.get("/", async (req, res) => {
-        const { id_user, limit, offset, sortKey, order, firstLoad } = req.query;
-        const isFirstLoad = firstLoad === true || firstLoad === "true"
+    router.get("/:id_user", async (req, res) => {
+        const { id_user } = req.params;
+        const { limit, offset, sortKey, order, firstLoad } = req.query;
 
-        // Get user if needed
-        // Get videos
-        let userSelector;
-        if (isFirstLoad) {
-            userSelector = { type: "user", _id: id_user };
+        if (!id_user) return res.status(400).json({ success: false, message: "ID utilisateur manquant" });
+
+        const parsedLimit = limit ? parseInt(limit, 10) : 50;
+        const parsedOffset = offset ? parseInt(offset, 10) : 0;
+
+        if (isNaN(parsedLimit) || isNaN(parsedOffset) || parsedLimit <= 0 || parsedOffset < 0) {
+            return res.status(400).json({ success: false, message: "Paramètres de pagination invalides (limit/offset)." });
+        }
+
+        const isFirstLoad = firstLoad === "true";
+
+        const validSortKeys = ["date", "views", "name"];
+        const defaultSortKey = "date";
+        const actualSortKey = validSortKeys.includes(sortKey) ? sortKey : defaultSortKey;
+
+        let actualOrder = order === "asc" ? "asc" : "desc";
+
+        // Inversion de l'ordre pour les champs date et les vues (plus logique visuellement)
+        if (["date", "views"].includes(actualSortKey) && order !== "asc") {
+            actualOrder = "asc";
+        }
+        else if (["date", "views"].includes(actualSortKey) && order === "asc") {
+            actualOrder = "desc";
         }
 
         const videoSelector = { type: "video", "user.id_user": id_user };
 
-        // Pour avoir un visuel plus naturel pour les dates
-        // TODO : À rendre plus propre 
-        let actualOrder = order === "desc" ? "desc" : "asc";
-        if (sortKey === "date" || sortKey === "subscribers" || sortKey === "views") {
-            actualOrder = actualOrder === "asc" ? "desc" : "asc";
-        }
-
         try {
-            const videos = await db.find({
-                selector: videoSelector,
-                sort: [{ [sortKey]: actualOrder }],
-                limit: limit ? parseInt(limit, 10) : 50,
-                // TODO : Attention, cas ajoute de video pendant consultation 
-                // Récupérer le last id affiché au client plutôt que skip avec int
-                skip: offset ? parseInt(offset, 10) : 0
-            });
+            let userPromise = null;
+            let videosPromise = null;
 
-            let user;
             if (isFirstLoad) {
-                user = await db.find({
-                    selector: userSelector,
-                    limit: 1
-                })
+                const userSelector = { type: "user", _id: id_user };
+                userPromise = db.find({ selector: userSelector, limit: 1 });
             }
 
-            res.json(isFirstLoad ? {
-                user: user.docs[0],
-                videos: videos.docs.filter(d => d.type === "video")
-            } : {
-                videos: videos.docs.filter(d => d.type === "video")
-            })
+            videosPromise = db.find({
+                selector: videoSelector,
+                sort: [{ [actualSortKey]: actualOrder }],
+                limit: parsedLimit,
+                skip: parsedOffset
+                // TODO : Attention, cas ajoute de video pendant consultation
+                // Récupérer le last id affiché au client plutôt que skip avec int
+            });
+
+            const [userResp, videosResp] = await Promise.all([userPromise, videosPromise].filter(p => p !== null));
+
+            const videos = videosResp?.docs || [];
+            const user = userResp?.docs?.[0] || null;
+
+            const responseData = {
+                success: true,
+                message: "",
+                data: {
+                    videos
+                }
+            };
+
+            if (isFirstLoad) {
+                if (!user) {
+                    return res.status(404).json({ success: false, message: "Utilisateur non trouvé." });
+                }
+                responseData.data.user = user;
+            }
+
+            res.json(responseData);
         } catch (err) {
-            console.error("Erreur serveur interne : " + err);
-            res.status(500).json({ error: "Erreur serveur interne" });
+            console.error(err);
+            res.status(500).json({ success: false, message: "Erreur serveur interne" });
         }
     })
 
     router.post("/:id_user/edit", upload.single("avatar"), async (req, res) => {
         const file = req.file;
-        const id_user = req.params.id_user;
+        const { id_user } = req.params;
         const { newDesc } = req.body;
-
-        // Get user
-        const userSelector = { type: "user", _id: id_user };
-
-        // Get tout les comms et videos et l'user 
-        const contentSelector = {
-            $or: [
-                { type: "video" },
-                { type: "comments" }
-            ],
-            "user.id_user": id_user
-        };
 
         try {
             const userResp = await db.find({
-                selector: userSelector,
+                selector: { type: "user", _id: id_user },
                 limit: 1
             });
-            const contentResp = await db.find({
-                selector: contentSelector,
-            });
-
             if (userResp.docs.length === 0) {
                 return res.status(404).json({ success: false, error: "Utilisateur introuvable" });
             }
-
             const user = userResp.docs[0];
 
-            if (newDesc) user.desc = newDesc;
-            if (file) user.avatar = file.path;
+            const changesToApply = {};
+            if (newDesc) changesToApply.desc = newDesc;
+            if (file) changesToApply.avatar = file.path;
+
+            Object.assign(user, changesToApply);
+
+            const contentResp = await db.find({
+                selector: {
+                    $or: [{ type: "video" }, { type: "comments" }],
+                    "user.id_user": id_user
+                },
+            });
 
             const docsToUpdate = contentResp.docs.map(doc => {
-                const updatedUser = { ...doc.user };
-                if (newDesc) updatedUser.desc = newDesc;
-                if (file) updatedUser.avatar = file.path;
-
                 return {
                     ...doc,
-                    user: updatedUser
+                    user: {
+                        ...doc.user,
+                        ...changesToApply
+                    }
                 };
             });
 
@@ -107,10 +125,17 @@ export default function (db, upload) {
             res.status(200).json({
                 success: true,
                 message: "Profil utilisateur mis à jour avec succès !",
-                user
+                data: {
+                    user: {
+                        _id: user._id,
+                        name: user.name,
+                        avatar: user.avatar,
+                        desc: user.desc
+                    }
+                }
             })
         } catch (err) {
-            console.error("Erreur serveur interne : " + err);
+            console.error(err);
             res.status(500).json({ success: false, error: "Erreur serveur interne" });
         }
     })

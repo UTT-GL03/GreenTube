@@ -46,13 +46,19 @@ function Home() {
     };
 
     try {
-      const videos = await backApi.getHome(params)
+      const res = await backApi.getHome(params)
 
-      setItems(prev => (reset ? videos : [...prev, ...videos]))
-      setHasMore(videos.length === limit)
-    } catch (err) {
-      console.error(err)
-    } finally {
+      if (!res.success) {
+        return;
+      }
+
+      setItems(prev => (reset ? res.data : [...prev, ...res.data]))
+      setHasMore(res.data.length === limit)
+    }
+    catch (err) {
+      console.error(err.message)
+    }
+    finally {
       setLoading(false)
     }
   }
@@ -64,8 +70,9 @@ function Home() {
   const handleModeChange = (newMode) => {
     if (mode === newMode) return;
     localStorage.setItem(MODE_STORAGE_KEY, newMode);
-    setMode(newMode)
-    setSortKey(newMode === "video" ? "date" : "name")
+    setMode(newMode);
+    setOrder("asc");
+    setSortKey(newMode === "video" ? "date" : "name");
     setItems([]);
     setHasMore(true);
   }

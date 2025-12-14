@@ -19,12 +19,12 @@ export const backApi = {
     },
 
     addComment: async ({ content, id_video, id_user, user_name, user_avatar }) => {
-        const data = await httpPost("video/comment", { content, id_video, id_user, user_name, user_avatar });
+        const data = await httpPost(`video/${id_video}/comment`, { content, id_user, user_name, user_avatar });
         return data;
     },
 
-    editChannel: async (channelId, formData) => {
-        const data = await httpPost(`channel/${channelId}/edit`, formData);
+    editChannel: async (id_user, formData) => {
+        const data = await httpPost(`channel/${id_user}/edit`, formData);
         return data;
     },
 
@@ -40,12 +40,12 @@ export const backApi = {
     },
 
     getChannel: async ({ id_user, limit, offset, sortKey, order, firstLoad } = {}) => {
-        const data = await httpGet("channel", { id_user, limit, offset, sortKey, order, firstLoad });
+        const data = await httpGet(`channel/${id_user}`, { limit, offset, sortKey, order, firstLoad });
         return data;
     },
 
     getVideo: async (id_video) => {
-        const data = await httpGet("video", { id_video });
+        const data = await httpGet(`video/${id_video}`);
         return data;
     },
 };

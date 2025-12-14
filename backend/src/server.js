@@ -15,11 +15,11 @@ const PORT = 3000;
 
 const app = express();
 
-// DB
+// Init: DB
 const couch = nano(DB_URL);
 const db = couch.db.use("greentube");
 
-// DISK STORAGE
+// Init: DISK STORAGE
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     if(file.fieldname === "video"){
@@ -43,7 +43,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage })
 
-//
+// ROUTE
 app.use(cors());
 app.use(express.json());
 
@@ -52,7 +52,6 @@ app.use("/upload", uploadRoute(db, upload))
 app.use("/home", homeRoute(db))
 app.use("/channel", channelRoute(db, upload))
 app.use("/video", videoRoute(db))
-
 app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 
 app.get("/health", (_, res) => {

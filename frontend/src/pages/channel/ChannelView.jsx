@@ -2,19 +2,20 @@ import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router'
 
 import { backApi } from '../../api/backApi';
+import { useAuth } from '../../contexts/AuthContext';
+import { APP } from '../../constants/constants';
 
 import Avatar from '../../components/avatar/Avatar'
 import VideoGrid from '../../components/video/grid/VideoGrid';
 import SeeMoreButton from '../../components/SeeMoreButton';
 import SortButtons from '../../components/SortButtons';
 import ScrollTopButton from '../../components/ScrollTopButton';
-import { useAuth } from '../../contexts/AuthContext';
 import UploadVideoModal from '../../components/video/upload/UploadVideoModal';
 
 function ChannelView() {
     // HOOKs
     const { id } = useParams();
-    const { user } = useAuth()
+    const { user } = useAuth();
 
     const [channelUser, setChannelUser] = useState(null);
     const [videos, setVideos] = useState([]);
@@ -22,10 +23,10 @@ function ChannelView() {
     const [sortKey, setSortKey] = useState("date");
     const [order, setOrder] = useState("asc");
     const [hasMore, setHasMore] = useState(true);
-    const [showUploadModal, setShowUploadModal] = useState(false)
+    const [showUploadModal, setShowUploadModal] = useState(false);
 
     useEffect(() => {
-        loadAll(true)
+        loadAll(true);
     }, [id, sortKey, order])
 
     // FUNCTIONs
@@ -33,8 +34,8 @@ function ChannelView() {
         setLoading(true)
 
         const isApiFirstLoad = channelUser === null || channelUser.id_user !== id;
-        const offset = reset ? 0 : videos.length
-        const limit = 6
+        const offset = reset ? 0 : videos.length;
+        const limit = APP.VIDEO_LIMIT;
 
         const params = {
             id_user: id,
@@ -46,19 +47,24 @@ function ChannelView() {
         };
 
         try {
-            const data = await backApi.getChannel(params)
-
-            setVideos(prev =>
-                reset ? data.videos : [...prev, ...data.videos]
-            );
-            setHasMore(data.length === limit)
-            if (isApiFirstLoad) {
-                setChannelUser(data.user || null)
+            const res = await backApi.getChannel(params);
+            if (!res.success) {
+                console.log(res.message);
+                return;
             }
-        } catch (err) {
-            console.error("Erreur chargement Channel : " + err)
-        } finally {
-            setLoading(false)
+            setVideos(prev =>
+                reset ? res.data.videos : [...prev, ...res.data.videos]
+            );
+            setHasMore(res.data.videos.length === limit);
+            if (isApiFirstLoad) {
+                setChannelUser(res.data.user || null);
+            }
+        }
+        catch (err) {
+            console.error(err.message);
+        }
+        finally {
+            setLoading(false);
         }
     }
 

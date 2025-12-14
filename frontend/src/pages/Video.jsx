@@ -15,6 +15,7 @@ function Video() {
   const [comments, setComments] = useState([])
   const [related, setRelated] = useState([])
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
 
   useEffect(() => {
     loadAll()
@@ -22,21 +23,31 @@ function Video() {
 
   // FUNCTIONs
   const loadAll = async () => {
-    setLoading(true)
+    setLoading(true);
+    setError("");
 
-    setVideo(null) 
-    setComments([])
-    setRelated([])
+    setVideo(null);
+    setComments([]);
+    setRelated([]);
 
     try {
-      const data = await backApi.getVideo(id)
-      setVideo(data.video)
-      setComments(data.comments)
-      setRelated(data.related)
-    } catch (err) {
-      console.error("Erreur chargement vidéo :", err)
-    } finally {
-      setLoading(false)
+      const res = await backApi.getVideo(id);
+
+      if (!res.success) {
+        setError(res.message);
+        return;
+      }
+
+      setVideo(res.data.video);
+      setComments(res.data.comments);
+      setRelated(res.data.related);
+
+    }
+    catch (err) {
+      console.error(err.message);
+    }
+    finally {
+      setLoading(false);
     }
   }
 
@@ -52,16 +63,20 @@ function Video() {
   if (!video && !loading) {
     return (
       <main className="center">
-        <p className="mt-4">Problème de récupération de la vidéo.</p>
+        <div className="flex flex-col card-md mt-4">
+          <h2>Oups !</h2>
+          <p className="mt-1">Impossible de charger la vidéo demandée.</p>
+          {error && <p className="mt-1 text-red">{error}</p>}
+        </div>
       </main>
-    )
+    );
   }
 
   return (
     <main>
       <div className="flex flex-wrap center mt-2 mb-4 gap-4">
         <div>
-          <VideoPlayerCard video={video}/>
+          <VideoPlayerCard video={video} />
           <CommentsSection comments={comments} id_video={video._id} />
         </div>
         <Recommendations related={related} />

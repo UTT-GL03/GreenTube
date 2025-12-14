@@ -13,7 +13,8 @@ dayjs.extend(timezone);
 export default function (db, upload) {
     const router = express.Router()
 
-    // TODO : Add Thumbnails
+    // TODO : delete fichier si erreur
+    // TODO : user existe dans bdd
     router.post("/video", upload.fields([
         { name: "video", maxCount: 1 },
         { name: "thumbnail", maxCount: 1 }
@@ -23,12 +24,38 @@ export default function (db, upload) {
         const { name, desc, id_user, user_name, user_avatar } = req.body;
         const now = dayjs().tz("Europe/Paris").format("YYYY-MM-DD HH:mm:ss");
 
-        if (!videoFile) return res.status(400).json({ success: false, message: "Aucun fichier uploadé" });
+        if (!videoFile) return res.status(400).json({ success: false, message: "Aucun fichier uploadé." });
 
         try {
-            const counter = await db.get("counter");
-            counter.video_counter += 1;
-            const videoId = `v${counter.video_counter}`;
+            let updatedCounter;
+            let videoId;
+            let counterAttempts = 0;
+
+            // Mise à jour de du compteur d'id video
+            do {
+                const currentCounter = await db.get("counter");
+
+                currentCounter.video_counter += 1;
+                videoId = `v${currentCounter.video_counter}`;
+
+                try {
+                    updatedCounter = await db.insert(currentCounter);
+                }
+                catch (conflictError) {
+                    if (conflictError.statusCode === 409 && counterAttempts < 5) {
+                        counterAttempts++;
+                        console.warn(`Conflit de révision sur 'counter', tentative de réessai #${counterAttempts}`);
+                        continue;
+                    }
+                    console.error(conflictError);
+                    res.status(conflictError.statusCode).json({
+                        success: false,
+                        message: "Erreur serveur interne !",
+                    });
+                    return;
+                }
+
+            } while (!updatedCounter);
 
             let thumbnailPath;
 
@@ -48,7 +75,10 @@ export default function (db, upload) {
                             size: "300x200"
                         })
                         .on("end", resolve)
-                        .on("error", reject);
+                        .on("error", (err) => {
+                            console.error("Erreur FFmpeg:", err);
+                            reject(new Error("Échec de la génération de la vignette."));
+                        });
                 });
             }
 
@@ -66,10 +96,9 @@ export default function (db, upload) {
                 path: `uploads/videos/${videoFile.filename}`,
                 thumbnail: thumbnailPath,
                 views: 0
-            }
+            };
 
-            await db.insert(video)
-            await db.insert(counter);
+            await db.insert(video);
 
             res.status(201).json({
                 success: true,
@@ -77,13 +106,14 @@ export default function (db, upload) {
                 data: {
                     video
                 }
-            })
+            });
         }
         catch (err) {
+            console.error(err);
             res.status(500).json({
                 success: false,
-                message: `Erreur serveur interne : ${err} !`
-            })
+                message: `Erreur serveur interne !`
+            });
         }
     })
 

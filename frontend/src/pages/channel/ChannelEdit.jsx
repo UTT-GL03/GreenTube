@@ -3,8 +3,7 @@ import { backApi } from "../../api/backApi";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useNavigate } from "react-router";
 import Avatar from "../../components/avatar/Avatar";
-
-const AVATAR_MAX_SIZE = 5;
+import { APP } from "../../constants/constants";
 
 function ChannelEdit() {
   // HOOKs
@@ -38,8 +37,13 @@ function ChannelEdit() {
     e.preventDefault();
     setError("");
 
-    if (newAvatar && newAvatar.size > AVATAR_MAX_SIZE * 1024 * 1024) {
-      setError(`Fichier trop lourd. (MAX ${AVATAR_MAX_SIZE} Mo)`);
+    if(!newAvatar && newDesc === user.desc) {
+      navigate(`/channel/${user?._id}`)
+      return;
+    }
+
+    if (newAvatar && newAvatar.size > APP.AVATAR_MAX_SIZE * 1024 * 1024) {
+      setError(`Fichier trop lourd. (MAX ${APP.AVATAR_MAX_SIZE} Mo)`);
       return;
     }
 
@@ -48,17 +52,17 @@ function ChannelEdit() {
       formData.append("newDesc", newDesc);
       if (newAvatar) formData.append("avatar", newAvatar);
 
-      const data = await backApi.editChannel(user?._id, formData);
+      const res = await backApi.editChannel(user?._id, formData);
 
-      if (!data.success) {
-        setError(data.message);
+      if (!res.success) {
+        setError(res.message);
         return;
       }
 
-      // Maj du user dans le context
-      login(data.user)
+      // Maj du user dans le context (due à la dénormalisation)
+      login(res.data.user)
 
-      navigate(`/channel/${data.user._id}`)
+      navigate(`/channel/${res.data.user._id}`)
     }
     catch (err) {
       setError(err.message);

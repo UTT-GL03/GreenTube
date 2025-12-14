@@ -112,8 +112,8 @@ export default function (db) {
                     user: {
                         _id: user._id,
                         name: user.name,
-                        email: user.email,
-                        avatar: user.avatar
+                        avatar: user.avatar,
+                        desc: user.desc
                     }
                 }
             })
