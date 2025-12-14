@@ -2,7 +2,7 @@
   "index": {
     "fields": ["type", "date"]
   },
-  "name": "comment_type_date_index",
+  "name": "element_by_date_index",
   "type": "json"
 }
 

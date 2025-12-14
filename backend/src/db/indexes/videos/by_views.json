@@ -2,7 +2,7 @@
   "index": {
     "fields": ["type", "views"]
   },
-  "name": "video_type_views_index",
+  "name": "video_by_views_index",
   "type": "json"
 }
 

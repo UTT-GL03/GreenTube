@@ -46,12 +46,12 @@ services:
     command:
       - |
         alias post_index="curl -X POST -u '${COUCHDB_USER}:${COUCHDB_PASSWORD}' http://couchdb:5984/greentube/_index -H 'Content-Type: application/json'"
-        post_index -d @/indexes/videos/by_name.json
-        post_index -d @/indexes/videos/by_date.json
+        post_index -d @/indexes/videos/by_user.json
         post_index -d @/indexes/videos/by_views.json
-        post_index -d @/indexes/users/by_date.json
-        post_index -d @/indexes/users/by_name.json
         post_index -d @/indexes/users/by_subs.json
+        post_index -d @/indexes/comments/by_video.json
+        post_index -d @/indexes/generics/by_name.json
+        post_index -d @/indexes/generics/by_date.json
     depends_on:
       setup_couchdb:
         condition: service_completed_successfully

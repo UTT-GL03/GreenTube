@@ -2,7 +2,7 @@
   "index": {
     "fields": ["type", "subscribers"]
   },
-  "name": "user_type_subs_index",
+  "name": "user_by_subs_index",
   "type": "json"
 }
 

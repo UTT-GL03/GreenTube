@@ -2,6 +2,6 @@
   "index": {
     "fields": ["type", "name"]
   },
-  "name": "user_type_name_index",
+  "name": "element_by_name_index",
   "type": "json"
 }

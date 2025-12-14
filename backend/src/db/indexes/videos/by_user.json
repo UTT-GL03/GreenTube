@@ -1,0 +1,8 @@
+{
+  "index": {
+    "fields": ["type", "user.id_user"]
+  },
+  "name": "video_by_user_index",
+  "type": "json"
+}
+

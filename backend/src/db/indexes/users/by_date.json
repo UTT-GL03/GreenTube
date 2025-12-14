@@ -1,8 +1,0 @@
-{
-  "index": {
-    "fields": ["type", "date"]
-  },
-  "name": "user_type_date_index",
-  "type": "json"
-}
-
