@@ -21,7 +21,7 @@ function UploadVideoModal({ onClose }) {
     setLoading(true);
     e.preventDefault();
     setError("");
-
+    
     if (!video) {
       setError("Aucune vidéo sélectionné");
       console.log(error);
@@ -33,7 +33,7 @@ function UploadVideoModal({ onClose }) {
       return;
     }
 
-    if (thumbnail.size > APP.THUMBNAIL_MAX_SIZE * 1024 * 1024) {
+    if (thumbnail && thumbnail.size > APP.THUMBNAIL_MAX_SIZE * 1024 * 1024) {
       setError(`Fichier trop lourd. (MAX ${APP.THUMBNAIL_MAX_SIZE} Mo)`);
       console.log(error);
       return;
