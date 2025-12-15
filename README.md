@@ -189,8 +189,12 @@ Nous avons défini pour notre prototype une maquette de l'interface pour chaque 
 <img width="806" height="471" alt="image" src="https://github.com/user-attachments/assets/461191a0-eb1d-40e1-b101-5f85dd2b4435" />
 Fig1: Maquette de la Frontpage
 
+
+
 <img width="723" height="408" alt="image" src="https://github.com/user-attachments/assets/ea27c705-5480-44a9-8efc-549c67e16fa1" />
 Fig2: Maquette de la page vidéo
+
+
 
 <img width="729" height="383" alt="image" src="https://github.com/user-attachments/assets/c2edfc7b-c4fa-41a7-bcae-3b5ec437b362" />
 Fig3: Maquette de la page d'une chaîne Greentube
