@@ -7,6 +7,7 @@
 - Mettre les bons numéro Tab, Fig, Cf 
 - GreenFrame tab + analyse
 - Image page final
+- Analyse eco backend - new feature si j'ai la foi
 
 ## Choix du sujet
 
@@ -528,7 +529,7 @@ __Fig3__: Mode podcast<br>
 
 L'idée est de dissocier le flux audio du flux vidéo lors de l'upload via **FFmpeg**. Cette fonctionnalité offre deux avantages majeurs pour l'éco-conception :
 
-1.  **Réduction de la bande passante :** L'utilisateur peut choisir de n'écouter que l'audio. Le flux de données est alors divisé par 10 (environ), ce qui est idéal pour une écoute en mobilité ou avec une connexion limitée.
+1.  **Réduction de la bande passante :** L'utilisateur peut choisir de n'écouter que l'audio. Le flux de données est alors grandement réduit, ce qui est idéal pour une écoute en mobilité ou avec une connexion limitée.
 2.  **Sobriété matérielle :** La lecture d'un flux audio seul sollicite beaucoup moins le processeur (CPU/GPU) de l'appareil client, prolongeant ainsi l'autonomie de la batterie et réduisant la consommation électrique.
 
 Cette option permet de transformer notre plateforme de streaming en un service hybride, s'adaptant au besoin réel de l'utilisateur tout en limitant son impact environnemental.
