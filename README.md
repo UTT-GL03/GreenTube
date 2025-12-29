@@ -1,14 +1,12 @@
 # GreenTube: Plateforme de contenu vidéo écoresponsable
 
 ## A FAIRE :
-- Source dans modele économique Youtube - Dailymotion - PodUTT
-- Notre modele economique
 - Tableau éco index des scénarios + analyse
-- Lien Maquette - sampleData.hbs
 - Analyse front local Green IT : video - chaine
 - Comparaison service concurrent
 - Mettre les bons numéro Tab, Fig, Cf 
-- GreenFrame tab
+- GreenFrame tab + analyse
+- Image page final
 
 ## Choix du sujet
 
@@ -168,8 +166,60 @@ __Fig3__: Maquette de la page d'une chaîne<br>
 Dans un objectif de sobriété environnementale, les vidéos et chaines de la page d'accueil seront affichées par paquet de 6, d'autre vidéo seront disponible via le bouton "Voir plus".
 
 Pour des raisons de respect des droits d'auteurs, nous utilisons des données générées (avec [`dummy-json`](https://dummyjson.com)).
-Bien que fictives, ces données correspondent à la structure des services concurrents : les articles comportent un titre possiblement long, un auteur et une rubrique (voir [modèle de données](lien)). 
 
+### Structure des documents
+
+#### Vidéo
+Contient les métadonnées de la vidéo et les informations essentielles de l'auteur.
+```json
+{
+  "_id": "v0",
+  "type": "video",
+  "id_user": "u123",
+  "date": "2024-10-07 14:30:00",
+  "name": "Titre de la vidéo",
+  "desc": "Description courte du contenu...",
+  "path": "uploads/videos/videoTest.mp4",
+  "thumbnail": "uploads/thumbnails/default.png",
+  "views": 4500
+}
+```
+
+#### Utilisateur
+Profil complet incluant les accès et les statistiques d'abonnement.
+```json
+{
+  "_id": "u0",
+  "type": "user",
+  "name": "Nom Prénom",
+  "email": "user@example.com",
+  "subscribers": 1250,
+  "date": "2014-10-07 09:00:00"
+}
+```
+#### Commentaire
+Liaison entre un utilisateur et une vidéo pour les interactions textuelles.
+```json
+{
+  "_id": "c0",
+  "type": "comment",
+  "id_user": "u123",
+  "id_video": "v456",
+  "date": "2025-01-12 10:15:00",
+  "content": "Message de l'utilisateur..."
+}
+```
+#### Compteur
+Document technique de synchronisation pour la gestion des identifiants uniques.
+```json
+{
+  "_id": "counter",
+  "type": "counter",
+  "user_counter": 799,
+  "video_counter": 1999,
+  "comment_counter": 7499 
+}
+```
 ## Implémentation des scénario prioritaire
 
 ### Étape de prototypage : Données chargées de manière statique
@@ -196,8 +246,6 @@ Pour aller plus loin dans la frugalité, nous pourrions mettre en place une éta
 
 Dans l'état actuel du prototype, il est possible d'avoir une première idée de l'impact environnemental du *frontend*.
 Bien entendu, il manque encore le chargement dynamique des données, mais nous pouvons déjà évaluer l'impact de l'affichage des données et du *framework* (au sens large : *React*, *DayJS*).
-Cette évaluation de l'impact (cf. Tab.4) est déjà encourageante en mode "développement" mais encore plus en mode "pré-production".
-Nous mesurons ici l'effet positif de l'adoption d'outils de développement Web intégrant la ["minification"](https://fr.wikipedia.org/wiki/Minification) (cf. *Wikipédia*) du code et la concaténation du code d'une part et des feuilles de style d'autre part.
 
 |   | EcoIndex| GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (ko)
 |---|--------:|------------:|--------------:|---------:|---------------------:
@@ -205,6 +253,8 @@ Nous mesurons ici l'effet positif de l'adoption d'outils de développement Web i
 | Mode "pré-production" | .. . 🟦 | .. | .. | .. | ..
 
 __Tab.4__: Évaluation de l'impact du prototype de la page d'accueil.
+
+<!-- ANALYSE -->
 
 ### Pages des vidéos
 
@@ -225,8 +275,8 @@ Avec l'ajout de ce modèle de page et la mise en place de la navigation entre le
 | 4. Choisir une autre vidéo | .. . 🟦 | .. | .. | .. | ..
 
 __Tab.5__: Évaluation de l'impact du scénario "Consulter une video - accueil" dans le prototype v1.0.0.
-<!-- 
-Ces estimations bien qu'artificiellement basses (puisque les données sont chargées de manière statique) sont tout de même à comparer avec [celles des services concurrents](lien) vues précédemment.
+
+<!-- Ces estimations bien qu'artificiellement basses (puisque les données sont chargées de manière statique) sont tout de même à comparer avec [celles des services concurrents](lien) vues précédemment.
 
 Si nous arrivons à maintenir les émissions en dessous de 1,3 g par page pour notre produit minimum viable, nous pouvons donc espérer proposer une alternative environ 2 fois moins impactante que les services existants (en incluant pourtant la participation au cycle de vie du terminal). -->
 
@@ -374,7 +424,14 @@ L'introduction d'un backend est devenue indispensable pour supporter nos nouveau
 
 * **Intermédiation des données :** Le backend récupère, trie et traite les données de la base avant de les transmettre au frontend, sécurisant ainsi les flux.
 * **Système d'authentification :** Mise en place d'un tunnel *Login/Register*. La gestion de l'état utilisateur (via Context et LocalStorage) permet de conditionner l'ajout de vidéos, de commentaires et la personnalisation des profils.
+
+![Page d'authentification](./docs/auth.png)<br>
+__FigX__: Page d'authentification  <br>
+
 * **Gestion des médias :** Prise en charge de l'upload des vidéos, des miniatures et des photos de profil.
+
+![Modal d'upload de vidéo](./docs/upload.png)<br>
+__FigX__: Modal d'upload de vidéo <br> 
 
 ### Modernisation de l'interface utilisateur (UI)
 
@@ -385,7 +442,14 @@ Une interface soignée améliore l'accessibilité et la clarté de l'information
 * Lecteur vidéo dédié.
 * Espaces de gestion des chaînes.
 
-Fig
+![Page d'accueil finale](./docs/home_final.png)<br>
+__Fig1__: Page d'accueil finale<br>
+![Page vidéo finale](./docs/video_final.png)<br>
+__Fig2__: Page de vidéo finale<br>
+![Page vidéo finale](./docs/video_final_1.png)<br>
+__Fig2__: Page de vidéo - commentaire<br>
+![Page chaine finale](./docs/channel_final.png)<br>
+__Fig3__: Page de chaine finale<br>
 
 ### Traitement vidéo avec FFmpeg
 
@@ -418,6 +482,40 @@ Cette multiplication des allers-retours entre le serveur et la base de données 
 
 **Arbitrage technique :**
 Nous avons opté pour la **dénormalisation**. Les objets "Vidéo" et "Commentaire" embarquent désormais un objet "User" simplifié (nom, ID, avatar). 
+
+#### Vidéo
+```json
+{
+  "_id": "v0",
+  "type": "video",
+  "user" : {
+    "id_user": "u123",
+    "name": "Nom Prénom",
+    "avatar": "uploads/avatars/default.png"
+  },
+  "date": "2024-10-07 14:30:00",
+  "name": "Titre de la vidéo",
+  "desc": "Description courte du contenu...",
+  "path": "uploads/videos/videoTest.mp4",
+  "thumbnail": "uploads/thumbnails/default.png",
+  "views": 4500
+}
+```
+#### Commentaire
+```json
+{
+  "_id": "c0",
+  "type": "comment",
+  "user" : {
+    "id_user": "u123",
+    "name": "Nom Prénom",
+    "avatar": "uploads/avatars/default.png"
+  },
+  "id_video": "v456",
+  "date": "2025-01-12 10:15:00",
+  "content": "Message de l'utilisateur..."
+}
+```
 * **Résultat :** Le poids de la base est passé de 3.9 MB à 4.5 MB (+15%).
 * **Bénéfice Éco :** Cette légère hausse du stockage est largement compensée par la suppression massive de requêtes HTTP et de traitements superflus côté backend, réduisant ainsi la charge serveur globale.
 
