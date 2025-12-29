@@ -521,7 +521,10 @@ Nous avons opté pour la **dénormalisation**. Les objets "Vidéo" et "Commentai
 
 ### 2. La fonctionnalité "Mode Podcast" (Audio-only)
 
-La vidéo est le média le plus énergivore du web. Pour répondre à cet enjeu, nous développons actuellement une fonctionnalité de **Mode Podcast**.
+La vidéo est le média le plus énergivore du web. Pour répondre à cet enjeu, nous avons développez une fonctionnalité de **Mode Podcast**.
+
+![Mode podcast](./docs/podcast.png)<br>
+__Fig3__: Mode podcast<br>
 
 L'idée est de dissocier le flux audio du flux vidéo lors de l'upload via **FFmpeg**. Cette fonctionnalité offre deux avantages majeurs pour l'éco-conception :
 

@@ -82,6 +82,22 @@ export default function (db, upload) {
                 });
             }
 
+            const audioFilename = `${path.parse(videoFile.filename).name}.mp3`;
+            const audioPath = `uploads/audios/${audioFilename}`;
+
+            await new Promise((resolve, reject) => {
+                ffmpeg(videoFile.path)
+                    .toFormat('mp3')
+                    .audioBitrate('128k')
+                    .noVideo()
+                    .save(audioPath)
+                    .on("end", resolve)
+                    .on("error", (err) => {
+                        console.error("Erreur extraction audio:", err);
+                        reject(new Error("Échec de l'extraction audio."));
+                    });
+            });
+
             const video = {
                 _id: videoId,
                 type: "video",
@@ -95,6 +111,7 @@ export default function (db, upload) {
                 desc,
                 path: `uploads/videos/${videoFile.filename}`,
                 thumbnail: thumbnailPath,
+                audio: audioPath,
                 views: 0
             };
 
