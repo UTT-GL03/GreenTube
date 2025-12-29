@@ -104,32 +104,49 @@ Les offres de service numérique de vidéo (cf. Tab. 2) reposent majoritairement
 - un accès gratuit financé par une publicité omniprésente et énergivore
 - un accès "Premium" payant permettant de supprimer la publicité et d'ajouter des fonctionnalités de confort.
 
-Le modèle de PodUTT se distingue par sa frugalité, aucune monétisation n'est recherchée, le service étant hébergé à des fins pédagogiques ou institutionnelles. Cela permet de supprimer les scripts de suivi et les flux vidéo publicitaires qui alourdissent considérablement le bilan carbone de chaque session de visionnage.
+Sur Youtube, on peut rencontrer différents types de pub : 
+  - In-Stream désactivable : Pub classique qu'on peut ignorer après 5s, payée seulement si vue 30s+.
+  - In-Stream non désactivable : Pub de 15s obligatoire avant la vidéo, revenus garantis car impossible à passer.
+  - Bumper : Format éclair de 6s non désactivable, idéal pour la répétition à faible coût.
+  - In-Feed (Discovery) : Vignette suggérée en recherche ou accueil, payée uniquement si l'utilisateur clique.
+  - Masthead : Bannière géante en haut de l'accueil YouTube, louée à prix d'or pour 24h.
 
-| Source possible de revenus | Montant unitaire | Quantité nécessaire pour financer un salaire[^1]
-| --- | --- | ---
-| Abonnement Premium | 12,99€[^2] | 275
-| Publicité vidéo (RPM moyen) | 0,0018€[^3] | 1 982 777 
-| Sponsoring / Intégration directe | 2 000€[^4] | 1,78
+| Format | Durée | Ignorable ? | Tarification | Coût Annonceur (Moyen) | Part de YouTube (45%) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **InStream désactivable** | 15s à 3min | Oui | CPV (par vue) | 0,05 € / vue | **0,0225 €** |
+| **InStream non désactivable** | Max 15s | Non | CPM (1000 impr.) | 8,00 € / 1k | **3,60 € / 1k** |
+| **Bumper** | 6s | Non | CPM (1000 impr.) | 5,00 € / 1k | **2,25 € / 1k** |
+| **Discovery** | Variable | Oui | CPC (clic) | 0,10 € / clic | **0,045 €** |
+| **Masthead** | Jusqu'à 30s | Non | Forfait Journalier | 50 000 € / jour | **22 500 €** |
 
-Tab. 3 : Source de revenus possibles pour un service de vidéo en ligne.
+Tab. x : Estimation de la rémunération perçu par Youtube en fonction des différentes types de pub[^3].
+
+Le modèle de PodUTT lui, se distingue par sa frugalité, aucune monétisation n'est recherchée, le service étant hébergé à des fins pédagogiques ou institutionnelles. Cela permet de supprimer les scripts de suivi et les flux vidéo publicitaires qui alourdissent considérablement le bilan carbone de chaque session de visionnage.
 
 L'étude de l'offre des plateformes vidéo nous a permis d'identifier les sources de revenu communément utilisées (cf. Tab. 2). 
-Associées à un bref état de l'art (cf. Tab. 3), nous avons pu établir que la publicité vidéo est peu rémunératrice à l'unité, elle nécessite des millions de vues pour être viable. C'est ce constat qui pousse les plateformes à utiliser des algorithmes de recommandation addictifs, augmentant ainsi le temps passé en ligne et l'énergie consommée.
+Associées à un bref état de l'art (cf. Tab. 3), nous avons pu établir que la majorité des publicités est peu rémunératrice à l'unité (mise à part Masthead), elle nécessite des millions de vues pour être viable. C'est ce constat qui pousse les plateformes à utiliser des algorithmes de recommandation addictifs, augmentant ainsi le temps passé en ligne et l'énergie consommée.
 
 Le coût d'infrastructure est critique, contrairement au texte, le stockage et la diffusion de vidéo coûtent cher. 
 Le modèle publicitaire classique "force" la surconsommation pour couvrir ces frais.
 L'abonnement offre une stabilité, il permet de financer le service sans avoir recours à des scripts de tracking tiers ou à l'affichage de flux vidéos publicitaires non désirés.
 Le sponsoring direct (ou régie intégrée), est beaucoup plus efficace et moins intrusif techniquement qu'une régie publicitaire programmatique.
 
-Par conséquent, pour réduire l'impact écologique du service, nous proposons de, Renoncer aux régies publicitaires tierces qui multiplient les requêtes réseau. Adopter un modèle de financement par contribution ou abonnement pour garantir la viabilité sans dépendre de la quantité de vues. Privilégier le don ou le mécénat institutionnel (modèle PodUTT) pour les services à visée éducative, permettant une frugalité numérique maximale.
+Par conséquent, pour réduire l'impact écologique du service, nous proposons de, renoncer aux publicités en vidéo qui multiplient les requêtes réseau. Adopter un modèle de financement par contribution ou abonnement pour garantir la viabilité sans dépendre de la quantité de vues. Privilégier le don ou le mécénat institutionnel (modèle PodUTT) pour les services à visée éducative, permettant une frugalité numérique maximale. Et finalement une publicité masthead, sur chaque page du service, suffit à financer l'infrastructure pour une large audience tout en restant statique, moins énergivore et moins contraignant que le flux vidéo publicitaire.
 
-NOTRE Modele economique...
+Voici donc un résumé de notre modèle économique :
+
+| Source possible de revenus | Montant unitaire | Quantité nécessaire pour financer un salaire[^1]
+| --- | --- | ---
+| Abonnement Premium | 12,99€ | 275
+| Pub Masthead | 50 000€ / jour | 0,07 jour (soit env. 2h)
+| Don / Contribution | 5,00 € |	714 donateurs
+
+Tab. x : Source de revenus possibles pour notre service de vidéo en ligne.
 
 [^1]:Basé sur le coût total employeur du salaire médian 2025 soit 3569€ environ. (source : [URSSAF](https://mon-entreprise.urssaf.fr/simulateurs/salaire-brut-net))
 [^2]:Basé sur le tarif de YouTube Premium (12,99€/mois) en 2025.
-[^3]:Estimation du revenu pour mille vues (RPM) moyen après part plateforme pour un créateur/diffuseur (basé sur une moyenne de 1,80€ pour 1000 vues). SOURCE ?
-[^4]:Basé sur un partenariat direct pour une vidéo de niche à audience qualifiée. SOURCE ?
+[^3]:Estimation après part plateforme pour un créateur/diffuseur (source : https://agence-anode.fr/blog/marketing-digital/prix-google-ads-youtube/).
+[^4]:Basé sur un partenariat direct pour une vidéo de niche à audience qualifiée.
 
 ## Maquette de l'interface et échantillon de données
 
@@ -141,18 +158,12 @@ Les ressources Web possédant une représentation sur notre application seront d
 - la page de vidéo (avec pour chemin `/video/{id}`).
 - la page de chaine (avec pour chemin `/channel/{id}`).
 
-![Maquette des page](./docs/mockup.png)
-
-METTRE IMG AUTREMENT 
-<img width="806" height="471" alt="image" src="https://github.com/user-attachments/assets/461191a0-eb1d-40e1-b101-5f85dd2b4435" />
-Fig1: Maquette de la Frontpage<br>
-
-<img width="723" height="408" alt="image" src="https://github.com/user-attachments/assets/ea27c705-5480-44a9-8efc-549c67e16fa1" />
-Fig2: Maquette de la page vidéo<br>
-
-<img width="729" height="383" alt="image" src="https://github.com/user-attachments/assets/c2edfc7b-c4fa-41a7-bcae-3b5ec437b362" />
-Fig3: Maquette de la page d'une chaîne Greentube<br>
-__Fig.1__: Maquette de l'interface du prototype : __a.__ type de page pour les "titres" (du jour ou d'une rubrique), __b.__ type de page d'un article.
+![Maquette de la page d'accueil](./docs/home_mockup.png)<br>
+__Fig1__: Maquette de la Frontpage<br>
+![Maquette de la page vidéo](./docs/video_mockup.png)<br>
+__Fig2__: Maquette de la page vidéo<br>
+![Maquette de la page chaine](./docs/channel_mockup.png)<br>
+__Fig3__: Maquette de la page d'une chaîne<br>
 
 Dans un objectif de sobriété environnementale, les vidéos et chaines de la page d'accueil seront affichées par paquet de 6, d'autre vidéo seront disponible via le bouton "Voir plus".
 
@@ -166,16 +177,16 @@ Bien que fictives, ces données correspondent à la structure des services concu
 Pour cette première version du prototype (`v1.0.0`) :
 
 - l'échantillon de données est encore chargé dans le code de manière statique,
-- les fonctionnalités implémentées ne sont que celles nécessaires pour suivre le scénario prioritaire ("Lire des vidéos à partir de la page d'accueil").
+- les fonctionnalités implémentées ne sont que celles nécessaires pour suivre les scénario prioritaire ("Consulter une vidéo - accueil/chaine").
 
-Ce scénario nécessite de pouvoir naviguer entre deux types de page : la page d'accueil et les pages des vidéos.
+Ces scénario nécessite de pouvoir naviguer entre deux types de page : la page d'accueil, une page de chaine de et les pages des vidéos.
 
 ### Page d'accueil
 
-Nous avons développé la page d'accueil (cf. Fig. 2) pour qu'elle affiche l'échantillon de données sous une forme proche de ce que prévoyait la maquette.
+Nous avons développé la page d'accueil (cf. Fig. x) pour qu'elle affiche l'échantillon de données sous une forme proche de ce que prévoyait la maquette.
 
-![Prototype de la page d'accueil](old home)
-__Fig.2__: Prototype de la page d'accueil'.
+![Prototype de la page d'accueil](./docs/home_v1.png)<br>
+__Fig.2__: Prototype de la page d'accueil'.<br>
 
 Pour ce projet, nous avons exclu les frameworks lourds comme Bootstrap ou Tailwind CSS en raison de leur empreinte numérique élevée. Après un essai non concluant avec PicoCSS, dont la rigidité imposait trop de surcharges CSS personnalisées, nous avons développé notre propre bibliothèque modulaire.
 
@@ -201,8 +212,8 @@ Les pages des vidéos ont pour HTTP-URI `video/{id}`.
 
 De même que précédemment, nous avons tenté d'implémenter cette page (cf. Fig. x) conformément à ce que prévoyait la maquette.
 
-![Prototype de la page d'une vidéo](old video)
-__Fig.3__: Prototype de la page d'une vidéo.
+![Prototype de la page d'une vidéo](./docs/video_v1.png)<br>
+__Fig.3__: Prototype de la page d'une vidéo.<br>
 
 Avec l'ajout de ce modèle de page et la mise en place de la navigation entre les deux modèles, il devient possible d'exécuter le scénario prioritaire complet et de mesurer son impact.
 
@@ -225,8 +236,7 @@ Les pages des chaines ont pour HTTP-URI `channel/{id}`.
 
 De même que précédemment, nous avons tenté d'implémenter cette page (cf. Fig. x) conformément à ce que prévoyait la maquette.
 
-![Prototype de la page d'une chaine](old chaine)
-__Fig.3__: Prototype de la page d'une chaine.
+> La maquette initiale (v1) n'est plus disponible. Une version mise à jour et plus détaillée est présentée dans la suite de ce document.
 
 Avec l'ajout de ce modèle de page et la mise en place de la navigation entre les deux modèles, il devient possible d'exécuter le scénario prioritaire complet et de mesurer son impact.
 
@@ -421,69 +431,3 @@ L'idée est de dissocier le flux audio du flux vidéo lors de l'upload via **FFm
 2.  **Sobriété matérielle :** La lecture d'un flux audio seul sollicite beaucoup moins le processeur (CPU/GPU) de l'appareil client, prolongeant ainsi l'autonomie de la batterie et réduisant la consommation électrique.
 
 Cette option permet de transformer notre plateforme de streaming en un service hybride, s'adaptant au besoin réel de l'utilisateur tout en limitant son impact environnemental.
-
-## Brouillon 
-| Source de revenu | Description | Données clés / Estimation | Référence |
-|------------------|-------------|----------------------------|------------|
-| **Abonnement premium** | Accès sans pub, fonctionnalités avancées, contenus exclusifs | **14,99 € / mois** | À comparer avec YouTube / Dailymotion |
-| **Publicité vidéo** | Publicités insérées dans les vidéos (CPV / CPM) | - CPV : **0,01 € à 0,15 €**<br>- CPM : **4 € à 12 €** | [Agence Anode](https://agence-anode.fr/blog/prix-google-ads-youtube/#:~:text=Quel%20est%20le%20co%C3%BBt%20moyen,le%20ciblage%20et%20la%20concurrence) |
-| **Vente de données agrégées** | Données anonymisées à des fins statistiques ou publicitaires (conformes RGPD) | **≈ 40 € / utilisateur unique** | [DrData Simulator](https://simulator.drdata.io/) |
-| **Aides publiques** | Financement partiel via les aides à la transition écologique | Variable selon les programmes | [mission-transition-ecologique.beta.gouv.fr](https://mission-transition-ecologique.beta.gouv.fr/aides-entreprise) |
-| **Dons utilisateurs** | Soutien volontaire de la communauté | Revenu instable (bonus) | — |
-
-### Synthèse
-
-| Type de revenu | Stabilité | Potentiel | Commentaire |
-|----------------|------------|------------|--------------|
-| Abonnement premium | Haute | Élevé | Source principale de rentabilité récurrente |
-| Publicité vidéo | Moyenne | Élevé | Dépend du trafic et des taux de clic |
-| Vente de données | Moyenne | Moyen | Rentable à long terme, nécessite transparence RGPD |
-| Aides publiques | Faible | Moyen | Soutien ponctuel ou temporaire |
-| Dons | Très faible | Faible | Bonus communautaire |
-
-> **Objectif :** construire un modèle durable, diversifié et conforme aux valeurs éthiques (transparence, respect des données et impact écologique réduit).
-
-
-## Brouillon 
-
-CouchDB :
-Pre normalisation : 2000 video, 800 user et 7500 comments => 3.9MB
-Post normalisation : ... => 4.5 MB
-
-Analyse concurrent
-(Marquer avantage si abonné, diff ano - abo)
-(Voir QVOTIDIE GL03)
-YouTube : 
-	- Gain : Pub - Abonnement payant
-	- Dépense : Modération - Développement app - Infra - Salariés (raf je crois)
-
-Dailimotion :
-	- Gain : Pub - Abonnement payant
-
-PodUTT :
-  UTT qui finance ?
-
-Structure de concurrence
-
-Oligopole à produit homogène.
-
-Pas tant d'autres offreurs : Youtube - Dailymotion 
-Produit principalement homogène : fonctionnalités d'hébergement, lecture et partage de vidéos en ligne, financés par la publicité.
-Produit différencié : fonctionnalités originales tel que réels etc...
-Produit de substitution : Les plateformes de streaming (Twitch, Vimeo, Netflix pour certains types de contenus).
-
-Modele Economique
-
-- Abonnement 14.99EUR par mois (Checker les prix Youtube - Dailymotion) 
-
-- Pub vidéo (https://agence-anode.fr/blog/prix-google-ads-youtube/#:~:text=Quel%20est%20le%20co%C3%BBt%20moyen,le%20ciblage%20et%20la%20concurrence)
-  Le coût moyen varie entre 0,01 € et 0,15 € par vue (CPV), et entre 4 € et 12 € par 1 000 impressions (CPM), selon le format, le ciblage et la concurrence.
-
-(Unique)
-- Ventes de données (https://simulator.drdata.io/)
-  40EUR par user (unique je pense mais moyen)
-
-- Aide de l'état (https://mission-transition-ecologique.beta.gouv.fr/aides-entreprise)
-
-(Instable - Bonus)
-- Don
