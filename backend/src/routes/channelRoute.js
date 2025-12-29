@@ -95,15 +95,16 @@ export default function (db, upload) {
             }
             const user = userResp.docs[0];
 
-            const changesToApply = {};
-            if (newDesc) changesToApply.desc = newDesc;
-            if (file) changesToApply.avatar = file.path;
+            
+            if (newDesc) user.desc = newDesc;
+            if (file) user.avatar = file.path;
 
-            Object.assign(user, changesToApply);
+            const changesToApply = {};
+            if (file) changesToApply.avatar = file.path;
 
             const contentResp = await db.find({
                 selector: {
-                    $or: [{ type: "video" }, { type: "comments" }],
+                    $or: [{ type: "video" }, { type: "comment" }],
                     "user.id_user": id_user
                 },
             });
