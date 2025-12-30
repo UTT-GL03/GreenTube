@@ -10,3 +10,4 @@ scenarios:
 containers:
   - greentube-frontend-1
   - greentube-couchdb-1
+  - greentube-backend-1

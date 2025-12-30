@@ -26,6 +26,10 @@ app.use("/video", videoRoute(db))
 // app.use("/users", usersRoute(db))
 // app.use("/comments", commentsRoute(db))
 
+app.get("/health", (_, res) => {
+  res.status(200).json({ status: "ok" });
+});
+
 app.get("/", async (_, res) => {
   try {
     const info = await db.info();
