@@ -622,10 +622,10 @@ Voici l'analyse finale de notre projet.
 
 | Étape du scénario | EcoIndex | GES (gCO2e) | DOM | Requêtes | Taille (ko) |
 | --- | --- | --- | --- | --- | --- |
-| **1. Chargement Accueil** | **84 A** | 1.32 | 113 | 7 | 29.5 |
-| **2. Choisir une vidéo** | **76 A** | 1.48 | 96 | 5 | 12.6 |
-| **3. Retourner au menu** | **86 A** | 1.28 | 113 | 3 | 4.5 |
-| **4. Choisir une autre vidéo** | **86 A** | 1.28 | 96 | 5 | 12.1 |
+| **1. Chargement Accueil** | **84 A** 🟩 | 1.32 | 113 | 7 | 29.5 |
+| **2. Choisir une vidéo** | **76 A** 🟩 | 1.48 | 96 | 5 | 12.6 |
+| **3. Retourner au menu** | **86 A** 🟩 | 1.28 | 113 | 3 | 4.5 |
+| **4. Choisir une autre vidéo** | **86 A** 🟩 | 1.28 | 96 | 5 | 12.1 |
 
 __Tab.12__ : Évaluation de l'impact du scénario "Consulter une vidéo - accueil" dans le prototype final.
 
@@ -633,11 +633,11 @@ __Tab.12__ : Évaluation de l'impact du scénario "Consulter une vidéo - accuei
 
 | Étape du scénario | EcoIndex | GES (gCO2e) | DOM | Requêtes | Taille (ko) |
 | --- | --- | --- | --- | --- | --- |
-| **1. Chargement de l'accueil** | 74 B | 1.52 | 113 | 27 | 93.0 |
-| **2. Choisir une chaîne** | **87 A** | 1.26 | 88 | 5 | 39.4 |
-| **3. Choisir une vidéo** | 75 B | 1.51 | 167 | 25 | 29.7 |
-| **4. Retourner sur la chaîne** | **76 A** | 1.48 | 88 | 5 | 40.0 |
-| **5. Choisir une autre vidéo** | **76 A** | 1.48 | 97 | 5 | 12.8 |
+| **1. Chargement de l'accueil** | 74 B 🟦 | 1.52 | 113 | 27 | 93.0 |
+| **2. Choisir une chaîne** | **87 A** 🟩 | 1.26 | 88 | 5 | 39.4 |
+| **3. Choisir une vidéo** | 75 B 🟦 | 1.51 | 167 | 25 | 29.7 |
+| **4. Retourner sur la chaîne** | **76 A** 🟩 | 1.48 | 88 | 5 | 40.0 |
+| **5. Choisir une autre vidéo** | **76 A** 🟩 | 1.48 | 97 | 5 | 12.8 |
 
 __Tab.13__ : Évaluation de l'impact du scénario "Consulter une vidéo - chaine" dans le prototype final.
 
