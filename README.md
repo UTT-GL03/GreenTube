@@ -1,10 +1,5 @@
 # GreenTube: Plateforme de contenu vidéo écoresponsable
 
-## A FAIRE :
-- Tableau éco index des scénarios + analyse
-- Mettre les bons numéro Tab, Fig, Cf 
-- GreenFrame tab + analyse
-
 ## Choix du sujet
 
 La consultation de vidéos sur des plateformes de contenu comme **YouTube** ou **Dailymotion** est aujourd’hui une activité quotidienne pour une grande partie de la population.  
@@ -71,7 +66,7 @@ Nous avons choisi de comparer l’impact de nos scénarios sur les services les 
 | Dailymotion | 25.75 | E 🟧 |  […](./benchmark/Daylimotion/ecoindex-environmental-statement.md)
 | PodUTT | 59.14 | C 🟨 | […](./benchmark/PodUTT/ecoindex-environmental-statement.md)
 
-__Tab.1__ : Mesure de l'EcoIndex moyen de services de vidéo en ligne.
+__Tab.1__ : Mesure de l'EcoIndex moyen des services de vidéo en ligne.
 
 Cette analyse globale met en lumière des disparités frappantes entre les plateformes de streaming vidéo, révélant que la sobriété technique est le levier principal de l'écoconception.
 
@@ -99,9 +94,9 @@ Comme nous l'avons vu dans la section précédente, parmi les choix de conceptio
 | Dailymotion | <ul><li>Publicités (régie tierce et interne)</li><li>Suivi et algorithmes de recommandation</li></ul> | <ul><li>Offres entreprises (B2B)</li><li>Accès sans publicité (selon partenaire)</li></ul>
 | PodUTT | <ul><li>Visionnage libre</li><li>Pas de publicité</li><li>Pas de suivi</li></ul> | Sans objet (service universitaire/libre)
 
-Tab. 2 : Offre des services de vidéo en ligne.
+__Tab.2__ : Offre des services de vidéo en ligne.
 
-Les offres de service numérique de vidéo (cf. Tab. 2) reposent majoritairement sur un modèle de captation de l'attention pour maximiser les revenus publicitaires :
+Les offres de service numérique de vidéo (cf. Tab.2) reposent majoritairement sur un modèle de captation de l'attention pour maximiser les revenus publicitaires :
 - un accès gratuit financé par une publicité omniprésente et énergivore
 - un accès "Premium" payant permettant de supprimer la publicité et d'ajouter des fonctionnalités de confort.
 
@@ -120,12 +115,12 @@ Sur Youtube, on peut rencontrer différents types de pub :
 | **Discovery** | Variable | Oui | CPC (clic) | 0,10 € / clic | **0,045 €** |
 | **Masthead** | Jusqu'à 30s | Non | Forfait Journalier | 50 000 € / jour | **22 500 €** |
 
-Tab. x : Estimation de la rémunération perçu par Youtube en fonction des différentes types de pub[^3].
+__Tab.3__ : Estimation de la rémunération perçu par Youtube en fonction des différentes types de pub[^3].
 
 Le modèle de PodUTT lui, se distingue par sa frugalité, aucune monétisation n'est recherchée, le service étant hébergé à des fins pédagogiques ou institutionnelles. Cela permet de supprimer les scripts de suivi et les flux vidéo publicitaires qui alourdissent considérablement le bilan carbone de chaque session de visionnage.
 
-L'étude de l'offre des plateformes vidéo nous a permis d'identifier les sources de revenu communément utilisées (cf. Tab. 2). 
-Associées à un bref état de l'art (cf. Tab. 3), nous avons pu établir que la majorité des publicités est peu rémunératrice à l'unité (mise à part Masthead), elle nécessite des millions de vues pour être viable. C'est ce constat qui pousse les plateformes à utiliser des algorithmes de recommandation addictifs, augmentant ainsi le temps passé en ligne et l'énergie consommée.
+L'étude de l'offre des plateformes vidéo nous a permis d'identifier les sources de revenu communément utilisées (cf. Tab.2). 
+Associées à un bref état de l'art (cf. Tab.3), nous avons pu établir que la majorité des publicités est peu rémunératrice à l'unité (mise à part Masthead), elle nécessite des millions de vues pour être viable. C'est ce constat qui pousse les plateformes à utiliser des algorithmes de recommandation addictifs, augmentant ainsi le temps passé en ligne et l'énergie consommée.
 
 Le coût d'infrastructure est critique, contrairement au texte, le stockage et la diffusion de vidéo coûtent cher. 
 Le modèle publicitaire classique "force" la surconsommation pour couvrir ces frais.
@@ -142,7 +137,7 @@ Voici donc un résumé de notre modèle économique :
 | Pub Masthead | 50 000€ / jour | 0,07 jour (soit env. 2h)
 | Don / Contribution | 5,00 € |	714 donateurs
 
-Tab. x : Source de revenus possibles pour notre service de vidéo en ligne.
+__Tab.4__ : Source de revenus possibles pour notre service de vidéo en ligne.
 
 [^1]:Basé sur le coût total employeur du salaire médian 2025 soit 3569€ environ. (source : [URSSAF](https://mon-entreprise.urssaf.fr/simulateurs/salaire-brut-net))
 [^2]:Basé sur le tarif de YouTube Premium (12,99€/mois) en 2025.
@@ -236,10 +231,10 @@ Ces scénario nécessite de pouvoir naviguer entre deux types de page : la page 
 
 ### Page d'accueil
 
-Nous avons développé la page d'accueil (cf. Fig. x) pour qu'elle affiche l'échantillon de données sous une forme proche de ce que prévoyait la maquette.
+Nous avons développé la page d'accueil (cf. Fig.1) pour qu'elle affiche l'échantillon de données sous une forme proche de ce que prévoyait la maquette.
 
 ![Prototype de la page d'accueil](./docs/home_v1.png)<br>
-__Fig.2__: Prototype de la page d'accueil'.<br>
+__Fig.4__: Prototype de la page d'accueil.<br>
 
 Pour ce projet, nous avons exclu les frameworks lourds comme Bootstrap ou Tailwind CSS en raison de leur empreinte numérique élevée. Après un essai non concluant avec PicoCSS, dont la rigidité imposait trop de surcharges CSS personnalisées, nous avons développé notre propre bibliothèque modulaire.
 
@@ -254,7 +249,7 @@ Dans l'état actuel du prototype, il est possible d'avoir une première idée de
 | Mode "développement"  | 78.29 B 🟩 | 1.43 | 98 | 42 | 1307
 | Mode "pré-production" | 91.23 A 🟦 | 1.18 | 95 | 9 | 1
 
-__Tab.4__: Évaluation de l'impact du prototype de la page d'accueil.
+__Tab.5__: Évaluation de l'impact du prototype de la page d'accueil.
 
 Cette première étape de prototypage est une réussite majeure, le passage en mode pré-production confirme que notre stratégie de sobriété semble porter ses fruits.
 
@@ -271,21 +266,21 @@ Conclusion de l'étape : Nous sommes très satisfaits de ce premier bilan. Le so
 
 Les pages des vidéos ont pour HTTP-URI `video/{id}`.
 
-De même que précédemment, nous avons tenté d'implémenter cette page (cf. Fig. x) conformément à ce que prévoyait la maquette.
+De même que précédemment, nous avons tenté d'implémenter cette page (cf. Fig.2) conformément à ce que prévoyait la maquette.
 
 ![Prototype de la page d'une vidéo](./docs/video_v1.png)<br>
-__Fig.3__: Prototype de la page d'une vidéo.<br>
+__Fig.5__: Prototype de la page d'une vidéo.<br>
 
 Avec l'ajout de ce modèle de page et la mise en place de la navigation entre les deux modèles, il devient possible d'exécuter le scénario prioritaire complet et de mesurer son impact.
 
 | Étape du scénario | EcoIndex | GES (gCO2e) | DOM | Requêtes | Taille (ko) |
 | --- | --- | --- | --- | --- | --- |
-| **1. Chargement de l'accueil** | 74 (B) 🟦 | 1.52 | 96 | 28 | 25.5 |
-| **2. Choisir une vidéo** | 75 (B) 🟦 | 1.5 | 95 | 26 | 62.5 |
-| **3. Retourner au menu** | **87 (A)** 🟩 | 1.26 | 96 | **2** | **0.9** |
-| **4. Choisir une autre vidéo** | **86 (A)** 🟩 | 1.28 | 96 | 4 | 28.3 |
+| **1. Chargement de l'accueil** | 74 B 🟦 | 1.52 | 96 | 28 | 25.5 |
+| **2. Choisir une vidéo** | 75 B 🟦 | 1.5 | 95 | 26 | 62.5 |
+| **3. Retourner au menu** | **87 A** 🟩 | 1.26 | 96 | **2** | **0.9** |
+| **4. Choisir une autre vidéo** | **86 A** 🟩 | 1.28 | 96 | 4 | 28.3 |
 
-__Tab.5__ : Évaluation de l'impact du scénario "Consulter une vidéo - accueil" dans le prototype v1.0.0.
+__Tab.6__ : Évaluation de l'impact du scénario "Consulter une vidéo - accueil" dans le prototype v1.0.0.
 
 L'analyse de ce scénario permet d'apporter les enseignements suivants :
 
@@ -302,7 +297,7 @@ Même en corrigeant les erreurs de mesure initiales, le prototype reste 100 à 2
 
 Les pages des chaines ont pour HTTP-URI `channel/{id}`.
 
-De même que précédemment, nous avons tenté d'implémenter cette page (cf. Fig. x) conformément à ce que prévoyait la maquette.
+De même que précédemment, nous avons tenté d'implémenter cette page (cf. Fig.3) conformément à ce que prévoyait la maquette.
 
 > La maquette initiale (v1) n'est plus disponible. Une version mise à jour et plus détaillée est présentée dans la suite de ce document.
 
@@ -310,17 +305,17 @@ Ce second scénario mesure l'impact de la navigation vers une page de chaîne sp
 
 | Étape du scénario | EcoIndex | GES (gCO2e) | DOM | Requêtes | Taille (ko) |
 | --- | --- | --- | --- | --- | --- |
-| **1. Chargement de l'accueil** | 74 (B) 🟦 | 1.52 | 96 | 28 | 25.5 |
-| **2. Choisir une chaîne** | **87 (A)** 🟩 | 1.26 | 81 | **3** | **8.1** |
-| **3. Choisir une vidéo** | 75 (B) 🟦 | 1.58 | 85 | 26 | 62.5 |
-| **4. Retourner sur la chaîne** | **87 (A)** 🟩 | 1.26 | 81 | **3** | **8.1** |
-| **5. Choisir une autre vidéo** | **86 (A)** 🟩 | 1.28 | 96 | 5 | 28.6 |
+| **1. Chargement de l'accueil** | 74 B 🟦 | 1.52 | 96 | 28 | 25.5 |
+| **2. Choisir une chaîne** | **87 A** 🟩 | 1.26 | 81 | **3** | **8.1** |
+| **3. Choisir une vidéo** | 75 B 🟦 | 1.58 | 85 | 26 | 62.5 |
+| **4. Retourner sur la chaîne** | **87 A** 🟩 | 1.26 | 81 | **3** | **8.1** |
+| **5. Choisir une autre vidéo** | **86 A** 🟩 | 1.28 | 96 | 5 | 28.6 |
 
-__Tab.6__: Évaluation de l'impact du scénario "Consulter une chaine - chaine" dans le prototype v1.0.0.
+__Tab.7__: Évaluation de l'impact du scénario "Consulter une chaine - chaine" dans le prototype v1.0.0.
 
 L'analyse de ce parcours plus complexe confirme les tendances observées précédemment tout en apportant de nouveaux enseignements :
 
-* **Performance des pages de chaînes :** La page de chaîne s'avère assez économe avec un score de 87 (A). Le faible nombre de requêtes lors de l'accès à cette page (3 requêtes) montre que les ressources partagées avec l'accueil sont parfaitement réutilisées.
+* **Performance des pages de chaînes :** La page de chaîne s'avère assez économe avec un score de 87 A. Le faible nombre de requêtes lors de l'accès à cette page (3 requêtes) montre que les ressources partagées avec l'accueil sont parfaitement réutilisées.
 
 * **Frugalité du DOM sur les chaînes :** On note que la page de chaîne est structurellement plus légère que la page d'accueil (81 éléments contre 96). Cette réduction de la complexité du DOM contribue directement à l'amélioration du score EcoIndex.
 
@@ -329,7 +324,7 @@ L'analyse de ce parcours plus complexe confirme les tendances observées précé
 Pour cette nouvelle version du prototype (`v1.0.1`), identique du point de vue fonctionnel, les données sont désormais chargées proprement par le *frontend* à travers le réseau via des fetchs après un premier affichage à vide.
 Ce comportement, plus réaliste, n'a pour effet qu'une requête supplémentaire par page affichée. 
 
-Concernant l'évaluation de l'impact environnemental du scénario, par rapport au tableau précédent (cf. Tab.x), à l'exception du nombre de requêtes qui est incrémenté de 1, les résultats sont strictement identiques.
+Concernant l'évaluation de l'impact environnemental du scénario, par rapport au tableau précédent (cf. Tab.6-7), à l'exception du nombre de requêtes qui est incrémenté de 1, les résultats sont strictement identiques.
 
 ## Mesures de la consommation énergétique lors du passage à l'échelle
 
@@ -344,20 +339,35 @@ Nous avons ainsi mis en place les valeurs suivantes :
 
 ### Évolution de l'EcoIndex lors du passage à l'échelle
 
-Produites désormais de manière automatique lors de l'intégration continue, les mesures nécessaires à la production de l'EcoIndex, [avant](...) et [après](...) la simulation du passage à l'échelle retraduisent bien (cf. Tab.x) l'augmentation du poids des téléchargements, mais aussi de l'augmentation du nombre d'éléments de la page des titres.
+Produites désormais de manière automatique lors de l'intégration continue, les mesures nécessaires à la production de l'EcoIndex, la simulation du passage à l'échelle retraduisent bien (cf. Tab.7) l'augmentation du poids des téléchargements, mais aussi de l'augmentation du nombre d'éléments de la page des titres.
 
-|   | EcoIndex| GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (ko)
-|---|--------:|------------:|--------------:|---------:|---------------------:
-| 1. Chargement de la page | <del>.. . 🟦</del><br/>.. . 🟥 | <del>..</del><br/>.. | <del>..</del><br/>.. | .. | <del>..</del><br/>.. 
-| 2. Choisir une vidéo | <del>.. . 🟦</del><br/>.. . 🟩 | <del>..</del><br/>.. | .. | .. | <del>..</del><br/>..
-| 3. Retourner sur le menu | <del>.. . 🟦</del><br/>.. . 🟥 | <del>..</del><br/>.. | <del>..</del><br/>.. | <del>..</del><br/>..
-| 4. Choisir une autre vidéo | <del>.. . 🟦</del><br/>.. . 🟩 | <del>..</del><br/>.. | .. | .. | <del>..</del><br/>..
+Pour se faire nous analyser le scénario de chaine qui est similaire au scénario de vidéo avec des étapes supplémentaires.
 
-__Tab.6__: Effet du passage à l'échelle sur l'impact du scénario "Consulter une chaine - accueil" dans le prototype v1.0.1.
+| Étape du scénario | EcoIndex | GES (gCO2e) | DOM | Requêtes | Taille (ko) |
+| --- | --- | --- | --- | --- | --- |
+| **1. Chargement de l'accueil** | <del>74 B 🟦</del> **73 B 🟦** | <del>1.52</del> **1.54** | <del>96</del>**96** | <del>28</del>**34** | <del>25.5</del>**93.2** |
+| **2. Choisir une chaîne** | <del>87 A 🟩</del>**88 A 🟩** | <del>1.26</del> **1.24** | <del>81</del> **62** | <del>3</del>**4** | <del>8.1</del>**28.5** |
+| **3. Choisir une vidéo** | <del>75 B 🟦</del>**72 B 🟦** | <del>1.58</del>**1.56** | <del>85</del>**177** | <del>26</del>**112** | <del>62.5</del>**665.1** |
+| **4. Retourner sur la chaîne** | <del>87 A 🟩</del>**88 A 🟩** | <del>1.26</del>**1.24** | <del>81</del>**62** | <del>3</del>**4** | <del>8.1</del>**28.5** |
+| **5. Choisir une autre vidéo** | <del>86 A 🟩</del>**84 A 🟩** | <del>1.28</del>**1.32** | <del>96</del>**157** | <del>5</del>**12** | <del>28.6</del>**31.6** |
 
-<!-- On pourrait s'étonner que la baisse de l'EcoIndex soit beaucoup plus forte pour la page des titres que pour la page d'un article alors que l'augmentation du poids des téléchargements est analogue.
-Ceci s'explique par le fait que l'EcoIndex vise à évaluer un impact global, incluant une part de la fabrication et de la fin de vie des terminaux, et que cette part augmente avec le nombre d'éléments de la page. -->
-Pour évaluer plus précisément l'impact de la consultation elle-même nous utiliserons un autre outil de mesure : GreenFrame.
+__Tab.8__: Effet du passage à l'échelle sur l'impact du scénario "Consulter une chaine - chaine" dans le prototype v1.0.1.
+
+Le passage à un volume de données supérieur (Scale-up) produit des résultats paradoxaux qui méritent une attention particulière.
+
+Le constat est frappant : on passe de **26 à 112 requêtes**, et la taille de la page est multipliée par 10 (**665 ko**). Pourtant, le score EcoIndex ne s'effondre pas et reste à **72 (B)**.
+Cet étonnement peut s'expliquer par deux facteurs :
+
+* **La limitation de l'affichage :** Une logique de restriction d'affichage (pagination ou limitation du nombre de composants rendus) est déjà en place. Même si les données sont plus nombreuses, le navigateur ne "dessine" pas beaucoup plus d'éléments, ce qui semble préserver le processeur de l'utilisateur.
+* **Le coût du "Local Fetch" :** Les données étant stockées dans un JSON local au projet, l'accès via `fetch` ou `import` est quasi instantané. L'impact environnemental du réseau est donc minimisé artificiellement par rapport à une vraie API distante, ce qui maintient un score élevé.
+
+En parallèle, on remarque que :
+* La taille du DOM sur la page vidéo double (**de 85 à 177**), ce qui est logique avec plus de vidéos.
+* Le DOM de la page chaîne en revanche **diminue (de 81 à 62)**. Cette baisse, surprenante en plein Scale-up, pourrait s'expliquer par des ajustements structurels entre les deux versions du prototype ou par une simplification de l'affichage sur ce modèle de page spécifique.
+
+**Conclusion du Scale-up :** Bien que nous ayons multiplié les données, l'impact semble étonnament rester maîtrisé. Cela suggère que notre structure actuelle "encaisse" bien la montée en charge. Cependant, il faudra rester vigilant, si ce JSON local était demain déplacé sur un serveur distant, les **112 requêtes** observées pourraient devenir un réel problème de performance et faire chuter l'EcoIndex, c'est pourquoi il faudra de la même manière que le 1ko, nous allons garder à l'oeil ces 112 requêtes.
+
+Par la suite pour évaluer plus précisément l'impact de la consultation elle-même nous utiliserons un autre outil de mesure : GreenFrame.
 
 ### Mesure de la consommation énergétique liée à la consultation
 
@@ -369,68 +379,78 @@ Le logiciel GreenFrame est capable d'estimer, pour les différents composants de
 - du réseau (à partir de la taille des données reçues et envoyées),
 - pour le navigateur uniquement, de l'écran (à partir du temps d'exécution du scénario).
 
-A METTRE A JOUR
+#### (a) Consultation de la page d'accueil
 
- (a)                 | cpu (Wh)   | mem (Wh)   | disk (Wh) | network (Wh)       | screen (Wh) | total (Wh)   |
-| ------------------ | ---------- | ---------- | --------- | ------------------ | ----------- | ------------ | 
-| Navigateur         | 0.0027     | 0.000058   | 0.0       | <mark>0.062</mark> | <mark>0.069</mark> | 0.13  |
-| Serveur Web        | 0.000061   | 0.000020   | 0.0       | <mark>0.063</mark> | 0.0                | 0.063 |
+| Composant | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Navigateur** | 0.00084 | 0.000050 | 0.0 | **0.0016** | **0.080** | **0.083** |
+| **Serveur Web** | 0.0000039 | 0.0000034 | 0.0 | **0.0016** | 0.0 | **0.0016** |
 
-| (b)                | cpu (Wh)   | mem (Wh)   | disk (Wh) | network (Wh)       | screen (Wh)        | total (Wh) |
-| ------------------ | ---------- | ---------- | --------- | ------------------ | ------------------ | ---------- | 
-| Navigateur         | 0.0035     |  0.000065  |  0.0      | <mark>0.062</mark> | <mark>0.072</mark> |  0.14      |
-| Serveur Web        | 0.000074   |  0.000021  |  0.0      | <mark>0.063</mark> | 0.0                |  0.064     |
+#### (b) Consultation d'une chaine
 
-__Tab.7__: Estimation de la consommation énergétique de la consultation des vidéos via l'accueil (premier tableau) et via une chaine (second tableau).
+| Composant | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Navigateur** | 0.00072 | 0.000035 | 0.0 | **0.0016** | **0.056** | **0.058** |
+| **Serveur Web** | 0.0000041 | 0.0000024 | 0.0 | **0.0016** | 0.0 | **0.0016** |
 
-<!-- Par rapport à ce que pouvait laisser penser l'EcoIndex, les résultats (cf. Tab.7) indiquent que la consommation due à la consultation de l'index (avec ses 3000 titres) est équivalente à celle d'un article. Autrement dit, l'affichage en lui même de ces données en grand nombre est négligeable par rapport à la transmission de ces données sur le réseau.
+#### (c) Consultation d'une vidéo
 
-Par contre, l'affichage de ces données a bien un impact indirect : en augmentant le temps de lecture, il a un effet déterminant sur le temps d'éclairage de l'écran. 
-De fait, les trois éléments ayant le plus d'impact (à peu près à égalité, le reste étant négligeable), sont ici : 
+| Composant | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Navigateur** | 0.0025 | 0.000093 | 0.0 | **0.064** | **0.092** | **0.16** |
+| **Serveur Web** | 0.000030 | 0.0000039 | 0.0 | **0.065** | 0.0 | **0.065** |
 
-- l'écran du client,
-- le réseau du client,
-- le réseau du serveur. -->
+__Tab.9__: Estimation de la consommation énergétique de la consultation de l'accueil (a) d'une chaine (b) d'une vidéo (c).
+
+Par le biais de ces 3 tableaux, nous pouvons tiré plusieurs analyses : 
+
+* La consultation de l'accueil (a) est le plus coûteux en réseau (0.064 Wh).
+* Lors des consultations de vidéo (b) et de chaine (c), la consommation réseau s'effondre (0.0016 Wh). Cela valide que notre application, une fois chargée, ne consomme presque plus rien d'autre que l'énergie nécessaire à l'affichage (écran).
+* Dans les phases de navigation interne, l'écran représente près de 96% de la consommation totale du navigateur. La frugalité de notre code (faible usage CPU/Mem) déplace l'enjeu écologique sur le matériel physique de l'utilisateur plutôt que sur l'infrastructure logicielle.
 
 ### Effet de l'introduction d'une base de données
 
 Afin de réduire l'impact énérgétique du réseau, nous stockons désormais les données de l'application (`v2.0.0`) dans une base de données (*CouchDB*).
 Cette évolution nous permet, lors de l'affichage d'une vidéo, de charger une seule vidéo plutôt que les plus de 2000.
 
-A METTRE A JOUR
-|                    | cpu (s)    | screen (s) | mem (B) | disk (B) | network (B) |
-| ------------------ | ---------- | ---------- | --------| -------- | ----------- |
-| Navigateur | <del>0,133</del><br/><add>0,0754</add>| 17,6 | <del>1,56e+8</del><br/><add>1,24e+8</add> | 0,00 | <del>1,22e+7</del><br/><add>3,64e+5</add> |
-| Serveur Web | <del>0,000856</del><br/><add>0,000210</add> | 0,00 | 5,56e+6  | 0,00 | <del>1,22e+7</del><br/><add>3,62e+5</add>
-| Base de données | <del>0</del><br/><add>0,0357</add> | 0,00 | <del>0</del><br/><add>1,27e+8</add> | 0,00 | <del>0</del><br/><add>1,80e+3</add>
+#### (a) Consultation de la page d'accueil
 
-__Tab.8__: Effet sur l'utilisation des ressources de l'introduction d'une base de données dans l'application, lors de la consultation d'une vidéo.
+| Composant | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) | 
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | 
+| Navigateur | <del>0.00084</del> 0.00088 | <del>0.000050</del> 0.000051 | 0.0 | <del>0.0016</del> 0.0016 | <del>0.080</del> 0.080 | <del>0.083</del> 0.083 | 
+| Serveur Web | <del>0.0000039</del> 0.000045 | <del>0.0000034</del> 0.0000034 | 0.0 | <del>0.0016</del> 0.0016 | 0.0 | <del>0.0016</del> 0.0016 | 
+| CouchDB | 0.00084 | 0.000071 | 0.0 | 0.00000013 | 0.0 | 0.00091 |
 
-<!-- Cette amélioration (cf. Tab.8) est assez spectaculaire avec notamment (pour les valeurs significatives) : 
+#### (b) Consultation d'une chaine
 
-- une réduction de 97% de la quantité de données chargées par le client,
-- une réduction de 51% de la charge du CPU sur le client,
-- une réduction de 24% de la mémoire vive utilisée par le client,
-- une utilisation des ressources par la base de données négligeable excepté une consommation très importante de mémoire vive (16 fois la quantité nécessaire pour le serveur Web). -->
+| Composant | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) | 
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | 
+| Navigateur | <del>0.00072</del> 0.00074 | <del>0.000035</del> 0.000036 | 0.0 | <del>0.0016</del> 0.0016 | <del>0.056</del> 0.056 | <del>0.058</del> 0.058 | 
+| Serveur Web | <del>0.0000041</del> 0.000037 | <del>0.0000024</del> 0.0000024 | 0.0 | <del>0.0016</del> 0.0016 | 0.0 | <del>0.0016</del> 0.0016 | 
+| CouchDB | 0.00061 | 0.000050 | 0.0 | 0.0 | 0.0 | 0.00066 |
 
- (a)              | cpu (Wh)   | mem (Wh)   | disk (Wh) | network (Wh)       | screen (Wh) | total (Wh)   |
-| --------------- | ---------- | ---------- | --------- | ------------------ | ----------- | ------------ | 
-| Navigateur      | 0,0027     | 0,000058   | 0,0       | 0,062 | 0,069 | 0,13  |
-| Serveur Web     | <del>0,000061</del><br/>0,0000043 | <del>0,000020</del><br/>0,0000029 | 0,0 | <mark><del>0,063</del></mark><br/>0,0019 | 0,0 | <del>0,063</del><br/>0,0019 |
-| Base de données | <del>0</del><br/>0,0033 | <del>0</del><br/>0,000066 | 0,0 | <del>0</del><br/><mark>0,064</mark> | 0,0 | <del>0</del><br/>0,067 |
+#### (c) Consultation d'une vidéo
 
-| (b)             | cpu (Wh)   | mem (Wh)   | disk (Wh) | network (Wh)       | screen (Wh)        | total (Wh) |
-| --------------- | ---------- | ---------- | --------- | ------------------ | ------------------ | ---------- | 
-| Navigateur      | <del>0,0035</del><br/>0,00094 | <del>0,000065</del><br/>0,000046 | 0,0 | <del><mark>0,062</mark></del><br/>0,0019 | <mark>0,072</mark> | <del>0,14</del><br/>0,075 |
-| Serveur Web     | <del>0,000074</del><br/>0,0000037 | <del>0,000021</del><br/>0,0000029 | 0,0 | <del><mark>0,063</mark></del><br/>0,0019 | 0,0 | <del>0,064</del><br/>0,0019 |
-| Base de données | <del>0</del><br/>0,00062 | <del>0</del><br/>0,000065 | 0,0 | <del>0</del><br/>0,0000092 | 0,0 | <del>0</del><br/>0,00070 |
+| Composant | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) | 
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | 
+| Navigateur | <del>0.0025</del> 0.0069 | <del>0.000093</del> 0.00010 | 0.0 | <del>0.064</del> 0.067 | <del>0.092</del> 0.095 | <del>0.16</del> 0.17 | 
+| Serveur Web | <del>0.000030</del> 0.000022 | <del>0.0000039</del> 0.0000041 | 0.0 | <del>0.065</del> 0.046 | 0.0 | <del>0.065</del> 0.046 | 
+| CouchDB | 0.0065 | 0.000085 | 0.0 | 0.024 | 0.0 | 0.030 |
 
-__Tab.9__: Effet sur la consommation énergétique de l'introduction d'une base de données dans l'application, lors de la consultation de l'accueil (premier tableau) et d'une vidéo (second tableau).
+__Tab.10__: Effet de l'ajout de CouchDB sur consultation de l'accueil (a) d'une chaine (b) d'une vidéo (c).
 
-<!-- Pour la consultation d'un article, cette forte diminution de l'utilisation des ressources se traduit par une consommation énérgétique estimée (cf. Tab.9b) quasiment minimale puisqu'à peine supérieure à celle de l'écran.
+Le passage à une base de données CouchDB marque une étape cruciale. On abandonne le chargement local global pour une récupération de données "à la demande". Les chiffres (cf. Tab.10) révèlent un arbitrage technique très intéressant.
 
-Concernant la consultation des titres (cf. Tab.9a), par contre, l'ajout de la base de données a eu pour seul effet notable de remplacer la consommation du réseau du serveur Web par celle du réseau de la base de données.
-Pour réduire cette consommation, nous devons maintenant réduire drastiquement la quantité de données chargées par la page des titres du journal. -->
+Au chargement de l'accueil (a), on observe une hausse du CPU Navigateur (0.0069 Wh vs 0.0025) et l'apparition du CPU CouchDB (0.0065 Wh). En effect, me système doit maintenant gérer une connexion à la base de données et traiter une requête structurée. C'est l'investissement nécessaire pour ne plus avoir à manipuler des fichiers de données "morts" et trop lourds.
+
+L'objectif principal est atteint sur la consultation d'une vidéo (c) : Le réseau CouchDB tombe à un niveau quasi nul (0.00000013 Wh).
+En ne récupérant que les métadonnées de la vidéo consultée plutôt que l'index complet des 2000 titres, on réduit drastiquement la sollicitation des infrastructures de transfert. On évite ainsi le "bruit numérique" inutile sur le réseau.
+
+Malgré l'ajout d'un composant supplémentaire (le serveur de base de données), l'impact total reste dans le même ordre de grandeur.
+Une fois la première requête passée, les étapes (b) et (c) montrent que CouchDB consomme moins de 0.001 Wh.
+légère hausse de consommation CPU est largement compensée par la précision des données transférées. On ne télécharge plus ce qu'on ne regarde pas.
+
+Cette version v2.0.0 prouve qu'une base de données bien configuré est un allié de l'éco-conception. La base de données agit comme un filtre énergétique, elle consomme un peu d'énergie pour "réfléchir" (CPU) afin d'en économiser beaucoup lors du "transport" (Réseau).
 
 ## Développement du service
 
@@ -446,12 +466,51 @@ L'introduction d'un backend est devenue indispensable pour supporter nos nouveau
 * **Système d'authentification :** Mise en place d'un tunnel *Login/Register*. La gestion de l'état utilisateur (via Context et LocalStorage) permet de conditionner l'ajout de vidéos, de commentaires et la personnalisation des profils.
 
 ![Page d'authentification](./docs/auth.png)<br>
-__FigX__: Page d'authentification  <br>
+__Fig.6__: Page d'authentification  <br>
 
 * **Gestion des médias :** Prise en charge de l'upload des vidéos, des miniatures et des photos de profil.
 
 ![Modal d'upload de vidéo](./docs/upload.png)<br>
-__FigX__: Modal d'upload de vidéo <br> 
+__Fig.7__: Modal d'upload de vidéo <br> 
+
+Voici les nouveaux tableaux d'analyse GreenFrame intégrant désormais le **Backend** en plus de CouchDB. Cette structure correspond à l'architecture finale.
+
+#### (a) Consultation de la page d'accueil
+
+| Composant | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Navigateur** | <del>0.00088</del> **0.00089** | <del>0.000051</del> **0.000050** | 0.0 | <del>0.0016</del> **0.0016** | <del>0.080</del> **0.080** | <del>0.083</del> **0.083** |
+| **Frontend** | <del>0.000045</del> **0.0000045** | <del>0.0000034</del> **0.0000034** | 0.0 | <del>0.0016</del> **0.0016** | 0.0 | <del>0.0016</del> **0.0016** |
+| **CouchDB** | <del>0.00084</del> **0.00083** | <del>0.000071</del> **0.000076** | 0.0 | <del>1.3e-7</del> **1.3e-7** | 0.0 | <del>0.00091</del> **0.00091** |
+| **Backend** | **3.1e-7** | **0.000020** | 0.0 | **1.3e-7** | 0.0 | **0.000020** |
+
+#### (b) Consultation d'une chaine
+
+| Composant | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Navigateur** | <del>0.00074</del> **0.00076** | <del>0.000036</del> **0.000035** | 0.0 | <del>0.0016</del> **0.0016** | <del>0.056</del> **0.056** | <del>0.058</del> **0.058** |
+| **Frontend** | <del>0.000037</del> **0.0000041** | <del>0.0000024</del> **0.0000024** | 0.0 | <del>0.0016</del> **0.0016** | 0.0 | <del>0.0016</del> **0.0016** |
+| **CouchDB** | <del>0.00061</del> **0.00064** | <del>0.000050</del> **0.000053** | 0.0 | 0.0 | 0.0 | <del>0.00066</del> **0.00069** |
+| **Backend** | **3.2e-7** | **0.000014** | 0.0 | 0.0 | 0.0 | **0.000014** |
+
+#### (c) Consultation d'une vidéo
+
+| Composant | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Navigateur** | <del>0.0069</del> **0.0023** | <del>0.00010</del> **0.000087** | 0.0 | <del>0.067</del> **0.043** | <del>0.095</del> **0.095** | <del>0.17</del> **0.14** |
+| **Frontend** | <del>0.000022</del> **0.000023** | <del>0.0000041</del> **0.0000040** | 0.0 | <del>0.046</del> **0.046** | 0.0 | <del>0.046</del> **0.046** |
+| **CouchDB** | <del>0.0065</del> **0.0067** | <del>0.000085</del> **0.000089** | 0.0 | <del>0.024</del> **0.000039** | 0.0 | <del>0.030</del> **0.0068** |
+| **Backend** | **0.00028** | **0.000034** | 0.0 | **0.000060** | 0.0 | **0.00038** |
+
+__Tab.11__: Effet de l'ajout du backend sur consultation de l'accueil (a) d'une chaine (b) d'une vidéo (c).
+
+L'ajout d'un backend servant d'intermédiaire entre le frontend et la base de données est une étape clé. Loin d'alourdir le système, cette structure permet de déporter la complexité du traitement vers un environnement serveur maîtrisé. De cette ajout, on observe :
+
+1. Une baisse de 60% du CPU, c'est le résultat le plus frappant du tableau (a) : le CPU du navigateur passe de 0.0069 Wh à 0.0023 Wh. Dans la version précédente, le navigateur devait probablement gérer lui-même une partie de la logique de connexion ou du formatage des données brutes venant de CouchDB. Le Backend semble jouer un rôle de "pré-mâcheur". Il traite la logique complexe côté serveur, déchargeant le processeur du client.
+
+2. On remarque une chute drastique du réseau de CouchDB au chargement initial (0.000039 Wh contre 0.024 Wh précédemment). CouchDB ne parle plus directement au navigateur (via Internet/HTTP lourd). Il communique désormais avec le Backend en local ou via un réseau conteneurisé ultra-optimisé. Le transfert de données "brutes" est confiné à l'infrastructure serveur, ne livrant au client que le JSON final parfaitement nettoyé.
+
+3. On pourrait craindre qu'ajouter un service (greentube-backend-1) alourdisse la facture. Les chiffres semblent prouver le contraire. en effet, sa consommation totale pour la consultation d'une chaine ou vidéo (b ou c) est de l'ordre de 0.000014 Wh à 0.000020 Wh. C'est une consommation négligeable qui confirme que l'utilisation d'un langage/framework léger pour le backend permet de structurer l'application sans sacrifier la frugalité.
 
 ### Modernisation de l'interface utilisateur (UI)
 
@@ -463,13 +522,13 @@ Une interface soignée améliore l'accessibilité et la clarté de l'information
 * Espaces de gestion des chaînes.
 
 ![Page d'accueil finale](./docs/home_final.png)<br>
-__Fig1__: Page d'accueil finale<br>
+__Fig.8__: Page d'accueil finale<br>
 ![Page vidéo finale](./docs/video_final.png)<br>
-__Fig2__: Page de vidéo finale<br>
+__Fig.9__: Page de vidéo finale<br>
 ![Page vidéo finale](./docs/video_final_1.png)<br>
-__Fig2__: Page de vidéo - commentaire<br>
+__Fig.10__: Page de vidéo - commentaire<br>
 ![Page chaine finale](./docs/channel_final.png)<br>
-__Fig3__: Page de chaine finale<br>
+__Fig.11__: Page de chaine finale<br>
 
 ### Traitement vidéo avec FFmpeg
 
@@ -544,7 +603,7 @@ Nous avons opté pour la **dénormalisation**. Les objets "Vidéo" et "Commentai
 La vidéo est le média le plus énergivore du web. Pour répondre à cet enjeu, nous avons développez une fonctionnalité de **Mode Podcast**.
 
 ![Mode podcast](./docs/podcast.png)<br>
-__Fig3__: Mode podcast<br>
+__Fig.12__: Mode podcast<br>
 
 L'idée est de dissocier le flux audio du flux vidéo lors de l'upload via **FFmpeg**. Cette fonctionnalité offre deux avantages majeurs pour l'éco-conception :
 
@@ -552,3 +611,114 @@ L'idée est de dissocier le flux audio du flux vidéo lors de l'upload via **FFm
 2.  **Sobriété matérielle :** La lecture d'un flux audio seul sollicite beaucoup moins le processeur (CPU/GPU) de l'appareil client, prolongeant ainsi l'autonomie de la batterie et réduisant la consommation électrique.
 
 Cette option permet de transformer notre plateforme de streaming en un service hybride, s'adaptant au besoin réel de l'utilisateur tout en limitant son impact environnemental.
+
+## Analyse finale
+
+Voici l'analyse finale de notre projet.
+
+### GreenIT - ÉcoIndex
+
+#### Scénario consultation d'une vidéo - accueil
+
+| Étape du scénario | EcoIndex | GES (gCO2e) | DOM | Requêtes | Taille (ko) |
+| --- | --- | --- | --- | --- | --- |
+| **1. Chargement Accueil** | **84 A** | 1.32 | 113 | 7 | 29.5 |
+| **2. Choisir une vidéo** | **76 A** | 1.48 | 96 | 5 | 12.6 |
+| **3. Retourner au menu** | **86 A** | 1.28 | 113 | 3 | 4.5 |
+| **4. Choisir une autre vidéo** | **86 A** | 1.28 | 96 | 5 | 12.1 |
+
+__Tab.12__ : Évaluation de l'impact du scénario "Consulter une vidéo - accueil" dans le prototype final.
+
+#### Scénario consultation d'une vidéo - chaine
+
+| Étape du scénario | EcoIndex | GES (gCO2e) | DOM | Requêtes | Taille (ko) |
+| --- | --- | --- | --- | --- | --- |
+| **1. Chargement de l'accueil** | 74 B | 1.52 | 113 | 27 | 93.0 |
+| **2. Choisir une chaîne** | **87 A** | 1.26 | 88 | 5 | 39.4 |
+| **3. Choisir une vidéo** | 75 B | 1.51 | 167 | 25 | 29.7 |
+| **4. Retourner sur la chaîne** | **76 A** | 1.48 | 88 | 5 | 40.0 |
+| **5. Choisir une autre vidéo** | **76 A** | 1.48 | 97 | 5 | 12.8 |
+
+__Tab.13__ : Évaluation de l'impact du scénario "Consulter une vidéo - chaine" dans le prototype final.
+
+L'aboutissement de ce projet valide l'hypothèse qu'une architecture rigoureuse limite drastiquement l'impact environnemental d'un service numérique. L'évaluation des scénarios "Accueil" et "Chaîne" démontre une efficience majeure, malgré la complexité des fonctionnalités, les émissions de GES stagnent autour de 1.4 gCO2e par étape. Le transfert de données est réduit à moins de 100 ko par page, soit une empreinte 30 fois inférieure à la moyenne du web (3000 ko selon HTTP Archive : https://httparchive.org/reports/page-weight).
+
+Cette performance repose sur un backend agissant comme filtre, garantissant que seule la donnée utile atteint le client. L'augmentation du volume de données n'entraîne aucune croissance énergétique exponentielle, confirmant la scalabilité du modèle. De plus, avec un DOM maintenu sous les 200 éléments, l'application minimise la sollicitation matérielle.
+
+L'obtention des scores EcoIndex A/B semble donc s'appuier sur ces trois leviers : la réduction des appels serveurs, l'optimisation des payloads JSON et une stratégie de mise en cache évitant les transferts redondants.
+
+### GreenFrame 
+
+#### (a) Consultation de la page d'accueil
+
+| Composant | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Navigateur** | <del>0.00088</del> **0.00083** | <del>0.000051</del> **0.000050** | 0.0 | <del>0.0016</del> **0.0016** | <del>0.080</del> **0.080** | <del>0.083</del> **0.083** |
+| **Frontend** | <del>0.000045</del> **0.0000041** | <del>0.0000034</del> **0.0000034** | 0.0 | <del>0.0016</del> **0.0016** | 0.0 | <del>0.0016</del> **0.0016** |
+| **CouchDB** | <del>0.00084</del> **0.00073** | <del>0.000071</del> **0.000088** | 0.0 | <del>1.3e-7</del> **1.3e-7** | 0.0 | <del>0.00091</del> **0.00082** |
+| **Backend** | **0.00000017** | **0.000021** | 0.0 | **1.3e-7** | 0.0 | **0.000021** |
+
+#### (b) Consultation d'une chaîne
+
+| Composant | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Navigateur** | <del>0.00074</del> **0.00075** | <del>0.000036</del> **0.000036** | 0.0 | <del>0.0016</del> **0.0016** | <del>0.056</del> **0.056** | <del>0.058</del> **0.058** |
+| **Frontend** | <del>0.000037</del> **0.0000038** | <del>0.0000024</del> **0.0000024** | 0.0 | <del>0.0016</del> **0.0016** | 0.0 | <del>0.0016</del> **0.0016** |
+| **CouchDB** | <del>0.00061</del> **0.00052** | <del>0.000050</del> **0.000062** | 0.0 | 0.0 | 0.0 | <del>0.00066</del> **0.00058** |
+| **Backend** | **0.00000018** | **0.000015** | 0.0 | 0.0 | 0.0 | **0.000015** |
+
+#### (c) Consultation d'une vidéo
+
+| Composant | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Navigateur** | <del>0.0069</del> **0.0023** | <del>0.00010</del> **0.000086** | 0.0 | <del>0.067</del> **0.045** | <del>0.095</del> **0.095** | <del>0.17</del> **0.14** |
+| **Frontend** | <del>0.000022</del> **0.0000035** | <del>0.0000041</del> **0.0000040** | 0.0 | <del>0.046</del> **0.0016** | 0.0 | <del>0.046</del> **0.0016** |
+| **CouchDB** | <del>0.0065</del> **0.0081** | <del>0.000085</del> **0.00010** | 0.0 | <del>0.024</del> **0.000052** | 0.0 | <del>0.030</del> **0.0083** |
+| **Backend** | **0.00052** | **0.000040** | 0.0 | **0.044** | 0.0 | **0.044** |
+
+__Tab.14__ : Estimation finale de la consommation énergétique de la consultation de l'accueil (a) d'une chaine (b) d'une vidéo (c).
+
+L'analyse des mesures GreenFrame (Tab.14) confirme l'efficience du modèle à trois couches. L'ajout du backend ne se traduit pas par un surcoût, mais par une meilleure répartition de la charge.
+
+Le gain le plus significatif apparaît lors de la consultation vidéo (c) : le CPU du navigateur chute de 0.0069 Wh à 0.0023 Wh. Ce déchargement massif du terminal utilisateur prouve que la logique métier, désormais traitée par le backend, réduit l'effort de calcul côté client.
+L'infrastructure serveur (Frontend, Backend, CouchDB) affiche ainsi une consommation extrêmement faible :
+- Backend : Son impact est quasi nul lors des phases de navigation fluide (étapes a et b), avec un coût énergétique de l'ordre de $10^{-7}$ Wh.
+- Réseau interne : Le transfert entre CouchDB et le Backend est optimisé, réduisant drastiquement la consommation réseau globale lors du chargement initial.
+
+Dans les phases de navigation interne (a et b), la consommation est quasi exclusivement portée par l'écran (95% du total). Cela démontre que la pile logicielle est devenue si sobre que l'impact environnemental dépend désormais principalement du matériel physique et de l'usage de l'utilisateur, et non plus de l'efficacité du code.
+
+### Analyse critique et limites du projet 
+
+Malgré les performances environnementales atteintes, un regard critique sur le prototype actuel permet d'identifier plusieurs axes d'amélioration, tant sur le plan technique que méthodologique.
+
+#### 1. Optimisations logicielles (Frontend & Code)
+
+* **Gestion du cycle de rendu :** L'usage des hooks d'optimisation (comme `useMemo` ou `useCallback` sous React) reste insuffisant. Certaines portions du code gagneraient en efficacité pour limiter les re-rendus inutiles du DOM.
+* **Poids des ressources (Assets) :** L'application n'utilise pas de processus de "CSS purging", laissant des styles inutilisés charger sur le terminal. De même, les formats multimédias (MP3/MP4) pourraient être optimisés vers des formats plus modernes (WebM/Ogg) pour réduire davantage le poids sans perte de qualité.
+* **Adaptabilité (Responsiveness) :** Le prototype n'est pas encore responsive. Un design adaptatif permettrait de mieux contrôler l'affichage et donc la consommation énergétique sur des terminaux mobiles.
+
+#### 2. Expérience Utilisateur (UX) vs Éco-responsabilité
+
+* **Perception de la performance :** Le temps de chargement des vidéos est perfectible. Si l'utilisation de *Skeletons* (écrans de chargement animés) améliorerait l'expérience utilisateur, leur coût énergétique (animations CSS constantes) doit être mis en balance avec le gain d'ergonomie.
+* **Optimisation des données :** Bien que le backend filtre les données, certains objets envoyés au frontend contiennent encore des champs superflus. Une sélection de champs plus stricte (Data Projection) réduirait encore le poids des payloads JSON.
+
+#### 3. Limites de la méthodologie d'analyse
+
+* **Périmètre fonctionnel :** L'étude s'est concentrée sur la consultation de l'index et des chaînes. Les fonctionnalités secondaires comme l'upload ou les podcasts n'ont pas encore été auditées.
+* **Durée des tests :** Les tests GreenFrame ont été réalisés sur des séquences de 30 secondes. Cette durée permet d'analyser le chargement et l'initialisation, mais ne reflète pas l'utilisation réelle de la bande passante sur un visionnage long, où le streaming vidéo devient le poste de dépense majoritaire.
+
+## Conclusion
+
+La réalisation de GreenTube a constitué une expérience particulièrement formatrice, nous permettant de maîtriser une stack technologique complète et moderne. Ce projet nous a immergés dans l'utilisation de ReactJS, framework incontournable du développement frontend, ainsi que dans la conception d'un backend robuste avec Node.js et Express. Au-delà du code, l'intégration de Docker pour la conteneurisation et la mise en place de workflow de CI/CD via Git nous ont sensibilisés aux exigences professionnelles de déploiement et de qualité logicielle.
+
+Le cœur de notre démarche a cependant résidé dans l'éco-conception. Grâce à des outils d'analyse comme GreenIT et GreenFrame, nous avons appris à quantifier l'empreinte environnementale de nos choix techniques. Cette approche nous a forcés à remettre en question nos méthodes de développement pour privilégier la sobriété numérique, transformant ainsi un simple exercice de programmation en une véritable réflexion sur la responsabilité de l'ingénieur.
+
+Au terme de ce développement, GreenTube propose une plateforme de vidéo en ligne fonctionnelle et optimisée, couvrant un large éventail de fonctionnalités :
+
+- Exploration et navigation : Consultation de vidéos via une page d'accueil dynamique ou par chaîne utilisateur.
+- Gestion de contenu : Système d'upload de vidéos avec génération automatique de miniatures.
+- Interactivité : Création de comptes, authentification simple et édition de profils personnalisés (avatars et descriptions).
+- Recherche et filtrage : Tri avancé des contenus par date, popularité (vues/abonnés) ou via des expressions régulières (Regex) pour des recherches précises.
+- Expérience utilisateur : Incrémentation automatique des vues au visionnage et mode "podcast" pour une consultation audio économe en ressources.
+
+En conclusion, GreenTube démontre qu'il est possible de développer un service riche en fonctionnalités tout en maintenant un Grade EcoIndex A/B. Ce projet marque pour nous une première étape réussie dans la conception de solutions numériques durables et scalables.
