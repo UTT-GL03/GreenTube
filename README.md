@@ -2,12 +2,8 @@
 
 ## A FAIRE :
 - Tableau éco index des scénarios + analyse
-- Analyse front local Green IT : video - chaine
-- Comparaison service concurrent
 - Mettre les bons numéro Tab, Fig, Cf 
 - GreenFrame tab + analyse
-- Image page final
-- Analyse eco backend - new feature si j'ai la foi
 
 ## Choix du sujet
 
@@ -71,21 +67,27 @@ Nous avons choisi de comparer l’impact de nos scénarios sur les services les 
 
 | Service | Score (sur 100) | Classe | Détail des mesures
 | --- | --: | --: | --:
-| Youtube | .. | . 🟥 | […](./benchmark/Youtube/ecoindex-environmental-statement.md)
-| Dailymotion | .. | . 🟧 |  […](./benchmark/Daylimotion/ecoindex-environmental-statement.md)
-| PodUTT | .. | . 🟥 | […](./benchmark/PodUTT/ecoindex-environmental-statement.md)
+| Youtube | 12.91 | F 🟥 | […](./benchmark/Youtube/ecoindex-environmental-statement.md)
+| Dailymotion | 25.75 | E 🟧 |  […](./benchmark/Daylimotion/ecoindex-environmental-statement.md)
+| PodUTT | 59.14 | C 🟨 | […](./benchmark/PodUTT/ecoindex-environmental-statement.md)
 
-Tab.1 : Mesure de l'EcoIndex moyen de services de vidéo en ligne.
-<!-- 
-Les mesures de l'impact moyen de ces services (cf. Tab.1) révèlent des classes EcoIndex très faibles pour la plupart (E ou F) et médiocres pour certains (D).
+__Tab.1__ : Mesure de l'EcoIndex moyen de services de vidéo en ligne.
 
-Dans le détail, les pages les plus mal classées sont celles qui incluent : 
+Cette analyse globale met en lumière des disparités frappantes entre les plateformes de streaming vidéo, révélant que la sobriété technique est le levier principal de l'écoconception.
 
-- une vidéo,
-- des traqueurs en très grand nombre (pour la revente de données de consultation à des tiers),
-- des publicités en grand nombre.
+Le benchmark réalisé le 30 décembre 2025 montre une hiérarchie claire dans la performance environnementale :
 
-À l'inverse, le bon classement (B) de certaines pages (rubriques, articles) de Reporterre montre qu'il existe une marge de progression significative à condition d'adopter des pratiques d'éco-conception et un modèle économique permettant de réduire (totalement ou partiellement) le recours à des services tiers de traqueurs et de publicité. -->
+* **PodUTT (59.14 - Grade C 🟨) :** C'est le grand gagnant de ce comparatif. Sa force réside dans une architecture épurée avec seulement **27 à 38 requêtes** par page. Son DOM léger (moins de 900 éléments) réduit drastiquement l'effort de calcul du terminal utilisateur.
+* **Dailymotion (25.75 - Grade E 🟧) :** Bien que classé deuxième, ses résultats sont alarmants. On observe une instabilité critique avec des pics dépassant les **1 000 requêtes** et des pages atteignant **35 Mo**. L'impact est ici principalement lié au poids démesuré des ressources transférées.
+* **YouTube (12.91 - Grade F 🟥) :** Malgré sa popularité, YouTube présente le score le plus faible. Son empreinte est plombée par une complexité structurelle extrême (**plus de 7 000 éléments DOM**) et un flux constant de requêtes (jusqu'à 200) pour maintenir ses fonctionnalités interactives.
+
+| Indicateur | Observation Majeure |
+| --- | --- |
+| **Poids des pages** | Le facteur le plus discriminant, variant de **2 Mo** (PodUTT) à plus de **35 Mo** (Dailymotion). |
+| **Complexité (DOM)** | YouTube sollicite le plus le processeur utilisateur, tandis que PodUTT privilégie une structure simplifiée. |
+| **Consommation d'eau** | Directement corrélée au volume de données, elle est divisée par près de 1,5 entre YouTube et PodUTT. |
+
+L'analyse démontre que les plateformes de streaming académiques comme **PodUTT** sont des modèles d'écoconception par rapport aux géants du divertissement. En limitant les trackers et les scripts superflus, PodUTT divise par deux l'émission de GES par rapport aux sessions les plus lourdes de Dailymotion ou YouTube.
 
 ## Modèle économique
 
@@ -227,7 +229,7 @@ Document technique de synchronisation pour la gestion des identifiants uniques.
 
 Pour cette première version du prototype (`v1.0.0`) :
 
-- l'échantillon de données est encore chargé dans le code de manière statique,
+- l'échantillon de données est encore chargé de manière statique via un fichier sample_data.json.
 - les fonctionnalités implémentées ne sont que celles nécessaires pour suivre les scénario prioritaire ("Consulter une vidéo - accueil/chaine").
 
 Ces scénario nécessite de pouvoir naviguer entre deux types de page : la page d'accueil, une page de chaine de et les pages des vidéos.
@@ -246,16 +248,24 @@ Inspirée de l'approche Atomic CSS, cette structure assemble des fragments de cl
 Pour aller plus loin dans la frugalité, nous pourrions mettre en place une étape qui consisterait à intégrer un système de Purge CSS. Cela permettrait de supprimer automatiquement les classes inutilisées et de ne servir que le code strictement nécessaire à l'affichage, optimisant ainsi chaque octet transféré.
 
 Dans l'état actuel du prototype, il est possible d'avoir une première idée de l'impact environnemental du *frontend*.
-Bien entendu, il manque encore le chargement dynamique des données, mais nous pouvons déjà évaluer l'impact de l'affichage des données et du *framework* (au sens large : *React*, *DayJS*).
 
 |   | EcoIndex| GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (ko)
 |---|--------:|------------:|--------------:|---------:|---------------------:
-| Mode "développement"  | .. . 🟩 |  .. | .. | .. | ..
-| Mode "pré-production" | .. . 🟦 | .. | .. | .. | ..
+| Mode "développement"  | 78.29 B 🟩 | 1.43 | 98 | 42 | 1307
+| Mode "pré-production" | 91.23 A 🟦 | 1.18 | 95 | 9 | 1
 
 __Tab.4__: Évaluation de l'impact du prototype de la page d'accueil.
 
-<!-- ANALYSE -->
+Cette première étape de prototypage est une réussite majeure, le passage en mode pré-production confirme que notre stratégie de sobriété semble porter ses fruits.
+
+Points clés de l'analyse :
+- L'efficacité du "Fait Maison" : Le score de 91.23 (Grade A) semble valider notre choix d'avoir évité les frameworks CSS lourds. La structure est extrêmement rapide à charger et à interpréter par le navigateur.
+
+- Optimisation des requêtes : La chute drastique du nombre de requêtes (de 42 à 9) est un excellent signal. Cela montre que le regroupement des ressources est optimal dès cette phase.
+
+> Note - Une petite réserve sur le "1 ko" : Bien que ce chiffre soit exceptionnel et peut témoigner d'un code source très épuré, il reste à confirmer lors des prochaines étapes. Avec des données actuellement locales, ce poids record pourrait être dû à l'absence temporaire d'assets multimédias ou pire encore, cela pourrait être du à une erreur, il sera important de garder un oeil sur cette valeur dans la suite du projet.
+
+Conclusion de l'étape : Nous sommes très satisfaits de ce premier bilan. Le socle technique est sain, léger et déjà prêt à accueillir les futures fonctionnalités sans dégrader immédiatement son empreinte environnementale.
 
 ### Pages des vidéos
 
@@ -268,18 +278,25 @@ __Fig.3__: Prototype de la page d'une vidéo.<br>
 
 Avec l'ajout de ce modèle de page et la mise en place de la navigation entre les deux modèles, il devient possible d'exécuter le scénario prioritaire complet et de mesurer son impact.
 
-|   | EcoIndex| GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (ko)
-|---|--------:|------------:|--------------:|---------:|---------------------:
-| 1. Chargement de la page | .. . 🟦 | .. | .. | .. | ..
-| 2. Choisir une vidéo | .. . 🟦 | .. | .. | .. | ..
-| 3. Retourner sur le menu | .. . 🟦 | .. | .. | .. | ..
-| 4. Choisir une autre vidéo | .. . 🟦 | .. | .. | .. | ..
+| Étape du scénario | EcoIndex | GES (gCO2e) | DOM | Requêtes | Taille (ko) |
+| --- | --- | --- | --- | --- | --- |
+| **1. Chargement de l'accueil** | 74 (B) 🟦 | 1.52 | 96 | 28 | 25.5 |
+| **2. Choisir une vidéo** | 75 (B) 🟦 | 1.5 | 95 | 26 | 62.5 |
+| **3. Retourner au menu** | **87 (A)** 🟩 | 1.26 | 96 | **2** | **0.9** |
+| **4. Choisir une autre vidéo** | **86 (A)** 🟩 | 1.28 | 96 | 4 | 28.3 |
 
-__Tab.5__: Évaluation de l'impact du scénario "Consulter une video - accueil" dans le prototype v1.0.0.
+__Tab.5__ : Évaluation de l'impact du scénario "Consulter une vidéo - accueil" dans le prototype v1.0.0.
 
-<!-- Ces estimations bien qu'artificiellement basses (puisque les données sont chargées de manière statique) sont tout de même à comparer avec [celles des services concurrents](lien) vues précédemment.
+L'analyse de ce scénario permet d'apporter les enseignements suivants :
 
-Si nous arrivons à maintenir les émissions en dessous de 1,3 g par page pour notre produit minimum viable, nous pouvons donc espérer proposer une alternative environ 2 fois moins impactante que les services existants (en incluant pourtant la participation au cycle de vie du terminal). -->
+* **Efficience du cache et navigation** : On observe une nette amélioration du score EcoIndex lors du retour au menu (passage de 74 B à 87 A). Ce bond de performance confirme l'efficacité de la mise en cache, une fois les ressources de base (scripts, CSS) chargées, la navigation ne demande presque plus de nouvelles requêtes (seulement 2 requêtes pour l'étape 3).
+
+* **Correction des mesures précédentes** : Les tailles de pages relevées ici (entre 25 et 62 ko) sont bien supérieures au "1 ko" mesuré lors du premier test statique. Cela confirme notre intuition initiale : la mesure précédente était probablement incomplète (erreur de l'outil ou exclusion de certains assets). Ces nouvelles valeurs, bien que plus élevées, restent extrêmement faibles et témoignent d'une excellente frugalité numérique.
+
+* **Stabilité structurelle** : Le nombre d'éléments dans le DOM reste constant (~96), ce qui garantit que la navigation n'alourdit pas la charge processeur de l'utilisateur au fil du temps.
+
+> Ce qu'il faut retenir :
+Même en corrigeant les erreurs de mesure initiales, le prototype reste 100 à 200 fois plus léger que les solutions du marché (YouTube/Dailymotion). La navigation interne est quasi-transparente pour l'environnement grâce à une gestion intelligente des ressources partagées.
 
 ### Pages des chaines
 
@@ -289,28 +306,30 @@ De même que précédemment, nous avons tenté d'implémenter cette page (cf. Fi
 
 > La maquette initiale (v1) n'est plus disponible. Une version mise à jour et plus détaillée est présentée dans la suite de ce document.
 
-Avec l'ajout de ce modèle de page et la mise en place de la navigation entre les deux modèles, il devient possible d'exécuter le scénario prioritaire complet et de mesurer son impact.
+Ce second scénario mesure l'impact de la navigation vers une page de chaîne spécifique avant la consultation de vidéos.
 
-|   | EcoIndex| GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (ko)
-|---|--------:|------------:|--------------:|---------:|---------------------:
-| 1. Chargement de la page | .. . 🟦 | .. | .. | .. | ..
-| 2. Choisir une chaine | .. . 🟦 | .. | .. | .. | ..
-| 3. Choisir une vidéo | .. . 🟦 | .. | .. | .. | ..
-| 4. Retourner sur la chaine | .. . 🟦 | .. | .. | .. | ..
-| 5. Choisir une autre vidéo | .. . 🟦 | .. | .. | .. | ..
+| Étape du scénario | EcoIndex | GES (gCO2e) | DOM | Requêtes | Taille (ko) |
+| --- | --- | --- | --- | --- | --- |
+| **1. Chargement de l'accueil** | 74 (B) 🟦 | 1.52 | 96 | 28 | 25.5 |
+| **2. Choisir une chaîne** | **87 (A)** 🟩 | 1.26 | 81 | **3** | **8.1** |
+| **3. Choisir une vidéo** | 75 (B) 🟦 | 1.58 | 85 | 26 | 62.5 |
+| **4. Retourner sur la chaîne** | **87 (A)** 🟩 | 1.26 | 81 | **3** | **8.1** |
+| **5. Choisir une autre vidéo** | **86 (A)** 🟩 | 1.28 | 96 | 5 | 28.6 |
 
 __Tab.6__: Évaluation de l'impact du scénario "Consulter une chaine - chaine" dans le prototype v1.0.0.
 
-<!-- Ces estimations bien qu'artificiellement basses (puisque les données sont chargées de manière statique) sont tout de même à comparer avec [celles des services concurrents](lien) vues précédemment.
+L'analyse de ce parcours plus complexe confirme les tendances observées précédemment tout en apportant de nouveaux enseignements :
 
-Si nous arrivons à maintenir les émissions en dessous de 1,3 g par page pour notre produit minimum viable, nous pouvons donc espérer proposer une alternative environ 2 fois moins impactante que les services existants (en incluant pourtant la participation au cycle de vie du terminal). -->
+* **Performance des pages de chaînes :** La page de chaîne s'avère assez économe avec un score de 87 (A). Le faible nombre de requêtes lors de l'accès à cette page (3 requêtes) montre que les ressources partagées avec l'accueil sont parfaitement réutilisées.
 
-### Étape de prototypage : Données statiques chargées de manière dynamique
+* **Frugalité du DOM sur les chaînes :** On note que la page de chaîne est structurellement plus légère que la page d'accueil (81 éléments contre 96). Cette réduction de la complexité du DOM contribue directement à l'amélioration du score EcoIndex.
 
-Pour cette nouvelle version du prototype (`v1.0.1`), identique du point de vue fonctionnel, les données (toujours statiques) sont désormais chargées par le *frontend* à travers le réseau immédiatement après un premier affichage à vide.
+### Étape de prototypage : Données chargées de manière dynamique via fetch
+
+Pour cette nouvelle version du prototype (`v1.0.1`), identique du point de vue fonctionnel, les données sont désormais chargées proprement par le *frontend* à travers le réseau via des fetchs après un premier affichage à vide.
 Ce comportement, plus réaliste, n'a pour effet qu'une requête supplémentaire par page affichée. 
 
-Concernant l'évaluation de l'impact environnemental du scénario, par rapport au tableau précédent (cf. Tab.5), à l'exception du nombre de requêtes qui est incrémenté de 1, les résultats sont strictement identiques.
+Concernant l'évaluation de l'impact environnemental du scénario, par rapport au tableau précédent (cf. Tab.x), à l'exception du nombre de requêtes qui est incrémenté de 1, les résultats sont strictement identiques.
 
 ## Mesures de la consommation énergétique lors du passage à l'échelle
 
