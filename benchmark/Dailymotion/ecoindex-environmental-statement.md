@@ -17,10 +17,10 @@ Le site Dailymotion affiche une empreinte environnementale très lourde, caract�
 
 | Session | Grade | Score | Eau (cl) | GES (g) | Requêtes | Taille (Ko) | DOM |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| **Accueil** | **E** | 25.10 | 3.75 | 2.50 | 355 | 18 485 | 669 |
-| **Vidéo 1** | **F** | 15.21 | 4.04 | 2.70 | 362 | 20 769 | 1 061 |
-| **Retour à l'accueil** | **E** | 39.47 | 3.32 | 2.21 | 559 | 26 800 | 306 |
-| **Vidéo 2** | **F** | 23.23 | 3.80 | 2.54 | 1 005 | 35 279 | 716 |
+| **Accueil** | **E** 🟧 | 25.10 | 3.75 | 2.50 | 355 | 18 485 | 669 |
+| **Vidéo 1** | **F** 🟥 | 15.21 | 4.04 | 2.70 | 362 | 20 769 | 1 061 |
+| **Retour à l'accueil** | **E** 🟧 | 39.47 | 3.32 | 2.21 | 559 | 26 800 | 306 |
+| **Vidéo 2** | **F** 🟥 | 23.23 | 3.80 | 2.54 | 1 005 | 35 279 | 716 |
 
 ### Analyse des points critiques
 

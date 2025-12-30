@@ -17,10 +17,10 @@ Le site Pod UTT présente une performance environnementale nettement supérieure
 
 | Page | Grade | Score | Eau (cl) | GES (g) | Requêtes | Taille (Ko) | DOM |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| **Accueil** | **C** | 60.91 | 2.67 | 1.78 | 27 | 1 964 | 562 |
-| **Vidéo 1** | **D** | 49.33 | 3.02 | 2.01 | 38 | 2 263 | 826 |
-| **Retour à l'accueil** | **B** | 76.59 | 2.20 | 1.47 | 0* | 0* | 561 |
-| **Vidéo 2** | **D** | 49.72 | 3.01 | 2.01 | 38 | 2 303 | 808 |
+| **Accueil** | **C** 🟨 | 60.91 | 2.67 | 1.78 | 27 | 1 964 | 562 |
+| **Vidéo 1** | **D** 🟧 | 49.33 | 3.02 | 2.01 | 38 | 2 263 | 826 |
+| **Retour à l'accueil** | **B** 🟦 | 76.59 | 2.20 | 1.47 | 0* | 0* | 561 |
+| **Vidéo 2** | **D** 🟧 | 49.72 | 3.01 | 2.01 | 38 | 2 303 | 808 |
 
 **Note : Les valeurs à 0 indiquent une mise en cache efficace ou une absence de ressources externes lourdes sur cette vue spécifique.*
 

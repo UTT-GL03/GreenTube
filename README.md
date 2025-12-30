@@ -63,7 +63,7 @@ Nous avons choisi de comparer l’impact de nos scénarios sur les services les 
 | Service | Score (sur 100) | Classe | Détail des mesures
 | --- | --: | --: | --:
 | Youtube | 12.91 | F 🟥 | […](./benchmark/Youtube/ecoindex-environmental-statement.md)
-| Dailymotion | 25.75 | E 🟧 |  […](./benchmark/Daylimotion/ecoindex-environmental-statement.md)
+| Dailymotion | 25.75 | E 🟧 |  […](./benchmark/Dailymotion/ecoindex-environmental-statement.md)
 | PodUTT | 59.14 | C 🟨 | […](./benchmark/PodUTT/ecoindex-environmental-statement.md)
 
 __Tab.1__ : Mesure de l'EcoIndex moyen des services de vidéo en ligne.
