@@ -54,7 +54,7 @@ services:
       setup_couchdb:
         condition: service_completed_successfully
 
-    backend:
+  backend:
     build: ./backend
     ports:
       - 3000:3000
