@@ -54,15 +54,12 @@ services:
       setup_couchdb:
         condition: service_completed_successfully
 
-  backend:
-    image: node:20
-    working_dir: /app
-    volumes:
-      - ./backend:/app
+    backend:
+    build: ./backend
     ports:
       - 3000:3000
     environment:
+    - NODE_ENV=prod
     - CHOKIDAR_USEPOLLING=true
-    command: npm run dev
     depends_on:
       - couchdb
