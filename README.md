@@ -345,11 +345,11 @@ Pour se faire nous analyser le scénario de chaine qui est similaire au scénari
 
 | Étape du scénario | EcoIndex | GES (gCO2e) | DOM | Requêtes | Taille (ko) |
 | --- | --- | --- | --- | --- | --- |
-| **1. Chargement de l'accueil** | <del>74 B 🟦</del> **73 B 🟦** | <del>1.52</del> **1.54** | <del>96</del>**96** | <del>28</del>**34** | <del>25.5</del>**93.2** |
-| **2. Choisir une chaîne** | <del>87 A 🟩</del>**88 A 🟩** | <del>1.26</del> **1.24** | <del>81</del> **62** | <del>3</del>**4** | <del>8.1</del>**28.5** |
-| **3. Choisir une vidéo** | <del>75 B 🟦</del>**72 B 🟦** | <del>1.58</del>**1.56** | <del>85</del>**177** | <del>26</del>**112** | <del>62.5</del>**665.1** |
-| **4. Retourner sur la chaîne** | <del>87 A 🟩</del>**88 A 🟩** | <del>1.26</del>**1.24** | <del>81</del>**62** | <del>3</del>**4** | <del>8.1</del>**28.5** |
-| **5. Choisir une autre vidéo** | <del>86 A 🟩</del>**84 A 🟩** | <del>1.28</del>**1.32** | <del>96</del>**157** | <del>5</del>**12** | <del>28.6</del>**31.6** |
+| **1. Chargement de l'accueil** | <del>74 B 🟦</del> **73 B 🟦** | <del>1.52</del> **1.54** | <del>96</del> **96** | <del>28</del> **34** | <del>25.5</del> **93.2** |
+| **2. Choisir une chaîne** | <del>87 A 🟩</del> **88 A 🟩** | <del>1.26</del> **1.24** | <del>81</del> **62** | <del>3</del> **4** | <del>8.1</del> **28.5** |
+| **3. Choisir une vidéo** | <del>75 B 🟦</del> **72 B 🟦** | <del>1.58</del> **1.56** | <del>85</del> **177** | <del>26</del> **112** | <del>62.5</del> **665.1** |
+| **4. Retourner sur la chaîne** | <del>87 A 🟩</del> **88 A 🟩** | <del>1.26</del> **1.24** | <del>81</del> **62** | <del>3</del> **4** | <del>8.1</del> **28.5** |
+| **5. Choisir une autre vidéo** | <del>86 A 🟩</del> **84 A 🟩** | <del>1.28</del> **1.32** | <del>96</del> **157** | <del>5</del> **12** | <del>28.6</del> **31.6** |
 
 __Tab.8__: Effet du passage à l'échelle sur l'impact du scénario "Consulter une chaine - chaine" dans le prototype v1.0.1.
 
@@ -365,7 +365,7 @@ En parallèle, on remarque que :
 * La taille du DOM sur la page vidéo double (**de 85 à 177**), ce qui est logique avec plus de vidéos.
 * Le DOM de la page chaîne en revanche **diminue (de 81 à 62)**. Cette baisse, surprenante en plein Scale-up, pourrait s'expliquer par des ajustements structurels entre les deux versions du prototype ou par une simplification de l'affichage sur ce modèle de page spécifique.
 
-**Conclusion du Scale-up :** Bien que nous ayons multiplié les données, l'impact semble étonnament rester maîtrisé. Cela suggère que notre structure actuelle "encaisse" bien la montée en charge. Cependant, il faudra rester vigilant, si ce JSON local était demain déplacé sur un serveur distant, les **112 requêtes** observées pourraient devenir un réel problème de performance et faire chuter l'EcoIndex, c'est pourquoi il faudra de la même manière que le 1ko, nous allons garder à l'oeil ces 112 requêtes.
+**Conclusion du Scale-up :** Bien que nous ayons multiplié les données, l'impact semble étonnament rester maîtrisé. Cela suggère que notre structure actuelle "encaisse" bien la montée en charge. Cependant, il faudra rester vigilant. Si ce JSON local était demain déplacé sur un serveur distant, les **112 requêtes** observées pourraient devenir un réel problème de performance et faire chuter l'EcoIndex. C'est pourquoi, de la même manière que le 1ko, nous allons garder à l'oeil ces 112 requêtes.
 
 Par la suite pour évaluer plus précisément l'impact de la consultation elle-même nous utiliserons un autre outil de mesure : GreenFrame.
 
