@@ -47,7 +47,7 @@ Il choisit une autre vidéo et la regarde jusqu'à la fin.
 L'utilisateur se connecte au site grâce à un favori (donc sans passer par un moteur de recherche). Si nécessaire, il se connecte. Puis il consulte les vidéos à la une.
 Il recherche un créateur de contenu via la barre de recherche.
 Il se rend sur la chaine du créateur de contenu.
-Il clqieu sur l'onglet "vidéos" du créateur de contenu.
+Il clique sur l'onglet "vidéos" du créateur de contenu.
 Il choisit une des vidéos et la regarde jusqu'à la fin.
 
 ## Impact de l'exécution des scénarios auprès de différents services concurrents
