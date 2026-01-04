@@ -745,7 +745,7 @@ Se placer dans le terminal au niveau du projet puis exécuter:
 
 Retourner dans la racine du projet (cd ..) puis exécuter: 
 
-  ./setup_local.sh
+ - ./setup_local.sh
 
 #### Ouvrir le projet dans le navigateur 
 
