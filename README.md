@@ -735,24 +735,20 @@ En conclusion, GreenTube démontre qu'il est possible de développer un service 
 
 #### Construire le frontend
 
-Se placer dans le terminal au niveau du projet.
+Se placer dans le terminal au niveau du projet puis exécuter: 
 
-Rentrer : 
-
-  cd frontend
-  npm install
-  npm run build
+  - cd frontend
+  - npm install
+  - npm run build
 
 #### Construire le frontend
 
-Retourner dans la racine du projet (cd ..)
-
-Rentrer : 
+Retourner dans la racine du projet (cd ..) puis exécuter: 
 
   ./setup_local.sh
 
 #### Ouvrir le projet dans le navigateur 
 
-Aller dans votre navigateur, et renseigner l'adresse de votre port 80 (http://localhost:80)
+Ouvrir son navigateur, et renseigner l'adresse de votre port 80 (http://localhost:80)
 
 Le projet est normalement bien lancé et fonctionnel.
