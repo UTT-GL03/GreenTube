@@ -722,3 +722,37 @@ Au terme de ce développement, GreenTube propose une plateforme de vidéo en lig
 - Expérience utilisateur : Incrémentation automatique des vues au visionnage et mode "podcast" pour une consultation audio économe en ressources.
 
 En conclusion, GreenTube démontre qu'il est possible de développer un service riche en fonctionnalités tout en maintenant un Grade EcoIndex A/B. Ce projet marque pour nous une première étape réussie dans la conception de solutions numériques durables et scalables.
+
+## Bonus: Kit de Lancement
+
+### Prérequis 
+
+- Docker Desktop (installé et démarré)
+- Node.js ( notre version étant la v22.20.0 )
+- Un terminal bash (Git Bash sur Windows, WSL, ou terminal Unix)
+
+### Etapes de lancement
+
+#### Construire le frontend
+
+Se placer dans le terminal au niveau du projet.
+
+Rentrer : 
+
+  cd frontend
+  npm install
+  npm run build
+
+#### Construire le frontend
+
+Retourner dans la racine du projet (cd ..)
+
+Rentrer : 
+
+  ./setup_local.sh
+
+#### Ouvrir le projet dans le navigateur 
+
+Aller dans votre navigateur, et renseigner l'adresse de votre port 80 (http://localhost:80)
+
+Le projet est normalement bien lancé et fonctionnel.
