@@ -521,7 +521,7 @@ Une interface soignée améliore l'accessibilité et la clarté de l'information
 * Lecteur vidéo dédié.
 * Espaces de gestion des chaînes.
 
-![Page d'accueil finale](./docs/home_final.png)<br>
+![Page d'accueil finale](./docs/page_accueil_finale)<br>
 __Fig.8__: Page d'accueil finale<br>
 ![Page vidéo finale](./docs/video_final.png)<br>
 __Fig.9__: Page de vidéo finale<br>
