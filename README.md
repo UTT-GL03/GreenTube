@@ -733,19 +733,13 @@ En conclusion, GreenTube démontre qu'il est possible de développer un service 
 
 ### Etapes de lancement
 
-#### Construire le frontend
+#### Construire le projet
 
-Se placer dans le terminal au niveau du projet puis exécuter: 
-
-  - cd frontend
-  - npm install
-  - npm run build
-
-#### Construire le frontend
-
-Retourner dans la racine du projet (cd ..) puis exécuter: 
+Placez vous dans la racine du projet (cd ..) puis exécuter: 
 
  - ./setup_local.sh
+
+Le script setup_local.sh vérifie que Docker est lancé, installe les dépendances du front-end et le build, génère des données de test, installe les dépendances du back-end, configure les variables CouchDB, puis démarre les containers Docker afin d’initialiser et lancer le projet en local.
 
 #### Ouvrir le projet dans le navigateur 
 
