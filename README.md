@@ -341,7 +341,7 @@ Nous avons ainsi mis en place les valeurs suivantes :
 
 Produites désormais de manière automatique lors de l'intégration continue, les mesures nécessaires à la production de l'EcoIndex, la simulation du passage à l'échelle retraduisent bien (cf. Tab.7) l'augmentation du poids des téléchargements, mais aussi de l'augmentation du nombre d'éléments de la page des titres.
 
-Pour se faire nous analyser le scénario de chaine qui est similaire au scénario de vidéo avec des étapes supplémentaires.
+Pour se faire nous avons analyser le scénario de chaine qui est similaire au scénario de vidéo avec des étapes supplémentaires.
 
 | Étape du scénario | EcoIndex | GES (gCO2e) | DOM | Requêtes | Taille (ko) |
 | --- | --- | --- | --- | --- | --- |
