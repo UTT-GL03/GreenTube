@@ -127,7 +127,17 @@ Le modèle publicitaire classique "force" la surconsommation pour couvrir ces fr
 L'abonnement offre une stabilité, il permet de financer le service sans avoir recours à des scripts de tracking tiers ou à l'affichage de flux vidéos publicitaires non désirés.
 Le sponsoring direct (ou régie intégrée), est beaucoup plus efficace et moins intrusif techniquement qu'une régie publicitaire programmatique.
 
-Par conséquent, pour réduire l'impact écologique du service, nous proposons de, renoncer aux publicités en vidéo qui multiplient les requêtes réseau. Adopter un modèle de financement par contribution ou abonnement pour garantir la viabilité sans dépendre de la quantité de vues. Privilégier le don ou le mécénat institutionnel (modèle PodUTT) pour les services à visée éducative, permettant une frugalité numérique maximale. Et finalement une publicité masthead, sur chaque page du service, suffit à financer l'infrastructure pour une large audience tout en restant statique, moins énergivore et moins contraignant que le flux vidéo publicitaire.
+Par conséquent, pour réduire l'impact écologique du service, nous proposons de renoncer aux publicités en vidéo qui multiplient les requêtes réseau. 
+
+A la place, nous avons opté pour un système d'abonnement premium. Cette solution est différente de l'abonnement Premium de Youtube qui consiste principalement en la suppression des pubs, et la possibilité de lire une vidéo même avec l'écran en veille à la manière de Spotify. En souscrivant à un abonnement Premium GreeTube, l'utilisateur aura accès à plusieurs avantages:
+
+ - un tableau de bord personnalisé de son impact environnemental afin de visualiser l’empreinte de ses usages (volume de données consommées, estimation d’émissions de CO₂ et de consommation d’eau). On pourra aussi mettre en place une comparaison avec l'impact potentiel pour une activité similaire chez des concurrents (YouTube, Daylimotion).
+
+ - Une option de téléchargelent temporaire qui permettra à l'utilisateur de regarder ses videos en hors connexion (en basse qualité pour garantir une vraie plus value à l'abonnement tout en minimisant l'impact).
+
+ - Un "droit de vote" sur les potentielles évolutions de la plate-forme afin que chaque utilisateur premium ai un réel impact, et passe de simple consommateur à acteur dans le développement d'une solution environementalement plus saine. 
+
+Nous souhations aussi incorporer une publicité masthead, sur chaque page du service, qui suffirait à financer l'infrastructure pour une large audience tout en restant statique, moins énergivore et moins contraignant que le flux vidéo publicitaire.
 
 Voici donc un résumé de notre modèle économique :
 
@@ -135,7 +145,6 @@ Voici donc un résumé de notre modèle économique :
 | --- | --- | ---
 | Abonnement Premium | 12,99€ | 275
 | Pub Masthead | 50 000€ / jour | 0,07 jour (soit env. 2h)
-| Don / Contribution | 5,00 € |	714 donateurs
 
 __Tab.4__ : Source de revenus possibles pour notre service de vidéo en ligne.
 
