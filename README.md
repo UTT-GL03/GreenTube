@@ -133,7 +133,7 @@ A la place, nous avons opté pour un système d'abonnement premium. Cette soluti
 
  - un tableau de bord personnalisé de son impact environnemental afin de visualiser l’empreinte de ses usages (volume de données consommées, estimation d’émissions de CO₂ et de consommation d’eau). On pourra aussi mettre en place une comparaison avec l'impact potentiel pour une activité similaire chez des concurrents (YouTube, Daylimotion).
 
- - Une option de téléchargelent temporaire qui permettra à l'utilisateur de regarder ses videos en hors connexion (en basse qualité pour garantir une vraie plus value à l'abonnement tout en minimisant l'impact).
+ - Une option de téléchargement temporaire qui permettra à l'utilisateur de regarder ses videos en hors connexion (en basse qualité pour garantir une vraie plus value à l'abonnement tout en minimisant l'impact).
 
  - Un "droit de vote" sur les potentielles évolutions de la plate-forme afin que chaque utilisateur premium ai un réel impact, et passe de simple consommateur à acteur dans le développement d'une solution environementalement plus saine. 
 
@@ -698,29 +698,29 @@ Dans les phases de navigation interne (a et b), la consommation est quasi exclus
 
 ### Analyse critique et limites du projet 
 
-Malgré les performances environnementales atteintes, un regard critique sur le prototype actuel permet d'identifier plusieurs axes d'amélioration, tant sur le plan technique que méthodologique.
+Malgré les performances environnementales atteintes, une analyse critique du prototype actuel met en évidence plusieurs domaines à améliorer, tant sur le plan technique que méthodologique.
 
-#### 1. Optimisations logicielles (Frontend & Code)
+#### Optimisations logicielles (Frontend & Code)
 
-* **Gestion du cycle de rendu :** L'usage des hooks d'optimisation (comme `useMemo` ou `useCallback` sous React) reste insuffisant. Certaines portions du code gagneraient en efficacité pour limiter les re-rendus inutiles du DOM.
-* **Poids des ressources (Assets) :** L'application n'utilise pas de processus de "CSS purging", laissant des styles inutilisés charger sur le terminal. De même, les formats multimédias (MP3/MP4) pourraient être optimisés vers des formats plus modernes (WebM/Ogg) pour réduire davantage le poids sans perte de qualité.
+* **Gestion du cycle de rendu :** L'utilisation des hooks d'optimisation, comme useMemo ou useCallback sous React, reste insuffisante. Certaines parties du code pourraient être plus efficaces pour limiter les re-rendus inutiles du DOM.
+* **Poids des ressources (Assets) :** L'application n'utilise pas de processus de "CSS purging", ce qui laisse des styles inutilisés se charger dans le terminal. De plus, les formats multimédias comme MP3 et MP4 pourraient être optimisés vers des formats plus modernes comme WebM et Ogg pour réduire le poids sans perdre de qualité.
 * **Adaptabilité (Responsiveness) :** Le prototype n'est pas encore responsive. Un design adaptatif permettrait de mieux contrôler l'affichage et donc la consommation énergétique sur des terminaux mobiles.
 
-#### 2. Expérience Utilisateur (UX) vs Éco-responsabilité
+#### Expérience Utilisateur (UX) vs Éco-responsabilité
 
-* **Perception de la performance :** Le temps de chargement des vidéos est perfectible. Si l'utilisation de *Skeletons* (écrans de chargement animés) améliorerait l'expérience utilisateur, leur coût énergétique (animations CSS constantes) doit être mis en balance avec le gain d'ergonomie.
+* **Perception de la performance :**  Le temps de chargement des vidéos peut être amélioré. L'utilisation de skeletons améliorerait l'expérience utilisateur, mais leur coût énergétique, avec des animations CSS constantes, doit être comparé au bénéfice en ergonomie.
 * **Optimisation des données :** Bien que le backend filtre les données, certains objets envoyés au frontend contiennent encore des champs superflus. Une sélection de champs plus stricte (Data Projection) réduirait encore le poids des payloads JSON.
 
-#### 3. Limites de la méthodologie d'analyse
+#### Limites de la méthodologie d'analyse
 
-* **Périmètre fonctionnel :** L'étude s'est concentrée sur la consultation de l'index et des chaînes. Les fonctionnalités secondaires comme l'upload ou les podcasts n'ont pas encore été auditées.
-* **Durée des tests :** Les tests GreenFrame ont été réalisés sur des séquences de 30 secondes. Cette durée permet d'analyser le chargement et l'initialisation, mais ne reflète pas l'utilisation réelle de la bande passante sur un visionnage long, où le streaming vidéo devient le poste de dépense majoritaire.
+* **Périmètre fonctionnel :** L'étude s'est concentrée sur la consultation de l'index et des chaînes. Les fonctionnalités secondaires comme l'upload ou les podcasts n'ont pas encore été examinées.
+* **Durée des tests :** Les tests GreenFrame ont été réalisés sur des séquences de 30 secondes. Cette durée permet d'analyser le chargement et l'initialisation, mais ne reflète pas l'utilisation réelle de la bande passante sur un visionnage long, où le streaming vidéo devient le ^rincipal poste de dépense.
 
 ## Conclusion
 
-La réalisation de GreenTube a constitué une expérience particulièrement formatrice, nous permettant de maîtriser une stack technologique complète et moderne. Ce projet nous a immergés dans l'utilisation de ReactJS, framework incontournable du développement frontend, ainsi que dans la conception d'un backend robuste avec Node.js et Express. Au-delà du code, l'intégration de Docker pour la conteneurisation et la mise en place de workflow de CI/CD via Git nous ont sensibilisés aux exigences professionnelles de déploiement et de qualité logicielle.
+Nous avons tous deux trouvé que ce projet a été une expérience particulièrement formatrice. On a appris à maîtriser une stack technologique moderne. L'utilisation de ReactJS a été un point clef, et même si nous avions déjà eu l'occasion de travailler avec, nous avons pu étendre nos compétences dans ce domaine. La création d'un backend solide avec Node.js et Express a également été très intéressante. Au-delà du code, l'intégration de Docker pour la conteneurisation et la mise en place de workflows de CI/CD via Git nous a sensibilisé aux exigences de déploiement et de qualité logicielle. 
 
-Le cœur de notre démarche a cependant résidé dans l'éco-conception. Grâce à des outils d'analyse comme GreenIT et GreenFrame, nous avons appris à quantifier l'empreinte environnementale de nos choix techniques. Cette approche nous a forcés à remettre en question nos méthodes de développement pour privilégier la sobriété numérique, transformant ainsi un simple exercice de programmation en une véritable réflexion sur la responsabilité de l'ingénieur.
+De plus, le coeur de cette UE résidant en l'éco-conception, nous avons pu apprendre à utiliser de nouveaux outils tels que GreenIT et GreenFrame. Cela nous a notamment appris à quantifier l'empreinte environnementale de nos choix techniques. Cette approche nous a forcés à remettre en question nos méthodes de développement pour privilégier une sorte de sobriété numérique, transformant ainsi un projet tel que nous en avons réalisé plusieurs dans le cadre d'autres UE, en une véritable réflexion sur la responsabilité de l'ingénieur. En effet, c'était pour notre part la première fois que nous devions porter autant d'attention aux impacts écologiques de nos codes. C'était donc une expérience très intéressante qui, en plus de nous avois permis de nous améliorer sur un plan technique, a abordé un sujet qui nous était alors que peu connu et qui s'est avéré être passionnant, mais surtout très important en vue de l'évolution de l'impact des technologies dans le monde.  
 
 Au terme de ce développement, GreenTube propose une plateforme de vidéo en ligne fonctionnelle et optimisée, couvrant un large éventail de fonctionnalités :
 
@@ -730,7 +730,7 @@ Au terme de ce développement, GreenTube propose une plateforme de vidéo en lig
 - Recherche et filtrage : Tri avancé des contenus par date, popularité (vues/abonnés) ou via des expressions régulières (Regex) pour des recherches précises.
 - Expérience utilisateur : Incrémentation automatique des vues au visionnage et mode "podcast" pour une consultation audio économe en ressources.
 
-En conclusion, GreenTube démontre qu'il est possible de développer un service riche en fonctionnalités tout en maintenant un Grade EcoIndex A/B. Ce projet marque pour nous une première étape réussie dans la conception de solutions numériques durables et scalables.
+En conclusion, notre projet GreenTube démontre qu'il est possible de développer un service riche en fonctionnalités tout en maintenant un faible impact environnemental (Grade EcoIndex A/B). Ce projet marque pour nous une première étape réussie dans la conception de solutions numériques durables et scalables.
 
 ## Bonus: Kit de Lancement
 
