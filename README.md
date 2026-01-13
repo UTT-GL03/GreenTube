@@ -409,16 +409,16 @@ Cette évolution nous permet, lors de l'affichage d'une vidéo, de charger une s
 
 | Composant | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) | 
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | 
-| Navigateur | <del>0.00084</del> 0.00088 | <del>0.000050</del> 0.000051 | 0.0 | <del>0.0016</del> 0.0016 | <del>0.080</del> 0.080 | <del>0.083</del> 0.083 | 
-| Serveur Web | <del>0.0000039</del> 0.000045 | <del>0.0000034</del> 0.0000034 | 0.0 | <del>0.0016</del> 0.0016 | 0.0 | <del>0.0016</del> 0.0016 | 
+| Navigateur | <del>0.00084</del> 0.00088 | <del>0.000050</del> 0.000051 | 0.0 | 0.0016 | 0.080 | 0.083 | 
+| Serveur Web | <del>0.0000039</del> 0.000045 | 0.0000034 | 0.0 | 0.0016 | 0.0 | 0.0016 | 
 | CouchDB | 0.00084 | 0.000071 | 0.0 | 0.00000013 | 0.0 | 0.00091 |
 
 #### (b) Consultation d'une chaine
 
 | Composant | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) | 
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | 
-| Navigateur | <del>0.00072</del> 0.00074 | <del>0.000035</del> 0.000036 | 0.0 | <del>0.0016</del> 0.0016 | <del>0.056</del> 0.056 | <del>0.058</del> 0.058 | 
-| Serveur Web | <del>0.0000041</del> 0.000037 | <del>0.0000024</del> 0.0000024 | 0.0 | <del>0.0016</del> 0.0016 | 0.0 | <del>0.0016</del> 0.0016 | 
+| Navigateur | <del>0.00072</del> 0.00074 | <del>0.000035</del> 0.000036 | 0.0 | 0.0016 | 0.056 | 0.058 | 
+| Serveur Web | <del>0.0000041</del> 0.000037 | 0.0000024 | 0.0 | 0.0016 | 0.0 | 0.0016 | 
 | CouchDB | 0.00061 | 0.000050 | 0.0 | 0.0 | 0.0 | 0.00066 |
 
 #### (c) Consultation d'une vidéo
@@ -471,17 +471,17 @@ Voici les nouveaux tableaux d'analyse GreenFrame intégrant désormais le **Back
 
 | Composant | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Navigateur** | <del>0.00088</del> **0.00089** | <del>0.000051</del> **0.000050** | 0.0 | <del>0.0016</del> **0.0016** | <del>0.080</del> **0.080** | <del>0.083</del> **0.083** |
-| **Frontend** | <del>0.000045</del> **0.0000045** | <del>0.0000034</del> **0.0000034** | 0.0 | <del>0.0016</del> **0.0016** | 0.0 | <del>0.0016</del> **0.0016** |
-| **CouchDB** | <del>0.00084</del> **0.00083** | <del>0.000071</del> **0.000076** | 0.0 | <del>1.3e-7</del> **1.3e-7** | 0.0 | <del>0.00091</del> **0.00091** |
+| **Navigateur** | <del>0.00088</del> 0.00089 | <del>0.000051</del> **0.000050** | 0.0 | **0.0016** | **0.080** | **0.083** |
+| **Frontend** | **0.0000045** | **0.0000034** | 0.0 | **0.0016** | 0.0 | **0.0016** |
+| **CouchDB** | <del>0.00084</del> **0.00083** | <del>0.000071</del> **0.000076** | 0.0 | **1.3e-7** | 0.0 | **0.00091** |
 | **Backend** | **3.1e-7** | **0.000020** | 0.0 | **1.3e-7** | 0.0 | **0.000020** |
 
 #### (b) Consultation d'une chaine
 
 | Composant | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Navigateur** | <del>0.00074</del> **0.00076** | <del>0.000036</del> **0.000035** | 0.0 | <del>0.0016</del> **0.0016** | <del>0.056</del> **0.056** | <del>0.058</del> **0.058** |
-| **Frontend** | <del>0.000037</del> **0.0000041** | <del>0.0000024</del> **0.0000024** | 0.0 | <del>0.0016</del> **0.0016** | 0.0 | <del>0.0016</del> **0.0016** |
+| **Navigateur** | <del>0.00074</del> **0.00076** | <del>0.000036</del> **0.000035** | 0.0 | **0.0016** | **0.056** | **0.058** |
+| **Frontend** | <del>0.000037</del> **0.0000041** | **0.0000024** | 0.0 | **0.0016** | 0.0 | **0.0016** |
 | **CouchDB** | <del>0.00061</del> **0.00064** | <del>0.000050</del> **0.000053** | 0.0 | 0.0 | 0.0 | <del>0.00066</del> **0.00069** |
 | **Backend** | **3.2e-7** | **0.000014** | 0.0 | 0.0 | 0.0 | **0.000014** |
 
@@ -489,20 +489,18 @@ Voici les nouveaux tableaux d'analyse GreenFrame intégrant désormais le **Back
 
 | Composant | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Navigateur** | <del>0.0069</del> **0.0023** | <del>0.00010</del> **0.000087** | 0.0 | <del>0.067</del> **0.043** | <del>0.095</del> **0.095** | <del>0.17</del> **0.14** |
-| **Frontend** | <del>0.000022</del> **0.000023** | <del>0.0000041</del> **0.0000040** | 0.0 | <del>0.046</del> **0.046** | 0.0 | <del>0.046</del> **0.046** |
+| **Navigateur** | <del>0.0069</del> **0.0023** | <del>0.00010</del> **0.000087** | 0.0 | <del>0.067</del> **0.043** | **0.095** | <del>0.17</del> **0.14** |
+| **Frontend** | <del>0.000022</del> **0.000023** | <del>0.0000041</del> **0.0000040** | 0.0 | **0.046** | 0.0 | **0.046** |
 | **CouchDB** | <del>0.0065</del> **0.0067** | <del>0.000085</del> **0.000089** | 0.0 | <del>0.024</del> **0.000039** | 0.0 | <del>0.030</del> **0.0068** |
 | **Backend** | **0.00028** | **0.000034** | 0.0 | **0.000060** | 0.0 | **0.00038** |
 
 __Tab.11__: Effet de l'ajout du backend sur consultation de l'accueil (a) d'une chaine (b) d'une vidéo (c).
 
-L'ajout d'un backend servant d'intermédiaire entre le frontend et la base de données est une étape clé. Loin d'alourdir le système, cette structure permet de déporter la complexité du traitement vers un environnement serveur maîtrisé. De cette ajout, on observe :
+L’ajout d’un backend pour faire l'intermédiaire avec la base de données a été un vrai tournant pour l'architecture du projet. Contrairement à ce qu'on pourrait penser, cette couche supplémentaire n'alourdit pas l'ensemble, elle sert de « pré-mâcheur » de données pour le client. Le gain est d'ailleurs flagrant sur le CPU du navigateur, qui chute de 60 % (de 0,0069 Wh à 0,0023 Wh). En bref, le terminal de l'utilisateur n'a plus à s'épuiser à formater des données brutes, le serveur s'en occupe pour lui.
 
-1. Une baisse de 60% du CPU, c'est le résultat le plus frappant du tableau (a) : le CPU du navigateur passe de 0.0069 Wh à 0.0023 Wh. Dans la version précédente, le navigateur devait probablement gérer lui-même une partie de la logique de connexion ou du formatage des données brutes venant de CouchDB. Le Backend semble jouer un rôle de "pré-mâcheur". Il traite la logique complexe côté serveur, déchargeant le processeur du client.
+Côté réseau, on observe notamment une chute drastique de la consommation de CouchDB. Comme la base de données communique maintenant en local avec le backend et plus directement avec le navigateur via internet, elle n'envoie au client qu'un JSON déjà nettoyé et optimisé.
 
-2. On remarque une chute drastique du réseau de CouchDB au chargement initial (0.000039 Wh contre 0.024 Wh précédemment). CouchDB ne parle plus directement au navigateur (via Internet/HTTP lourd). Il communique désormais avec le Backend en local ou via un réseau conteneurisé ultra-optimisé. Le transfert de données "brutes" est confiné à l'infrastructure serveur, ne livrant au client que le JSON final parfaitement nettoyé.
-
-3. On pourrait craindre qu'ajouter un service (greentube-backend-1) alourdisse la facture. Les chiffres semblent prouver le contraire. en effet, sa consommation totale pour la consultation d'une chaine ou vidéo (b ou c) est de l'ordre de 0.000014 Wh à 0.000020 Wh. C'est une consommation négligeable qui confirme que l'utilisation d'un langage/framework léger pour le backend permet de structurer l'application sans sacrifier la frugalité.
+Il est quand même important de nuancer ce choix. Multiplier les services (Frontend, Backend, DB) augmente forcément l'empreinte « dormante » des serveurs et complique la maintenance logicielle. Chaque échange entre ces couches crée aussi un petit surplus de consommation qu’une architecture plus directe n'aurait pas. Même si la consommation du backend reste dérisoire (0,000020 Wh), c’est un compromis, nous avons privilégié le confort du terminal utilisateur au prix d'une infrastructure globale un peu plus complexe.
 
 ### Modernisation de l'interface utilisateur (UI)
 
@@ -645,17 +643,17 @@ L'obtention des scores EcoIndex A/B semble donc s'appuier sur ces trois leviers 
 
 | Composant | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Navigateur** | <del>0.00088</del> **0.00083** | <del>0.000051</del> **0.000050** | 0.0 | <del>0.0016</del> **0.0016** | <del>0.080</del> **0.080** | <del>0.083</del> **0.083** |
-| **Frontend** | <del>0.000045</del> **0.0000041** | <del>0.0000034</del> **0.0000034** | 0.0 | <del>0.0016</del> **0.0016** | 0.0 | <del>0.0016</del> **0.0016** |
-| **CouchDB** | <del>0.00084</del> **0.00073** | <del>0.000071</del> **0.000088** | 0.0 | <del>1.3e-7</del> **1.3e-7** | 0.0 | <del>0.00091</del> **0.00082** |
+| **Navigateur** | <del>0.00088</del> **0.00083** | <del>0.000051</del> **0.000050** | 0.0 | **0.0016** | **0.080** | **0.083** |
+| **Frontend** | <del>0.000045</del> **0.0000041** | **0.0000034** | 0.0 | **0.0016** | 0.0 | **0.0016** |
+| **CouchDB** | <del>0.00084</del> **0.00073** | <del>0.000071</del> **0.000088** | 0.0 | **1.3e-7** | 0.0 | <del>0.00091</del> **0.00082** |
 | **Backend** | **0.00000017** | **0.000021** | 0.0 | **1.3e-7** | 0.0 | **0.000021** |
 
 #### (b) Consultation d'une chaîne
 
 | Composant | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Navigateur** | <del>0.00074</del> **0.00075** | <del>0.000036</del> **0.000036** | 0.0 | <del>0.0016</del> **0.0016** | <del>0.056</del> **0.056** | <del>0.058</del> **0.058** |
-| **Frontend** | <del>0.000037</del> **0.0000038** | <del>0.0000024</del> **0.0000024** | 0.0 | <del>0.0016</del> **0.0016** | 0.0 | <del>0.0016</del> **0.0016** |
+| **Navigateur** | <del>0.00074</del> **0.00075** | **0.000036** | 0.0 | **0.0016** | **0.056** | **0.058** |
+| **Frontend** | <del>0.000037</del> **0.0000038** | **0.0000024** | 0.0 | **0.0016** | 0.0 | **0.0016** |
 | **CouchDB** | <del>0.00061</del> **0.00052** | <del>0.000050</del> **0.000062** | 0.0 | 0.0 | 0.0 | <del>0.00066</del> **0.00058** |
 | **Backend** | **0.00000018** | **0.000015** | 0.0 | 0.0 | 0.0 | **0.000015** |
 
@@ -670,14 +668,13 @@ L'obtention des scores EcoIndex A/B semble donc s'appuier sur ces trois leviers 
 
 __Tab.14__ : Estimation finale de la consommation énergétique de la consultation de l'accueil (a) d'une chaine (b) d'une vidéo (c).
 
-L'analyse des mesures GreenFrame (Tab.14) confirme l'efficience du modèle à trois couches. L'ajout du backend ne se traduit pas par un surcoût, mais par une meilleure répartition de la charge.
+L’analyse des mesures GreenFrame (Tab.14) confirme que l’architecture à trois couches est vraiment efficace. Contrairement à nos attentes, ajouter un backend n’a pas plombé le bilan énergétique, mais a permis de mieux répartir la charge de travail entre les composants. Le gain le plus parlant est sans aucun doute celui de la consultation vidéo (c) : le CPU du navigateur tombe de 0,0069 Wh à 0,0023 Wh. Ce déchargement massif montre que le backend fait bien son boulot de « pré-mâcheur », en gérant la logique métier sur le serveur, il évite au terminal de l’utilisateur de s'épuiser à faire des calculs inutiles.
 
-Le gain le plus significatif apparaît lors de la consultation vidéo (c) : le CPU du navigateur chute de 0.0069 Wh à 0.0023 Wh. Ce déchargement massif du terminal utilisateur prouve que la logique métier, désormais traitée par le backend, réduit l'effort de calcul côté client.
-L'infrastructure serveur (Frontend, Backend, CouchDB) affiche ainsi une consommation extrêmement faible :
-- Backend : Son impact est quasi nul lors des phases de navigation fluide (étapes a et b), avec un coût énergétique de l'ordre de $10^{-7}$ Wh.
-- Réseau interne : Le transfert entre CouchDB et le Backend est optimisé, réduisant drastiquement la consommation réseau globale lors du chargement initial.
+Du côté de l’infrastructure serveur, les chiffres restent extrêmement bas notamment avec le Backend qui a un impact quasi invisible pendant la navigation (étapes a et b), avec une consommation dérisoire de l’ordre de $10^{-7}$ Wh.
 
-Dans les phases de navigation interne (a et b), la consommation est quasi exclusivement portée par l'écran (95% du total). Cela démontre que la pile logicielle est devenue si sobre que l'impact environnemental dépend désormais principalement du matériel physique et de l'usage de l'utilisateur, et non plus de l'efficacité du code.
+Finalement, sur les phases de navigation classique (a et b), on remarque que c'est l'écran qui pompe quasiment toute l'énergie (95 % du total). C'est la preuve que notre pile logicielle est devenue suffisament sobre que l'impact environnemental ne vient plus forcement de l'efficacité du code, mais en partie du matériel physique et de la manière dont l'utilisateur s'en sert.
+
+Néanmois, il est intéressant de noter que les analyses précédentes présente certaines limites méthodologiques. Le périmètre étudié s'est concentré sur la consultation de l'accueil, des vidéos et des chaînes, laissant de côté des fonctionnalités comme l'upload ou les podcasts, susceptibles d'avoir des profils de consommation différents. De plus, les tests GreenFrame ont été réalisés sur des séquences de trente secondes. Si cette durée est pertinente pour observer le chargement et l'initialisation de l'application, elle ne reflète pas un usage réel sur la durée, où le streaming vidéo devient le principal poste de dépense énergétique.
 
 ### Analyse critique et limites du projet 
 
@@ -690,8 +687,6 @@ D'autres leviers offrent un potentiel d'amélioration plus significatif, notamme
 Cette optimisation pose toutefois la question du niveau de compression acceptable. Dans la mesure où l'audio et la vidéo participent directement à l'expérience utilisateur, une compression trop agressive peut dégrader la qualité perçue et nuire à l'usage. L'enjeu réside donc dans la recherche d'un compromis entre réduction des flux de données et maintien d'une qualité suffisante.
 
 En parlant d'expérience utilisateur, la question de l'équilibre entre confort d'usage et sobriété peut aussi se poser. Les temps de chargement, notamment pour les vidéos, pourraient être mieux perçus grâce à l'utilisation de skeletons. Toutefois, ces éléments reposent souvent sur des animations CSS continues, dont le coût énergétique doit être évalué au regard du gain réel en ergonomie. Dans le même esprit, bien que le backend applique déjà des filtres, certains objets transmis au frontend contiennent encore des champs superflus. Une sélection plus stricte des données exposées permettrait de réduire la taille des échanges JSON et de limiter les transferts réseau.
-
-Enfin, les analyses précédentes présente certaines limites méthodologiques. Le périmètre étudié s'est concentré sur la consultation de l'accueil, des vidéos et des chaînes, laissant de côté des fonctionnalités comme l'upload ou les podcasts, susceptibles d'avoir des profils de consommation différents. De plus, les tests GreenFrame ont été réalisés sur des séquences de trente secondes. Si cette durée est pertinente pour observer le chargement et l'initialisation de l'application, elle ne reflète pas un usage réel sur la durée, où le streaming vidéo devient le principal poste de dépense énergétique.
 
 ## Conclusion
 
