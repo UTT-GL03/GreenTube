@@ -144,7 +144,7 @@ Voici donc un résumé de notre modèle économique :
 | Source possible de revenus | Montant unitaire | Quantité nécessaire pour financer un salaire[^1]
 | --- | --- | ---
 | Abonnement Premium | 12,99€ | 275
-| Pub Masthead | 100€ à 500€ / jour | 36 à 7 à jour
+| Pub Masthead | 100€ à 500€ / jour | 36 à 7 jour
 
 __Tab.4__ : Source de revenus possibles pour notre service de vidéo en ligne.
 
@@ -255,19 +255,17 @@ Dans l'état actuel du prototype, il est possible d'avoir une première idée de
 
 |   | EcoIndex| GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (ko)
 |---|--------:|------------:|--------------:|---------:|---------------------:
-| Mode "développement"  | 78.29 B 🟩 | 1.43 | 98 | 42 | 1307
-| Mode "pré-production" | 91.23 A 🟦 | 1.18 | 95 | 9 | 1
+| Mode "développement"  | 78 B 🟦 | 1.43 | 98 | 42 | 1307
+| Mode "pré-production" | 88 A 🟩 | 1.19 | 95 | 9 | 73
 
 __Tab.5__: Évaluation de l'impact du prototype de la page d'accueil.
 
 Cette première étape de prototypage est une réussite majeure, le passage en mode pré-production confirme que notre stratégie de sobriété semble porter ses fruits.
 
 Points clés de l'analyse :
-- L'efficacité du "Fait Maison" : Le score de 91.23 (Grade A) semble valider notre choix d'avoir évité les frameworks CSS lourds. La structure est extrêmement rapide à charger et à interpréter par le navigateur.
+- Le score de 88 (Grade A) semble valider notre choix d'avoir évité les frameworks CSS lourds. La structure est extrêmement rapide à charger et à interpréter par le navigateur.
 
-- Optimisation des requêtes : La chute drastique du nombre de requêtes (de 42 à 9) est un excellent signal. Cela montre que le regroupement des ressources est optimal dès cette phase.
-
-> Note - Une petite réserve sur le "1 ko" : Bien que ce chiffre soit exceptionnel et peut témoigner d'un code source très épuré, il reste à confirmer lors des prochaines étapes. Avec des données actuellement locales, ce poids record pourrait être dû à l'absence temporaire d'assets multimédias ou pire encore, cela pourrait être du à une erreur, il sera important de garder un oeil sur cette valeur dans la suite du projet.
+- La chute drastique du nombre de requêtes (de 42 à 9) est un excellent signal. Cela montre que le regroupement des ressources est optimal dès cette phase.
 
 Conclusion de l'étape : Nous sommes très satisfaits de ce premier bilan. Le socle technique est sain, léger et déjà prêt à accueillir les futures fonctionnalités sans dégrader immédiatement son empreinte environnementale.
 
@@ -284,23 +282,18 @@ Avec l'ajout de ce modèle de page et la mise en place de la navigation entre le
 
 | Étape du scénario | EcoIndex | GES (gCO2e) | DOM | Requêtes | Taille (ko) |
 | --- | --- | --- | --- | --- | --- |
-| **1. Chargement de l'accueil** | 74 B 🟦 | 1.52 | 96 | 28 | 25.5 |
-| **2. Choisir une vidéo** | 75 B 🟦 | 1.5 | 95 | 26 | 62.5 |
-| **3. Retourner au menu** | **87 A** 🟩 | 1.26 | 96 | **2** | **0.9** |
-| **4. Choisir une autre vidéo** | **86 A** 🟩 | 1.28 | 96 | 4 | 28.3 |
+| **1. Chargement de l'accueil** | 80 A 🟩 | 1.40 | 92 | 6 | 2776 |
+| **2. Choisir une vidéo** | 90 A 🟩 | 1.19 | 95 | 4 | 226 |
+| **3. Retourner au menu** | **93 A** 🟩 | 1.13 | 92 | **1** | **0** |
+| **4. Choisir une autre vidéo** | 90 A 🟩 | 1.19 | 95 | 4 | 226 |
 
 __Tab.6__ : Évaluation de l'impact du scénario "Consulter une vidéo - accueil" dans le prototype v1.0.0.
 
-L'analyse de ce scénario permet d'apporter les enseignements suivants :
+Les résultats obtenus sur l'ensemble du scénario sont excellents, avec une note EcoIndex de A systématiquement maintenue. Le chargement de la page d’accueil (Étape 1) affiche un score de 80, ce qui constitue la valeur la plus basse du parcours. Ce chiffre s’explique par un poids de 2776 ko lié à l'affichage des miniatures vidéos. Bien que le nombre de requêtes soit très faible (6), le poids des ressources graphiques reste le principal levier d'optimisation à ce stade, même si la structure globale du site demeure très sobre.
 
-* **Efficience du cache et navigation** : On observe une nette amélioration du score EcoIndex lors du retour au menu (passage de 74 B à 87 A). Ce bond de performance confirme l'efficacité de la mise en cache, une fois les ressources de base (scripts, CSS) chargées, la navigation ne demande presque plus de nouvelles requêtes (seulement 2 requêtes pour l'étape 3).
+La consultation des vidéos (Étapes 2 et 4) présente un score de 90, un résultat très performant qu’il convient toutefois de nuancer techniquement. En effet, l’outil de mesure capture l’état de la page au chargement mais ne reflète pas l’exécution du streaming vidéo sur la durée. Comme le navigateur télécharge les données par segments successifs, le poids initial mesuré (226 ko) est minime, ce qui favorise le score. La sobriété de l'interface, avec un DOM ne dépassant pas les 95 éléments, permet de limiter l'usage des ressources processeur lors de cette phase de lecture.
 
-* **Correction des mesures précédentes** : Les tailles de pages relevées ici (entre 25 et 62 ko) sont bien supérieures au "1 ko" mesuré lors du premier test statique. Cela confirme notre intuition initiale : la mesure précédente était probablement incomplète (erreur de l'outil ou exclusion de certains assets). Ces nouvelles valeurs, bien que plus élevées, restent extrêmement faibles et témoignent d'une excellente frugalité numérique.
-
-* **Stabilité structurelle** : Le nombre d'éléments dans le DOM reste constant (~96), ce qui garantit que la navigation n'alourdit pas la charge processeur de l'utilisateur au fil du temps.
-
-> Ce qu'il faut retenir :
-Même en corrigeant les erreurs de mesure initiales, le prototype reste 100 à 200 fois plus léger que les solutions du marché (YouTube/Dailymotion). La navigation interne est quasi-transparente pour l'environnement grâce à une gestion intelligente des ressources partagées.
+L’aspect le plus probant de cette analyse réside dans l’efficacité du cache, illustrée par l’étape 3. Le retour au menu affiche un transfert de 0 ko pour une seule requête, ce qui confirme une gestion optimale du cache navigateur. En réutilisant les assets déjà chargés lors de la première étape, le site annule quasiment son empreinte réseau pour les actions récurrentes, propulsant le score EcoIndex à 93.
 
 ### Pages des chaines
 
@@ -314,19 +307,17 @@ Ce second scénario mesure l'impact de la navigation vers une page de chaîne sp
 
 | Étape du scénario | EcoIndex | GES (gCO2e) | DOM | Requêtes | Taille (ko) |
 | --- | --- | --- | --- | --- | --- |
-| **1. Chargement de l'accueil** | 74 B 🟦 | 1.52 | 96 | 28 | 25.5 |
-| **2. Choisir une chaîne** | **87 A** 🟩 | 1.26 | 81 | **3** | **8.1** |
-| **3. Choisir une vidéo** | 75 B 🟦 | 1.58 | 85 | 26 | 62.5 |
-| **4. Retourner sur la chaîne** | **87 A** 🟩 | 1.26 | 81 | **3** | **8.1** |
-| **5. Choisir une autre vidéo** | **86 A** 🟩 | 1.28 | 96 | 5 | 28.6 |
+| **1. Chargement de l'accueil** | 80 A 🟩 | 1.40 | 92 | 6 | 2776 |
+| **2. Choisir une chaîne** | 93 A 🟩 | 1.14 | 60 | 7 | 28 |
+| **3. Choisir une vidéo** | 90 A 🟩 | 1.18 | 94 | 4 | 2854 |
+| **4. Retourner sur la chaîne** | **95 A** 🟩 | 1.09 | 60 | **1** | **0** |
+| **5. Choisir une autre vidéo** | 90 A 🟩 | 1.19 | 95 | 4 | 226 |
 
 __Tab.7__: Évaluation de l'impact du scénario "Consulter une chaine - chaine" dans le prototype v1.0.0.
 
-L'analyse de ce parcours plus complexe confirme les tendances observées précédemment tout en apportant de nouveaux enseignements :
+Ce second scénario va dans le sens de nos analyses précédentes en ajoutant l'étape de la page de chaîne qui, pour le moment, se content d'afficher les détails de la chaîne ainsi que des liens vers les vidéos.
 
-* **Performance des pages de chaînes :** La page de chaîne s'avère assez économe avec un score de 87 A. Le faible nombre de requêtes lors de l'accès à cette page (3 requêtes) montre que les ressources partagées avec l'accueil sont parfaitement réutilisées.
-
-* **Frugalité du DOM sur les chaînes :** On note que la page de chaîne est structurellement plus légère que la page d'accueil (81 éléments contre 96). Cette réduction de la complexité du DOM contribue directement à l'amélioration du score EcoIndex.
+La consultation des vidéos (Étapes 3 et 5) maintient un score de 90 grâce au chargement fractionné du flux, évitant tout transfert massif de données à l’ouverture. Enfin, l’efficacité du cache est optimale lors du retour sur la chaîne (Étape 4), avec 0 ko transféré et une seule requête, le score atteint 95. Ce mécanisme d’écoconception est particulièrement efficace pour les parcours d'exploration, car il annule l'impact réseau lors des allers-retours de l'utilisateur.
 
 ### Étape de prototypage : Données chargées de manière dynamique via fetch
 
@@ -342,9 +333,9 @@ Maintenant que notre prototype est réaliste en termes de nombre de requêtes, n
 Les plateformes de vidéo en ligne permettent à tout type d'utilisateur de poster des vidéos de ce fait il est important d'analyser le comportement du service dans le cas ou le volume de vidéo, commentaires et chaine explose !
 
 Nous avons ainsi mis en place les valeurs suivantes : 
-- 2000 vidéos
-- 7500 commentaires
-- 800 utilisateurs inscrits
+- <del>10 à 20</del> => 2000 vidéos
+- <del>10 à 15</del> => 7500 commentaires
+- <del>10 à 20</del> => 800 utilisateurs inscrits
 
 ### Évolution de l'EcoIndex lors du passage à l'échelle
 
@@ -354,27 +345,19 @@ Pour se faire nous avons analyser le scénario de chaine qui est similaire au sc
 
 | Étape du scénario | EcoIndex | GES (gCO2e) | DOM | Requêtes | Taille (ko) |
 | --- | --- | --- | --- | --- | --- |
-| **1. Chargement de l'accueil** | <del>74 B 🟦</del> **73 B 🟦** | <del>1.52</del> **1.54** | <del>96</del> **96** | <del>28</del> **34** | <del>25.5</del> **93.2** |
-| **2. Choisir une chaîne** | <del>87 A 🟩</del> **88 A 🟩** | <del>1.26</del> **1.24** | <del>81</del> **62** | <del>3</del> **4** | <del>8.1</del> **28.5** |
-| **3. Choisir une vidéo** | <del>75 B 🟦</del> **72 B 🟦** | <del>1.58</del> **1.56** | <del>85</del> **177** | <del>26</del> **112** | <del>62.5</del> **665.1** |
-| **4. Retourner sur la chaîne** | <del>87 A 🟩</del> **88 A 🟩** | <del>1.26</del> **1.24** | <del>81</del> **62** | <del>3</del> **4** | <del>8.1</del> **28.5** |
-| **5. Choisir une autre vidéo** | <del>86 A 🟩</del> **84 A 🟩** | <del>1.28</del> **1.32** | <del>96</del> **157** | <del>5</del> **12** | <del>28.6</del> **31.6** |
+| **1. Chargement de l'accueil** | <del>80 A 🟩</del> 77 B 🟦 | <del>1.40</del> 1.46 | <del>92</del> 91 | <del>6</del> 7 | <del>2776</del> 5781 |
+| **2. Choisir une chaîne** | <del>93 A 🟩</del> 76 B 🟦 | <del>1.14</del> 1.46 | <del>60</del> 88 | <del>7</del> 9 | <del>28</del> 5808 |
+| **3. Choisir une vidéo** | <del>90 A 🟩</del> 91 A 🟩 | 1.18 | <del>94</del> 79 | <del>4</del> 5 | <del>2854</del> 135 |
+| **4. Retourner sur la chaîne** | <del>95 A 🟩</del> 92 A 🟩 | <del>1.09</del> 1.16 | <del>60</del> 88 | <del>1</del> 3 | <del>0</del> 1 |
+| **5. Choisir une autre vidéo** | <del>90 A 🟩</del> 91 A 🟩 | <del>1.19</del> 1.18 | <del>95</del> 79 | <del>4</del> 5 | <del>226</del> 135 |
 
 __Tab.8__: Effet du passage à l'échelle sur l'impact du scénario "Consulter une chaine - chaine" dans le prototype v1.0.1.
 
-Le passage à un volume de données supérieur (Scale-up) produit des résultats paradoxaux qui méritent une attention particulière.
+Le passage à une échelle supérieure montre une augmentation logique du poids des pages de listes (Accueil et Chaîne), qui passent d'environ 2,8 Mo à 5,8 Mo. Cette hausse s'explique par le chargement d'un plus grand nombre de miniatures et de métadonnées. Cependant, les scores EcoIndex restent très corrects (76 et 77, Note B), prouvant que l'infrastructure encaisse bien la montée en charge.
 
-Le constat est frappant : on passe de **26 à 112 requêtes**, et la taille de la page est multipliée par 10 (**665 ko**). Pourtant, le score EcoIndex ne s'effondre pas et reste à **72 (B)**.
-Cet étonnement peut s'expliquer par deux facteurs :
+L'impact du scale up sur le poids des pages est directement limité par l'implémentation d'un bouton de pagination "Voir plus". En ne chargeant qu'une partie du catalogue au clic, on évite une explosion du DOM et du transfert de données qui aurait lieu avec un défilement infini ou un chargement complet. Cette stratégie de "Lazy Loading" manuel permet de maintenir un DOM stable autour de 90 éléments, garantissant une fluidité constante pour l'utilisateur, peu importe la taille de la base de données.
 
-* **La limitation de l'affichage :** Une logique de restriction d'affichage (pagination ou limitation du nombre de composants rendus) est déjà en place. Même si les données sont plus nombreuses, le navigateur ne "dessine" pas beaucoup plus d'éléments, ce qui semble préserver le processeur de l'utilisateur.
-* **Le coût du "Local Fetch" :** Les données étant stockées dans un JSON local au projet, l'accès via `fetch` ou `import` est quasi instantané. L'impact environnemental du réseau est donc minimisé artificiellement par rapport à une vraie API distante, ce qui maintient un score élevé.
-
-En parallèle, on remarque que :
-* La taille du DOM sur la page vidéo double (**de 85 à 177**), ce qui est logique avec plus de vidéos.
-* Le DOM de la page chaîne en revanche **diminue (de 81 à 62)**. Cette baisse, surprenante en plein Scale-up, pourrait s'expliquer par des ajustements structurels entre les deux versions du prototype ou par une simplification de l'affichage sur ce modèle de page spécifique.
-
-**Conclusion du Scale-up :** Bien que nous ayons multiplié les données, l'impact semble étonnament rester maîtrisé. Cela suggère que notre structure actuelle "encaisse" bien la montée en charge. Cependant, il faudra rester vigilant. Si ce JSON local était demain déplacé sur un serveur distant, les **112 requêtes** observées pourraient devenir un réel problème de performance et faire chuter l'EcoIndex. C'est pourquoi, de la même manière que le 1ko, nous allons garder à l'oeil ces 112 requêtes.
+Enfin, les pages de contenu (Vidéos) et la navigation via le cache (Étape 4) conservent d'excellentes performances (Note A). Le scale up n'affecte pas ces étapes, car une fois la ressource ciblée, le volume global de la plateforme n'influence plus la consommation de la page. L'efficacité du cache reste maximale avec seulement 1 ko transféré lors du retour sur la chaîne, confirmant que les choix d'architecture protègent le site contre une dégradation de son empreinte environnementale lors de sa croissance.
 
 Par la suite pour évaluer plus précisément l'impact de la consultation elle-même nous utiliserons un autre outil de mesure : GreenFrame.
 
@@ -631,10 +614,10 @@ Voici l'analyse finale de notre projet.
 
 | Étape du scénario | EcoIndex | GES (gCO2e) | DOM | Requêtes | Taille (ko) |
 | --- | --- | --- | --- | --- | --- |
-| **1. Chargement Accueil** | **84 A** 🟩 | 1.32 | 113 | 7 | 29.5 |
-| **2. Choisir une vidéo** | **76 A** 🟩 | 1.48 | 96 | 5 | 12.6 |
-| **3. Retourner au menu** | **86 A** 🟩 | 1.28 | 113 | 3 | 4.5 |
-| **4. Choisir une autre vidéo** | **86 A** 🟩 | 1.28 | 96 | 5 | 12.1 |
+| **1. Chargement Accueil** | **78 B** 🟩 | 1.42 | 114 | 9 | 2875 |
+| **2. Choisir une vidéo** | **91 A** 🟩 | 1.18 | 108 | 4 | 120 |
+| **3. Retourner au menu** | **91 A** 🟩 | 1.76 | 114 | 3 | 1 |
+| **4. Choisir une autre vidéo** | **90 A** 🟩 | 1.19 | 108 | 5 | 137 |
 
 __Tab.12__ : Évaluation de l'impact du scénario "Consulter une vidéo - accueil" dans le prototype final.
 
@@ -642,11 +625,11 @@ __Tab.12__ : Évaluation de l'impact du scénario "Consulter une vidéo - accuei
 
 | Étape du scénario | EcoIndex | GES (gCO2e) | DOM | Requêtes | Taille (ko) |
 | --- | --- | --- | --- | --- | --- |
-| **1. Chargement de l'accueil** | 74 B 🟦 | 1.52 | 113 | 27 | 93.0 |
-| **2. Choisir une chaîne** | **87 A** 🟩 | 1.26 | 88 | 5 | 39.4 |
-| **3. Choisir une vidéo** | 75 B 🟦 | 1.51 | 167 | 25 | 29.7 |
-| **4. Retourner sur la chaîne** | **76 A** 🟩 | 1.48 | 88 | 5 | 40.0 |
-| **5. Choisir une autre vidéo** | **76 A** 🟩 | 1.48 | 97 | 5 | 12.8 |
+| **1. Chargement Accueil** | **78 B** 🟦 | 1.43 | 102 | 15 | 2938 |
+| **2. Choisir une chaîne** | **78 B** 🟦 | 1.42 | 89 | 14 | 2855 |
+| **3. Choisir une vidéo** | **91 A** 🟩 | 1.20 | 108 | 4 | 153 |
+| **4. Retourner sur la chaîne** | **92 A** 🟩 | 1.14 | 89 | 2 | 3 |
+| **5. Choisir une autre vidéo** | **90 A** 🟩 | 1.18 | 108 | 5 | 128 |
 
 __Tab.13__ : Évaluation de l'impact du scénario "Consulter une vidéo - chaine" dans le prototype final.
 
