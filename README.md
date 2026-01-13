@@ -2,7 +2,7 @@
 
 ## Choix du sujet
 
-La consultation de vidéos sur des plateformes de contenu comme **YouTube** ou **Dailymotion** est aujourd’hui une activité quotidienne pour une grande partie de la population.  
+La consultation de vidéos sur des plateformes de contenu comme **YouTube** ou **Dailymotion** est aujourd'hui une activité quotidienne pour une grande partie de la population.  
 Ces plateformes représentent une **part importante du trafic Internet mondial** et donc de la **consommation énergétique du numérique**.
 
 Ce sujet nous semble particulièrement pertinent, car les services de contenu vidéo constituent un **usage central du web moderne**, à la fois informatif, culturel, mais surtout en tant que loisir. De plus, nous sommes tous deux consommateurs de Youtube, et passons plusieurs heures par semaine devant, ce qui nous a conforté dans notre choix.
@@ -13,27 +13,27 @@ Les plateformes de vidéos en ligne ont une **utilité sociale forte** :
 - **Éducation** : mise à disposition de cours, tutoriels, documentaires et vulgarisation scientifique.  
 - **Information et actualité** : accès à des contenus indépendants (Hugo Decrypte en France par exemple) de manière beaucoup plus abordable pour les jeunes que les médias traditionnels comme les journaux ou la télévision.  
 - **Bien-être** : la vidéo est un outil de détente et peut être considéré comme un loisir à part entière.
-- **Accessibilité** : elles permettent à chacun, même dans des zones isolées, d’avoir accès à des ressources éducatives et culturelles.
+- **Accessibilité** : elles permettent à chacun, même dans des zones isolées, d'avoir accès à des ressources éducatives et culturelles.
 
 ## Effets de la numérisation
 
 La diffusion numérique des contenus vidéo a progressivement remplacé les supports physiques comme les **DVD**, les **CD** ou la **télévision**.
 Cette transition a permis de réduire certains impacts liés à la fabrication et au transport de ces supports.  
-Mais elle s’est aussi accompagnée d’une **forte hausse de la consommation de données**, notamment avec la généralisation de la **haute définition** et du **visionnage en continu**.
+Mais elle s'est aussi accompagnée d'une **forte hausse de la consommation de données**, notamment avec la généralisation de la **haute définition** et du **visionnage en continu**.
 
-Chaque lecture d’une vidéo fait intervenir une **chaîne d’acteurs énergivores** :  
+Chaque lecture d'une vidéo fait intervenir une **chaîne d'acteurs énergivores** :  
 - Les **serveurs et data centers**, nécessaires pour stocker et diffuser les contenus.  
-- Le **réseau Internet**, qui transporte d’importants volumes de données sur de longues distances.  
-- Et enfin, les **appareils des utilisateurs**, qui doivent décoder et afficher ces flux, souvent en qualité supérieure à ce que l’écran nécessite réellement.  
+- Le **réseau Internet**, qui transporte d'importants volumes de données sur de longues distances.  
+- Et enfin, les **appareils des utilisateurs**, qui doivent décoder et afficher ces flux, souvent en qualité supérieure à ce que l'écran nécessite réellement.  
 
 ## Scénarios d'usage et impacts
 
-Nous faisons l’hypothèse que les plateformes de vidéos en ligne comme **YouTube** ou **Dailymotion** sont consultées plusieurs fois par jour, souvent lors de moments de pause de quelques minutes (pendant les transports, après un repas, avant de dormir, etc.).
-Pour cette raison, nous prendrons en compte dans nos scénarios **le visionnage de deux vidéos consécutives**, afin de pouvoir observer l’impact d’un éventuel système de cache ou de mise en mémoire locale.
+Nous faisons l'hypothèse que les plateformes de vidéos en ligne comme **YouTube** ou **Dailymotion** sont consultées plusieurs fois par jour, souvent lors de moments de pause de quelques minutes (pendant les transports, après un repas, avant de dormir, etc.).
+Pour cette raison, nous prendrons en compte dans nos scénarios **le visionnage de deux vidéos consécutives**, afin de pouvoir observer l'impact d'un éventuel système de cache ou de mise en mémoire locale.
 
-Nous distinguerons également deux types d’usages :  
-- La **navigation aléatoire** à partir de la page d’accueil (consommation de contenu recommandée).  
-- La **recherche ciblée** d’une chaîne ou d’un créateur spécifique.
+Nous distinguerons également deux types d'usages :  
+- La **navigation aléatoire** à partir de la page d'accueil (consommation de contenu recommandée).  
+- La **recherche ciblée** d'une chaîne ou d'un créateur spécifique.
 
 ## Scénario : "Lire des vidéos parmi les vidéos à la une"
 
@@ -58,7 +58,7 @@ L'EcoIndex d'une page (de A à G) est calculé (sources : [EcoIndex](https://www
 - le poids des téléchargements,
 - le nombre d'éléments du document.
 
-Nous avons choisi de comparer l’impact de nos scénarios sur les services les plus populaires du marché, à savoir YouTube et Dailymotion, ainsi que sur un service utilisant des ressources de manière plus modérée : PodUtt.
+Nous avons choisi de comparer l'impact de nos scénarios sur les services les plus populaires du marché, à savoir YouTube et Dailymotion, ainsi que sur un service utilisant des ressources de manière plus modérée : PodUtt.
 
 | Service | Score (sur 100) | Classe | Détail des mesures
 | --- | --: | --: | --:
@@ -131,20 +131,20 @@ Par conséquent, pour réduire l'impact écologique du service, nous proposons d
 
 A la place, nous avons opté pour un système d'abonnement premium. Cette solution est différente de l'abonnement Premium de Youtube qui consiste principalement en la suppression des pubs, et la possibilité de lire une vidéo même avec l'écran en veille à la manière de Spotify. En souscrivant à un abonnement Premium GreeTube, l'utilisateur aura accès à plusieurs avantages:
 
- - un tableau de bord personnalisé de son impact environnemental afin de visualiser l’empreinte de ses usages (volume de données consommées, estimation d’émissions de CO₂ et de consommation d’eau). On pourra aussi mettre en place une comparaison avec l'impact potentiel pour une activité similaire chez des concurrents (YouTube, Daylimotion).
+ - un tableau de bord personnalisé de son impact environnemental afin de visualiser l'empreinte de ses usages (volume de données consommées, estimation d'émissions de CO₂ et de consommation d'eau). On pourra aussi mettre en place une comparaison avec l'impact potentiel pour une activité similaire chez des concurrents (YouTube, Daylimotion).
 
  - Une option de téléchargement temporaire qui permettra à l'utilisateur de regarder ses videos en hors connexion (en basse qualité pour garantir une vraie plus value à l'abonnement tout en minimisant l'impact).
 
  - Un "droit de vote" sur les potentielles évolutions de la plate-forme afin que chaque utilisateur premium ai un réel impact, et passe de simple consommateur à acteur dans le développement d'une solution environementalement plus saine. 
 
-Nous souhations aussi incorporer une publicité masthead, sur chaque page du service, qui suffirait à financer l'infrastructure pour une large audience tout en restant statique, moins énergivore et moins contraignant que le flux vidéo publicitaire.
+Nous souhations aussi incorporer une publicité masthead, sur chaque page du service, qui suffirait à financer l'infrastructure pour une large audience tout en restant statique, moins énergivore et moins contraignant que le flux vidéo publicitaire. Néanmoins, nous sommes conscients que ce type de publicité ne peut générer des revenus comparables à ceux de YouTube, dont les emplacements Masthead atteignent environ 50 000 € par jour. Dans la mesure où notre application doit encore s'imposer sur le marché et constituer sa base d'utilisateurs, nous estimons qu'un positionnement tarifaire compris entre 100 et 500 € par jour apparaît plus cohérent et réaliste.
 
 Voici donc un résumé de notre modèle économique :
 
 | Source possible de revenus | Montant unitaire | Quantité nécessaire pour financer un salaire[^1]
 | --- | --- | ---
 | Abonnement Premium | 12,99€ | 275
-| Pub Masthead | 50 000€ / jour | 0,07 jour (soit env. 2h)
+| Pub Masthead | 100€ à 500€ / jour | 36 à 7 à jour
 
 __Tab.4__ : Source de revenus possibles pour notre service de vidéo en ligne.
 
@@ -698,29 +698,23 @@ Dans les phases de navigation interne (a et b), la consommation est quasi exclus
 
 ### Analyse critique et limites du projet 
 
-Malgré les performances environnementales atteintes, une analyse critique du prototype actuel met en évidence plusieurs domaines à améliorer, tant sur le plan technique que méthodologique.
+Malgré les performances environnementales déjà obtenues, l'analyse du prototype met en évidence plusieurs axes d'amélioration, tant sur le plan technique que méthodologique. Ces améliorations n'ont toutefois pas toutes le même impact en termes de performance et de consommation de ressources.
 
-#### Optimisations logicielles (Frontend & Code)
+Sur le plan logiciel, certaines optimisations relèvent d'ajustements relativement mineurs. La gestion du cycle de rendu côté frontend pourrait être affinée par une utilisation plus systématique des mécanismes d'optimisation fournis par React, comme useMemo ou useCallback. Leur absence dans certaines parties du code entraîne des re-rendus évitables du DOM, dont l'impact reste limité mais cumulatif. De la même manière, l'application ne met pas en œuvre de stratégie de purge des feuilles de style, ce qui conduit au chargement de règles CSS inutilisées, ce qui peut poser problème au vu de notre stratégie de CSS modulaire. La mise en place d'un tel mécanisme permettrait d'alléger légèrement les ressources chargées.
 
-* **Gestion du cycle de rendu :** L'utilisation des hooks d'optimisation, comme useMemo ou useCallback sous React, reste insuffisante. Certaines parties du code pourraient être plus efficaces pour limiter les re-rendus inutiles du DOM.
-* **Poids des ressources (Assets) :** L'application n'utilise pas de processus de "CSS purging", ce qui laisse des styles inutilisés se charger dans le terminal. De plus, les formats multimédias comme MP3 et MP4 pourraient être optimisés vers des formats plus modernes comme WebM et Ogg pour réduire le poids sans perdre de qualité.
-* **Adaptabilité (Responsiveness) :** Le prototype n'est pas encore responsive. Un design adaptatif permettrait de mieux contrôler l'affichage et donc la consommation énergétique sur des terminaux mobiles.
+D'autres leviers offrent un potentiel d'amélioration plus significatif, notamment sur les formats et la compression des contenus multimédias. Les vidéos et audios sont encore diffusés majoritairement en MP4 et MP3, alors que des formats plus efficaces comme WebM ou Ogg permettraient de réduire sensiblement le volume de données transférées.
 
-#### Expérience Utilisateur (UX) vs Éco-responsabilité
+Cette optimisation pose toutefois la question du niveau de compression acceptable. Dans la mesure où l'audio et la vidéo participent directement à l'expérience utilisateur, une compression trop agressive peut dégrader la qualité perçue et nuire à l'usage. L'enjeu réside donc dans la recherche d'un compromis entre réduction des flux de données et maintien d'une qualité suffisante.
 
-* **Perception de la performance :**  Le temps de chargement des vidéos peut être amélioré. L'utilisation de skeletons améliorerait l'expérience utilisateur, mais leur coût énergétique, avec des animations CSS constantes, doit être comparé au bénéfice en ergonomie.
-* **Optimisation des données :** Bien que le backend filtre les données, certains objets envoyés au frontend contiennent encore des champs superflus. Une sélection de champs plus stricte (Data Projection) réduirait encore le poids des payloads JSON.
+En parlant d'expérience utilisateur, la question de l'équilibre entre confort d'usage et sobriété peut aussi se poser. Les temps de chargement, notamment pour les vidéos, pourraient être mieux perçus grâce à l'utilisation de skeletons. Toutefois, ces éléments reposent souvent sur des animations CSS continues, dont le coût énergétique doit être évalué au regard du gain réel en ergonomie. Dans le même esprit, bien que le backend applique déjà des filtres, certains objets transmis au frontend contiennent encore des champs superflus. Une sélection plus stricte des données exposées permettrait de réduire la taille des échanges JSON et de limiter les transferts réseau.
 
-#### Limites de la méthodologie d'analyse
-
-* **Périmètre fonctionnel :** L'étude s'est concentrée sur la consultation de l'index et des chaînes. Les fonctionnalités secondaires comme l'upload ou les podcasts n'ont pas encore été examinées.
-* **Durée des tests :** Les tests GreenFrame ont été réalisés sur des séquences de 30 secondes. Cette durée permet d'analyser le chargement et l'initialisation, mais ne reflète pas l'utilisation réelle de la bande passante sur un visionnage long, où le streaming vidéo devient le ^rincipal poste de dépense.
+Enfin, les analyses précédentes présente certaines limites méthodologiques. Le périmètre étudié s'est concentré sur la consultation de l'accueil, des vidéos et des chaînes, laissant de côté des fonctionnalités comme l'upload ou les podcasts, susceptibles d'avoir des profils de consommation différents. De plus, les tests GreenFrame ont été réalisés sur des séquences de trente secondes. Si cette durée est pertinente pour observer le chargement et l'initialisation de l'application, elle ne reflète pas un usage réel sur la durée, où le streaming vidéo devient le principal poste de dépense énergétique.
 
 ## Conclusion
 
 Nous avons tous deux trouvé que ce projet a été une expérience particulièrement formatrice. On a appris à maîtriser une stack technologique moderne. L'utilisation de ReactJS a été un point clef, et même si nous avions déjà eu l'occasion de travailler avec, nous avons pu étendre nos compétences dans ce domaine. La création d'un backend solide avec Node.js et Express a également été très intéressante. Au-delà du code, l'intégration de Docker pour la conteneurisation et la mise en place de workflows de CI/CD via Git nous a sensibilisé aux exigences de déploiement et de qualité logicielle. 
 
-De plus, le coeur de cette UE résidant en l'éco-conception, nous avons pu apprendre à utiliser de nouveaux outils tels que GreenIT et GreenFrame. Cela nous a notamment appris à quantifier l'empreinte environnementale de nos choix techniques. Cette approche nous a forcés à remettre en question nos méthodes de développement pour privilégier une sorte de sobriété numérique, transformant ainsi un projet tel que nous en avons réalisé plusieurs dans le cadre d'autres UE, en une véritable réflexion sur la responsabilité de l'ingénieur. En effet, c'était pour notre part la première fois que nous devions porter autant d'attention aux impacts écologiques de nos codes. C'était donc une expérience très intéressante qui, en plus de nous avois permis de nous améliorer sur un plan technique, a abordé un sujet qui nous était alors que peu connu et qui s'est avéré être passionnant, mais surtout très important en vue de l'évolution de l'impact des technologies dans le monde.  
+De plus, le coeur de cette UE résidant en l'éco-conception, nous avons pu apprendre à utiliser de nouveaux outils tels que GreenIT et GreenFrame. Cela nous a notamment appris à quantifier l'empreinte environnementale de nos choix techniques. Cette approche nous a forcés à remettre en question nos méthodes de développement pour privilégier une sorte de sobriété numérique, transformant ainsi un projet tel que nous en avons réalisé plusieurs dans le cadre d'autres UE, en une véritable réflexion sur la responsabilité de l'ingénieur. En effet, c'était pour notre part la première fois que nous devions porter autant d'attention aux impacts écologiques de nos codes. C'était donc une expérience très intéressante qui, en plus de nous avoir permis de nous améliorer sur un plan technique, noud a introduit à un sujet qui nous était alors que peu connu et qui s'est avéré être passionnant, mais surtout très important en vue de l'évolution de l'impact des technologies dans le monde.  
 
 Au terme de ce développement, GreenTube propose une plateforme de vidéo en ligne fonctionnelle et optimisée, couvrant un large éventail de fonctionnalités :
 
@@ -748,7 +742,7 @@ Placez vous dans la racine du projet (cd ..) puis exécuter:
 
  - ./setup_local.sh
 
-Le script setup_local.sh vérifie que Docker est lancé, installe les dépendances du front-end et le build, génère des données de test, installe les dépendances du back-end, configure les variables CouchDB, puis démarre les containers Docker afin d’initialiser et lancer le projet en local.
+Le script setup_local.sh vérifie que Docker est lancé, installe les dépendances du front-end et le build, génère des données de test, installe les dépendances du back-end, configure les variables CouchDB, puis démarre les containers Docker afin d'initialiser et lancer le projet en local.
 
 #### Ouvrir le projet dans le navigateur 
 
