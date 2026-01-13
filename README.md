@@ -353,11 +353,11 @@ Pour se faire nous avons analyser le scénario de chaine qui est similaire au sc
 
 __Tab.8__: Effet du passage à l'échelle sur l'impact du scénario "Consulter une chaine - chaine" dans le prototype v1.0.1.
 
-Le passage à une échelle supérieure montre une augmentation logique du poids des pages de listes (Accueil et Chaîne), qui passent d'environ 2,8 Mo à 5,8 Mo. Cette hausse s'explique par le chargement d'un plus grand nombre de miniatures et de métadonnées. Cependant, les scores EcoIndex restent très corrects (76 et 77, Note B), prouvant que l'infrastructure encaisse bien la montée en charge.
+Le passage à une échelle supérieure montre une augmentation logique du poids des pages de listes (Accueil et Chaîne), qui passent d'environ 2,8 Mo à 5,8 Mo. Cette hausse s'explique par le chargement d'un plus grand nombre de miniatures et de métadonnées. Cependant, les scores EcoIndex restent très corrects (76 et 77, Note B).
 
 L'impact du scale up sur le poids des pages est directement limité par l'implémentation d'un bouton de pagination "Voir plus". En ne chargeant qu'une partie du catalogue au clic, on évite une explosion du DOM et du transfert de données qui aurait lieu avec un défilement infini ou un chargement complet. Cette stratégie de "Lazy Loading" manuel permet de maintenir un DOM stable autour de 90 éléments, garantissant une fluidité constante pour l'utilisateur, peu importe la taille de la base de données.
 
-Enfin, les pages de contenu (Vidéos) et la navigation via le cache (Étape 4) conservent d'excellentes performances (Note A). Le scale up n'affecte pas ces étapes, car une fois la ressource ciblée, le volume global de la plateforme n'influence plus la consommation de la page. L'efficacité du cache reste maximale avec seulement 1 ko transféré lors du retour sur la chaîne, confirmant que les choix d'architecture protègent le site contre une dégradation de son empreinte environnementale lors de sa croissance.
+Enfin, les pages de contenu (Vidéos) et la navigation via le cache (Étape 4) conservent d'excellentes performances (Note A). Le scale up n'affecte pas ces étapes, car une fois la ressource ciblée, le volume global de la plateforme n'influence plus la consommation de la page. L'efficacité du cache reste maximale avec seulement 1 ko transféré lors du retour sur la chaîne.
 
 Par la suite pour évaluer plus précisément l'impact de la consultation elle-même nous utiliserons un autre outil de mesure : GreenFrame.
 
